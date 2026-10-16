@@ -9514,4 +9514,86 @@ body::after{
 }
 </style>
 
+
+<style id="lds-unified-calendar-glass-grid-20261017">
+/* One calm glass surface for the whole timetable; only the actual selectable slot is a tile. */
+#rentalView .calendar-panel .cal-scroll{
+ background:rgba(63,43,42,.19)!important;
+ border:1px solid rgba(255,239,222,.27)!important;
+ border-radius:0 0 17px 17px!important;
+ overflow:auto!important;
+}
+#rentalView .calendar-panel .rental-calendar{
+ gap:0!important;
+ background:linear-gradient(145deg,rgba(255,244,230,.075),rgba(47,29,32,.11))!important;
+ border-radius:0 0 14px 14px!important;
+ overflow:hidden!important;
+}
+#rentalView .calendar-panel .rent-day{
+ background:transparent!important;
+ border:0!important;border-bottom:1px solid rgba(255,238,220,.13)!important;
+ border-radius:0!important;box-shadow:none!important;
+ padding:7px 0!important;min-height:56px!important;
+}
+#rentalView .calendar-panel .rent-day button{
+ border:0!important;outline:0!important;box-shadow:none!important;
+ background:transparent!important;border-radius:0!important;
+ color:rgba(255,245,234,.82)!important;
+}
+#rentalView .calendar-panel .rent-day button strong{
+ color:#fff7ed!important;font-weight:750!important;
+}
+#rentalView .calendar-panel .rent-day.selected-day{
+ background:linear-gradient(180deg,rgba(121,42,70,.94),rgba(80,27,49,.96))!important;
+ border:0!important;border-bottom:2px solid #e6c28b!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.15)!important;
+}
+#rentalView .calendar-panel .rent-time{
+ background:rgba(58,39,38,.58)!important;
+ border:0!important;border-right:1px solid rgba(255,238,220,.15)!important;
+ border-bottom:1px solid rgba(255,238,220,.12)!important;
+ border-radius:0!important;box-shadow:none!important;
+ color:#fff0e1!important;
+}
+#rentalView .calendar-panel .rental-calendar>.rent-time:first-child{
+ background:rgba(52,34,35,.78)!important;
+ border:0!important;border-right:1px solid rgba(255,238,220,.15)!important;
+}
+#rentalView .calendar-panel .rent-cell{
+ background:transparent!important;border:0!important;border-radius:0!important;
+ box-shadow:none!important;padding:4px 3px!important;min-height:0!important;
+}
+#rentalView .calendar-panel .rent-slot{
+ border:1px solid rgba(255,244,230,.42)!important;
+ border-radius:11px!important;
+ background:linear-gradient(145deg,rgba(255,246,235,.22),rgba(255,234,214,.12))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.20)!important;
+ color:#fff8f1!important;
+}
+#rentalView .calendar-panel .rent-slot strong,
+#rentalView .calendar-panel .rent-slot small{
+ color:#fff7ef!important;text-shadow:0 1px 3px rgba(35,18,21,.46)!important;
+}
+#rentalView .calendar-panel .rent-slot.busy{
+ background:linear-gradient(145deg,rgba(119,39,67,.94),rgba(65,20,42,.96))!important;
+ border:1px solid rgba(255,226,208,.42)!important;
+}
+#rentalView .calendar-panel .rent-slot.busy strong,
+#rentalView .calendar-panel .rent-slot.busy small{color:#fff8f2!important}
+#rentalView .calendar-panel .rent-slot.chosen{
+ background:linear-gradient(145deg,#f0d9a4,#d6b574)!important;
+ border:1px solid rgba(255,244,208,.9)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.35)!important;
+}
+#rentalView .calendar-panel .rent-slot.chosen strong,
+#rentalView .calendar-panel .rent-slot.chosen small{
+ color:#402a27!important;text-shadow:none!important;
+}
+@media(max-width:760px){
+ #rentalView .calendar-panel .rental-calendar{grid-template-columns:44px repeat(7,minmax(0,1fr))!important}
+ #rentalView .calendar-panel .rent-day{min-height:54px!important;padding:6px 0!important}
+ #rentalView .calendar-panel .rent-cell{padding:3px 2px!important}
+ #rentalView .calendar-panel .rent-slot{border-radius:9px!important}
+}
+</style>
 </body></html>
