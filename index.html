@@ -9596,4 +9596,50 @@ body::after{
  #rentalView .calendar-panel .rent-slot{border-radius:9px!important}
 }
 </style>
+
+<style id="lds-calendar-date-header-clean-lines-20261017">
+/* Date header: eliminate doubled inset strokes; use one uninterrupted grid divider rhythm. */
+#rentalView .calendar-panel .rental-calendar .rent-day{
+ box-sizing:border-box!important;
+ margin:0!important;
+ border:0!important;
+ border-radius:0!important;
+ box-shadow:none!important;
+ outline:0!important;
+ background:transparent!important;
+ position:relative!important;
+}
+#rentalView .calendar-panel .rental-calendar .rent-day::before,
+#rentalView .calendar-panel .rental-calendar .rent-day::after,
+#rentalView .calendar-panel .rental-calendar .rent-day button::before,
+#rentalView .calendar-panel .rental-calendar .rent-day button::after{
+ content:none!important;display:none!important;
+}
+#rentalView .calendar-panel .rental-calendar .rent-day button{
+ box-sizing:border-box!important;
+ height:100%!important;min-height:54px!important;width:100%!important;
+ margin:0!important;border:0!important;border-radius:0!important;
+ outline:0!important;box-shadow:none!important;background:transparent!important;
+}
+#rentalView .calendar-panel .rental-calendar .rent-day:not(:first-of-type){
+ border-left:1px solid rgba(255,239,220,.24)!important;
+}
+#rentalView .calendar-panel .rental-calendar .rent-day.selected-day{
+ background:rgba(103,31,57,.88)!important;
+ border-left:1px solid rgba(255,239,220,.24)!important;
+ border-bottom:2px solid #e6c28b!important;
+}
+#rentalView .calendar-panel .rental-calendar .rent-day.selected-day button{
+ background:transparent!important;border:0!important;box-shadow:none!important;
+}
+#rentalView .calendar-panel .rental-calendar{
+ gap:0!important;
+}
+#rentalView .calendar-panel .rental-calendar>.rent-time:first-child{
+ border:0!important;border-right:1px solid rgba(255,239,220,.24)!important;
+}
+@media(max-width:760px){
+ #rentalView .calendar-panel .rental-calendar .rent-day button{min-height:52px!important}
+}
+</style>
 </body></html>
