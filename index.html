@@ -3979,7 +3979,7 @@ body::after{
   <div class="rental-checkin-title"><span class="rental-checkin-phone" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="14" cy="25" r="5"/><path d="m18 21 11-11 5 5-11 11M25 14l4 4"/></svg></span><div><h3>Self check-in</h3><em>Nuoma vyksta Airbnb principu</em></div></div>
   <div class="rental-checkin-steps"><div><b>1</b><span>Užsiregistruojate ir pasirenkate laiką</span></div><div><b>2</b><span>Atliekate mokėjimą</span></div><div><b>3</b><span>Gaunate atvykimo informaciją</span></div><div><b>4</b><span>Atvykstate į studiją</span></div></div>
 </section>
-<section class="availability-section"><div class="availability-heading"><div><div class="eyebrow">Interaktyvus užimtumo vaizdas</div><h2>Laisvų valandų kalendorius.</h2><p>Paspauskite ant dienos arba laisvos valandos. Pasirinktas laikotarpis bus pažymėtas vientisai — nereikia rezervuoti kiekvienos valandos atskirai.</p></div><span class="pill">Atnaujinamas realus užimtumas</span></div><div class="closing-notice"><span class="closing-notice-mark" aria-hidden="true">✦</span><div><strong>Malonus priminimas prieš rezervuojant</strong><p><span class="notice-line">Pastatas automatiškai užrakinamas <span class="notice-time">22.00&nbsp;val.</span></span><span class="notice-line">Paskutinis rezervuojamas laikotarpis – <span class="notice-time">21.00–21.45&nbsp;val.</span></span><span class="notice-line">Šis 45 minučių laikotarpis kainuoja tiek pat, kiek viena valanda.</span><span class="notice-line">Prašome pasilikti pakankamai laiko susitvarkyti ir išeiti iš pastato iki <span class="notice-time">22.00&nbsp;val.</span></span></p></div></div>
+<section class="availability-section"><div class="availability-heading"><div><div class="eyebrow">Interaktyvus užimtumo vaizdas</div><h2>Laisvų valandų kalendorius.</h2><p>Paspauskite ant dienos arba laisvos valandos. Pasirinktas laikotarpis bus pažymėtas vientisai — nereikia rezervuoti kiekvienos valandos atskirai.</p></div><span class="pill">Atnaujinamas realus užimtumas</span></div><div class="closing-notice"><span class="closing-notice-mark clock-mark" aria-hidden="true">◷</span><div><strong>Malonus priminimas prieš rezervuojant</strong><p><span class="notice-line">Pastatas automatiškai užrakinamas <span class="notice-time">22.00&nbsp;val.</span></span><span class="notice-line">Paskutinis rezervuojamas laikotarpis – <span class="notice-time">21.00–21.45&nbsp;val.</span></span><span class="notice-line">Šis 45 minučių laikotarpis kainuoja tiek pat, kiek viena valanda.</span><span class="notice-line">Prašome pasilikti pakankamai laiko susitvarkyti ir išeiti iš pastato iki <span class="notice-time">22.00&nbsp;val.</span></span></p></div></div>
 <div class="calendar-panel"><div class="cal-toolbar"><button id="prevRentWeek" aria-label="Ankstesnė savaitė">‹</button><div class="cal-title" id="rentWeekLabel">2026 m. spalio 12–18 d.</div><button id="nextRentWeek" aria-label="Kita savaitė">›</button></div><div class="cal-scroll"><div id="rentalCalendar" class="rental-calendar"></div></div><div class="calendar-help"><div class="availability-legend"><span><i class="legend-block free"></i>Laisva</span><span><i class="legend-block reserved"></i>Užimta</span><span><i class="legend-block chosen"></i>Jūsų pasirinkimas</span></div><p id="selectionHint">Pasirinktas laikas bus parodytas lentelėje kaip vienas ištisinis intervalas.</p><p>Pažymėjimai yra demonstraciniai. Tikras studijos užimtumas bus rodomas prijungus rezervacijų duomenų bazę.</p></div></div></section>
 <div class="rental-layout" id="rentalBooking">
 <div class="panel booking-panel"><div class="eyebrow">Pasirinkite laiką</div><h3>Rezervuokite visą savo laiką vienu kartu.</h3><p>Pasirinkite dieną ir pradžios laiką, tada nurodykite, kiek valandų norite rezervuoti. Lentelėje iš karto matysite vientisą pasirinkto laiko intervalą.</p>
@@ -6456,6 +6456,109 @@ body::after{background:linear-gradient(145deg,rgba(39,22,25,.22),rgba(55,32,31,.
  #rentalView .booking-panel label.email-label input{
   background:#49323a!important;background-image:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
  }
+}
+</style>
+
+
+<style id="lds-readable-booking-heading-and-glass-clock-reminder">
+/* Clearer, modern booking heading: retain the wording, improve legibility. */
+#rentalView .booking-panel h3{
+ color:#fff8f1!important;
+ font-family:Inter,"Avenir Next",Avenir,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+ font-size:clamp(30px,5.8vw,43px)!important;
+ font-weight:760!important;letter-spacing:-.035em!important;line-height:1.08!important;
+ text-shadow:none!important;
+}
+#rentalView .booking-panel .eyebrow{
+ color:#e9c996!important;font-weight:800!important;letter-spacing:.19em!important;
+}
+#rentalView .booking-panel>p{
+ color:rgba(255,246,238,.91)!important;
+ font-family:Inter,"Avenir Next",Avenir,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+ line-height:1.65!important;
+}
+#rentalView .availability-section .closing-notice{
+ position:relative!important;isolation:isolate!important;overflow:hidden!important;
+ display:grid!important;grid-template-columns:clamp(76px,18vw,138px) minmax(0,1fr)!important;
+ align-items:center!important;gap:clamp(13px,3vw,24px)!important;
+ margin:25px 0 30px!important;padding:clamp(20px,4vw,34px)!important;
+ border:1px solid rgba(255,232,223,.50)!important;
+ border-radius:31% 7% 26% 8% / 9% 20% 8% 22%!important;
+ background:linear-gradient(122deg,rgba(105,37,61,.70),rgba(64,20,39,.80) 48%,rgba(36,15,28,.84))!important;
+ box-shadow:0 16px 35px rgba(18,5,12,.14),inset 0 1px 0 rgba(255,255,255,.18)!important;
+ backdrop-filter:blur(24px) saturate(1.12)!important;-webkit-backdrop-filter:blur(24px) saturate(1.12)!important;
+}
+#rentalView .availability-section .closing-notice:before{
+ content:"";display:block!important;position:absolute;z-index:-1;
+ left:clamp(8px,2vw,20px);top:50%;transform:translateY(-50%);
+ width:clamp(78px,18vw,132px);aspect-ratio:1;border-radius:50%;
+ border:1px solid rgba(255,231,205,.65);
+ background:
+  radial-gradient(circle at 36% 30%,rgba(255,247,228,.26),rgba(255,239,219,.04) 58%,rgba(62,20,39,.12) 72%),
+  linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.025));
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.32),0 0 0 5px rgba(255,239,221,.045);
+ pointer-events:none;
+}
+#rentalView .availability-section .closing-notice:after{
+ content:"";display:block!important;position:absolute;z-index:0;
+ left:calc(clamp(8px,2vw,20px) + clamp(8px,2vw,20px) + clamp(78px,18vw,132px) * .5);
+ top:calc(50% - 14px);width:clamp(18px,4vw,29px);height:clamp(18px,4vw,29px);
+ border-radius:50%;border:0!important;
+ background:
+  linear-gradient(48deg,transparent 45%,#f0d29a 46%,#f0d29a 51%,transparent 52%),
+  linear-gradient(310deg,transparent 44%,#f0d29a 45%,#f0d29a 51%,transparent 52%);
+ opacity:.9;pointer-events:none;
+}
+#rentalView .availability-section .closing-notice .closing-notice-mark{
+ position:relative!important;z-index:1!important;align-self:center!important;justify-self:center!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ width:clamp(66px,15vw,112px)!important;height:clamp(66px,15vw,112px)!important;
+ margin:0!important;border-radius:50%!important;font-size:clamp(50px,11vw,80px)!important;
+ line-height:1!important;color:#f5d7a0!important;
+ background:linear-gradient(145deg,rgba(255,247,235,.17),rgba(255,244,230,.045))!important;
+ border:1px solid rgba(255,234,214,.46)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.20)!important;
+}
+#rentalView .availability-section .closing-notice strong{
+ display:block!important;color:#fff7f0!important;
+ font-family:Inter,"Avenir Next",Avenir,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+ font-size:clamp(21px,4.8vw,30px)!important;font-weight:760!important;
+ letter-spacing:-.025em!important;line-height:1.12!important;text-shadow:none!important;
+}
+#rentalView .availability-section .closing-notice p{
+ display:flex!important;flex-direction:column!important;gap:clamp(10px,2vw,17px)!important;
+ margin:clamp(16px,3vw,24px) 0 0!important;
+ color:rgba(255,246,238,.94)!important;font-size:clamp(13px,2.2vw,16px)!important;
+ line-height:1.55!important;text-shadow:none!important;
+}
+#rentalView .availability-section .closing-notice .notice-line{
+ position:relative!important;padding-left:0!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:before{display:none!important}
+#rentalView .availability-section .closing-notice .notice-time{
+ color:#f1d19a!important;font-weight:850!important;text-shadow:none!important;
+}
+@media(max-width:760px){
+ #rentalView .booking-panel h3{font-size:clamp(29px,7.5vw,35px)!important;line-height:1.08!important}
+ #rentalView .availability-section .closing-notice{
+  grid-template-columns:58px minmax(0,1fr)!important;gap:12px!important;
+  margin:19px 0 23px!important;padding:17px 14px!important;
+  border-radius:25% 7% 22% 8% / 7% 14% 7% 14%!important;
+ }
+ #rentalView .availability-section .closing-notice:before{
+  left:5px;width:61px;top:45%;transform:translateY(-50%);
+ }
+ #rentalView .availability-section .closing-notice:after{
+  left:calc(5px + 12px + 30px);top:calc(45% - 9px);width:18px;height:18px;
+ }
+ #rentalView .availability-section .closing-notice .closing-notice-mark{
+  width:52px!important;height:52px!important;font-size:43px!important;
+ }
+ #rentalView .availability-section .closing-notice strong{font-size:20px!important;line-height:1.12!important}
+ #rentalView .availability-section .closing-notice p{font-size:12px!important;gap:10px!important;line-height:1.52!important;margin-top:13px!important}
+}
+@media(prefers-reduced-transparency:reduce){
+ #rentalView .availability-section .closing-notice{background:#481b30!important;background-image:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 }
 </style>
 
