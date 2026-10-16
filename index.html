@@ -1857,9 +1857,10 @@ html,body{padding-bottom:0!important;margin-bottom:0!important}
 body{background-color:#a47b63}
 .brand-footer{margin-bottom:0!important}
 
-/* Final correction: restore the original cream page background; only footer stays brown. */
-body{background:#fff!important}
-html{background:#fff!important}
+/* Keep the page canvas pure white; preserve the existing cream, burgundy and brown cards. */
+html,body{background:#fff!important;background-color:#fff!important}
+body>main,main.wrap,.wrap{background-color:transparent!important}
+body::before,body::after,main::before,main::after{background-color:transparent!important}
 .brand-footer,
 .view .brand-footer{
   position:relative!important;
