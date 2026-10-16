@@ -2060,3 +2060,64 @@ $('prevWeek').onclick=()=>{week.setDate(week.getDate()-7);renderCalendar()};$('n
 </script>
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
 </body></html>
+
+
+/* Desktop and mobile visual containment: final safeguards for home icons and footer logo.
+   CSS-only change; do not alter booking, registration, availability, payment, or Supabase logic. */
+#homeView .choices > .choice .home-icon{
+  position:absolute!important;
+  display:grid!important;
+  place-items:center!important;
+  width:46px!important;
+  height:46px!important;
+  min-width:46px!important;
+  max-width:46px!important;
+  min-height:46px!important;
+  max-height:46px!important;
+  overflow:hidden!important;
+  flex:none!important;
+}
+#homeView .choices > .choice .home-icon svg{
+  display:block!important;
+  width:35px!important;
+  height:35px!important;
+  min-width:35px!important;
+  max-width:35px!important;
+  min-height:35px!important;
+  max-height:35px!important;
+  flex:none!important;
+  overflow:visible!important;
+}
+#homeView .choices > .choice .home-icon svg *{
+  vector-effect:non-scaling-stroke;
+}
+.brand-footer-logo{
+  min-width:0!important;
+  max-width:100%!important;
+  overflow:hidden!important;
+}
+.brand-footer-logo-image{
+  display:block!important;
+  width:170px!important;
+  min-width:0!important;
+  max-width:170px!important;
+  height:auto!important;
+  max-height:80px!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+}
+@media(max-width:760px){
+  #homeView .choices > .choice .home-icon{
+    width:42px!important;height:42px!important;
+    min-width:42px!important;max-width:42px!important;
+    min-height:42px!important;max-height:42px!important;
+  }
+  #homeView .choices > .choice .home-icon svg{
+    width:32px!important;height:32px!important;
+    min-width:32px!important;max-width:32px!important;
+    min-height:32px!important;max-height:32px!important;
+  }
+  .brand-footer-logo-image{
+    width:165px!important;max-width:165px!important;max-height:75px!important;
+  }
+}
