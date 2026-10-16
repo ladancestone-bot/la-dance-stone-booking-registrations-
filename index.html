@@ -9060,4 +9060,33 @@ body::after{background:linear-gradient(145deg,rgba(39,22,25,.22),rgba(55,32,31,.
 }
 </style>
 
+
+<style id="lds-global-background-final-brighter-warm-20261017">
+/* Final override after every legacy background rule: affect the actual shared studio-photo layer. */
+body::before{
+ filter:blur(1.2px) saturate(1.04) brightness(1.16) sepia(.08)!important;
+ transform:scale(1.035)!important;
+}
+body::after{
+ background:
+  radial-gradient(ellipse at 50% 12%,rgba(255,224,181,.10),transparent 56%),
+  linear-gradient(145deg,rgba(93,54,39,.055),rgba(104,65,46,.025) 44%,rgba(64,35,29,.10))!important;
+}
+#homeView::before{
+ filter:blur(6px) brightness(1.04) saturate(1.05) sepia(.07)!important;
+ transform:scale(1.04)!important;
+}
+#homeView::after{
+ background:linear-gradient(180deg,rgba(255,224,185,.015) 0%,rgba(111,66,43,.01) 45%,rgba(72,39,30,.11) 100%)!important;
+}
+@media(max-width:760px){
+ body::before{filter:blur(1.2px) saturate(1.05) brightness(1.19) sepia(.07)!important}
+ body::after{
+  background:radial-gradient(ellipse at 50% 12%,rgba(255,226,186,.09),transparent 58%),
+  linear-gradient(145deg,rgba(93,54,39,.035),rgba(104,65,46,.015) 44%,rgba(64,35,29,.075))!important;
+ }
+ #homeView::before{filter:blur(5px) brightness(1.06) saturate(1.06) sepia(.06)!important}
+}
+</style>
+
 </body></html>
