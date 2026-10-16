@@ -6323,5 +6323,81 @@ body::after{background:linear-gradient(145deg,rgba(39,22,25,.22),rgba(55,32,31,.
 }
 </style>
 
+
+<style id="lds-glass-summary-capsule-and-frosted-fields">
+/* Selected time + price: bright enough to read, capsule-like silhouette, dark wine glass. */
+#rentalView .booking-panel .booking-summary{
+ position:relative!important;isolation:isolate!important;overflow:hidden!important;
+ display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;
+ min-height:112px!important;padding:19px 23px!important;
+ border:1px solid rgba(255,240,235,.78)!important;border-radius:999px!important;
+ background:rgba(82,19,44,.78)!important;
+ background-image:linear-gradient(120deg,rgba(133,40,72,.84),rgba(86,20,48,.82) 48%,rgba(49,12,34,.88))!important;
+ box-shadow:0 10px 25px rgba(19,4,12,.17),inset 0 1px 0 rgba(255,255,255,.30),inset 0 -1px 0 rgba(14,3,9,.22)!important;
+ backdrop-filter:blur(24px) saturate(1.16)!important;-webkit-backdrop-filter:blur(24px) saturate(1.16)!important;
+}
+#rentalView .booking-panel .booking-summary:after{
+ content:none!important;display:none!important;
+}
+#rentalView .booking-panel .booking-summary span{
+ color:rgba(255,244,239,.86)!important;font-size:12px!important;font-weight:700!important;line-height:1.35!important;
+}
+#rentalView .booking-panel .booking-summary strong,
+#rentalView .booking-panel .booking-summary .summary-time,
+#rentalView .booking-panel .booking-summary .summary-note{
+ color:#fffaf7!important;font-weight:800!important;line-height:1.45!important;
+}
+#rentalView .booking-panel .booking-summary .summary-price{
+ color:#ffe5b1!important;font-size:clamp(31px,7vw,39px)!important;line-height:1!important;text-shadow:none!important;
+}
+/* Input fields become translucent frosted glass, rather than flat white blocks. */
+#rentalView .booking-panel .fields input,
+#rentalView .booking-panel .fields select,
+#rentalView .booking-panel .email-label input{
+ color:#fff8f3!important;
+ caret-color:#f0d39b!important;
+ background:rgba(255,244,236,.13)!important;
+ background-image:linear-gradient(135deg,rgba(255,247,240,.19),rgba(255,242,233,.075))!important;
+ border:1px solid rgba(255,243,235,.53)!important;
+ border-radius:18px!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 4px 14px rgba(20,6,12,.08)!important;
+ backdrop-filter:blur(18px) saturate(1.15)!important;-webkit-backdrop-filter:blur(18px) saturate(1.15)!important;
+}
+#rentalView .booking-panel .fields input::placeholder,
+#rentalView .booking-panel .email-label input::placeholder{
+ color:rgba(255,243,236,.66)!important;opacity:1!important;
+}
+#rentalView .booking-panel .fields select{color:#fff8f3!important}
+#rentalView .booking-panel .fields select option{color:#472631!important;background:#f3e6dd!important}
+#rentalView .booking-panel .fields input:focus,
+#rentalView .booking-panel .fields select:focus,
+#rentalView .booking-panel .email-label input:focus{
+ outline:2px solid rgba(231,199,147,.9)!important;outline-offset:2px!important;
+ border-color:rgba(255,247,238,.9)!important;
+ background:rgba(255,246,239,.20)!important;
+}
+#rentalView .booking-panel .fields label,
+#rentalView .booking-panel label:not(.duration-label){
+ color:#fff6f0!important;text-shadow:0 1px 3px rgba(20,5,12,.2)!important;
+}
+@media(max-width:760px){
+ #rentalView .booking-panel .booking-summary{
+  min-height:100px!important;padding:16px 20px!important;border-radius:999px!important;gap:12px!important;
+ }
+ #rentalView .booking-panel .booking-summary>div:first-child{max-width:62%!important}
+ #rentalView .booking-panel .booking-summary span{font-size:11px!important}
+ #rentalView .booking-panel .booking-summary .summary-price{font-size:32px!important}
+ #rentalView .booking-panel .fields input,
+ #rentalView .booking-panel .fields select,
+ #rentalView .booking-panel .email-label input{border-radius:16px!important}
+}
+@media(prefers-reduced-transparency:reduce){
+ #rentalView .booking-panel .booking-summary{background:#4c142e!important;background-image:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+ #rentalView .booking-panel .fields input,
+ #rentalView .booking-panel .fields select,
+ #rentalView .booking-panel .email-label input{background:#624650!important;background-image:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+}
+</style>
+
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
 </body></html>
