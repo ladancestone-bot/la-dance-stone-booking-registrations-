@@ -3082,6 +3082,144 @@ body{background-color:#e9dbcf!important}
 }
 
 </style>
+
+<style id="immersive-glass-global-v3">
+/* Global visual pass only: keep all existing markup, grids, calendar geometry,
+   form fields, event handlers, data and payment logic unchanged. */
+:root{
+ --lds-ink:#40272b;--lds-wine:#511d2d;--lds-wine-deep:#381520;
+ --lds-champagne:#d4b28d;--lds-ivory:#fff7ed;--lds-muted:#806c61;
+ --lds-glass:rgba(255,247,237,.66);--lds-glass-line:rgba(255,255,255,.74);
+}
+html{background:#4a332c}
+body{
+ background:transparent!important;
+ color:var(--lds-ink);
+ isolation:isolate;
+}
+body::before{
+ content:"";position:fixed;inset:-10px;z-index:-2;pointer-events:none;
+ background-image:linear-gradient(135deg,rgba(55,31,28,.27),rgba(76,43,34,.13)),url("https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg");
+ background-size:cover;background-position:center center;
+ filter:blur(2px) saturate(.86);transform:scale(1.025);
+}
+body::after{
+ content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+ background:linear-gradient(180deg,rgba(246,231,215,.30),rgba(64,36,31,.17) 60%,rgba(51,29,28,.30));
+}
+.view:not(#homeView){
+ position:relative!important;
+ background:linear-gradient(135deg,rgba(250,241,230,.77),rgba(239,222,204,.68))!important;
+ color:var(--lds-ink)!important;
+}
+.view:not(#homeView)::before{
+ background:linear-gradient(135deg,rgba(255,255,255,.15),rgba(255,247,237,.04))!important;
+}
+.view:not(#homeView) .viewhead h1,
+.view:not(#homeView) .viewhead h2,
+.view:not(#homeView) h1,.view:not(#homeView) h2,.view:not(#homeView) h3{
+ color:var(--lds-wine)!important;
+ text-shadow:0 1px 0 rgba(255,255,255,.3);
+}
+.view:not(#homeView) .viewhead p,.view:not(#homeView) p{
+ color:#78645a;
+}
+/* Consistent frosted-glass surfaces without changing their layout or dimensions. */
+.view:not(#homeView) .rental-intro,
+.view:not(#homeView) .rental-checkin,
+.view:not(#homeView) .availability-section,
+.view:not(#homeView) .rental-layout>.panel,
+.view:not(#homeView) .class-registration-panel,
+.view:not(#homeView) .class-detail,
+.view:not(#homeView) .class-confirmation,
+.view:not(#homeView) .calendar-panel,
+.view:not(#homeView) .timetable-panel,
+.view:not(#homeView) .class-week-preview,
+.view:not(#homeView) .class-calendar-grid,
+.view:not(#homeView) .class-week-scroll,
+.view:not(#homeView) .class-week-calendar-scroll,
+.view:not(#homeView) .calendar-mobile-table{
+ background:linear-gradient(135deg,rgba(255,250,244,.73),rgba(241,224,207,.58))!important;
+ border:1px solid rgba(255,255,255,.79)!important;
+ box-shadow:0 18px 46px rgba(54,31,26,.09),inset 0 1px 0 rgba(255,255,255,.88)!important;
+ backdrop-filter:blur(10px) saturate(1.08)!important;
+ -webkit-backdrop-filter:blur(10px) saturate(1.08)!important;
+}
+.view:not(#homeView) .rental-amenity,
+.view:not(#homeView) .gallery-card,
+.view:not(#homeView) .rental-address,
+.view:not(#homeView) .booking-summary,
+.view:not(#homeView) .class-option-cards .class-option,
+.view:not(#homeView) .class-date-list .class-date-option{
+ border:1px solid rgba(255,255,255,.8)!important;
+ box-shadow:0 10px 26px rgba(63,38,30,.085),inset 0 1px 0 rgba(255,255,255,.78)!important;
+}
+.view:not(#homeView) .rental-amenity,
+.view:not(#homeView) .rental-address{
+ background:rgba(255,248,239,.62)!important;
+ backdrop-filter:blur(12px) saturate(1.08)!important;
+ -webkit-backdrop-filter:blur(12px) saturate(1.08)!important;
+}
+.view:not(#homeView) .gallery-card{overflow:hidden}
+.view:not(#homeView) .gallery-caption{
+ background:linear-gradient(180deg,rgba(57,34,29,.02),rgba(48,27,27,.78))!important;
+ backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;
+}
+.view:not(#homeView) .footer{
+ border-top-color:rgba(255,255,255,.48)!important;
+ color:#715c51!important;
+}
+.view:not(#homeView) .footer strong{color:var(--lds-wine)!important}
+.view:not(#homeView) .fields input,
+.view:not(#homeView) .fields select,
+.view:not(#homeView) .fields textarea,
+.view:not(#homeView) input:not([type=checkbox]):not([type=radio]):not([type=submit]),
+.view:not(#homeView) select,.view:not(#homeView) textarea{
+ background:rgba(255,252,247,.82)!important;
+ border-color:rgba(190,151,115,.42)!important;
+ color:#40272b!important;
+ box-shadow:inset 0 1px 2px rgba(65,40,30,.025),0 4px 12px rgba(65,40,30,.025)!important;
+}
+.view:not(#homeView) .action{
+ background:linear-gradient(135deg,#793d4e,#491b2a)!important;
+ color:#fff8f0!important;
+ border:1px solid rgba(255,240,220,.42)!important;
+ box-shadow:0 10px 24px rgba(72,26,41,.2),inset 0 1px 0 rgba(255,255,255,.2)!important;
+}
+.view:not(#homeView) .class-option{
+ background:linear-gradient(135deg,rgba(81,29,45,.97),rgba(56,21,32,.97))!important;
+ border:1px solid rgba(235,205,167,.65)!important;
+ box-shadow:0 12px 28px rgba(56,21,32,.2),inset 0 1px 0 rgba(255,255,255,.13)!important;
+}
+.view:not(#homeView) .class-option,
+.view:not(#homeView) .class-option *{
+ color:#fff7ed!important;
+}
+.view:not(#homeView) .class-option-copy strong{
+ color:#fff7ed!important;
+}
+.view:not(#homeView) .class-option-copy small{
+ color:rgba(255,247,237,.86)!important;
+}
+.view:not(#homeView) .class-option-mark,
+.view:not(#homeView) .class-option-price{
+ color:#f0d5a9!important;
+}
+.view:not(#homeView) .class-option .action,
+.view:not(#homeView) .class-option button{
+ background:#fff7ed!important;color:var(--lds-wine)!important;
+}
+@media(max-width:760px){
+ body::before{background-position:center center;filter:blur(1.5px) saturate(.9)}
+ .view:not(#homeView){
+  background:linear-gradient(135deg,rgba(250,241,230,.78),rgba(239,222,204,.7))!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .view:not(#homeView) *{scroll-behavior:auto!important}
+}
+</style>
+
 </head>
 <body>
 <main class="wrap">
