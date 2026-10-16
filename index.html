@@ -9634,4 +9634,58 @@ body::after{
  #rentalView .calendar-panel .rental-calendar .rent-day button{min-height:52px!important}
 }
 </style>
+<style id="lds-reference-inspired-calendar-header-20261017">
+/* Minimal editorial calendar header: one continuous row, fine vertical dividers only. */
+#rentalView .calendar-panel .rental-calendar > .rent-day{
+ box-sizing:border-box!important;align-self:stretch!important;min-width:0!important;
+ margin:0!important;padding:0!important;position:relative!important;
+ background:transparent!important;border:0!important;border-left:1px solid rgba(255,240,224,.24)!important;
+ border-radius:0!important;box-shadow:none!important;outline:0!important;
+}
+#rentalView .calendar-panel .rental-calendar > .rent-day::before,
+#rentalView .calendar-panel .rental-calendar > .rent-day::after,
+#rentalView .calendar-panel .rental-calendar > .rent-day *::before,
+#rentalView .calendar-panel .rental-calendar > .rent-day *::after{
+ content:none!important;display:none!important;border:0!important;box-shadow:none!important;
+}
+#rentalView .calendar-panel .rental-calendar > .rent-day button{
+ box-sizing:border-box!important;display:flex!important;flex-direction:column!important;
+ align-items:center!important;justify-content:center!important;gap:5px!important;
+ width:100%!important;min-width:0!important;min-height:72px!important;height:100%!important;
+ margin:0!important;padding:9px 1px!important;
+ border:0!important;border-radius:0!important;outline:0!important;
+ background:transparent!important;box-shadow:none!important;
+ color:rgba(255,246,235,.78)!important;font-size:12px!important;font-weight:500!important;
+ line-height:1.1!important;text-align:center!important;
+}
+#rentalView .calendar-panel .rental-calendar > .rent-day button strong{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ width:38px!important;height:38px!important;min-height:38px!important;
+ margin:0!important;padding:0!important;border:0!important;border-radius:50%!important;
+ background:transparent!important;box-shadow:none!important;
+ color:#fff8f0!important;font-size:21px!important;font-weight:500!important;line-height:1!important;
+}
+#rentalView .calendar-panel .rental-calendar > .rent-day.selected-day{
+ background:rgba(94,29,53,.42)!important;
+ border-left:1px solid rgba(255,240,224,.24)!important;
+ border-top:0!important;border-right:0!important;border-bottom:0!important;
+ box-shadow:none!important;border-radius:0!important;
+}
+#rentalView .calendar-panel .rental-calendar > .rent-day.selected-day button{
+ background:transparent!important;border:0!important;box-shadow:none!important;
+ color:#fff2df!important;
+}
+#rentalView .calendar-panel .rental-calendar > .rent-day.selected-day button strong{
+ background:#702541!important;color:#fff8f0!important;
+ box-shadow:0 0 0 1px rgba(255,231,204,.65)!important;
+}
+#rentalView .calendar-panel .rental-calendar > .rent-time:first-child{
+ align-self:stretch!important;border:0!important;border-right:1px solid rgba(255,240,224,.24)!important;
+ border-bottom:0!important;border-radius:0!important;box-shadow:none!important;
+}
+@media(max-width:760px){
+ #rentalView .calendar-panel .rental-calendar > .rent-day button{min-height:68px!important;padding:7px 0!important;gap:5px!important}
+ #rentalView .calendar-panel .rental-calendar > .rent-day button strong{width:32px!important;height:32px!important;min-height:32px!important;font-size:18px!important}
+}
+</style>
 </body></html>
