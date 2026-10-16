@@ -4969,5 +4969,161 @@ html,body{height:auto!important;min-height:100%!important;overflow-y:auto!import
 }
 </style>
 
+
+<style id="lds-reference-inspired-liquid-glass-system">
+/* La Dance Stone: reference-inspired liquid glass / smoked mineral glass.
+   CSS-only visual system. Preserve all markup, links, booking actions, data and synchronization. */
+:root{
+ --lds-glass-ink:#fdf5ed;
+ --lds-glass-wine:#542033;
+ --lds-glass-brown:#4b302c;
+ --lds-glass-edge:rgba(255,248,239,.60);
+ --lds-glass-shadow:0 22px 48px rgba(29,14,19,.24);
+}
+html,body{background:transparent!important}
+body::before{filter:blur(1.5px) saturate(.92) brightness(.82)!important;transform:scale(1.035)}
+body::after{background:linear-gradient(145deg,rgba(39,22,25,.22),rgba(55,32,31,.12) 42%,rgba(28,16,21,.30))!important}
+.view:not(#homeView),.view:not(#homeView).active{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ border:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+.view:not(#homeView)::before,.view:not(#homeView)::after{background:transparent!important;box-shadow:none!important}
+.view:not(#homeView) .timetable-heading,
+.view:not(#homeView) .rental-intro,
+.view:not(#homeView) .rental-checkin,
+.view:not(#homeView) .rental-layout>.panel,
+.view:not(#homeView) .booking-panel,
+.view:not(#homeView) .class-registration-panel,
+.view:not(#homeView) .class-detail,
+.view:not(#homeView) .class-confirmation,
+.view:not(#homeView) .calendar-panel,
+.view:not(#homeView) .timetable-panel,
+.view:not(#homeView) .class-week-preview,
+.view:not(#homeView) .class-calendar-grid,
+.view:not(#homeView) .calendar-mobile-table,
+.view:not(#homeView) .price-card,
+#homeView .hero-card,#homeView .hero-glass-card,#homeView .feature-card,
+#homeView .service-card,#homeView .home-card,#homeView .choice-card,
+#homeView .home-panel,#homeView .glass-card{
+ background:linear-gradient(145deg,rgba(255,246,235,.30),rgba(92,62,57,.27) 52%,rgba(49,31,34,.25))!important;
+ border:1px solid var(--lds-glass-edge)!important;
+ box-shadow:var(--lds-glass-shadow),inset 0 1px 0 rgba(255,255,255,.56),inset 0 -1px 0 rgba(31,16,21,.18)!important;
+ backdrop-filter:blur(22px) saturate(1.22)!important;-webkit-backdrop-filter:blur(22px) saturate(1.22)!important;
+}
+.view:not(#homeView) .availability-section{background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.view:not(#homeView) .availability-section>.calendar-panel{
+ background:linear-gradient(145deg,rgba(255,246,235,.28),rgba(69,46,45,.24))!important;
+ border:1px solid rgba(255,248,239,.70)!important;
+ box-shadow:0 20px 46px rgba(29,14,19,.22),inset 0 1px 0 rgba(255,255,255,.62)!important;
+ backdrop-filter:blur(22px) saturate(1.2)!important;-webkit-backdrop-filter:blur(22px) saturate(1.2)!important;
+}
+.view:not(#homeView) h1,.view:not(#homeView) h2,.view:not(#homeView) h3,
+.view:not(#homeView) .viewhead h1,.view:not(#homeView) .viewhead h2{
+ color:#fdf3e9!important;text-shadow:0 2px 12px rgba(35,16,23,.40),0 1px 0 rgba(255,255,255,.22)!important;
+}
+.view:not(#homeView) p,.view:not(#homeView) label,.view:not(#homeView) .viewhead p,
+.view:not(#homeView) .muted,.view:not(#homeView) small{
+ color:rgba(255,246,236,.92)!important;text-shadow:0 1px 5px rgba(34,18,22,.20);
+}
+.view:not(#homeView) .timetable-heading{
+ background:linear-gradient(135deg,rgba(255,245,233,.35),rgba(77,49,48,.28))!important;
+}
+.view:not(#homeView) .timetable-heading h2{font-weight:500!important;letter-spacing:-.025em}
+.view:not(#homeView) .timetable-heading p{font-weight:500!important}
+.view:not(#homeView) .cal-toolbar{
+ background:linear-gradient(135deg,rgba(99,39,59,.96),rgba(48,20,31,.96))!important;
+ border-bottom:1px solid rgba(255,255,255,.44)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 24px rgba(35,13,23,.22)!important;
+}
+.view:not(#homeView) .cal-title{color:#fff7ef!important;text-shadow:0 2px 8px rgba(0,0,0,.25)!important}
+.view:not(#homeView) .cal-toolbar button{
+ background:linear-gradient(145deg,rgba(255,250,242,.98),rgba(218,194,174,.90))!important;
+ color:#57243a!important;border:1px solid rgba(255,255,255,.96)!important;
+ box-shadow:0 5px 0 rgba(36,15,23,.20),0 8px 18px rgba(25,10,15,.20),inset 0 1px 0 #fff!important;
+}
+.view:not(#homeView) .cal-scroll{background:transparent!important}
+.view:not(#homeView) .calendar,.view:not(#homeView) .rental-calendar{background:transparent!important}
+.view:not(#homeView) .calendar .day,.view:not(#homeView) .rent-day,
+.view:not(#homeView) .class-calendar-dayhead,.view:not(#homeView) .class-calendar-corner{
+ background:linear-gradient(145deg,rgba(255,246,235,.80),rgba(196,161,143,.57))!important;
+ color:#503136!important;border-color:rgba(255,255,255,.56)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.68)!important;
+}
+.view:not(#homeView) .calendar .day strong{color:#542033!important}
+.view:not(#homeView) .calendar .time,.view:not(#homeView) .rent-time,
+.view:not(#homeView) .class-calendar-time{
+ background:linear-gradient(90deg,rgba(93,63,64,.76),rgba(57,38,43,.58))!important;
+ color:#fff7ef!important;border-color:rgba(255,255,255,.34)!important;
+ text-shadow:0 1px 4px rgba(28,13,19,.48)!important;
+}
+.view:not(#homeView) .calendar .cell,.view:not(#homeView) .rent-cell,
+.view:not(#homeView) .class-calendar-grid>div{
+ background:linear-gradient(145deg,rgba(106,79,74,.32),rgba(48,32,36,.22))!important;
+ color:#fff7ef!important;border-color:rgba(255,255,255,.32)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.18),inset 0 -1px 0 rgba(24,13,18,.13)!important;
+}
+.view:not(#homeView) .calendar .event,.view:not(#homeView) .rent-slot{
+ border:1px solid rgba(255,255,255,.86)!important;
+ box-shadow:0 6px 16px rgba(24,12,18,.23),inset 0 1px 0 rgba(255,255,255,.62),inset 0 -1px 0 rgba(45,19,29,.12)!important;
+ backdrop-filter:blur(10px) saturate(1.18)!important;-webkit-backdrop-filter:blur(10px) saturate(1.18)!important;
+}
+.view:not(#homeView) .calendar .event.class-event:not(.pink):not(.gold):not(.plum){
+ background:linear-gradient(145deg,rgba(222,240,217,.98),rgba(149,188,151,.96))!important;color:#1e3b2b!important;border-left:4px solid #668e6e!important;
+}
+.view:not(#homeView) .calendar .event.class-event.pink{
+ background:linear-gradient(145deg,rgba(249,224,237,.98),rgba(205,156,186,.96))!important;color:#4f2038!important;border-left:4px solid #9c5a78!important;
+}
+.view:not(#homeView) .calendar .event.class-event.gold{
+ background:linear-gradient(145deg,rgba(255,237,210,.98),rgba(215,174,137,.96))!important;color:#573725!important;border-left:4px solid #ad7c58!important;
+}
+.view:not(#homeView) .calendar .event.class-event.plum{
+ background:linear-gradient(145deg,rgba(241,222,244,.98),rgba(182,145,194,.96))!important;color:#45244f!important;border-left:4px solid #8b6798!important;
+}
+.view:not(#homeView) .calendar .event.occupied-event,.view:not(#homeView) .rent-slot.busy{
+ background:linear-gradient(145deg,rgba(125,42,67,.99),rgba(49,13,29,.99))!important;color:#fffaf5!important;border-left:4px solid #e6c08a!important;
+}
+.view:not(#homeView) .calendar .event.occupied-event .event-name,
+.view:not(#homeView) .calendar .event.occupied-event .event-audience{color:#fffaf5!important}
+.view:not(#homeView) .calendar .event.rental-event{
+ background:linear-gradient(145deg,rgba(255,240,201,.98),rgba(218,187,119,.95))!important;color:#4f371b!important;border-left:4px solid #b08a43!important;
+}
+.view:not(#homeView) .calendar-help{
+ background:linear-gradient(145deg,rgba(83,57,57,.76),rgba(42,27,33,.65))!important;
+ border-top:1px solid rgba(255,255,255,.58)!important;color:#fff8f1!important;
+ backdrop-filter:blur(20px) saturate(1.25)!important;-webkit-backdrop-filter:blur(20px) saturate(1.25)!important;
+}
+.view:not(#homeView) .timetable-legend,.view:not(#homeView) .calendar-help p{color:#fff8f1!important}
+.view:not(#homeView) button.action,.view:not(#homeView) .action{
+ background:linear-gradient(145deg,#824457,#592338 54%,#371723)!important;color:#fff8f1!important;
+ border:1px solid rgba(255,255,255,.64)!important;
+ box-shadow:0 7px 0 rgba(36,14,23,.23),0 12px 24px rgba(29,12,19,.24),inset 0 1px 0 rgba(255,255,255,.38)!important;
+}
+.view:not(#homeView) .back,.view:not(#homeView) .pill{
+ background:linear-gradient(145deg,rgba(255,249,240,.88),rgba(204,175,155,.67))!important;
+ color:#542033!important;border:1px solid rgba(255,255,255,.90)!important;
+ box-shadow:0 5px 0 rgba(43,24,24,.12),0 9px 20px rgba(29,13,19,.15),inset 0 1px 0 #fff!important;
+}
+.view:not(#homeView) input:not([type=checkbox]):not([type=radio]),
+.view:not(#homeView) select,.view:not(#homeView) textarea{
+ color:#3b252a!important;background:rgba(255,248,239,.88)!important;border:1px solid rgba(255,255,255,.78)!important;
+ box-shadow:inset 0 1px 5px rgba(52,28,29,.08),0 4px 10px rgba(29,13,19,.08)!important;
+}
+@media(min-width:761px){
+ #timetableView .timetable-panel .calendar{width:100%!important;min-width:760px!important;grid-template-columns:58px repeat(7,minmax(0,1fr))!important}
+ #timetableView .timetable-panel .calendar .cell{height:68px!important}
+ #timetableView .timetable-panel .calendar .event{min-height:62px!important;padding:7px 8px!important}
+}
+@media(max-width:760px){
+ #timetableView .timetable-heading{margin-top:8px!important}
+ #timetableView .timetable-panel .cal-scroll{display:block!important;overflow-x:hidden!important;overflow-y:visible!important;max-height:none!important;height:auto!important;touch-action:pan-y!important}
+ #timetableView .timetable-panel .calendar{width:100%!important;min-width:0!important;grid-template-columns:42px repeat(7,minmax(0,1fr))!important}
+ #timetableView .timetable-panel .calendar .day{position:relative!important;top:auto!important}
+ #timetableView .timetable-panel .calendar .cell{height:59px!important}
+ #timetableView .timetable-panel .calendar .event{min-height:0!important;padding:3px 2px!important;border-radius:8px!important}
+ #timetableView .timetable-panel .calendar .event b{font-size:clamp(7px,1.9vw,9px)!important;line-height:1.15!important}
+ #timetableView .timetable-panel .calendar .event span{font-size:clamp(6px,1.65vw,8px)!important;line-height:1.15!important}
+}
+</style>
+
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
 </body></html>
