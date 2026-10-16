@@ -1896,6 +1896,23 @@ body::before,body::after,main::before,main::after{background-color:transparent!i
   .brand-footer-logo{justify-content:flex-start!important}
 }
 </style>
+
+/* Final visual cleanup: keep the whole website white, including every active view. */
+html,body,body:has(.view.active),body:has(#homeView.active),body:has(#rentalView.active),body:has(#classView.active),body:has(#timetableView.active){
+  background:#fff!important;
+  background-color:#fff!important;
+  background-image:none!important;
+}
+body>main,main.wrap,.wrap,.view,.view.active{
+  background-color:transparent!important;
+  background-image:none!important;
+}
+.view .availability-section,
+.view .calendar-panel,
+.view .timetable-panel{
+  background-color:#fff!important;
+}
+.view .availability-section{margin-top:18px!important;padding-top:0!important}
 </head>
 <body>
 <main class="wrap">
