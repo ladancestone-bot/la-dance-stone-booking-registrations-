@@ -9782,4 +9782,19 @@ body::after{
  #rentalView .availability-section .rent-slot strong{font-size:clamp(8px,2.15vw,10px)!important;font-weight:650!important}
 }
 </style>
+<style id="lds-remove-rental-calendar-top-left-stain-20261017">
+/* Clear the empty corner above the hour labels; retain the normal hour-column styling. */
+#rentalView .calendar-panel .rental-calendar > .rent-time:first-child{
+ background:transparent!important;
+ background-image:none!important;
+ border:0!important;
+ border-radius:0!important;
+ box-shadow:none!important;
+ outline:0!important;
+}
+#rentalView .calendar-panel .rental-calendar > .rent-time:first-child::before,
+#rentalView .calendar-panel .rental-calendar > .rent-time:first-child::after{
+ content:none!important;display:none!important;
+}
+</style>
 </body></html>
