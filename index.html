@@ -9966,4 +9966,61 @@ body::after{
 }
 </style>
 
+
+<style id="lds-premium-rental-reminder-mobile-fix-20261017">
+/* Repair inherited pseudo-icon positioning; keep each reminder readable on narrow screens. */
+#rentalView .availability-section>.closing-notice:not(.closing-notice-compact) .notice-line::before{
+ position:static!important;inset:auto!important;top:auto!important;left:auto!important;
+ transform:none!important;float:none!important;align-self:start!important;
+ flex:0 0 23px!important;margin:0!important;
+}
+#rentalView .availability-section>.closing-notice:not(.closing-notice-compact) .notice-line{
+ position:relative!important;display:grid!important;grid-template-columns:23px minmax(0,1fr)!important;
+ align-items:start!important;gap:9px!important;width:auto!important;min-width:0!important;
+ box-sizing:border-box!important;white-space:normal!important;
+}
+#rentalView .availability-section>.closing-notice:not(.closing-notice-compact) .notice-line .notice-time{
+ display:inline!important;max-width:100%!important;white-space:normal!important;
+ overflow-wrap:anywhere!important;word-break:normal!important;
+}
+#rentalView .availability-section>.closing-notice:not(.closing-notice-compact) p{
+ display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ align-items:stretch!important;min-width:0!important;width:100%!important;box-sizing:border-box!important;
+}
+@media(max-width:760px){
+ #rentalView .availability-section>.closing-notice:not(.closing-notice-compact){
+  display:block!important;overflow:visible!important;
+  padding:18px 15px!important;margin:20px 0 28px!important;
+ }
+ #rentalView .availability-section>.closing-notice:not(.closing-notice-compact) .closing-notice-mark{
+  float:left!important;display:grid!important;width:42px!important;height:42px!important;
+  margin:0 12px 8px 0!important;font-size:23px!important;
+ }
+ #rentalView .availability-section>.closing-notice:not(.closing-notice-compact)>div{
+  display:flow-root!important;min-width:0!important;width:100%!important;
+ }
+ #rentalView .availability-section>.closing-notice:not(.closing-notice-compact) strong{
+  min-height:42px!important;display:flex!important;align-items:center!important;
+  margin:0 0 16px!important;font-size:clamp(21px,6vw,25px)!important;line-height:1.12!important;
+ }
+ #rentalView .availability-section>.closing-notice:not(.closing-notice-compact) p{
+  clear:both!important;display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+  gap:8px!important;margin:0!important;width:100%!important;
+ }
+ #rentalView .availability-section>.closing-notice:not(.closing-notice-compact) .notice-line{
+  display:grid!important;grid-template-columns:23px minmax(0,1fr)!important;
+  width:100%!important;min-width:0!important;padding:11px 10px!important;
+  gap:9px!important;box-sizing:border-box!important;line-height:1.5!important;
+  overflow:visible!important;
+ }
+ #rentalView .availability-section>.closing-notice:not(.closing-notice-compact) .notice-line::before{
+  position:static!important;display:grid!important;place-self:start!important;
+  width:23px!important;height:23px!important;box-sizing:border-box!important;
+ }
+ #rentalView .availability-section>.closing-notice:not(.closing-notice-compact) .notice-line .notice-time{
+  display:inline!important;white-space:normal!important;overflow-wrap:anywhere!important;
+ }
+}
+</style>
+
 </body></html>
