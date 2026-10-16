@@ -10362,4 +10362,63 @@ body::after{
  #rentalView .availability-section .calendar-panel>.calendar-help p:not(#selectionHint){font-size:10px!important;line-height:1.6!important}
 }
 </style>
+<style id="lds-rental-hero-bubbles-20261017">
+/* Rental hero refinement only: minimalist back link, quieter address, floating amenity bubbles. */
+#rentalView .rental-intro{display:flex!important;flex-direction:column!important}
+#rentalView .rental-back{
+ order:0!important;align-self:center!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ gap:10px!important;width:auto!important;max-width:100%!important;margin:0 auto 22px!important;padding:7px 3px!important;
+ border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+ color:#fff0df!important;font:500 14px/1.4 'Montserrat',Arial,sans-serif!important;letter-spacing:.01em!important;
+ text-decoration:none!important;transition:opacity .2s ease!important;
+}
+#rentalView .rental-back span{
+ display:inline-grid!important;place-items:center!important;width:32px!important;height:32px!important;flex:0 0 32px!important;
+ border-radius:50%!important;border:1px solid rgba(255,245,230,.66)!important;
+ background:radial-gradient(circle at 30% 22%,rgba(255,255,255,.36),rgba(255,244,226,.10) 72%)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.42),0 4px 12px rgba(44,21,25,.16)!important;
+ color:#fff7ed!important;font-size:18px!important;
+}
+#rentalView .rental-back:hover{opacity:.82!important}
+#rentalView .rental-hero{order:1!important}
+#rentalView .rental-amenities{
+ order:2!important;width:100%!important;box-sizing:border-box!important;
+ margin:2px auto 10px!important;padding:0!important;gap:13px!important;
+ background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;
+}
+#rentalView .rental-amenity{
+ min-width:0!important;padding:0!important;margin:0!important;gap:10px!important;
+ border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+ color:#fff3e6!important;font-size:clamp(9px,1.15vw,12px)!important;line-height:1.4!important;
+ letter-spacing:.045em!important;text-shadow:0 1px 8px rgba(38,20,20,.30)!important;
+}
+#rentalView .rental-amenity-icon{
+ width:clamp(58px,8vw,78px)!important;height:clamp(58px,8vw,78px)!important;
+ display:grid!important;place-items:center!important;box-sizing:border-box!important;
+ border:1px solid rgba(255,245,229,.78)!important;border-radius:50%!important;
+ background:radial-gradient(circle at 28% 20%,rgba(255,255,255,.48) 0%,rgba(255,245,229,.22) 35%,rgba(255,235,215,.08) 72%,rgba(255,255,255,.13) 100%)!important;
+ box-shadow:inset 0 1px 2px rgba(255,255,255,.65),inset 0 -5px 12px rgba(91,46,54,.10),0 7px 18px rgba(47,25,23,.16)!important;
+ backdrop-filter:blur(9px)!important;-webkit-backdrop-filter:blur(9px)!important;
+}
+#rentalView .rental-amenity-icon svg{width:45%!important;height:45%!important;stroke:#61263b!important;stroke-width:1.65!important}
+#rentalView .rental-address{
+ order:3!important;align-self:center!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ gap:8px!important;width:max-content!important;max-width:100%!important;box-sizing:border-box!important;
+ margin:14px auto 0!important;padding:7px 13px!important;
+ border:1px solid rgba(255,242,224,.28)!important;border-radius:999px!important;
+ background:rgba(255,246,231,.07)!important;box-shadow:none!important;
+ color:rgba(255,242,226,.86)!important;font:500 9px/1.5 'Montserrat',Arial,sans-serif!important;
+ letter-spacing:.13em!important;text-transform:uppercase!important;
+}
+#rentalView .rental-address span{font-size:9px!important;margin:0!important;color:#f0d39a!important}
+@media(max-width:760px){
+ #rentalView .rental-intro{padding-top:8px!important}
+ #rentalView .rental-back{font-size:13px!important;margin-bottom:20px!important;gap:9px!important}
+ #rentalView .rental-back span{width:30px!important;height:30px!important;flex-basis:30px!important}
+ #rentalView .rental-amenities{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:5px!important;margin:4px auto 8px!important}
+ #rentalView .rental-amenity{gap:8px!important;font-size:9px!important;letter-spacing:0!important;line-height:1.35!important;overflow-wrap:anywhere!important}
+ #rentalView .rental-amenity-icon{width:clamp(48px,13vw,66px)!important;height:clamp(48px,13vw,66px)!important}
+ #rentalView .rental-address{margin-top:12px!important;padding:6px 11px!important;font-size:8px!important;letter-spacing:.10em!important}
+}
+</style>
 </body></html>
