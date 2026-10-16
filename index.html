@@ -6936,5 +6936,191 @@ body::after{background:linear-gradient(145deg,rgba(39,22,25,.22),rgba(55,32,31,.
 }
 </style>
 
+
+<style id="lds-transparent-calendar-burgundy-glass-bubbles">
+/* Approved visual direction: transparent calendar, burgundy glass clock and floating glass information bubbles. */
+#rentalView .availability-section .closing-notice{
+ position:relative!important;isolation:isolate!important;overflow:visible!important;
+ display:grid!important;grid-template-columns:minmax(145px,36%) minmax(0,1fr)!important;
+ align-items:center!important;gap:clamp(18px,3.5vw,36px)!important;
+ width:100%!important;max-width:100%!important;box-sizing:border-box!important;
+ margin:25px 0 32px!important;padding:clamp(15px,2.5vw,28px) 0!important;
+ border:0!important;border-radius:0!important;background:transparent!important;
+ box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+#rentalView .availability-section .closing-notice:before{
+ content:""!important;position:absolute!important;z-index:0!important;pointer-events:none!important;
+ display:block!important;left:0!important;top:50%!important;transform:translateY(-50%)!important;
+ width:clamp(145px,36%,245px)!important;aspect-ratio:1!important;border-radius:50%!important;
+ background:
+  radial-gradient(circle at 28% 18%,rgba(255,242,227,.30),transparent 25%),
+  radial-gradient(circle at 68% 78%,rgba(24,5,17,.35),transparent 52%),
+  linear-gradient(145deg,rgba(119,40,66,.86),rgba(70,19,44,.93) 58%,rgba(37,10,29,.96))!important;
+ border:1px solid rgba(255,227,208,.78)!important;
+ box-shadow:inset 0 2px 4px rgba(255,255,255,.32),inset 0 -15px 25px rgba(12,2,8,.35),0 0 0 7px rgba(255,230,213,.045),0 14px 28px rgba(14,3,10,.23)!important;
+}
+#rentalView .availability-section .closing-notice:after{content:none!important;display:none!important}
+#rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark{
+ grid-column:1!important;grid-row:1!important;justify-self:center!important;align-self:center!important;
+ position:relative!important;z-index:1!important;display:block!important;
+ width:clamp(126px,31vw,215px)!important;height:clamp(126px,31vw,215px)!important;
+ min-width:0!important;max-width:100%!important;min-height:0!important;max-height:none!important;
+ aspect-ratio:1!important;box-sizing:border-box!important;overflow:visible!important;
+ margin:0!important;padding:0!important;border-radius:50%!important;
+ color:transparent!important;font-size:0!important;line-height:1!important;
+ border:1px solid rgba(255,229,208,.86)!important;
+ background:
+  radial-gradient(circle at 28% 18%,rgba(255,248,234,.34),transparent 20%),
+  repeating-conic-gradient(from -2deg,rgba(247,213,164,.98) 0deg 1deg,transparent 1deg 30deg),
+  radial-gradient(circle at 35% 28%,rgba(115,34,62,.98),rgba(61,15,40,.98) 61%,rgba(31,8,25,.99))!important;
+ background-size:auto,76% 76%,auto!important;background-position:center!important;background-repeat:no-repeat!important;
+ box-shadow:inset 0 2px 2px rgba(255,255,255,.40),inset 0 -12px 24px rgba(9,1,7,.42),0 0 0 7px rgba(255,232,216,.05),0 12px 26px rgba(10,1,7,.26)!important;
+}
+#rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark:before{
+ content:""!important;position:absolute!important;left:49%!important;top:20%!important;
+ width:3px!important;height:34%!important;border-radius:9px!important;
+ background:linear-gradient(#fff0cf,#e7bb73)!important;transform-origin:50% 88%!important;transform:rotate(42deg)!important;
+ box-shadow:0 0 6px rgba(247,206,142,.22)!important;
+}
+#rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark:after{
+ content:""!important;position:absolute!important;left:49%!important;top:32%!important;
+ width:3px!important;height:23%!important;border-radius:9px!important;
+ background:#fff0cf!important;transform-origin:50% 78%!important;transform:rotate(145deg)!important;
+ box-shadow:0 0 5px rgba(247,206,142,.18)!important;
+}
+#rentalView .availability-section .closing-notice>div{
+ grid-column:2!important;grid-row:1!important;position:relative!important;z-index:2!important;
+ display:block!important;width:100%!important;min-width:0!important;max-width:none!important;box-sizing:border-box!important;
+}
+#rentalView .availability-section .closing-notice strong{
+ display:block!important;width:100%!important;margin:0 0 20px!important;
+ color:#fff9f3!important;font-family:Inter,"Avenir Next",Avenir,system-ui,sans-serif!important;
+ font-size:clamp(22px,4vw,32px)!important;font-weight:800!important;
+ line-height:1.08!important;letter-spacing:-.035em!important;overflow-wrap:normal!important;word-break:normal!important;
+}
+#rentalView .availability-section .closing-notice p{
+ display:flex!important;flex-direction:column!important;align-items:stretch!important;
+ gap:clamp(12px,1.8vw,18px)!important;width:100%!important;min-width:0!important;
+ margin:0!important;padding:0!important;color:rgba(255,248,241,.97)!important;
+ font-family:Inter,"Avenir Next",Avenir,system-ui,sans-serif!important;
+ font-size:clamp(13px,1.65vw,16px)!important;line-height:1.48!important;
+}
+#rentalView .availability-section .closing-notice .notice-line{
+ display:block!important;position:relative!important;box-sizing:border-box!important;
+ width:100%!important;min-width:0!important;padding:12px 14px 12px 54px!important;
+ color:rgba(255,248,241,.98)!important;overflow-wrap:normal!important;word-break:normal!important;
+ border:1px solid rgba(255,229,211,.38)!important;
+ border-radius:28px 28px 28px 8px!important;
+ background:linear-gradient(120deg,rgba(255,247,238,.12),rgba(255,241,228,.045))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.17),0 5px 14px rgba(13,2,9,.08)!important;
+ backdrop-filter:blur(18px) saturate(1.18)!important;-webkit-backdrop-filter:blur(18px) saturate(1.18)!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:before{
+ content:""!important;position:absolute!important;left:9px!important;top:50%!important;transform:translateY(-50%)!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ box-sizing:border-box!important;width:34px!important;height:34px!important;border-radius:50%!important;
+ color:#f4d49d!important;font-family:Georgia,serif!important;font-size:18px!important;line-height:1!important;
+ border:1px solid rgba(255,226,207,.72)!important;
+ background:
+  radial-gradient(circle at 27% 20%,rgba(255,255,255,.28),transparent 40%),
+  linear-gradient(145deg,rgba(128,42,70,.91),rgba(61,15,40,.96))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 4px 10px rgba(14,2,9,.18)!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(1):before{content:"♙"!important}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(2):before{content:"☾"!important}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(3):before{content:"⌛"!important}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(4):before{content:"⌂"!important}
+#rentalView .availability-section .closing-notice .notice-time{color:#f4d39a!important;font-weight:850!important}
+#rentalView .calendar-panel{
+ background:linear-gradient(140deg,rgba(255,246,235,.075),rgba(255,240,226,.025))!important;
+ border:1px solid rgba(255,232,216,.44)!important;border-radius:32px!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.17),0 15px 35px rgba(14,3,10,.12)!important;
+ backdrop-filter:blur(22px) saturate(1.1)!important;-webkit-backdrop-filter:blur(22px) saturate(1.1)!important;
+}
+#rentalView .calendar-panel .cal-toolbar{
+ background:transparent!important;border:0!important;box-shadow:none!important;
+ border-radius:30px 30px 0 0!important;
+}
+#rentalView .calendar-panel .cal-title{color:#fff8f1!important}
+#rentalView .calendar-panel .cal-scroll{background:transparent!important}
+#rentalView .calendar-panel .rental-calendar{background:transparent!important}
+#rentalView .calendar-panel .rent-day,
+#rentalView .calendar-panel .rent-time,
+#rentalView .calendar-panel .rent-cell{
+ background:transparent!important;border-color:rgba(255,236,221,.12)!important;
+}
+#rentalView .calendar-panel .rent-day{
+ color:#fff6ee!important;border-bottom-color:rgba(255,235,220,.32)!important;
+}
+#rentalView .calendar-panel .rent-day.today,
+#rentalView .calendar-panel .rent-day.selected,
+#rentalView .calendar-panel .rent-day.active{
+ background:linear-gradient(145deg,rgba(125,39,68,.88),rgba(61,15,40,.94))!important;
+ color:#fff9f2!important;border:1px solid rgba(255,225,206,.65)!important;
+ border-radius:18px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.23)!important;
+}
+#rentalView .calendar-panel .rent-time{
+ color:rgba(255,246,237,.94)!important;font-weight:750!important;
+ text-shadow:0 1px 5px rgba(20,5,13,.48)!important;
+}
+#rentalView .calendar-panel .rent-cell{padding:4px!important}
+#rentalView .calendar-panel .rent-slot{
+ border-radius:18px!important;border:1px solid rgba(255,237,222,.60)!important;
+ background:linear-gradient(145deg,rgba(255,248,240,.24),rgba(255,237,221,.10))!important;
+ color:#fff9f3!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.23),0 4px 12px rgba(15,3,10,.10)!important;
+ backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;
+}
+#rentalView .calendar-panel .rent-slot.busy{
+ background:linear-gradient(145deg,rgba(135,43,72,.88),rgba(65,15,42,.95))!important;
+ border-color:rgba(255,220,207,.52)!important;color:#fff8f2!important;
+}
+#rentalView .calendar-panel .rent-slot.chosen{
+ background:linear-gradient(145deg,rgba(238,196,121,.96),rgba(177,123,55,.96))!important;
+ border-color:#ffedc9!important;color:#3c1b29!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.48),0 0 0 2px rgba(245,208,148,.17)!important;
+}
+#rentalView .calendar-panel .calendar-help{
+ background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;
+}
+#rentalView .calendar-panel .availability-legend span{
+ border:1px solid rgba(255,233,215,.36)!important;border-radius:999px!important;
+ background:rgba(255,246,236,.075)!important;color:#fff7ef!important;
+}
+@media(max-width:760px){
+ #rentalView .availability-section .closing-notice{
+  grid-template-columns:minmax(92px,30%) minmax(0,1fr)!important;
+  gap:12px!important;padding:12px 0!important;margin:18px 0 24px!important;
+ }
+ #rentalView .availability-section .closing-notice:before{
+  width:clamp(92px,29vw,120px)!important;left:0!important;
+ }
+ #rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark{
+  width:clamp(84px,26vw,108px)!important;height:clamp(84px,26vw,108px)!important;
+ }
+ #rentalView .availability-section .closing-notice strong{
+  font-size:clamp(17px,4.7vw,22px)!important;margin-bottom:14px!important;line-height:1.1!important;
+ }
+ #rentalView .availability-section .closing-notice p{font-size:clamp(11.5px,3.2vw,14px)!important;gap:10px!important;line-height:1.45!important}
+ #rentalView .availability-section .closing-notice .notice-line{
+  padding:10px 8px 10px 39px!important;border-radius:20px 20px 20px 7px!important;
+ }
+ #rentalView .availability-section .closing-notice .notice-line:before{
+  left:6px!important;width:26px!important;height:26px!important;font-size:14px!important;
+ }
+ #rentalView .calendar-panel{border-radius:24px!important}
+ #rentalView .calendar-panel .rent-cell{padding:2px!important}
+ #rentalView .calendar-panel .rent-slot{border-radius:14px!important}
+}
+@media(max-width:380px){
+ #rentalView .availability-section .closing-notice{grid-template-columns:78px minmax(0,1fr)!important;gap:9px!important}
+ #rentalView .availability-section .closing-notice:before{width:78px!important}
+ #rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark{width:70px!important;height:70px!important}
+ #rentalView .availability-section .closing-notice strong{font-size:16px!important}
+ #rentalView .availability-section .closing-notice p{font-size:10.5px!important}
+ #rentalView .availability-section .closing-notice .notice-line{padding-left:34px!important}
+ #rentalView .availability-section .closing-notice .notice-line:before{width:22px!important;height:22px!important;left:5px!important}
+}
+</style>
+
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
 </body></html>
