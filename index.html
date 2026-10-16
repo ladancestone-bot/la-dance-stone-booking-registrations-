@@ -1499,6 +1499,178 @@ html,body{margin:0 !important;padding:0 !important;width:100% !important;max-wid
   #rentalView .rent-slot{font-size:7px!important}
 }
 
+
+/* Final reference-matched landing-page refinements. Scoped to #homeView only. */
+#homeView{
+  min-height:100vh;
+  color:#fff8ef;
+  background:#38251f!important;
+}
+#homeView::before{
+  inset:-32px;
+  background-position:center 48%;
+  filter:blur(13px) brightness(.48) saturate(.72);
+  transform:scale(1.06);
+}
+#homeView::after{
+  background:linear-gradient(180deg,rgba(38,23,20,.35) 0%,rgba(39,21,20,.20) 48%,rgba(35,21,19,.58) 100%);
+}
+#homeView>.home-site-link-row{margin:0 auto 8px;padding-top:8px}
+#homeView .site-link{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 24px;
+  border:1px solid rgba(255,245,230,.34);
+  border-radius:999px;
+  background:rgba(115,91,77,.72);
+  color:#fff8ef;
+  text-decoration:none;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+#homeView>.hero{
+  max-width:850px;
+  margin:0 auto;
+  padding:28px 22px 14px;
+  text-align:center;
+}
+#homeView .hero h1{
+  max-width:760px;
+  margin:0 auto 12px;
+  font-size:clamp(42px,5.2vw,76px);
+  line-height:.98;
+  font-weight:600;
+  letter-spacing:-.025em;
+}
+#homeView .hero h1::after{
+  content:"";
+  display:block;
+  width:76px;
+  height:1px;
+  margin:18px auto 16px;
+  background:#d4b47c;
+}
+#homeView .hero p.home-values{
+  max-width:640px;
+  margin:0 auto;
+  padding:0;
+  color:rgba(255,248,239,.94);
+  font-family:'Jost',Arial,sans-serif;
+  font-size:clamp(14px,1.35vw,18px);
+  line-height:1.55;
+  letter-spacing:0;
+  text-transform:none;
+}
+#homeView .choices{
+  width:100%;
+  max-width:1120px;
+  box-sizing:border-box;
+  margin:14px auto 34px;
+  padding:8px 18px 20px;
+  gap:16px;
+}
+#homeView .choice{
+  position:relative;
+  min-height:clamp(350px,34vw,440px);
+  padding:92px 20px 28px;
+  border:1px solid rgba(255,224,184,.95);
+  border-radius:48% 48% 12px 12px / 25% 25% 12px 12px;
+  background:
+    linear-gradient(180deg,rgba(73,17,31,.54),rgba(72,18,31,.83)),
+    url("https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg") center/cover;
+  box-shadow:inset 0 0 0 2px rgba(255,247,232,.12),0 10px 30px rgba(20,8,10,.25);
+}
+#homeView .choice:nth-child(2){
+  background:
+    linear-gradient(180deg,rgba(90,58,38,.32),rgba(62,39,28,.70)),
+    url("https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg") center/cover;
+}
+#homeView .choice::before{
+  inset:7px;
+  border-color:rgba(255,229,195,.40);
+  border-radius:inherit;
+}
+#homeView .choice .num{font-size:10px;color:#f0d7aa}
+#homeView .choice .home-icon{width:58px;height:58px;margin-bottom:18px}
+#homeView .choice h3{font-size:clamp(25px,2.5vw,34px);line-height:1.02}
+#homeView .choice p{font-size:14px}
+#homeView .choice .arrow{width:48px;height:48px;font-size:25px}
+#homeView .brand-footer{
+  width:100%!important;
+  background:rgba(105,78,62,.62)!important;
+  border-top:1px solid rgba(255,233,202,.3);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+#homeView .brand-footer-main{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:18px!important;
+  max-width:1120px!important;
+  padding:18px 28px!important;
+}
+#homeView .brand-footer-copy{flex:1 1 0;min-width:0}
+#homeView .brand-footer-copy p{margin:0!important}
+#homeView .brand-footer-logo{display:none!important}
+@media(max-width:760px){
+  #homeView{min-height:100svh;overflow:hidden}
+  #homeView>.home-site-link-row{padding-top:12px;margin-bottom:0}
+  #homeView .site-link{padding:13px 20px;font-size:13px}
+  #homeView>.hero{padding:24px 22px 12px}
+  #homeView .hero h1{font-size:clamp(39px,10.8vw,49px);line-height:1.01;max-width:340px}
+  #homeView .hero h1::after{margin:14px auto 13px}
+  #homeView .hero p.home-values{font-size:14px;line-height:1.48;max-width:330px}
+  #homeView .choices{
+    display:flex!important;
+    align-items:stretch;
+    gap:12px;
+    width:100vw!important;
+    max-width:none!important;
+    margin:18px 0 22px calc(50% - 50vw)!important;
+    padding:12px 16vw 24px!important;
+    box-sizing:border-box!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:16vw;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  #homeView .choices::-webkit-scrollbar{display:none}
+  #homeView .choice{
+    flex:0 0 68vw!important;
+    width:68vw!important;
+    max-width:290px;
+    min-width:238px!important;
+    min-height:355px;
+    padding:86px 18px 24px;
+    scroll-snap-align:center;
+    border-radius:48% 48% 12px 12px / 25% 25% 12px 12px;
+  }
+  #homeView .choice h3{font-size:28px;line-height:1.02}
+  #homeView .choice p{font-size:13px;line-height:1.45}
+  #homeView .brand-footer-main{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:10px!important;
+    padding:18px 14px 20px!important;
+    text-align:center;
+  }
+  #homeView .brand-footer-copy{font-size:11px;overflow-wrap:anywhere}
+  #homeView .brand-footer-copy p{font-size:11px!important;line-height:1.35}
+}
+@media(max-width:380px){
+  #homeView .choices{padding-inline:18vw!important;scroll-padding-inline:18vw}
+  #homeView .choice{flex-basis:68vw!important;min-width:228px!important}
+  #homeView .brand-footer-main{grid-template-columns:1fr!important;text-align:left}
+}
+@media(prefers-reduced-motion:reduce){
+  #homeView .choice{transition:none}
+}
+
 </style>
 
 <style>
@@ -2103,8 +2275,8 @@ body>main,main.wrap,.wrap,.view,.view.active{
 <section id="homeView" class="active view">
 <div class="home-site-link-row"><a class="site-link" href="https://ladancestone.lt"><span aria-hidden="true">←</span> Grįžti į svetainės pradžią</a></div>
 <div class="hero">
-  <h1>Šokis kuria daugiau.</h1>
-  <p class="home-values">KŪNAS <span>·</span> SAVIRAIŠKA <span>·</span> BENDRUOMENĖ</p>
+  <h1>Šokio erdvė prasideda čia.</h1>
+  <p class="home-values">Pasirinkite, ką norite nuveikti – peržiūrėti tvarkaraštį, išsinuomoti studiją ar užsiregistruoti į pamokas.</p>
 </div>
 <div class="choices">
 <button class="choice" data-view="timetable"><span class="num">SAVAITĖS PLANAS</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="7" width="23" height="21" rx="2"/><path d="M10 4v6M22 4v6M5 13h22M11 13v14M19 13v14M5 20h22"/></svg></span><h3>Tvarkaraštis</h3><p>Užsiėmimų laikai</p><span class="arrow">→</span></button>
