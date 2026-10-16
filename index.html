@@ -1932,6 +1932,52 @@ html,body{margin:0 !important;padding:0 !important;width:100% !important;max-wid
  #homeView .brand-footer-logo-image{width:min(235px,70vw)!important}
 }
 
+
+/* Corrective mobile pass: make the real studio visible and prevent footer clipping. */
+#homeView::before{
+ filter:blur(2.5px) brightness(.98) saturate(1.02)!important;
+ transform:scale(1.018)!important;
+}
+#homeView::after{
+ background:linear-gradient(180deg,rgba(32,19,17,.10),rgba(42,20,22,.015) 46%,rgba(29,16,16,.18))!important;
+}
+#homeView .brand-footer{
+ width:100%!important;max-width:100%!important;
+ margin:0!important;
+ overflow:hidden!important;
+ background:rgba(83,58,43,.3)!important;
+}
+#homeView .brand-footer::before{
+ inset:-8px!important;
+ background:url("https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg") center 66%/cover no-repeat!important;
+ filter:blur(5px) brightness(.84) saturate(.9)!important;
+ transform:scale(1.035)!important;opacity:.78!important;
+}
+#homeView .brand-footer::after{
+ background:linear-gradient(180deg,rgba(70,47,37,.24),rgba(69,47,36,.40))!important;
+}
+#homeView .brand-footer-main{
+ width:100%!important;max-width:1100px!important;box-sizing:border-box!important;
+ padding:28px clamp(22px,5vw,42px) 26px!important;
+}
+#homeView .brand-footer-copy{min-width:0!important;box-sizing:border-box!important}
+#homeView .brand-footer-copy p,
+#homeView .brand-footer-copy a,
+#homeView .brand-footer-copy small{
+ max-width:100%!important;overflow-wrap:anywhere!important;word-break:normal!important;
+}
+#homeView .brand-footer-logo{box-sizing:border-box!important;min-width:0!important}
+#homeView .brand-footer-logo-image{max-width:min(245px,100%)!important}
+@media(max-width:760px){
+ #homeView{overflow-x:clip!important}
+ #homeView .brand-footer{width:100%!important;margin:0!important}
+ #homeView .brand-footer-main{padding:24px 24px 24px!important}
+ #homeView .brand-footer-copy p{max-width:100%!important}
+ #homeView .brand-footer-copy a{font-size:14px!important}
+ #homeView .brand-footer-logo{margin-top:20px!important;padding-top:18px!important}
+ #homeView .brand-footer-logo-image{width:min(220px,76vw)!important}
+}
+
 </style>
 
 <style>
