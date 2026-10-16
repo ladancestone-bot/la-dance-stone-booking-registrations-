@@ -10207,4 +10207,82 @@ body::after{
 #rentalView .availability-section .calendar-panel>.calendar-help p:not(#selectionHint){margin:14px 0 0!important;padding:0!important;color:rgba(255,246,234,.84)!important;font:400 12px/1.65 'Montserrat',Arial,sans-serif!important}
 @media(max-width:760px){#rentalView .availability-section .calendar-panel>.calendar-help{margin:38px 0 0!important}#rentalView .availability-section .calendar-panel>.calendar-help .availability-legend{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:9px!important;margin-bottom:17px!important}#rentalView .availability-section .calendar-panel>.calendar-help .availability-legend>span{width:100%!important;min-height:46px!important;padding:10px 15px!important;background:rgba(255,247,235,.12)!important}#rentalView .availability-section .calendar-panel>.calendar-help p#selectionHint{padding:13px 14px!important;font-size:13px!important;line-height:1.6!important}#rentalView .availability-section .calendar-panel>.calendar-help p:not(#selectionHint){font-size:11px!important;line-height:1.6!important}}
 </style>
+<style id="lds-calendar-help-isolated-module-20261017">
+/* Visually separate the legend from the schedule panel without touching calendar grid styles. */
+#rentalView .availability-section .calendar-panel>.calendar-help{
+ display:block!important;position:relative!important;isolation:isolate!important;
+ margin:44px 0 0!important;padding:20px 0 0!important;
+ border:0!important;border-radius:0!important;background:transparent!important;
+ box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+ overflow:visible!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help:before{
+ content:"KALENDORIAUS ŽYMĖJIMAI"!important;display:block!important;
+ width:max-content!important;max-width:100%!important;margin:0 0 18px!important;
+ padding:0!important;color:#fff0dc!important;
+ font:700 11px/1.5 'Montserrat',Arial,sans-serif!important;letter-spacing:.13em!important;
+ text-align:left!important;white-space:normal!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help .availability-legend{
+ display:flex!important;flex-direction:column!important;align-items:stretch!important;
+ gap:10px!important;margin:0 0 20px!important;padding:0!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help .availability-legend>span{
+ display:flex!important;align-items:center!important;justify-content:flex-start!important;
+ width:100%!important;min-width:0!important;min-height:50px!important;box-sizing:border-box!important;
+ padding:11px 16px!important;gap:11px!important;border-radius:15px!important;
+ border:1px solid rgba(255,246,232,.70)!important;
+ background:linear-gradient(120deg,rgba(255,250,241,.18),rgba(255,245,230,.08))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.22)!important;
+ color:#fff5e9!important;font:600 13px/1.4 'Montserrat',Arial,sans-serif!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help .legend-block{
+ display:inline-block!important;flex:0 0 15px!important;width:15px!important;height:15px!important;
+ margin:0!important;border-radius:50%!important;border:1px solid rgba(255,255,255,.95)!important;
+ box-shadow:0 0 0 3px rgba(255,255,255,.14),inset 0 1px 2px rgba(255,255,255,.95)!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help .legend-block.free{
+ background:radial-gradient(circle at 32% 25%,#fffdf8 0%,#f4eadb 48%,#dfcdb9 100%)!important;
+ border-color:#fffaf1!important;box-shadow:0 0 0 3px rgba(255,247,235,.20),inset 0 1px 2px #fff!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help .legend-block.reserved{
+ background:radial-gradient(circle at 32% 25%,#e1a0b7 0%,#ae5577 48%,#762b49 100%)!important;
+ border-color:#f9dce7!important;box-shadow:0 0 0 3px rgba(181,86,121,.20),0 0 10px rgba(208,117,151,.20)!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help .legend-block.chosen{
+ background:radial-gradient(circle at 28% 22%,#fff7d8 0%,#ffdf8a 38%,#e4b64d 72%,#c18c36 100%)!important;
+ border:1px solid #fff2c8!important;box-shadow:0 0 0 4px rgba(255,216,124,.23),0 0 13px rgba(255,208,98,.42),inset 0 1px 2px #fff9e5!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help p#selectionHint{
+ display:block!important;position:relative!important;margin:0!important;padding:15px 16px!important;
+ border:1px solid rgba(246,219,172,.46)!important;border-left:3px solid #e5c17c!important;
+ border-radius:13px!important;background:rgba(255,245,226,.10)!important;box-shadow:none!important;
+ color:#fff6e9!important;font:600 13px/1.65 'Montserrat',Arial,sans-serif!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help p#selectionHint:before,
+#rentalView .availability-section .calendar-panel>.calendar-help p#selectionHint:after{content:none!important;display:none!important}
+#rentalView .availability-section .calendar-panel>.calendar-help p:not(#selectionHint){
+ margin:14px 0 0!important;padding:0!important;color:rgba(255,246,234,.87)!important;
+ font:400 12px/1.7 'Montserrat',Arial,sans-serif!important;
+}
+@media(max-width:760px){
+ #rentalView .availability-section .calendar-panel>.calendar-help{
+  margin:48px 0 0!important;padding:22px 0 0!important;
+  border-top:1px solid rgba(255,239,219,.38)!important;
+ }
+ #rentalView .availability-section .calendar-panel>.calendar-help:before{
+  margin-bottom:16px!important;font-size:10px!important;letter-spacing:.12em!important;
+ }
+ #rentalView .availability-section .calendar-panel>.calendar-help .availability-legend{gap:9px!important;margin-bottom:16px!important}
+ #rentalView .availability-section .calendar-panel>.calendar-help .availability-legend>span{
+  min-height:48px!important;padding:10px 14px!important;border-radius:14px!important;
+  background:rgba(255,247,235,.10)!important;
+ }
+ #rentalView .availability-section .calendar-panel>.calendar-help .legend-block.chosen{
+  box-shadow:0 0 0 4px rgba(255,216,124,.26),0 0 15px rgba(255,208,98,.46),inset 0 1px 2px #fff9e5!important;
+ }
+ #rentalView .availability-section .calendar-panel>.calendar-help p#selectionHint{padding:13px!important;font-size:12px!important;line-height:1.65!important}
+ #rentalView .availability-section .calendar-panel>.calendar-help p:not(#selectionHint){font-size:11px!important;line-height:1.65!important}
+}
+</style>
 </body></html>
