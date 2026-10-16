@@ -3220,6 +3220,109 @@ body::after{
 }
 </style>
 
+<style id="lds-glass-visual-polish">
+/* Design-only polish: preserve all existing HTML structure, dimensions, IDs and JavaScript behavior. */
+:root{
+ --lds-polish-wine:#511d2d;
+ --lds-polish-wine-deep:#35151f;
+ --lds-polish-cream:rgba(255,250,244,.78);
+ --lds-polish-glass:rgba(255,249,242,.58);
+ --lds-polish-edge:rgba(255,255,255,.76);
+ --lds-polish-gold:rgba(196,161,124,.78);
+ --lds-polish-shadow:0 18px 46px rgba(47,27,24,.13);
+}
+body::before{
+ filter:blur(1.5px) saturate(.92) brightness(1.06)!important;
+}
+body::after{
+ background:
+  radial-gradient(ellipse at 50% 18%,rgba(255,239,210,.14),transparent 52%),
+  linear-gradient(180deg,rgba(246,231,215,.17),rgba(64,36,31,.08) 58%,rgba(51,29,28,.18))!important;
+}
+.view:not(#homeView){
+ background:linear-gradient(135deg,rgba(255,249,241,.78),rgba(237,219,202,.68))!important;
+ border-color:rgba(255,255,255,.56)!important;
+}
+.view:not(#homeView) .panel,
+.view:not(#homeView) .calendar-panel,
+.view:not(#homeView) .timetable-panel,
+.view:not(#homeView) .class-registration-panel,
+.view:not(#homeView) .class-detail,
+.view:not(#homeView) .class-confirmation,
+.view:not(#homeView) .class-week-preview,
+.view:not(#homeView) .class-week-scroll,
+.view:not(#homeView) .class-week-calendar-scroll,
+.view:not(#homeView) .calendar-mobile-table,
+.view:not(#homeView) .rental-checkin,
+.view:not(#homeView) .availability-section,
+.view:not(#homeView) .rental-layout>.panel{
+ background:linear-gradient(145deg,rgba(255,252,248,.77),rgba(248,238,226,.57))!important;
+ border:1px solid var(--lds-polish-edge)!important;
+ box-shadow:var(--lds-polish-shadow),inset 0 1px 0 rgba(255,255,255,.82)!important;
+ backdrop-filter:blur(18px) saturate(1.12)!important;
+ -webkit-backdrop-filter:blur(18px) saturate(1.12)!important;
+}
+.view:not(#homeView) .choice,
+.view:not(#homeView) .rental-amenity,
+.view:not(#homeView) .rental-highlights>div,
+.view:not(#homeView) .gallery-card,
+.view:not(#homeView) .price-card,
+.view:not(#homeView) .booking-summary{
+ border-color:rgba(255,255,255,.72)!important;
+ box-shadow:0 12px 30px rgba(49,27,24,.11),inset 0 1px 0 rgba(255,255,255,.7)!important;
+}
+.view:not(#homeView) input:not([type=checkbox]):not([type=radio]),
+.view:not(#homeView) select,
+.view:not(#homeView) textarea{
+ background:rgba(255,253,249,.82)!important;
+ border-color:rgba(181,150,115,.5)!important;
+ box-shadow:inset 0 1px 3px rgba(68,42,32,.035),0 2px 7px rgba(68,42,32,.025)!important;
+}
+.view:not(#homeView) input:focus,
+.view:not(#homeView) select:focus,
+.view:not(#homeView) textarea:focus{
+ outline:2px solid rgba(181,150,85,.42)!important;
+ outline-offset:1px!important;
+ border-color:#b59655!important;
+}
+.view:not(#homeView) button.action,
+.view:not(#homeView) .action{
+ background:linear-gradient(135deg,#682a3b,#481824 68%,#35151f)!important;
+ border:1px solid rgba(255,255,255,.28)!important;
+ box-shadow:0 9px 22px rgba(72,24,36,.22),inset 0 1px 0 rgba(255,255,255,.18)!important;
+ transition:transform .18s ease,box-shadow .18s ease,filter .18s ease!important;
+}
+.view:not(#homeView) button.action:hover,
+.view:not(#homeView) .action:hover{
+ transform:translateY(-1px);
+ box-shadow:0 13px 27px rgba(72,24,36,.27),inset 0 1px 0 rgba(255,255,255,.22)!important;
+ filter:brightness(1.06);
+}
+.view:not(#homeView) .cal-toolbar,
+.view:not(#homeView) .day,
+.view:not(#homeView) .rent-day,
+.view:not(#homeView) .mini-head{
+ background:rgba(250,243,234,.78)!important;
+}
+.view:not(#homeView) .cell,
+.view:not(#homeView) .rent-cell,
+.view:not(#homeView) .mini-cell{
+ background:rgba(255,253,249,.55)!important;
+}
+.view:not(#homeView) .event,
+.view:not(#homeView) .rent-slot,
+.view:not(#homeView) .mini-status{
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 2px 6px rgba(54,32,27,.05);
+}
+.view:not(#homeView) .back,
+.view:not(#homeView) .pill{
+ border-color:rgba(181,150,85,.5)!important;
+}
+@media(prefers-reduced-motion:reduce){
+ .view:not(#homeView) button.action,.view:not(#homeView) .action{transition:none!important}
+}
+</style>
+
 </head>
 <body>
 <main class="wrap">
