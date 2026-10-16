@@ -3636,6 +3636,153 @@ body::after{
  .view:not(#homeView) .rental-layout.booking-open{gap:15px!important;margin:23px 0 30px!important}
 }
 </style>
+
+<style id="lds-glass-table-surface-fix">
+/* Final high-specificity overrides for legacy opaque table backgrounds. CSS only. */
+#timetableView .calendar-panel,
+#timetableView .timetable-panel,
+.view:not(#homeView) .availability-section>.calendar-panel{
+ background:linear-gradient(145deg,rgba(255,249,241,.40),rgba(229,207,188,.22))!important;
+ border:1px solid rgba(255,255,255,.88)!important;
+ border-radius:26px!important;
+ box-shadow:0 22px 48px rgba(46,25,24,.17),inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(95,58,48,.10)!important;
+ backdrop-filter:blur(22px) saturate(1.24)!important;
+ -webkit-backdrop-filter:blur(22px) saturate(1.24)!important;
+ overflow:hidden!important;
+}
+#timetableView .timetable-panel .cal-toolbar,
+.view:not(#homeView) .availability-section>.calendar-panel>.cal-toolbar{
+ background:linear-gradient(135deg,rgba(91,35,53,.94),rgba(54,20,31,.90))!important;
+ border-bottom:1px solid rgba(255,255,255,.35)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 8px 22px rgba(54,20,31,.13)!important;
+}
+#timetableView .timetable-panel .cal-title{color:#fff8f2!important;text-shadow:0 1px 8px rgba(0,0,0,.14)!important}
+#timetableView .timetable-panel .cal-toolbar button,
+.view:not(#homeView) .availability-section>.calendar-panel>.cal-toolbar button{
+ background:linear-gradient(145deg,rgba(255,252,246,.98),rgba(225,205,187,.88))!important;
+ color:#512331!important;border:1px solid rgba(255,255,255,.92)!important;
+ box-shadow:0 6px 15px rgba(32,14,21,.18),inset 0 1px 0 #fff!important;
+}
+#timetableView .timetable-panel .cal-scroll,
+.view:not(#homeView) .availability-section>.calendar-panel>.cal-scroll{
+ background:linear-gradient(145deg,rgba(255,252,247,.20),rgba(223,200,181,.13))!important;
+ border:0!important;
+}
+#timetableView .timetable-panel .calendar{
+ background:linear-gradient(145deg,rgba(255,250,243,.17),rgba(226,204,185,.12))!important;
+}
+#timetableView .timetable-panel .calendar .day{
+ background:linear-gradient(180deg,rgba(255,251,245,.76),rgba(234,216,198,.48))!important;
+ border-color:rgba(255,255,255,.55)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.80),inset 0 -1px 0 rgba(104,71,57,.06)!important;
+}
+#timetableView .timetable-panel .calendar .time{
+ background:linear-gradient(90deg,rgba(230,208,189,.54),rgba(255,249,241,.28))!important;
+ border-color:rgba(255,255,255,.43)!important;color:#765b50!important;
+}
+#timetableView .timetable-panel .calendar .cell{
+ background:rgba(255,250,244,.18)!important;
+ border-color:rgba(255,255,255,.44)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.28)!important;
+}
+#timetableView .timetable-panel .calendar .event{
+ border-radius:10px!important;
+ border:1px solid rgba(255,255,255,.66)!important;
+ box-shadow:0 6px 14px rgba(48,24,29,.14),inset 0 1px 0 rgba(255,255,255,.42),inset 0 -1px 0 rgba(45,18,28,.06)!important;
+ backdrop-filter:blur(8px) saturate(1.18)!important;
+ -webkit-backdrop-filter:blur(8px) saturate(1.18)!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event:not(.gold):not(.plum):not(.pink){
+ background:linear-gradient(145deg,rgba(220,235,216,.89),rgba(177,204,174,.78))!important;
+ color:#2d4b3a!important;border-color:rgba(255,255,255,.82)!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event.gold{
+ background:linear-gradient(145deg,rgba(250,232,204,.94),rgba(211,174,137,.85))!important;
+ color:#67432d!important;border-color:rgba(255,255,255,.82)!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event.plum{
+ background:linear-gradient(145deg,rgba(233,213,232,.94),rgba(185,155,193,.83))!important;
+ color:#4e3153!important;border-color:rgba(255,255,255,.82)!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event.pink{
+ background:linear-gradient(145deg,rgba(120,52,75,.97),rgba(67,23,40,.98))!important;
+ color:#fff8f3!important;border-color:rgba(255,255,255,.42)!important;
+}
+#timetableView .timetable-panel .calendar .event.rental-event{
+ background:linear-gradient(145deg,rgba(255,241,205,.93),rgba(216,187,125,.83))!important;
+ color:#5b4324!important;border-color:rgba(255,255,255,.84)!important;
+}
+#timetableView .timetable-panel .calendar-help{
+ background:linear-gradient(145deg,rgba(255,249,241,.39),rgba(228,207,189,.23))!important;
+ border-top:1px solid rgba(255,255,255,.68)!important;
+}
+.view:not(#homeView) .availability-section>.calendar-panel .cal-scroll{
+ background:transparent!important;
+}
+.view:not(#homeView) .availability-section .rental-calendar{
+ background:transparent!important;
+}
+.view:not(#homeView) .availability-section .rent-cell{
+ background:rgba(255,249,241,.12)!important;
+ border-color:rgba(255,255,255,.38)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.22)!important;
+}
+.view:not(#homeView) .availability-section .rent-time{
+ background:linear-gradient(90deg,rgba(226,203,183,.45),rgba(255,249,241,.22))!important;
+ border-color:rgba(255,255,255,.48)!important;
+}
+.view:not(#homeView) .availability-section .rent-day{
+ background:linear-gradient(180deg,rgba(255,250,243,.70),rgba(229,207,188,.42))!important;
+ border-color:rgba(255,255,255,.55)!important;
+}
+.view:not(#homeView) .availability-section .rent-slot{
+ border-radius:12px!important;
+ background:linear-gradient(145deg,rgba(255,250,239,.88),rgba(221,200,176,.70))!important;
+ border:1px solid rgba(255,255,255,.86)!important;
+ box-shadow:0 6px 15px rgba(54,31,27,.12),inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(102,69,48,.08)!important;
+}
+.view:not(#homeView) .availability-section .rent-slot.busy{
+ background:linear-gradient(145deg,rgba(128,57,79,.98),rgba(62,22,37,.98))!important;
+ color:#fff9f4!important;
+}
+.view:not(#homeView) .availability-section .rent-slot.chosen{
+ background:linear-gradient(145deg,rgba(250,232,184,.97),rgba(207,170,91,.92))!important;
+ color:#4b341c!important;
+}
+#classesView .class-week-preview,
+#classesView .class-week-scroll,
+#classesView .class-week-calendar-scroll{
+ background:linear-gradient(145deg,rgba(255,250,243,.38),rgba(226,204,185,.20))!important;
+ border-color:rgba(255,255,255,.82)!important;
+ box-shadow:0 18px 38px rgba(46,25,24,.12),inset 0 1px 0 rgba(255,255,255,.86)!important;
+ backdrop-filter:blur(18px) saturate(1.18)!important;
+ -webkit-backdrop-filter:blur(18px) saturate(1.18)!important;
+}
+#classesView .class-calendar-grid>div{
+ background:rgba(255,249,241,.22)!important;
+ border-color:rgba(255,255,255,.46)!important;
+}
+#classesView .class-calendar-grid .class-calendar-dayhead,
+#classesView .class-calendar-grid .class-calendar-corner{
+ background:linear-gradient(145deg,rgba(255,250,243,.74),rgba(228,206,188,.48))!important;
+}
+@media(max-width:760px){
+ #timetableView .timetable-panel .calendar-agenda{
+  background:linear-gradient(145deg,rgba(255,250,243,.24),rgba(225,202,182,.16))!important;
+ }
+ #timetableView .timetable-panel .calendar-agenda-heading,
+ #timetableView .timetable-panel .calendar-agenda-event{
+  background:linear-gradient(145deg,rgba(255,250,243,.54),rgba(224,201,181,.34))!important;
+  border:1px solid rgba(255,255,255,.75)!important;
+  box-shadow:0 7px 16px rgba(47,27,24,.10),inset 0 1px 0 rgba(255,255,255,.84)!important;
+ }
+ #timetableView .timetable-panel .cal-scroll{overflow-x:auto!important}
+ .view:not(#homeView) .availability-section>.calendar-panel .cal-scroll{
+  border-radius:17px!important;
+ }
+}
+</style>
+
 </head>
 <body>
 <main class="wrap">
