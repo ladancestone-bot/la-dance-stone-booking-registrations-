@@ -2857,6 +2857,231 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 }
 
 </style>
+<style id="premium-glass-all-views-v2">
+
+/* PREMIUM IMMERSIVE UI — second pass for actual rental, class and timetable components.
+   Design-only overrides; preserve existing markup, IDs, data and behavior. */
+:root{
+ --lds-wine:#511d2d;--lds-wine-deep:#391721;--lds-rose:#9c6270;
+ --lds-champagne:#c4a17c;--lds-ivory:#fbf5ed;--lds-glass:rgba(255,249,243,.66);
+ --lds-glass-line:rgba(255,255,255,.68);--lds-ink:#3c2a24;--lds-muted:#806d61;
+}
+body{background-color:#e9dbcf!important}
+.view:not(#homeView){
+ color:var(--lds-ink)!important;
+ background:linear-gradient(135deg,rgba(249,242,233,.94),rgba(231,215,201,.86))!important;
+}
+.view:not(#homeView) .viewhead h1,.view:not(#homeView) .viewhead h2,
+.view:not(#homeView) h2,.view:not(#homeView) h3{
+ color:var(--lds-wine)!important;
+}
+.view:not(#homeView) .viewhead p,.view:not(#homeView) p{color:var(--lds-muted)}
+.view:not(#homeView) .rental-intro{
+ position:relative!important;padding:clamp(22px,4vw,42px)!important;
+ border:1px solid rgba(255,255,255,.55)!important;border-radius:28px!important;
+ background:linear-gradient(130deg,rgba(255,250,245,.65),rgba(235,216,198,.42))!important;
+ box-shadow:0 20px 54px rgba(62,39,29,.08),inset 0 1px 0 rgba(255,255,255,.8)!important;
+ backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important;
+}
+.view:not(#homeView) .rental-address{
+ background:rgba(255,250,245,.64)!important;border:1px solid rgba(255,255,255,.72)!important;
+ box-shadow:0 8px 24px rgba(57,33,28,.07)!important;color:var(--lds-wine)!important;
+}
+.view:not(#homeView) .rental-title-line{
+ background:linear-gradient(90deg,transparent,var(--lds-champagne),transparent)!important;
+}
+.view:not(#homeView) .rental-amenities{
+ display:grid!important;gap:12px!important;
+}
+.view:not(#homeView) .rental-amenity{
+ min-height:88px!important;padding:16px 12px!important;
+ background:rgba(255,249,243,.62)!important;border:1px solid rgba(255,255,255,.7)!important;
+ border-radius:18px!important;box-shadow:0 8px 24px rgba(60,37,29,.055),inset 0 1px 0 #ffffffb3!important;
+ backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;
+}
+.view:not(#homeView) .rental-amenity-icon{
+ background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(231,211,193,.6))!important;
+ border:1px solid rgba(195,154,112,.35)!important;box-shadow:0 5px 14px rgba(70,42,32,.06)!important;
+}
+.view:not(#homeView) .rental-gallery{gap:18px!important}
+.view:not(#homeView) .gallery-card{
+ overflow:hidden!important;border-radius:24px!important;
+ border:1px solid rgba(255,255,255,.78)!important;
+ box-shadow:0 20px 48px rgba(53,32,25,.15)!important;
+ transform:translateZ(0);
+}
+.view:not(#homeView) .gallery-card img{transition:transform .6s cubic-bezier(.2,.75,.25,1)!important}
+@media(hover:hover){.view:not(#homeView) .gallery-card:hover img{transform:scale(1.035)!important}}
+.view:not(#homeView) .gallery-caption{
+ background:linear-gradient(180deg,rgba(58,34,28,.03),rgba(48,27,25,.78))!important;
+ color:#fff8f0!important;backdrop-filter:blur(10px)!important;-webkit-backdrop-filter:blur(10px)!important;
+}
+.view:not(#homeView) .gallery-caption strong,.view:not(#homeView) .gallery-caption span{color:#fff8f0!important}
+.view:not(#homeView) .rental-checkin,
+.view:not(#homeView) .availability-section,
+.view:not(#homeView) .rental-layout>.panel,
+.view:not(#homeView) .class-registration-panel,
+.view:not(#homeView) .class-detail,
+.view:not(#homeView) .class-confirmation{
+ background:rgba(255,249,243,.68)!important;border:1px solid rgba(255,255,255,.76)!important;
+ border-radius:24px!important;box-shadow:0 18px 48px rgba(57,34,28,.08),inset 0 1px 0 rgba(255,255,255,.8)!important;
+ backdrop-filter:blur(16px) saturate(1.04)!important;-webkit-backdrop-filter:blur(16px) saturate(1.04)!important;
+}
+.view:not(#homeView) .rental-checkin-steps>div{
+ background:rgba(255,255,255,.45)!important;border:1px solid rgba(255,255,255,.7)!important;border-radius:15px!important;
+}
+.view:not(#homeView) .rental-checkin-steps b{
+ background:linear-gradient(145deg,#7b3b4b,#491c2a)!important;color:#fff8f0!important;
+ box-shadow:0 6px 14px rgba(73,28,42,.18)!important;
+}
+/* Calendar shells: use actual selectors present in the existing app */
+.view:not(#homeView) .calendar-panel,
+.view:not(#homeView) .timetable-panel,
+.view:not(#homeView) .class-week-preview,
+.view:not(#homeView) .class-calendar-grid,
+.view:not(#homeView) .class-week-scroll,
+.view:not(#homeView) .class-week-calendar-scroll,
+.view:not(#homeView) .calendar-mobile-table{
+ background:rgba(255,249,243,.72)!important;border:1px solid rgba(255,255,255,.78)!important;
+ border-radius:22px!important;box-shadow:0 18px 44px rgba(60,36,28,.075),inset 0 1px 0 rgba(255,255,255,.85)!important;
+}
+.view:not(#homeView) .cal-toolbar,
+.view:not(#homeView) .class-date-toolbar,
+.view:not(#homeView) .class-week-heading{
+ background:linear-gradient(120deg,rgba(244,231,216,.88),rgba(255,251,246,.7))!important;
+ border-color:rgba(255,255,255,.72)!important;
+}
+.view:not(#homeView) .cal-title,
+.view:not(#homeView) .class-week-heading,
+.view:not(#homeView) .class-calendar-dayhead{
+ color:var(--lds-wine)!important;
+}
+.view:not(#homeView) .cal-toolbar button,
+.view:not(#homeView) .class-date-toolbar button,
+.view:not(#homeView) .calendar-day-tab,
+.view:not(#homeView) .class-date-option{
+ border:1px solid rgba(195,154,112,.32)!important;border-radius:13px!important;
+ background:rgba(255,250,245,.82)!important;color:var(--lds-wine)!important;
+ box-shadow:0 4px 12px rgba(60,36,28,.055)!important;
+}
+.view:not(#homeView) .cal-toolbar button:hover,
+.view:not(#homeView) .class-date-toolbar button:hover,
+.view:not(#homeView) .calendar-day-tab:hover,
+.view:not(#homeView) .class-date-option:hover{background:#fff!important;transform:translateY(-1px)}
+.view:not(#homeView) .rent-day,
+.view:not(#homeView) .class-calendar-dayhead,
+.view:not(#homeView) .day{
+ background:rgba(234,215,197,.48)!important;border-color:rgba(255,255,255,.72)!important;color:#6f574b!important;
+}
+.view:not(#homeView) .rent-cell,
+.view:not(#homeView) .class-calendar-slot,
+.view:not(#homeView) .class-calendar-time,
+.view:not(#homeView) .time,
+.view:not(#homeView) .cell{
+ border-color:rgba(190,157,128,.17)!important;
+}
+.view:not(#homeView) .rent-cell.free,
+.view:not(#homeView) .rent-cell.available{
+ background:rgba(221,234,218,.58)!important;
+}
+.view:not(#homeView) .rent-cell.reserved{
+ background:rgba(111,53,67,.12)!important;
+}
+.view:not(#homeView) .rent-cell.selected,
+.view:not(#homeView) .rent-cell.chosen{
+ background:rgba(196,161,124,.35)!important;box-shadow:inset 0 0 0 2px rgba(160,116,77,.5)!important;
+}
+.view:not(#homeView) .event,
+.view:not(#homeView) .mobile-event,
+.view:not(#homeView) .class-option,
+.view:not(#homeView) .class-group-choice,
+.view:not(#homeView) .class-schedule-row{
+ border-radius:13px!important;box-shadow:0 6px 16px rgba(58,34,28,.08)!important;
+}
+.view:not(#homeView) .calendar-help,
+.view:not(#homeView) .calendar-mobile-empty,
+.view:not(#homeView) .class-week-note,
+.view:not(#homeView) .class-single-note{
+ background:rgba(244,232,219,.48)!important;border-top:1px solid rgba(255,255,255,.7)!important;
+ color:var(--lds-muted)!important;
+}
+.view:not(#homeView) .timetable-legend,
+.view:not(#homeView) .availability-legend{color:var(--lds-muted)!important}
+.view:not(#homeView) .timetable-legend span,
+.view:not(#homeView) .availability-legend span{gap:8px!important}
+.view:not(#homeView) .pill{
+ border-radius:999px!important;background:rgba(255,250,245,.78)!important;
+ border:1px solid rgba(195,154,112,.36)!important;color:var(--lds-wine)!important;
+}
+.view:not(#homeView) .fields label,
+.view:not(#homeView) .duration-label{color:#6d5548!important;font-weight:600!important}
+.view:not(#homeView) .fields input,
+.view:not(#homeView) .fields select,
+.view:not(#homeView) .fields textarea,
+.view:not(#homeView) input:not([type=checkbox]):not([type=radio]):not([type=submit]),
+.view:not(#homeView) select,
+.view:not(#homeView) textarea{
+ min-height:46px!important;background:rgba(255,253,249,.84)!important;
+ border:1px solid rgba(190,151,115,.36)!important;border-radius:13px!important;
+ box-shadow:inset 0 1px 2px rgba(65,40,30,.025)!important;color:#3c2a24!important;
+}
+.view:not(#homeView) input:focus,
+.view:not(#homeView) select:focus,
+.view:not(#homeView) textarea:focus{
+ border-color:rgba(132,74,83,.72)!important;box-shadow:0 0 0 3px rgba(132,74,83,.11)!important;
+}
+.view:not(#homeView) .duration-stepper{
+ background:rgba(245,232,218,.62)!important;border:1px solid rgba(255,255,255,.8)!important;border-radius:15px!important;
+}
+.view:not(#homeView) .duration-stepper button{
+ background:linear-gradient(145deg,#793b4c,#4a1b2a)!important;color:#fff8f0!important;border-radius:11px!important;
+}
+.view:not(#homeView) .booking-summary{
+ background:linear-gradient(135deg,rgba(255,249,242,.88),rgba(239,221,203,.68))!important;
+ border:1px solid rgba(255,255,255,.8)!important;border-radius:17px!important;
+}
+.view:not(#homeView) .action{
+ background:linear-gradient(135deg,#78394b,#481a29)!important;color:#fff8f0!important;
+ border:1px solid rgba(255,237,215,.22)!important;
+ box-shadow:0 10px 24px rgba(72,26,41,.2),inset 0 1px 0 rgba(255,255,255,.16)!important;
+}
+.view:not(#homeView) .action:hover{transform:translateY(-2px)!important;box-shadow:0 14px 30px rgba(72,26,41,.26)!important}
+.view:not(#homeView) .closing-notice{
+ background:linear-gradient(120deg,rgba(248,237,221,.9),rgba(255,250,244,.72))!important;
+ border:1px solid rgba(195,154,112,.3)!important;border-radius:18px!important;
+}
+.view:not(#homeView) .closing-notice-mark{color:#9a6d4c!important}
+.view:not(#homeView) .class-option-cards .class-option,
+.view:not(#homeView) .class-date-list .class-date-option{
+ background:rgba(255,250,245,.72)!important;border:1px solid rgba(255,255,255,.76)!important;
+ box-shadow:0 8px 20px rgba(60,36,28,.055)!important;
+}
+.view:not(#homeView) .class-option.selected,
+.view:not(#homeView) .class-date-option.selected,
+.view:not(#homeView) .calendar-day-tab.active{
+ background:linear-gradient(135deg,rgba(109,49,66,.96),rgba(71,27,42,.96))!important;
+ color:#fff7ed!important;border-color:rgba(255,236,211,.55)!important;
+}
+.view:not(#homeView) .class-option.selected *,
+.view:not(#homeView) .class-date-option.selected *{color:inherit!important}
+@media(max-width:760px){
+ .view:not(#homeView) .rental-intro{padding:22px 18px!important;border-radius:22px!important}
+ .view:not(#homeView) .rental-amenity{min-height:76px!important;padding:12px 9px!important;border-radius:15px!important}
+ .view:not(#homeView) .rental-checkin,.view:not(#homeView) .availability-section,
+ .view:not(#homeView) .rental-layout>.panel,.view:not(#homeView) .class-registration-panel{
+  border-radius:19px!important;
+ }
+ .view:not(#homeView) .calendar-panel,.view:not(#homeView) .timetable-panel,
+ .view:not(#homeView) .class-week-preview,.view:not(#homeView) .class-calendar-grid{
+  border-radius:17px!important;
+ }
+ .view:not(#homeView) .fields input,.view:not(#homeView) .fields select{font-size:16px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .view:not(#homeView) .gallery-card img{transition:none!important}
+}
+
+</style>
 </head>
 <body>
 <main class="wrap">
