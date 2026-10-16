@@ -5338,5 +5338,78 @@ body::after{background:linear-gradient(145deg,rgba(39,22,25,.22),rgba(55,32,31,.
 }
 </style>
 
+
+<style id="lds-rental-pill-only-polish">
+/* Clean rental availability into floating glass pills; remove the underlying square grid. */
+#rentalView .availability-section>.calendar-panel>.cal-scroll{
+ overflow-x:hidden!important;overflow-y:auto!important;
+ background:transparent!important;border:0!important;
+}
+#rentalView .availability-section .rental-calendar{
+ background:transparent!important;gap:0!important;
+ border-collapse:separate!important;
+}
+#rentalView .availability-section .rent-time{
+ color:#fff8f1!important;font-size:12px!important;font-weight:800!important;
+ text-shadow:0 1px 5px rgba(24,12,18,.55)!important;
+ background:linear-gradient(90deg,rgba(58,38,41,.82),rgba(78,53,53,.68))!important;
+ border:0!important;border-bottom:1px solid rgba(255,255,255,.10)!important;
+}
+#rentalView .availability-section .rent-cell{
+ background:transparent!important;border:0!important;
+ box-shadow:none!important;padding:3px 2px!important;
+}
+#rentalView .availability-section .rent-day{
+ background:transparent!important;border:0!important;box-shadow:none!important;
+}
+#rentalView .availability-section .rent-day button{
+ color:#fff6ed!important;text-shadow:0 1px 5px rgba(28,14,20,.55)!important;
+}
+#rentalView .availability-section .rent-day button strong{
+ color:#fff8f1!important;text-shadow:0 1px 5px rgba(28,14,20,.55)!important;
+}
+#rentalView .availability-section .rent-slot{
+ position:relative!important;
+ border-radius:999px!important;
+ border:1px solid rgba(255,255,255,.78)!important;
+ box-shadow:0 5px 12px rgba(28,13,19,.16),inset 0 1px 0 rgba(255,255,255,.75),inset 0 -5px 12px rgba(65,40,38,.10)!important;
+ backdrop-filter:blur(16px) saturate(1.25)!important;-webkit-backdrop-filter:blur(16px) saturate(1.25)!important;
+ transform:translateZ(0);
+}
+#rentalView .availability-section .rent-slot:not(.busy):not(.chosen){
+ background:linear-gradient(145deg,rgba(255,249,239,.92),rgba(208,184,164,.88))!important;
+ color:#4c3031!important;
+}
+#rentalView .availability-section .rent-slot.busy{
+ background:linear-gradient(145deg,rgba(131,49,76,.97),rgba(67,22,42,.98))!important;
+ color:#fffaf6!important;border-color:rgba(255,232,237,.84)!important;
+ box-shadow:0 5px 13px rgba(42,13,27,.22),inset 0 1px 0 rgba(255,255,255,.42),inset 0 -5px 12px rgba(24,8,16,.16)!important;
+}
+#rentalView .availability-section .rent-slot.chosen{
+ background:linear-gradient(145deg,rgba(255,238,190,.99),rgba(208,166,83,.97))!important;
+ color:#452b17!important;border-color:rgba(255,255,255,.95)!important;
+}
+#rentalView .availability-section .rent-slot strong{
+ font-size:clamp(8px,2vw,11px)!important;font-weight:850!important;line-height:1.12!important;
+ letter-spacing:0!important;
+}
+#rentalView .availability-section .rent-slot small{
+ font-size:clamp(7px,1.7vw,9px)!important;line-height:1.15!important;
+ color:inherit!important;opacity:.95!important;letter-spacing:0!important;
+}
+#rentalView .availability-section .calendar-help{
+ background:linear-gradient(145deg,rgba(91,65,62,.66),rgba(51,34,38,.62))!important;
+ border:1px solid rgba(255,248,239,.55)!important;border-radius:22px!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.32),0 14px 32px rgba(24,12,17,.16)!important;
+}
+@media(max-width:760px){
+ #rentalView .availability-section .rent-time{font-size:10px!important;padding:4px 1px!important}
+ #rentalView .availability-section .rent-cell{padding:3px 1px!important}
+ #rentalView .availability-section .rent-slot{min-height:35px!important;border-radius:999px!important}
+ #rentalView .availability-section .rent-slot strong{font-size:clamp(6px,1.8vw,8px)!important}
+ #rentalView .availability-section .rent-slot small{font-size:clamp(5px,1.45vw,7px)!important}
+}
+</style>
+
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
 </body></html>
