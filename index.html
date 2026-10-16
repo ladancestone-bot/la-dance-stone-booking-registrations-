@@ -10539,4 +10539,27 @@ body::after{
  content:none!important;display:none!important;background:none!important;box-shadow:none!important;
 }
 </style>
+<style id="lds-rental-icon-backplate-removal-20261017">
+/* Remove the square blurred GLASS BACKPLATES on each amenity item.
+   Keep the circular icon itself glossy; remove blur from its rectangular parent. */
+#rentalView .rental-intro .rental-amenities,
+#rentalView .rental-intro .rental-amenities > .rental-amenity,
+#rentalView .rental-intro .rental-amenities > .rental-amenity:not(:has(> .rental-amenity-icon)),
+#rentalView .rental-intro .rental-amenities > .rental-amenity::before,
+#rentalView .rental-intro .rental-amenities > .rental-amenity::after,
+#rentalView .rental-intro .rental-amenities > .rental-amenity > span:not(.rental-amenity-icon),
+#rentalView .rental-intro .rental-amenities > .rental-amenity > span:not(.rental-amenity-icon)::before,
+#rentalView .rental-intro .rental-amenities > .rental-amenity > span:not(.rental-amenity-icon)::after{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ box-shadow:none!important;filter:none!important;-webkit-filter:none!important;
+ backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+ border:0!important;outline:0!important;
+}
+#rentalView .rental-intro .rental-amenities > .rental-amenity{
+ isolation:auto!important;transform:none!important;
+}
+#rentalView .rental-intro .rental-amenities > .rental-amenity > .rental-amenity-icon{
+ backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+</style>
 </body></html>
