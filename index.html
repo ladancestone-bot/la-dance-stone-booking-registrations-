@@ -3979,7 +3979,7 @@ body::after{
   <div class="rental-checkin-title"><span class="rental-checkin-phone" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="14" cy="25" r="5"/><path d="m18 21 11-11 5 5-11 11M25 14l4 4"/></svg></span><div><h3>Self check-in</h3><em>Nuoma vyksta Airbnb principu</em></div></div>
   <div class="rental-checkin-steps"><div><b>1</b><span>Užsiregistruojate ir pasirenkate laiką</span></div><div><b>2</b><span>Atliekate mokėjimą</span></div><div><b>3</b><span>Gaunate atvykimo informaciją</span></div><div><b>4</b><span>Atvykstate į studiją</span></div></div>
 </section>
-<section class="availability-section"><div class="availability-heading"><div><div class="eyebrow">Interaktyvus užimtumo vaizdas</div><h2>Laisvų valandų <span class="availability-heading-accent">kalendorius.</span></h2><p>Paspauskite ant dienos arba laisvos valandos. Pasirinktas laikotarpis bus pažymėtas vientisai — nereikia rezervuoti kiekvienos valandos atskirai.</p></div><span class="pill">Atnaujinamas realus užimtumas</span></div><div class="closing-notice"><span class="closing-notice-mark clock-mark" aria-hidden="true">◷</span><div><strong>Malonus priminimas prieš rezervuojant</strong><p><span class="notice-line">Pastatas automatiškai užrakinamas <span class="notice-time">22.00&nbsp;val.</span></span><span class="notice-line">Paskutinis rezervuojamas laikotarpis – <span class="notice-time">21.00–21.45&nbsp;val.</span></span><span class="notice-line">Šis 45 minučių laikotarpis kainuoja tiek pat, kiek viena valanda.</span><span class="notice-line">Prašome pasilikti pakankamai laiko susitvarkyti ir išeiti iš pastato iki <span class="notice-time">22.00&nbsp;val.</span></span></p></div></div>
+<section class="availability-section"><div class="availability-heading"><div><div class="eyebrow">Interaktyvus užimtumo vaizdas</div><h2>Laisvų valandų <span class="availability-heading-accent">kalendorius.</span></h2><p>Paspauskite ant dienos arba laisvos valandos. Pasirinktas laikotarpis bus pažymėtas vientisai — nereikia rezervuoti kiekvienos valandos atskirai.</p></div><span class="pill">Atnaujinamas realus užimtumas</span></div><div class="rental-reminder-simple"><span class="closing-notice-mark clock-mark" aria-hidden="true">◷</span><div><strong>Malonus priminimas prieš rezervuojant</strong><p><span class="notice-line">Pastatas automatiškai užrakinamas <span class="notice-time">22.00&nbsp;val.</span></span><span class="notice-line">Paskutinis rezervuojamas laikotarpis – <span class="notice-time">21.00–21.45&nbsp;val.</span></span><span class="notice-line">Šis 45 minučių laikotarpis kainuoja tiek pat, kiek viena valanda.</span><span class="notice-line">Prašome pasilikti pakankamai laiko susitvarkyti ir išeiti iš pastato iki <span class="notice-time">22.00&nbsp;val.</span></span></p></div></div>
 <div class="calendar-panel"><div class="cal-toolbar"><button id="prevRentWeek" aria-label="Ankstesnė savaitė">‹</button><div class="cal-title" id="rentWeekLabel">2026 m. spalio 12–18 d.</div><button id="nextRentWeek" aria-label="Kita savaitė">›</button></div><div class="cal-scroll"><div id="rentalCalendar" class="rental-calendar"></div></div><div class="calendar-help"><div class="availability-legend"><span><i class="legend-block free"></i>Laisva</span><span><i class="legend-block reserved"></i>Užimta</span><span><i class="legend-block chosen"></i>Jūsų pasirinkimas</span></div><p id="selectionHint">Pasirinktas laikas bus parodytas lentelėje kaip vienas ištisinis intervalas.</p><p>Pažymėjimai yra demonstraciniai. Tikras studijos užimtumas bus rodomas prijungus rezervacijų duomenų bazę.</p></div></div></section>
 <div class="rental-layout" id="rentalBooking">
 <div class="panel booking-panel"><div class="eyebrow">Pasirinkite laiką</div><h3>Rezervuokite visą savo laiką vienu kartu.</h3><p>Pasirinkite dieną ir pradžios laiką, tada nurodykite, kiek valandų norite rezervuoti. Lentelėje iš karto matysite vientisą pasirinkto laiko intervalą.</p>
@@ -9900,17 +9900,9 @@ body::after{
 
 
 
-
-
-
-
-
-
-
-
 <style id="lds-rental-reminder-clean-single-source-20261017">
 /* One source of truth for the rental reminder card. */
-#rentalView .availability-section > .closing-notice:not(.closing-notice-compact){
+#rentalView .availability-section > .rental-reminder-simple{
  display:block!important;position:relative!important;float:none!important;clear:both!important;
  width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;min-height:0!important;
  box-sizing:border-box!important;overflow:visible!important;isolation:isolate!important;
@@ -9921,35 +9913,35 @@ body::after{
  box-shadow:0 10px 26px rgba(45,24,26,.14),inset 0 1px 0 rgba(255,247,233,.22)!important;
  color:#fff8f0!important;
 }
-#rentalView .availability-section > .closing-notice:not(.closing-notice-compact) *{
+#rentalView .availability-section > .rental-reminder-simple *{
  box-sizing:border-box!important;writing-mode:horizontal-tb!important;direction:ltr!important;
  text-orientation:mixed!important;letter-spacing:normal!important;transform:none!important;
 }
-#rentalView .availability-section > .closing-notice:not(.closing-notice-compact) .closing-notice-mark{
+#rentalView .availability-section > .rental-reminder-simple .closing-notice-mark{
  display:grid!important;position:static!important;float:none!important;
  width:44px!important;height:44px!important;margin:0 auto 12px!important;padding:0!important;
  border-radius:50%!important;border:1px solid #e5c7a4!important;
  background:rgba(255,247,235,.10)!important;color:#f8e0b7!important;
  font-size:25px!important;line-height:1!important;
 }
-#rentalView .availability-section > .closing-notice:not(.closing-notice-compact) > div{
+#rentalView .availability-section > .rental-reminder-simple > div{
  display:block!important;position:static!important;float:none!important;
  width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;
 }
-#rentalView .availability-section > .closing-notice:not(.closing-notice-compact) strong{
+#rentalView .availability-section > .rental-reminder-simple strong{
  display:block!important;position:static!important;float:none!important;
  width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;
  margin:0 0 16px!important;padding:0!important;text-align:center!important;
  color:#fff0d7!important;font:600 26px/1.2 'Cormorant Garamond',Georgia,serif!important;
  white-space:normal!important;overflow-wrap:normal!important;word-break:normal!important;
 }
-#rentalView .availability-section > .closing-notice:not(.closing-notice-compact) p{
+#rentalView .availability-section > .rental-reminder-simple p{
  display:grid!important;position:static!important;float:none!important;clear:both!important;
  grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:stretch!important;
  gap:9px!important;width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;
  margin:0!important;padding:0!important;
 }
-#rentalView .availability-section > .closing-notice:not(.closing-notice-compact) .notice-line{
+#rentalView .availability-section > .rental-reminder-simple .notice-line{
  display:block!important;position:relative!important;float:none!important;clear:none!important;
  width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;min-height:0!important;
  margin:0!important;padding:12px!important;overflow:visible!important;
@@ -9958,28 +9950,28 @@ body::after{
  border:1px solid rgba(255,239,220,.30)!important;border-radius:12px!important;
  background:rgba(255,248,237,.08)!important;box-shadow:none!important;
 }
-#rentalView .availability-section > .closing-notice:not(.closing-notice-compact) .notice-line::before,
-#rentalView .availability-section > .closing-notice:not(.closing-notice-compact) .notice-line::after{
+#rentalView .availability-section > .rental-reminder-simple .notice-line::before,
+#rentalView .availability-section > .rental-reminder-simple .notice-line::after{
  content:none!important;display:none!important;position:static!important;float:none!important;
 }
-#rentalView .availability-section > .closing-notice:not(.closing-notice-compact) .notice-time{
+#rentalView .availability-section > .rental-reminder-simple .notice-time{
  display:inline!important;position:static!important;float:none!important;width:auto!important;height:auto!important;
  margin:0!important;padding:0!important;white-space:nowrap!important;color:#f5d9a5!important;font-weight:700!important;
 }
 @media(max-width:760px){
- #rentalView .availability-section > .closing-notice:not(.closing-notice-compact){
+ #rentalView .availability-section > .rental-reminder-simple{
   padding:16px 12px!important;margin:20px 0 26px!important;
  }
- #rentalView .availability-section > .closing-notice:not(.closing-notice-compact) strong{
+ #rentalView .availability-section > .rental-reminder-simple strong{
   font-size:23px!important;line-height:1.2!important;margin-bottom:13px!important;
  }
- #rentalView .availability-section > .closing-notice:not(.closing-notice-compact) p{
+ #rentalView .availability-section > .rental-reminder-simple p{
   display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:8px!important;
  }
- #rentalView .availability-section > .closing-notice:not(.closing-notice-compact) .notice-line{
+ #rentalView .availability-section > .rental-reminder-simple .notice-line{
   display:block!important;width:100%!important;padding:11px!important;font-size:13px!important;line-height:1.5!important;
  }
 }
-</style>
+</style></style>
 
 </body></html>
