@@ -1449,6 +1449,56 @@ html,body{margin:0 !important;padding:0 !important;width:100% !important;max-wid
 
 #rentalView .closing-notice-compact[hidden]{display:none!important}
 
+
+/* Size-only refinement: keep the established palette, layout style, and all booking behavior unchanged. */
+@media(min-width:761px){
+  #rentalView .rental-hero h2{font-size:clamp(44px,5.5vw,64px)!important}
+  #rentalView .rental-subtitle{font-size:clamp(23px,3vw,31px)!important}
+  #rentalView .rental-description{font-size:15px!important;line-height:1.5!important;margin-bottom:18px!important}
+  #rentalView .rental-amenities{gap:6px!important;margin-bottom:18px!important}
+  #rentalView .rental-amenity-icon{width:64px!important;height:64px!important}
+  #rentalView .rental-checkin{padding:17px 20px!important;gap:18px!important;margin:16px 0 24px!important}
+  #rentalView .rental-checkin h3{font-size:32px!important}
+  #rentalView .rental-checkin-steps{gap:7px!important}
+  #rentalView .rental-gallery{margin:12px 0 14px!important;gap:10px!important}
+  #rentalView .gallery-card>img{height:150px!important}
+  #rentalView .gallery-caption{padding:9px 11px!important}
+  #rentalView .rental-highlights{margin:10px 0 14px!important}
+  #rentalView .rental-highlights>div{padding:8px 10px!important}
+  #rentalView .rental-layout{gap:10px!important;margin-top:8px!important;margin-bottom:16px!important}
+  #rentalView .booking-panel,#rentalView .price-card{padding:14px!important}
+  #rentalView .panel h3{font-size:23px!important}
+  #rentalView .panel p{font-size:11px!important;line-height:1.45!important}
+  #rentalView .fields{gap:8px!important;margin-top:11px!important}
+  #rentalView .fields input,#rentalView .fields select,#rentalView .email-label input{padding:9px!important;font-size:12px!important}
+  #rentalView .action{padding:10px 14px!important;margin-top:11px!important}
+  #rentalView .price-card h3{font-size:24px!important}
+  #rentalView .price-card .amount{font-size:32px!important}
+  #rentalView .availability-section{margin-top:16px!important}
+  #rentalView .availability-heading h2{font-size:32px!important}
+  #rentalView .availability-heading p{font-size:11px!important}
+  #rentalView .rental-calendar{grid-template-columns:43px repeat(7,minmax(0,1fr))!important;min-width:0!important}
+  #rentalView .rent-day{padding:6px 2px!important}
+  #rentalView .rent-day button{font-size:9px!important}
+  #rentalView .rent-day button strong{font-size:17px!important;margin-top:2px!important}
+  #rentalView .rent-time{height:39px!important;min-height:39px!important;padding:5px 2px!important;font-size:8px!important}
+  #rentalView .rent-cell{height:39px!important;min-height:39px!important;padding:1px!important}
+  #rentalView .rent-slot{padding:3px 2px!important;gap:1px!important;font-size:8px!important;line-height:1.1!important}
+  #rentalView .rent-slot strong,#rentalView .rent-slot small{font-size:8px!important}
+  #rentalView .calendar-help{padding:8px 11px!important;font-size:10px!important}
+}
+@media(max-width:760px){
+  #rentalView .rental-hero h2{font-size:clamp(40px,9.5vw,56px)!important;line-height:1!important}
+  #rentalView .rental-subtitle{font-size:clamp(22px,5.5vw,30px)!important}
+  #rentalView .rental-description{font-size:14px!important;line-height:1.5!important;margin-bottom:18px!important}
+  #rentalView .rental-checkin{padding:17px!important;gap:16px!important;margin:18px 0 25px!important}
+  #rentalView .rental-checkin h3{font-size:29px!important}
+  #rentalView .availability-heading h2{font-size:clamp(31px,8vw,39px)!important;line-height:1.04!important}
+  #rentalView .availability-heading p{font-size:13px!important;line-height:1.5!important}
+  #rentalView .rent-time{font-size:8px!important}
+  #rentalView .rent-slot{font-size:7px!important}
+}
+
 </style>
 
 <style>
