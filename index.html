@@ -1827,6 +1827,39 @@ html,body{margin:0 !important;padding:0 !important;width:100% !important;max-wid
  #homeView .choice.is-side{transform:perspective(900px) rotateY(var(--side-rotate,0deg)) scale(.95)!important}
 }
 
+
+/* Approved mockup refinement: brighter amber atmosphere and true scroll-driven 3D arch carousel */
+#homeView::before{filter:blur(5px) brightness(.9) saturate(1.08)!important;transform:scale(1.045)!important}
+#homeView::after{background:linear-gradient(180deg,rgba(49,29,22,.08),rgba(57,29,27,.02) 42%,rgba(29,15,15,.26))!important}
+#homeView .choices{perspective:1150px!important;perspective-origin:50% 48%!important;transform-style:preserve-3d!important}
+#homeView .choice{
+  --card-rotate:0deg;--card-scale:1;--card-lift:0px;
+  transform:perspective(1000px) rotateY(var(--card-rotate)) translateY(var(--card-lift)) scale(var(--card-scale))!important;
+  transform-origin:50% 55%!important;
+  background:linear-gradient(145deg,rgba(124,20,48,.52),rgba(72,16,34,.62) 54%,rgba(43,20,27,.72))!important;
+  border:1px solid rgba(255,229,190,.98)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 0 0 2px rgba(255,239,214,.2),inset 0 -30px 48px rgba(255,190,124,.13),0 0 0 1px rgba(255,215,164,.4),0 18px 38px rgba(20,8,10,.34),0 0 30px rgba(255,187,117,.4)!important;
+  backdrop-filter:blur(16px) saturate(1.18)!important;-webkit-backdrop-filter:blur(16px) saturate(1.18)!important;
+  transition:transform .16s ease-out,box-shadow .25s ease,filter .25s ease!important;
+  will-change:transform;
+}
+#homeView .choice::before{inset:8px!important;border:1px solid rgba(255,238,209,.7)!important;box-shadow:inset 0 0 25px rgba(255,218,171,.12),0 0 18px rgba(255,208,155,.2)!important}
+#homeView .choice::after{background:linear-gradient(112deg,rgba(255,255,255,.25),rgba(255,255,255,.06) 22%,transparent 45%,transparent 66%,rgba(255,222,179,.18))!important}
+#homeView .choice[data-view="rental"]{
+ background:linear-gradient(145deg,rgba(235,198,155,.55),rgba(171,120,83,.55) 45%,rgba(77,48,36,.72))!important;
+ border-color:rgba(255,237,207,.98)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.94),inset 0 0 0 2px rgba(255,244,224,.25),inset 0 -28px 48px rgba(255,202,137,.2),0 0 0 1px rgba(255,223,181,.48),0 18px 42px rgba(20,8,10,.36),0 0 36px rgba(255,192,119,.5)!important
+}
+#homeView .choice .num{color:#ffe5b7!important}
+#homeView .choice .home-icon{border-color:rgba(255,236,204,.95)!important;box-shadow:0 0 22px rgba(255,210,159,.22)!important}
+#homeView .choice .arrow{border-color:rgba(255,236,204,.95)!important;box-shadow:0 0 18px rgba(255,210,159,.2)!important}
+#homeView .choice.is-center{box-shadow:inset 0 1px 0 rgba(255,255,255,.96),inset 0 0 0 2px rgba(255,244,224,.26),0 0 0 1px rgba(255,223,181,.52),0 25px 50px rgba(20,8,10,.42),0 0 42px rgba(255,192,119,.55)!important}
+@media(max-width:760px){
+ #homeView .choices{padding-inline:16vw!important;scroll-padding-inline:16vw!important;gap:14px!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important}
+ #homeView .choice{flex:0 0 min(72vw,300px)!important;width:min(72vw,300px)!important;min-width:0!important;min-height:365px!important;scroll-snap-align:center!important}
+}
+@media(prefers-reduced-motion:reduce){#homeView .choice{transition:none!important}}
+
 </style>
 
 <style>
@@ -3146,6 +3179,42 @@ function renderCalendar(){
 }
 function openClassEvent(el){const e=events[Number(el.dataset.classEvent)];if(!e||e.kind!=='class'||!groups[e.group])return;classReturnView='timetable';showView('classes');showClassDetail(e.group);$('classGroup').value=String(e.option);document.querySelector('input[name="classBookingType"][value="group"]').checked=true;$('classGroupLabel').style.display=e.group==='adult'?'none':'';$('classSingleNote').style.display='none';$('classPaymentNote').style.display='none';$('classToast').classList.remove('show');const back=$('classBack');back.innerHTML='<span>←</span>Grįžti į tvarkaraštį';$('classDetail').scrollIntoView({behavior:'smooth',block:'start'})}
 $('prevWeek').onclick=()=>{week.setDate(week.getDate()-7);renderCalendar()};$('nextWeek').onclick=()=>{week.setDate(week.getDate()+7);renderCalendar()};loadLiveTimetable();
+
+/* Scroll-driven 3D carousel, isolated to the landing-page choice cards. */
+(function(){
+ const root=document.getElementById('homeView');
+ if(!root)return;
+ const rail=root.querySelector('.choices');
+ if(!rail)return;
+ const cards=Array.from(rail.querySelectorAll('.choice'));
+ if(cards.length<2)return;
+ let queued=false;
+ function update(){
+   queued=false;
+   const mobile=window.matchMedia('(max-width:760px)').matches;
+   const rr=rail.getBoundingClientRect();
+   const center=mobile?rr.left+rr.width/2:window.innerWidth/2;
+   cards.forEach(card=>{
+     const cr=card.getBoundingClientRect();
+     const delta=(cr.left+cr.width/2)-center;
+     const ratio=Math.max(-1.4,Math.min(1.4,delta/Math.max(1,cr.width)));
+     const abs=Math.min(1,Math.abs(ratio));
+     card.classList.toggle('is-center',Math.abs(delta)<cr.width*.34);
+     card.classList.toggle('is-side',Math.abs(delta)>=cr.width*.34);
+     card.style.setProperty('--card-rotate',mobile?(-ratio*13)+'deg':'0deg');
+     card.style.setProperty('--card-scale',(1-abs*.075).toFixed(3));
+     card.style.setProperty('--card-lift',(Math.abs(delta)<cr.width*.34?-7:abs*5)+'px');
+     card.style.zIndex=String(10-Math.round(abs*5));
+     card.style.filter='brightness('+(1-abs*.055).toFixed(3)+')';
+   });
+ }
+ function requestUpdate(){if(!queued){queued=true;window.requestAnimationFrame(update)}}
+ rail.addEventListener('scroll',requestUpdate,{passive:true});
+ window.addEventListener('resize',requestUpdate,{passive:true});
+ if('ResizeObserver' in window)new ResizeObserver(requestUpdate).observe(rail);
+ update();
+})();
+
 </script>
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
 </body></html>
