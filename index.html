@@ -1747,6 +1747,65 @@ button svg,a svg,.iconbox svg,.home-icon svg,.rental-amenity-icon svg{display:bl
     border-radius:0!important;transform:none!important;left:auto!important;
   }
 }
+
+/* Footer layout correction: stack studio logo below the contact text on desktop too. */
+.brand-footer{
+  margin-bottom:0!important;
+  border-radius:0!important;
+}
+.brand-footer-main{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:flex-start!important;
+  gap:14px!important;
+  padding-top:22px!important;
+  padding-bottom:22px!important;
+}
+.brand-footer-copy{width:100%!important;max-width:100%!important}
+.brand-footer-logo{
+  width:100%!important;
+  max-width:100%!important;
+  display:flex!important;
+  justify-content:flex-start!important;
+  align-items:flex-start!important;
+  margin:0!important;
+}
+.brand-footer-logo-image{
+  display:block!important;
+  width:145px!important;
+  max-width:145px!important;
+  max-height:68px!important;
+  height:auto!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+}
+@media(min-width:761px){
+  /* Match the mobile footer order: contacts first, logo underneath. */
+  .brand-footer-main{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    gap:12px!important;
+    padding:20px 28px 22px!important;
+  }
+  .brand-footer-copy p{margin:4px 0!important}
+  .brand-footer-logo{justify-content:flex-start!important;align-items:flex-start!important}
+  .brand-footer-logo-image{width:138px!important;max-width:138px!important;max-height:64px!important}
+}
+@media(max-width:760px){
+  .brand-footer-main{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:14px!important;
+    padding:26px 24px!important;
+  }
+  .brand-footer-logo{justify-content:flex-start!important}
+}
+/* Prevent a white strip below the footer when the page content is short. */
+html,body{padding-bottom:0!important;margin-bottom:0!important}
+body{background-color:#a47b63}
+.brand-footer{margin-bottom:0!important}
 </style>
 </head>
 <body>
