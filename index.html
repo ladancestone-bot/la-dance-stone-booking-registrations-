@@ -2738,6 +2738,125 @@ body>main,main.wrap,.wrap,.view,.view.active{
 
 </style>
 
+<style id="immersive-bento-glass-system">
+
+/* LA DANCE STONE — immersive bento / warm glass design system.
+   Visual-only layer: existing view markup, IDs, event handlers, APIs and payment logic remain intact. */
+:root{
+ --wine:#4b1828;--wine2:#702c40;--choc:#38271f;--gold:#c39a70;--cream:#f4ece4;
+ --paper:rgba(255,249,243,.68);--sand:#e9d8c8;--muted:#7f6c60;--line:rgba(255,242,225,.55);
+ --shadow:0 18px 48px rgba(54,31,25,.13);
+ --glass-border:rgba(255,245,229,.66);
+}
+body{
+ background:
+   radial-gradient(ellipse at 12% 8%,rgba(219,167,126,.23),transparent 38%),
+   radial-gradient(ellipse at 90% 24%,rgba(113,48,58,.09),transparent 35%),
+   linear-gradient(135deg,#f4ece4 0%,#e9d8c8 48%,#f7f0e9 100%)!important;
+ color:var(--choc)!important;
+}
+button,input,select,textarea{font-family:inherit}
+button,.action,.pill,.back,.site-link{
+ transition:transform .22s ease,box-shadow .22s ease,background .22s ease,border-color .22s ease!important;
+}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+ outline:3px solid rgba(195,154,112,.75)!important;outline-offset:3px!important;
+}
+.view:not(#homeView){position:relative}
+.view:not(#homeView)::before{
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:radial-gradient(ellipse at 85% 5%,rgba(255,255,255,.42),transparent 42%);
+}
+.view:not(#homeView) .back{
+ display:inline-flex;align-items:center;gap:8px;padding:10px 16px!important;
+ border:1px solid rgba(255,245,229,.78)!important;border-radius:999px!important;
+ background:rgba(255,249,243,.48)!important;color:var(--wine)!important;
+ box-shadow:0 5px 18px rgba(56,39,31,.05)!important;
+}
+.view:not(#homeView) .back:hover{transform:translateY(-1px)!important;background:rgba(255,250,245,.82)!important}
+.view:not(#homeView) .viewhead h2,
+.view:not(#homeView) .panel h3,
+.view:not(#homeView) .price-card h3{letter-spacing:-.025em!important}
+.view:not(#homeView) .viewhead p{color:#776357!important}
+.view:not(#homeView) .panel,
+.view:not(#homeView) .calendar-panel,
+.view:not(#homeView) .empty,
+.view:not(#homeView) .service-grid>div,
+.view:not(#homeView) .booking-panel{
+ background:rgba(255,249,243,.58)!important;
+ border:1px solid var(--glass-border)!important;
+ border-radius:22px!important;
+ box-shadow:0 16px 42px rgba(58,34,28,.08),inset 0 1px 0 rgba(255,255,255,.72)!important;
+ backdrop-filter:blur(18px) saturate(1.08)!important;
+ -webkit-backdrop-filter:blur(18px) saturate(1.08)!important;
+}
+.view:not(#homeView) .panel{padding:clamp(19px,3vw,28px)!important}
+.view:not(#homeView) .price-card{
+ background:linear-gradient(145deg,rgba(91,30,47,.96),rgba(57,27,31,.94))!important;
+ border:1px solid rgba(255,232,202,.45)!important;border-radius:22px!important;
+ box-shadow:0 22px 48px rgba(56,24,33,.22),inset 0 1px 0 rgba(255,255,255,.14)!important;
+}
+.view:not(#homeView) .pill{
+ background:rgba(255,249,243,.62)!important;border:1px solid rgba(195,154,112,.4)!important;
+ color:#6f594a!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.72)!important;
+}
+.view:not(#homeView) .action{
+ background:linear-gradient(135deg,#68283b,#421722)!important;
+ border:1px solid rgba(255,231,203,.24)!important;border-radius:999px!important;
+ box-shadow:0 10px 22px rgba(72,24,36,.2),inset 0 1px 0 rgba(255,255,255,.15)!important;
+}
+.view:not(#homeView) .action:hover{transform:translateY(-2px)!important;box-shadow:0 14px 28px rgba(72,24,36,.25)!important}
+.view:not(#homeView) .fields input,
+.view:not(#homeView) .fields select,
+.view:not(#homeView) input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+.view:not(#homeView) select,
+.view:not(#homeView) textarea{
+ background:rgba(255,252,248,.72)!important;border:1px solid rgba(184,148,116,.38)!important;
+ border-radius:13px!important;color:var(--choc)!important;
+ box-shadow:inset 0 1px 2px rgba(64,39,28,.035)!important;
+}
+.view:not(#homeView) input::placeholder,.view:not(#homeView) textarea::placeholder{color:#a18c7e!important}
+.view:not(#homeView) .cal-toolbar{
+ background:rgba(255,248,241,.5)!important;border-bottom:1px solid rgba(255,255,255,.56)!important;
+}
+.view:not(#homeView) .cal-toolbar button{
+ background:rgba(255,248,241,.7)!important;border:1px solid rgba(195,154,112,.45)!important;
+ box-shadow:0 4px 12px rgba(58,34,28,.06)!important;
+}
+.view:not(#homeView) .day{
+ background:rgba(240,222,206,.56)!important;border-color:rgba(255,255,255,.46)!important;
+}
+.view:not(#homeView) .time,.view:not(#homeView) .cell{border-color:rgba(255,255,255,.48)!important}
+.view:not(#homeView) .event{border-radius:11px!important;box-shadow:0 4px 12px rgba(60,36,31,.08)!important}
+.view:not(#homeView) .toast{
+ border:1px solid rgba(195,154,112,.25)!important;border-radius:14px!important;
+ background:rgba(244,231,214,.76)!important;backdrop-filter:blur(10px)!important;
+}
+.view:not(#homeView) .rental-intro,
+.view:not(#homeView) .rental-hero{position:relative}
+.view:not(#homeView) .rental-amenity,
+.view:not(#homeView) .rental-amenities>div{
+ border-radius:16px!important;
+}
+.view:not(#homeView) .rental-address{
+ display:inline-flex;align-items:center;gap:8px;padding:9px 14px!important;
+ border:1px solid rgba(255,244,228,.62)!important;border-radius:999px!important;
+ background:rgba(255,249,243,.48)!important;backdrop-filter:blur(12px)!important;
+}
+.view:not(#homeView) .calendar-help{background:rgba(255,249,243,.4)!important}
+@media(max-width:760px){
+ .view:not(#homeView){padding-top:22px!important;padding-bottom:34px!important}
+ .view:not(#homeView) .viewhead{margin-bottom:19px!important}
+ .view:not(#homeView) .panel,.view:not(#homeView) .calendar-panel,.view:not(#homeView) .empty{
+  border-radius:19px!important;
+ }
+ .view:not(#homeView) .action{min-height:48px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+
+</style>
 </head>
 <body>
 <main class="wrap">
