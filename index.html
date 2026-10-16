@@ -4510,5 +4510,167 @@ $('prevWeek').onclick=()=>{week.setDate(week.getDate()-7);renderCalendar()};$('n
 })();
 
 </script>
+
+<style id="lds-final-liquid-glass-correction">
+/* Final corrective pass: transparent page canvas, individual glass objects, readable text.
+   CSS only. Do not alter booking, registration, payment, data, auth, or event-handler logic. */
+html,body{background:transparent!important}
+body::before{filter:blur(2px) saturate(.94) brightness(.96)!important}
+body::after{
+ background:linear-gradient(180deg,rgba(38,18,24,.12),rgba(38,18,24,.20) 70%,rgba(38,18,24,.24))!important;
+}
+/* Critical fix: the page/view itself must not render as one continuous beige sheet. */
+.view:not(#homeView),.view:not(#homeView).active{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ border:0!important;border-color:transparent!important;border-radius:0!important;
+ box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+ color:#38252a!important;
+}
+.view:not(#homeView)::before,.view:not(#homeView)::after{
+ background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;
+ -webkit-backdrop-filter:none!important;
+}
+/* Main modules: independent, gently tinted glass surfaces rather than nested opaque slabs. */
+.view:not(#homeView) .rental-intro,
+.view:not(#homeView) .rental-checkin,
+.view:not(#homeView) .rental-layout>.panel,
+.view:not(#homeView) .booking-panel,
+.view:not(#homeView) .class-registration-panel,
+.view:not(#homeView) .class-detail,
+.view:not(#homeView) .class-confirmation,
+.view:not(#homeView) .calendar-panel,
+.view:not(#homeView) .timetable-panel,
+.view:not(#homeView) .class-week-preview,
+.view:not(#homeView) .class-calendar-grid,
+.view:not(#homeView) .calendar-mobile-table{
+ background:linear-gradient(145deg,rgba(255,250,245,.79),rgba(244,231,218,.60))!important;
+ border:1px solid rgba(255,255,255,.78)!important;
+ box-shadow:0 18px 42px rgba(34,17,22,.20),inset 0 1px 0 rgba(255,255,255,.92),inset 0 -1px 0 rgba(86,49,43,.08)!important;
+ backdrop-filter:blur(18px) saturate(1.15)!important;
+ -webkit-backdrop-filter:blur(18px) saturate(1.15)!important;
+}
+/* Avoid a second large surface nested inside the rental section. The calendar stays its own object. */
+.view:not(#homeView) .availability-section{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ border:0!important;border-radius:0!important;box-shadow:none!important;
+ backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+ padding:clamp(10px,2vw,20px) 0!important;
+}
+.view:not(#homeView) .availability-section>.calendar-panel{
+ background:linear-gradient(145deg,rgba(255,250,245,.82),rgba(239,222,205,.68))!important;
+ border:1px solid rgba(255,255,255,.86)!important;border-radius:25px!important;
+ box-shadow:0 20px 44px rgba(34,17,22,.22),inset 0 1px 0 rgba(255,255,255,.95)!important;
+}
+/* Calendar cells retain their grid and horizontal scrolling, with a translucent readable surface. */
+.view:not(#homeView) .class-week-scroll,
+.view:not(#homeView) .class-week-calendar-scroll,
+.view:not(#homeView) .calendar-panel>.cal-scroll,
+.view:not(#homeView) .timetable-panel>.cal-scroll,
+.view:not(#homeView) .availability-section .cal-scroll{
+ background:rgba(255,250,245,.34)!important;
+ border-color:rgba(255,255,255,.76)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 8px 22px rgba(40,20,24,.09)!important;
+ backdrop-filter:blur(12px) saturate(1.1)!important;
+ -webkit-backdrop-filter:blur(12px) saturate(1.1)!important;
+}
+.view:not(#homeView) .calendar,
+.view:not(#homeView) .rental-calendar,
+.view:not(#homeView) .class-calendar-grid{background:transparent!important}
+.view:not(#homeView) .calendar .day,
+.view:not(#homeView) .calendar .time,
+.view:not(#homeView) .calendar .cell,
+.view:not(#homeView) .rent-day,
+.view:not(#homeView) .rent-time,
+.view:not(#homeView) .rent-cell,
+.view:not(#homeView) .class-calendar-grid>div{
+ background:rgba(255,249,242,.43)!important;
+ border-color:rgba(255,255,255,.60)!important;
+ color:#4a3031!important;
+}
+.view:not(#homeView) .calendar .day,
+.view:not(#homeView) .rent-day,
+.view:not(#homeView) .class-calendar-dayhead,
+.view:not(#homeView) .class-calendar-corner{
+ background:linear-gradient(145deg,rgba(255,251,246,.88),rgba(232,213,195,.72))!important;
+}
+.view:not(#homeView) .calendar .time,
+.view:not(#homeView) .rent-time,
+.view:not(#homeView) .class-calendar-time{color:#65464a!important}
+.view:not(#homeView) .viewhead h1,
+.view:not(#homeView) .viewhead h2,
+.view:not(#homeView) h1,.view:not(#homeView) h2,.view:not(#homeView) h3,
+.view:not(#homeView) .panel h3{
+ color:#511d2d!important;text-shadow:0 1px 0 rgba(255,255,255,.60)!important;
+}
+.view:not(#homeView) p,
+.view:not(#homeView) .viewhead p,
+.view:not(#homeView) label,
+.view:not(#homeView) .calendar-help,
+.view:not(#homeView) .class-week-note{color:#513b38!important}
+.view:not(#homeView) .muted,
+.view:not(#homeView) small,
+.view:not(#homeView) .availability-legend{color:#6c5550!important}
+/* Premium raised glass controls: a soft specular edge, curved highlight and tactile depth. */
+.view:not(#homeView) button,
+.view:not(#homeView) .action,
+.view:not(#homeView) .back,
+.view:not(#homeView) .pill,
+.view:not(#homeView) .rent-slot,
+.view:not(#homeView) .class-choices .choice{
+ transition:transform .18s ease,box-shadow .18s ease,filter .18s ease!important;
+}
+.view:not(#homeView) button.action,
+.view:not(#homeView) .action{
+ position:relative!important;overflow:hidden!important;
+ background:linear-gradient(145deg,#79384a 0%,#551f30 56%,#3b1722 100%)!important;
+ color:#fff9f3!important;border:1px solid rgba(255,255,255,.50)!important;
+ box-shadow:0 9px 0 rgba(47,18,28,.20),0 13px 25px rgba(47,18,28,.24),inset 0 1px 0 rgba(255,255,255,.34),inset 0 -2px 0 rgba(35,12,19,.20)!important;
+ text-shadow:0 1px 2px rgba(35,12,19,.25)!important;
+}
+.view:not(#homeView) button.action::before,
+.view:not(#homeView) .action::before{
+ content:"";position:absolute;left:7px;right:7px;top:3px;height:42%;pointer-events:none;
+ border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.20),rgba(255,255,255,0));
+}
+.view:not(#homeView) button.action:hover,
+.view:not(#homeView) .action:hover{transform:translateY(-2px)!important;filter:brightness(1.06)}
+.view:not(#homeView) button.action:active,
+.view:not(#homeView) .action:active{transform:translateY(2px)!important;box-shadow:0 3px 0 rgba(47,18,28,.20),inset 0 1px 0 rgba(255,255,255,.25)!important}
+.view:not(#homeView) .back,
+.view:not(#homeView) .pill{
+ background:linear-gradient(145deg,rgba(255,252,247,.90),rgba(230,211,194,.70))!important;
+ color:#511d2d!important;border:1px solid rgba(255,255,255,.88)!important;
+ box-shadow:0 5px 0 rgba(65,39,34,.09),0 8px 18px rgba(40,20,24,.11),inset 0 1px 0 #fff!important;
+}
+.view:not(#homeView) .rent-slot{
+ border-radius:11px!important;border-color:rgba(255,255,255,.84)!important;
+ box-shadow:0 4px 0 rgba(65,39,34,.07),0 7px 14px rgba(40,20,24,.10),inset 0 1px 0 #fff!important;
+}
+.view:not(#homeView) input:not([type=checkbox]):not([type=radio]),
+.view:not(#homeView) select,.view:not(#homeView) textarea{
+ color:#38252a!important;background:rgba(255,253,249,.92)!important;
+ border-color:rgba(138,100,83,.48)!important;
+}
+.view:not(#homeView) input::placeholder,
+.view:not(#homeView) textarea::placeholder{color:#806c64!important;opacity:1!important}
+@media(max-width:760px){
+ .view:not(#homeView) .availability-section{margin:22px 0 30px!important;padding:8px 0!important}
+ .view:not(#homeView) .availability-section>.calendar-panel{border-radius:20px!important}
+ .view:not(#homeView) .rental-intro,
+ .view:not(#homeView) .rental-checkin,
+ .view:not(#homeView) .rental-layout>.panel,
+ .view:not(#homeView) .booking-panel,
+ .view:not(#homeView) .class-registration-panel,
+ .view:not(#homeView) .class-detail,
+ .view:not(#homeView) .class-confirmation,
+ .view:not(#homeView) .calendar-panel,
+ .view:not(#homeView) .timetable-panel{border-radius:21px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .view:not(#homeView) button,.view:not(#homeView) .action,
+ .view:not(#homeView) .back,.view:not(#homeView) .pill{transition:none!important}
+}
+</style>
+
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
 </body></html>
