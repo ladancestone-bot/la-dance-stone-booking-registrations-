@@ -10065,4 +10065,74 @@ body::after{
 }
 </style>
 
+
+<style id="lds-calendar-help-premium-legend-20261017">
+/* Standalone legend below the schedule; deliberately does not style the calendar/grid itself. */
+#rentalView .availability-section .calendar-panel>.calendar-help{
+ position:relative!important;display:block!important;
+ margin:34px 0 0!important;padding:24px 22px 20px!important;
+ border:1px solid rgba(255,241,222,.68)!important;border-radius:24px!important;
+ background:
+  radial-gradient(ellipse at 12% 0%,rgba(255,248,236,.34),transparent 46%),
+  linear-gradient(135deg,rgba(237,222,205,.72),rgba(190,165,148,.62))!important;
+ box-shadow:0 12px 28px rgba(51,28,27,.13),inset 0 1px 0 rgba(255,255,255,.68)!important;
+ color:#4d2b30!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help:before{
+ content:"KAIP SKAITYTI KALENDORIŲ";display:block;margin:0 0 16px;
+ color:#6b3b42;font:700 11px/1.4 'Montserrat',Arial,sans-serif;letter-spacing:.14em;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help .availability-legend{
+ display:flex!important;align-items:center!important;justify-content:flex-start!important;
+ gap:10px!important;flex-wrap:wrap!important;margin:0 0 16px!important;padding:0!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help .availability-legend>span{
+ display:inline-flex!important;align-items:center!important;gap:9px!important;
+ min-height:43px!important;padding:9px 14px!important;
+ border:1px solid rgba(255,255,255,.75)!important;border-radius:999px!important;
+ background:rgba(255,250,243,.48)!important;color:#512d35!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.72)!important;
+ font:600 13px/1.3 'Montserrat',Arial,sans-serif!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help .legend-block{
+ display:inline-block!important;flex:0 0 12px!important;width:12px!important;height:12px!important;
+ margin:0!important;border-radius:50%!important;border:1px solid rgba(255,255,255,.9)!important;
+ box-shadow:0 0 0 3px rgba(255,255,255,.24),inset 0 1px 2px rgba(255,255,255,.65)!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help .legend-block.free{
+ background:linear-gradient(145deg,#d8e8d5,#8caf9b)!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help .legend-block.reserved{
+ background:linear-gradient(145deg,#b35d78,#70253f)!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help .legend-block.chosen{
+ background:linear-gradient(145deg,#ffe7a9,#d6ad60)!important;border-color:#fff3d1!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help p{
+ display:block!important;margin:12px 0 0!important;padding:0!important;
+ color:#563b3b!important;font:400 13px/1.7 'Montserrat',Arial,sans-serif!important;
+}
+#rentalView .availability-section .calendar-panel>.calendar-help p#selectionHint{
+ margin:0!important;padding:14px 16px!important;border-left:3px solid #c89d59!important;
+ border-radius:0 12px 12px 0!important;background:rgba(255,250,242,.35)!important;
+ color:#4b2932!important;font-weight:650!important;
+}
+@media(max-width:760px){
+ #rentalView .availability-section .calendar-panel>.calendar-help{
+  margin:28px 0 0!important;padding:19px 14px 16px!important;border-radius:20px!important;
+ }
+ #rentalView .availability-section .calendar-panel>.calendar-help:before{
+  margin-bottom:13px!important;font-size:10px!important;letter-spacing:.12em!important;
+ }
+ #rentalView .availability-section .calendar-panel>.calendar-help .availability-legend{
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:8px!important;margin-bottom:13px!important;
+ }
+ #rentalView .availability-section .calendar-panel>.calendar-help .availability-legend>span{
+  width:100%!important;min-height:42px!important;padding:9px 12px!important;font-size:13px!important;
+ }
+ #rentalView .availability-section .calendar-panel>.calendar-help p{font-size:12px!important;line-height:1.65!important}
+ #rentalView .availability-section .calendar-panel>.calendar-help p#selectionHint{padding:12px!important}
+}
+</style>
+
 </body></html>
