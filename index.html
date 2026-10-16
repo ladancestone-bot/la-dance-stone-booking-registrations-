@@ -8367,5 +8367,59 @@ body::after{background:linear-gradient(145deg,rgba(39,22,25,.22),rgba(55,32,31,.
 }
 </style>
 
+
+<style id="lds-mobile-reminder-layout-stabilization-20261017">
+/* Stabilize the reminder composition on mobile: keep every element inside its own section. */
+#rentalView .availability-section .closing-notice{
+ position:relative!important;display:block!important;isolation:isolate!important;
+ box-sizing:border-box!important;overflow:visible!important;
+ padding:26px clamp(14px,3vw,26px) 24px!important;
+}
+#rentalView .availability-section .closing-notice>div{
+ position:relative!important;z-index:2!important;min-width:0!important;
+}
+#rentalView .availability-section .closing-notice>div>strong{
+ display:block!important;max-width:100%!important;text-align:center!important;
+ margin:0 auto 14px!important;overflow-wrap:normal!important;
+}
+#rentalView .availability-section .closing-notice>div>p{
+ position:relative!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ gap:clamp(24px,5vw,44px) clamp(14px,4vw,32px)!important;
+ align-items:stretch!important;margin:0!important;padding:12px 0!important;
+}
+#rentalView .availability-section .closing-notice .notice-line{
+ box-sizing:border-box!important;display:flex!important;flex-direction:column!important;
+ align-items:center!important;justify-content:center!important;text-align:center!important;
+ width:100%!important;min-width:0!important;min-height:clamp(142px,35vw,205px)!important;
+ margin:0!important;padding:30px 12px 16px!important;
+ font-size:clamp(12px,3.2vw,16px)!important;line-height:1.55!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:before{
+ left:50%!important;top:0!important;transform:translate(-50%,-34%)!important;
+ width:clamp(36px,9vw,48px)!important;height:clamp(36px,9vw,48px)!important;
+}
+#rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark{
+ position:absolute!important;left:50%!important;top:58%!important;
+ transform:translate(-50%,-50%)!important;width:clamp(108px,25vw,150px)!important;
+ height:auto!important;aspect-ratio:1!important;z-index:0!important;
+ pointer-events:none!important;opacity:.72!important;
+}
+#rentalView .availability-section .closing-notice .notice-time{
+ display:inline-block!important;white-space:normal!important;overflow-wrap:anywhere!important;
+}
+@media(max-width:600px){
+ #rentalView .availability-section .closing-notice{padding:22px 12px 20px!important;margin:16px 0 24px!important}
+ #rentalView .availability-section .closing-notice>div>strong{font-size:clamp(20px,5.5vw,25px)!important;line-height:1.15!important;margin-bottom:14px!important}
+ #rentalView .availability-section .closing-notice>div>p{gap:clamp(24px,7vw,38px) 12px!important;padding:10px 0!important}
+ #rentalView .availability-section .closing-notice .notice-line{min-height:clamp(150px,41vw,190px)!important;padding:28px 8px 12px!important;font-size:clamp(11px,3.15vw,14px)!important;line-height:1.5!important}
+ #rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark{width:clamp(100px,27vw,126px)!important;top:59%!important}
+}
+@media(max-width:360px){
+ #rentalView .availability-section .closing-notice>div>p{grid-template-columns:minmax(0,1fr)!important;gap:30px!important}
+ #rentalView .availability-section .closing-notice .notice-line{min-height:125px!important}
+ #rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark{top:57%!important}
+}
+</style>
+
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
 </body></html>
