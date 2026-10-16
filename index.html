@@ -9843,12 +9843,15 @@ body::after{
 }
 /* Top-left corner cell must visually join the day-header row, not reveal the light page behind it. */
 #rentalView .availability-section .cal-scroll #rentalCalendar .rent-time:first-child{
- top:0!important;z-index:40!important;background:rgba(91,61,55,.22)!important;
+ /* Match the entire tall day-header row, not just the time-cell's normal row height. */
+ grid-row:1!important;align-self:stretch!important;height:100%!important;min-height:100%!important;
+ box-sizing:border-box!important;position:sticky!important;top:0!important;left:0!important;z-index:40!important;
+ background:rgba(91,61,55,.22)!important;background-color:rgba(91,61,55,.22)!important;
  background-image:none!important;border:0!important;box-shadow:none!important;border-radius:0!important;
 }
-/* Keep that corner synchronized with the header's darker glass while scrolling. */
+/* Keep the whole corner cell synchronized with the header's darker glass while scrolling. */
 #rentalView .availability-section .cal-scroll.is-scrolling #rentalCalendar .rent-time:first-child{
- background:rgba(69,44,41,.88)!important;
+ background:rgba(69,44,41,.88)!important;background-color:rgba(69,44,41,.88)!important;
 }
 #rentalView .availability-section .cal-scroll #rentalCalendar .rent-cell{
  background:transparent!important;transition:background-color .35s ease;
