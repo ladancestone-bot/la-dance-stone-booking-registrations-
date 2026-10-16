@@ -8245,5 +8245,79 @@ body::after{background:linear-gradient(145deg,rgba(39,22,25,.22),rgba(55,32,31,.
 @media(max-width:760px){#rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark{width:clamp(112px,33vw,150px)!important;border-width:4px!important}#rentalView .availability-section .closing-notice .notice-line{border-width:1.5px!important}#rentalView .availability-section .closing-notice .notice-line:before{width:clamp(40px,11vw,49px)!important;height:clamp(40px,11vw,49px)!important}}
 </style>
 
+
+<style id="lds-strong-organic-glass-clock-rendering">
+/* Fix the actual rendered shapes: explicitly position the clock and icon medallions,
+   and use layered light/refraction rather than relying on border-radius alone. */
+#rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark{
+ position:relative!important;display:grid!important;place-items:center!important;isolation:isolate!important;
+ aspect-ratio:1/1!important;width:clamp(150px,29vw,226px)!important;height:auto!important;
+ min-width:0!important;overflow:visible!important;
+ border:2px solid rgba(255,235,187,.98)!important;
+ border-radius:37% 63% 46% 54% / 54% 38% 62% 46%!important;
+ color:transparent!important;font-size:0!important;
+ background:
+  radial-gradient(ellipse at 28% 12%,rgba(255,255,255,.7),transparent 15%),
+  radial-gradient(ellipse at 76% 78%,rgba(255,193,113,.24),transparent 27%),
+  radial-gradient(ellipse at 50% 50%,transparent 0 61%,rgba(255,222,157,.95) 62% 63%,rgba(110,46,51,.85) 64% 66%,transparent 67%),
+  repeating-conic-gradient(from -1deg,rgba(255,224,164,.98) 0deg 1deg,transparent 1deg 30deg),
+  radial-gradient(ellipse at 38% 28%,#a33c68 0%,#741641 43%,#470c30 76%,#29051c 100%)!important;
+ box-shadow:inset 0 3px 3px rgba(255,255,255,.65),inset 0 -16px 24px rgba(12,1,8,.5),
+ 0 0 0 4px rgba(255,201,126,.9),0 0 0 8px rgba(255,237,205,.22),
+ 0 0 28px rgba(255,181,98,.28),0 20px 40px rgba(10,1,7,.42)!important;
+}
+#rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark:before{
+ content:""!important;position:absolute!important;display:block!important;z-index:2!important;
+ left:calc(50% - 2px)!important;top:24%!important;width:4px!important;height:28%!important;
+ border-radius:99px!important;transform-origin:50% 94%!important;transform:rotate(318deg)!important;
+ background:linear-gradient(90deg,#9c5a25,#fff5c8 42%,#e8b85f 72%,#9c5a25)!important;
+ box-shadow:0 0 8px rgba(255,224,155,.7)!important;
+}
+#rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark:after{
+ content:""!important;position:absolute!important;display:block!important;z-index:2!important;
+ left:calc(50% - 1.5px)!important;top:15%!important;width:3px!important;height:38%!important;
+ border-radius:99px!important;transform-origin:50% 92%!important;transform:rotate(48deg)!important;
+ background:linear-gradient(90deg,#9c5a25,#fff8db 45%,#e8b85f 74%,#9c5a25)!important;
+ box-shadow:0 0 8px rgba(255,224,155,.7)!important;
+}
+#rentalView .availability-section .closing-notice .notice-line{
+ position:relative!important;isolation:isolate!important;overflow:visible!important;
+ border:1.5px solid rgba(255,225,191,.72)!important;
+ background:
+  radial-gradient(ellipse at 17% 8%,rgba(255,255,255,.34),transparent 23%),
+  radial-gradient(ellipse at 86% 92%,rgba(255,190,125,.14),transparent 28%),
+  linear-gradient(145deg,rgba(255,246,234,.15),rgba(255,227,205,.025) 48%,rgba(255,240,224,.09))!important;
+ box-shadow:inset 0 1.5px 0 rgba(255,255,255,.48),inset 1px 0 0 rgba(255,255,255,.18),
+  inset 0 -12px 22px rgba(255,196,136,.055),0 12px 28px rgba(12,2,8,.16)!important;
+ backdrop-filter:blur(10px) saturate(1.18)!important;-webkit-backdrop-filter:blur(10px) saturate(1.18)!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:before{
+ content:""!important;position:absolute!important;display:grid!important;place-items:center!important;
+ z-index:3!important;left:0!important;top:0!important;
+ width:clamp(48px,5.5vw,66px)!important;height:clamp(48px,5.5vw,66px)!important;
+ transform:translate(-30%,-32%)!important;border:1.5px solid rgba(255,229,188,.98)!important;
+ border-radius:39% 61% 48% 52% / 53% 37% 63% 47%!important;
+ background:radial-gradient(ellipse at 25% 13%,rgba(255,255,255,.66),transparent 32%),
+ radial-gradient(ellipse at 75% 88%,rgba(255,180,111,.2),transparent 43%),
+ linear-gradient(145deg,#bd5c80 0%,#811c4b 48%,#400a2b 100%)!important;
+ box-shadow:inset 0 1.5px 0 rgba(255,255,255,.62),inset 0 -6px 10px rgba(12,1,7,.3),
+ 0 0 0 3px rgba(255,218,169,.13),0 7px 17px rgba(12,2,8,.28),0 0 15px rgba(255,185,117,.16)!important;
+ color:#ffebc0!important;font-family:Georgia,serif!important;font-size:clamp(24px,3vw,32px)!important;line-height:1!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(1):before{content:"22"!important;font-family:Georgia,serif!important;font-size:20px!important;font-weight:bold!important}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(2):before{content:"◷"!important;font-size:30px!important}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(3):before{content:"45′"!important;font-family:Georgia,serif!important;font-size:18px!important;font-weight:bold!important}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(4):before{content:"↗"!important;font-family:Arial,sans-serif!important;font-size:30px!important;font-weight:bold!important}
+#rentalView .availability-section .closing-notice .notice-time{color:#ffe0a0!important;text-shadow:0 0 12px rgba(255,196,105,.2)!important}
+@media(max-width:760px){
+ #rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark{width:clamp(108px,31vw,140px)!important;border-width:1.5px!important;box-shadow:inset 0 2px 2px rgba(255,255,255,.6),inset 0 -10px 18px rgba(12,1,8,.48),0 0 0 3px rgba(255,201,126,.86),0 0 0 6px rgba(255,237,205,.18),0 0 22px rgba(255,181,98,.23),0 14px 27px rgba(10,1,7,.38)!important}
+ #rentalView .availability-section .closing-notice .notice-line:before{width:clamp(38px,10vw,47px)!important;height:clamp(38px,10vw,47px)!important;font-size:23px!important}
+ #rentalView .availability-section .closing-notice .notice-line:nth-child(1):before{font-size:16px!important}
+ #rentalView .availability-section .closing-notice .notice-line:nth-child(2):before{font-size:23px!important}
+ #rentalView .availability-section .closing-notice .notice-line:nth-child(3):before{font-size:15px!important}
+ #rentalView .availability-section .closing-notice .notice-line:nth-child(4):before{font-size:23px!important}
+}
+</style>
+
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
 </body></html>
