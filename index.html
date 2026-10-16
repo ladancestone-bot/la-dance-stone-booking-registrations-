@@ -1671,6 +1671,229 @@ html,body{margin:0 !important;padding:0 !important;width:100% !important;max-wid
   #homeView .choice{transition:none}
 }
 
+
+/* Premium 3D carousel refinement — only the home/booking landing view. */
+#homeView{
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  overflow:hidden;
+  background:#2a1b18!important;
+  color:#fff8ef;
+}
+#homeView::before{
+  inset:-38px;
+  background-image:url("https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg");
+  background-size:cover;
+  background-position:center 52%;
+  filter:blur(15px) brightness(.43) saturate(.68);
+  transform:scale(1.08);
+}
+#homeView::after{
+  background:
+    radial-gradient(ellipse at 50% 48%,rgba(105,65,47,.12),rgba(22,13,13,.28) 75%),
+    linear-gradient(180deg,rgba(35,21,18,.22),rgba(30,18,17,.42) 75%,rgba(25,16,15,.66));
+}
+#homeView>.hero{padding-top:30px;padding-bottom:16px}
+#homeView .hero h1{font-size:clamp(46px,5.4vw,78px)}
+#homeView .choices{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(16px,2vw,28px);
+  max-width:1120px;
+  margin:18px auto 36px;
+  padding:12px 24px 28px;
+  perspective:1400px;
+  transform-style:preserve-3d;
+  box-sizing:border-box;
+}
+#homeView .choice{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:clamp(370px,39vw,475px);
+  padding:86px 20px 28px;
+  box-sizing:border-box;
+  border:1px solid rgba(255,220,177,.96);
+  border-radius:50% 50% 14px 14px / 26% 26% 14px 14px;
+  background:
+    linear-gradient(180deg,rgba(76,17,32,.54),rgba(67,16,29,.87)),
+    radial-gradient(ellipse at 50% 12%,rgba(255,230,192,.14),transparent 58%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.38),
+    inset 0 0 0 2px rgba(255,246,230,.10),
+    inset 0 -28px 45px rgba(18,7,10,.22),
+    0 16px 24px rgba(14,6,9,.30),
+    0 0 18px rgba(244,191,133,.10);
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+  transform:translateZ(0);
+  transform-style:preserve-3d;
+  transition:transform .45s cubic-bezier(.2,.75,.25,1),box-shadow .45s ease,border-color .45s ease,filter .45s ease;
+}
+#homeView .choice::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:8px;
+  border:1px solid rgba(255,225,188,.48);
+  border-radius:inherit;
+  box-shadow:inset 0 0 18px rgba(255,231,194,.06);
+  pointer-events:none;
+}
+#homeView .choice::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  border-radius:inherit;
+  background:linear-gradient(115deg,rgba(255,255,255,.13),transparent 24%,transparent 70%,rgba(255,226,187,.10));
+  opacity:.72;
+  pointer-events:none;
+}
+#homeView .choice:nth-child(2){
+  /* The studio photograph belongs to the page background, never inside the rental card. */
+  background:linear-gradient(155deg,rgba(119,82,58,.58),rgba(59,35,28,.82) 72%),linear-gradient(180deg,rgba(255,239,214,.12),transparent);
+  border-color:rgba(255,225,190,.98);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 0 0 2px rgba(255,246,230,.14),inset 0 -28px 45px rgba(18,7,10,.16),0 18px 32px rgba(14,6,9,.30),0 0 22px rgba(244,191,133,.15);
+}
+#homeView .choice .num{position:relative;color:#f0d8b2}
+#homeView .choice .home-icon{flex:0 0 auto;box-shadow:0 0 0 5px rgba(255,242,222,.025),inset 0 0 14px rgba(255,233,195,.06)}
+#homeView .choice h3{font-size:clamp(27px,2.5vw,36px);text-shadow:0 2px 14px rgba(0,0,0,.28)}
+#homeView .choice p{font-size:14px}
+#homeView .choice .arrow{box-shadow:0 0 0 5px rgba(255,242,222,.025),0 3px 12px rgba(0,0,0,.18)}
+#homeView .choice.is-center{
+  transform:translateY(-7px) scale(1.015) rotateY(0deg);
+  border-color:#ffe2b7;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.44),inset 0 0 0 2px rgba(255,246,230,.14),inset 0 -28px 45px rgba(18,7,10,.18),0 24px 40px rgba(14,6,9,.36),0 0 28px rgba(244,191,133,.23);
+}
+#homeView .choice.is-side{
+  transform:translateY(7px) scale(.965) rotateY(3deg);
+  filter:saturate(.87) brightness(.92);
+}
+#homeView .choice:nth-child(3).is-side{transform:translateY(7px) scale(.965) rotateY(-3deg)}
+#homeView .choice:hover{
+  transform:translateY(-9px) scale(1.02);
+  border-color:#ffe5bf;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.42),inset 0 0 0 2px rgba(255,246,230,.14),0 26px 42px rgba(14,6,9,.38),0 0 28px rgba(244,191,133,.22);
+}
+#homeView .brand-footer{
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+  left:auto!important;
+  transform:none!important;
+  margin:0!important;
+  box-sizing:border-box!important;
+  background:rgba(93,68,54,.72)!important;
+  border-top:1px solid rgba(255,227,193,.36);
+}
+#homeView .brand-footer-main{
+  width:100%!important;
+  max-width:1120px!important;
+  margin:0 auto!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  align-items:center!important;
+  gap:20px!important;
+  box-sizing:border-box!important;
+  padding:20px 28px!important;
+}
+#homeView .brand-footer-copy{min-width:0!important;width:auto!important;max-width:none!important}
+#homeView .brand-footer-copy p,
+#homeView .brand-footer-copy a{overflow-wrap:anywhere;word-break:normal}
+#homeView .brand-footer-logo{display:none!important}
+@media(min-width:761px){
+  #homeView .choices{perspective:1600px}
+  #homeView .choice:nth-child(1){transform:rotateY(3deg) translateY(5px)}
+  #homeView .choice:nth-child(2){transform:translateY(-3px) scale(1.015)}
+  #homeView .choice:nth-child(3){transform:rotateY(-3deg) translateY(5px)}
+  #homeView .choice:nth-child(1):hover,#homeView .choice:nth-child(2):hover,#homeView .choice:nth-child(3):hover{transform:translateY(-8px) scale(1.025)}
+}
+@media(max-width:760px){
+  #homeView{overflow:hidden}
+  #homeView::before{background-position:center 50%;filter:blur(15px) brightness(.40) saturate(.7);transform:scale(1.1)}
+  #homeView>.hero{padding:25px 20px 8px}
+  #homeView .hero h1{font-size:clamp(39px,10vw,48px);max-width:340px}
+  #homeView .hero p.home-values{font-size:14px;max-width:330px}
+  #homeView .choices{
+    display:flex!important;
+    flex-direction:row;
+    align-items:stretch;
+    justify-content:flex-start;
+    gap:16px;
+    width:100%!important;
+    max-width:none!important;
+    margin:14px 0 28px!important;
+    padding:22px calc((100vw - min(72vw,300px))/2) 32px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    perspective:1200px;
+    transform-style:preserve-3d;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:calc((100vw - min(72vw,300px))/2);
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    box-sizing:border-box!important;
+    touch-action:pan-x pan-y;
+  }
+  #homeView .choices::-webkit-scrollbar{display:none}
+  #homeView .choice,
+  #homeView .choice:nth-child(1),
+  #homeView .choice:nth-child(2),
+  #homeView .choice:nth-child(3){
+    flex:0 0 min(72vw,300px)!important;
+    width:min(72vw,300px)!important;
+    min-width:min(72vw,300px)!important;
+    max-width:min(72vw,300px)!important;
+    min-height:clamp(345px,104vw,390px);
+    padding:90px 18px 24px;
+    scroll-snap-align:center;
+    scroll-snap-stop:always;
+    transform:scale(.91) rotateY(7deg);
+    transform-origin:center center;
+    opacity:.84;
+    filter:saturate(.82) brightness(.86);
+  }
+  #homeView .choice:nth-child(2){transform:scale(.91) rotateY(0deg)}
+  #homeView .choice:nth-child(3){transform:scale(.91) rotateY(-7deg)}
+  #homeView .choice.is-center{transform:translateY(-4px) scale(1) rotateY(0deg)!important;opacity:1;filter:none}
+  #homeView .choice.is-side{transform:scale(.91) rotateY(7deg)!important;opacity:.83;filter:saturate(.82) brightness(.85)}
+  #homeView .choice:nth-child(3).is-side{transform:scale(.91) rotateY(-7deg)!important}
+  #homeView .choice h3{font-size:28px}
+  #homeView .choice .home-icon{width:56px;height:56px}
+  #homeView .brand-footer{
+    position:relative!important;
+    left:auto!important;
+    transform:none!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    margin:0!important;
+    border-radius:0!important;
+    overflow:hidden;
+  }
+  #homeView .brand-footer-main{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:10px!important;
+    padding:18px 14px 20px!important;
+    width:100%!important;
+    max-width:100%!important;
+    margin:0!important;
+    text-align:center;
+  }
+  #homeView .brand-footer-copy{font-size:11px;overflow-wrap:anywhere}
+  #homeView .brand-footer-copy p,
+  #homeView .brand-footer-copy a{font-size:11px!important;line-height:1.4}
+}
+@media(max-width:390px){
+  #homeView .brand-footer-main{grid-template-columns:1fr!important;text-align:left}
+}
+@media(prefers-reduced-motion:reduce){
+  #homeView .choice{transition:none!important}
+}
+
 </style>
 
 <style>
@@ -2830,4 +3053,50 @@ function openClassEvent(el){const e=events[Number(el.dataset.classEvent)];if(!e|
 $('prevWeek').onclick=()=>{week.setDate(week.getDate()-7);renderCalendar()};$('nextWeek').onclick=()=>{week.setDate(week.getDate()+7);renderCalendar()};loadLiveTimetable();
 </script>
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
+
+<script>
+/* Native swipe + subtle depth state for the three home cards; no click interception. */
+(function(){
+  function initHomeDepth(){
+    const home=document.getElementById('homeView');
+    const rail=home&&home.querySelector('.choices');
+    if(!home||!rail||rail.dataset.depthReady)return;
+    rail.dataset.depthReady='1';
+    const cards=Array.from(rail.querySelectorAll('.choice'));
+    let frame=0;
+    function update(){
+      frame=0;
+      const mobile=window.matchMedia('(max-width:760px)').matches;
+      const center=rail.scrollLeft+rail.clientWidth/2;
+      let nearest=null,dist=Infinity;
+      cards.forEach(card=>{
+        const mid=card.offsetLeft+card.offsetWidth/2;
+        const d=Math.abs(mid-center);
+        if(d<dist){dist=d;nearest=card;}
+      });
+      cards.forEach(card=>{
+        card.classList.toggle('is-center',mobile&&card===nearest);
+        card.classList.toggle('is-side',mobile&&card!==nearest);
+      });
+    }
+    function schedule(){if(!frame)frame=requestAnimationFrame(update)}
+    rail.addEventListener('scroll',schedule,{passive:true});
+    window.addEventListener('resize',schedule,{passive:true});
+    cards.forEach(card=>{
+      card.addEventListener('pointermove',event=>{
+        if(window.matchMedia('(max-width:760px)').matches||event.pointerType!=='mouse')return;
+        const rect=card.getBoundingClientRect();
+        const x=(event.clientX-rect.left)/rect.width-.5;
+        const y=(event.clientY-rect.top)/rect.height-.5;
+        card.style.transform='translateY(-5px) rotateY('+(-x*5)+'deg) rotateX('+(y*3)+'deg) scale(1.012)';
+      });
+      card.addEventListener('pointerleave',()=>{card.style.transform=''});
+    });
+    update();
+    requestAnimationFrame(()=>{if(window.matchMedia('(max-width:760px)').matches){const first=cards[0];if(first)rail.scrollLeft=first.offsetLeft-rail.offsetLeft-(rail.clientWidth-first.offsetWidth)/2;}update()});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initHomeDepth);else initHomeDepth();
+})();
+</script>
+
 </body></html>
