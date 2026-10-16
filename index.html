@@ -9596,4 +9596,42 @@ body::after{
  #rentalView .calendar-panel .rent-slot{border-radius:9px!important}
 }
 </style>
+<style id="lds-calendar-date-header-clean-lines-20261017">
+/* Single continuous separators in the rental calendar date header. */
+#rentalView .calendar-panel .rental-calendar .rent-day{
+ box-sizing:border-box!important;margin:0!important;border:0!important;border-radius:0!important;
+ box-shadow:none!important;outline:0!important;position:relative!important;
+ background:transparent!important;
+}
+#rentalView .calendar-panel .rental-calendar .rent-day::before,
+#rentalView .calendar-panel .rental-calendar .rent-day::after,
+#rentalView .calendar-panel .rental-calendar .rent-day button::before,
+#rentalView .calendar-panel .rental-calendar .rent-day button::after{
+ content:none!important;display:none!important;
+}
+#rentalView .calendar-panel .rental-calendar .rent-day button{
+ box-sizing:border-box!important;display:flex!important;flex-direction:column!important;
+ align-items:center!important;justify-content:center!important;gap:3px!important;
+ width:100%!important;height:100%!important;min-height:54px!important;
+ margin:0!important;padding:6px 0!important;border:0!important;border-radius:0!important;
+ outline:0!important;box-shadow:none!important;background:transparent!important;
+}
+#rentalView .calendar-panel .rental-calendar .rent-day + .rent-day{
+ border-left:1px solid rgba(255,239,220,.26)!important;
+}
+#rentalView .calendar-panel .rental-calendar .rent-day.selected-day{
+ background:rgba(103,31,57,.90)!important;
+ border-bottom:2px solid #e6c28b!important;
+}
+#rentalView .calendar-panel .rental-calendar .rent-day.selected-day button{
+ background:transparent!important;border:0!important;box-shadow:none!important;
+}
+#rentalView .calendar-panel .rental-calendar{gap:0!important}
+#rentalView .calendar-panel .rental-calendar>.rent-time:first-child{
+ border:0!important;border-right:1px solid rgba(255,239,220,.26)!important;
+}
+@media(max-width:760px){
+ #rentalView .calendar-panel .rental-calendar .rent-day button{min-height:52px!important}
+}
+</style>
 </body></html>
