@@ -9221,4 +9221,163 @@ body::after{
 }
 </style>
 
+
+<style id="lds-calendar-sticky-headers-and-simple-reminders-20261017">
+/* Rental calendar: stable sticky headers, readable cells, transparent grid. */
+#rentalView .calendar-panel .cal-scroll{
+ position:relative!important;isolation:isolate!important;
+ max-height: min(68vh, 610px)!important;overflow:auto!important;
+ overscroll-behavior:contain!important;scrollbar-gutter:stable!important;
+ background:rgba(255,241,225,.035)!important;
+ border:1px solid rgba(255,235,216,.24)!important;border-radius:16px!important;
+}
+#rentalView .calendar-panel .rental-calendar{
+ min-width:0!important;width:100%!important;
+ grid-template-columns:56px repeat(7,minmax(0,1fr))!important;
+ gap:2px!important;align-items:stretch!important;background:transparent!important;
+}
+#rentalView .calendar-panel .rent-day{
+ position:sticky!important;top:0!important;z-index:8!important;
+ min-width:0!important;padding:9px 1px!important;
+ background:linear-gradient(180deg,rgba(54,35,36,.98),rgba(43,28,31,.97))!important;
+ border:1px solid rgba(255,235,218,.30)!important;border-radius:8px 8px 4px 4px!important;
+ box-shadow:0 3px 8px rgba(20,9,10,.22),inset 0 1px 0 rgba(255,255,255,.13)!important;
+}
+#rentalView .calendar-panel .rent-day button{
+ display:block!important;width:100%!important;padding:0!important;
+ color:#f9eadd!important;font-size:clamp(9px,2.4vw,12px)!important;
+}
+#rentalView .calendar-panel .rent-day button strong{
+ color:#fff9f2!important;font-size:clamp(15px,3.6vw,21px)!important;margin-top:3px!important;
+}
+#rentalView .calendar-panel .rent-day.selected-day{
+ background:linear-gradient(145deg,rgba(119,39,67,.99),rgba(65,20,42,.99))!important;
+ border:1px solid rgba(255,229,205,.85)!important;border-bottom:3px solid #e6c28b!important;
+}
+#rentalView .calendar-panel .rent-time{
+ position:sticky!important;left:0!important;z-index:6!important;
+ min-width:0!important;width:auto!important;padding:0 3px!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ color:#fff4e8!important;font-size:clamp(9px,2.4vw,12px)!important;font-weight:800!important;
+ text-shadow:none!important;
+ background:linear-gradient(90deg,rgba(54,35,36,.99),rgba(43,28,31,.96))!important;
+ border:1px solid rgba(255,235,218,.20)!important;box-shadow:2px 0 5px rgba(20,9,10,.12)!important;
+}
+#rentalView .calendar-panel .rental-calendar>.rent-time:first-child{
+ position:sticky!important;top:0!important;left:0!important;z-index:10!important;
+ background:linear-gradient(145deg,rgba(54,35,36,.99),rgba(43,28,31,.99))!important;
+}
+#rentalView .calendar-panel .rent-cell{
+ min-width:0!important;padding:2px!important;background:transparent!important;
+ border:0!important;box-shadow:none!important;
+}
+#rentalView .calendar-panel .rent-slot{
+ width:100%!important;min-width:0!important;min-height:49px!important;height:100%!important;
+ padding:5px 1px!important;display:flex!important;align-items:center!important;justify-content:center!important;
+ gap:3px!important;text-align:center!important;overflow:hidden!important;
+ border-radius:9px!important;
+ background:linear-gradient(145deg,rgba(255,244,231,.22),rgba(255,235,217,.12))!important;
+ color:#fff8f0!important;border:1px solid rgba(255,239,223,.42)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.18)!important;text-shadow:0 1px 3px rgba(28,12,15,.42)!important;
+}
+#rentalView .calendar-panel .rent-slot strong{font-size:clamp(7px,1.9vw,10px)!important;line-height:1.15!important;color:#fff8f0!important;letter-spacing:0!important}
+#rentalView .calendar-panel .rent-slot small{font-size:clamp(6px,1.55vw,9px)!important;line-height:1.15!important;color:#fff0e2!important;opacity:.96!important;overflow-wrap:anywhere!important}
+#rentalView .calendar-panel .rent-slot.busy{
+ background:linear-gradient(145deg,rgba(117,36,65,.96),rgba(67,18,41,.98))!important;
+ color:#fff8f2!important;border-color:rgba(255,224,208,.46)!important;
+}
+#rentalView .calendar-panel .rent-slot.chosen{
+ background:linear-gradient(145deg,#f0d9a4,#d6b574)!important;color:#402a27!important;
+ border:1px solid #fff0c6!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.50),0 0 0 1px rgba(62,35,30,.16)!important;
+ text-shadow:none!important;
+}
+#rentalView .calendar-panel .rent-slot.chosen strong,#rentalView .calendar-panel .rent-slot.chosen small{color:#402a27!important}
+#rentalView .calendar-panel .calendar-help{
+ background:rgba(255,243,229,.09)!important;border:1px solid rgba(255,235,216,.25)!important;
+ border-radius:16px!important;padding:13px!important;margin-top:12px!important;
+ backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;
+}
+#rentalView .calendar-panel .calendar-help p{color:rgba(255,246,236,.94)!important}
+#rentalView .calendar-panel .availability-legend{color:#fff4e9!important}
+@media(max-width:760px){
+ #rentalView .calendar-panel .cal-scroll{max-height:60vh!important;overflow:auto!important}
+ #rentalView .calendar-panel .rental-calendar{grid-template-columns:48px repeat(7,minmax(0,1fr))!important;gap:2px!important}
+ #rentalView .calendar-panel .rent-day{padding:8px 0!important}
+ #rentalView .calendar-panel .rent-cell{padding:1px!important}
+ #rentalView .calendar-panel .rent-slot{min-height:45px!important;padding:4px 0!important;border-radius:7px!important}
+ #rentalView .calendar-panel .rent-slot strong{font-size:clamp(6px,1.8vw,9px)!important}
+ #rentalView .calendar-panel .rent-slot small{font-size:clamp(5px,1.45vw,7px)!important}
+}
+/* Reminder: remove the enclosing card and heading; keep one simple clock and four glass capsules. */
+#rentalView .availability-section .closing-notice{
+ all:initial!important;display:block!important;position:relative!important;isolation:isolate!important;
+ box-sizing:border-box!important;width:100%!important;max-width:100%!important;min-width:0!important;
+ height:auto!important;min-height:0!important;margin:18px 0 22px!important;padding:0!important;
+ overflow:visible!important;border:0!important;border-radius:0!important;background:transparent!important;
+ box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+ color:#fff8f1!important;font-family:inherit!important;
+}
+#rentalView .availability-section .closing-notice:before,
+#rentalView .availability-section .closing-notice:after{content:none!important;display:none!important}
+#rentalView .availability-section .closing-notice>div{display:block!important;width:100%!important;min-width:0!important}
+#rentalView .availability-section .closing-notice>div>strong{display:none!important}
+#rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark{
+ all:unset!important;display:block!important;position:relative!important;box-sizing:border-box!important;
+ width:48px!important;height:48px!important;min-width:48px!important;min-height:48px!important;
+ margin:0 auto 14px!important;border:2px solid rgba(255,235,202,.95)!important;border-radius:50%!important;
+ background:linear-gradient(145deg,#f8e6cf,#dfc0a0)!important;
+ box-shadow:inset 0 1px 2px rgba(255,255,255,.8),0 3px 9px rgba(35,15,12,.15)!important;
+ color:transparent!important;font-size:0!important;line-height:1!important;overflow:hidden!important;
+}
+#rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark:before{
+ all:initial!important;content:""!important;position:absolute!important;left:48%!important;top:20%!important;
+ width:2px!important;height:31%!important;border-radius:3px!important;background:#60364a!important;
+ transform:rotate(0deg)!important;transform-origin:50% 100%!important;
+}
+#rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark:after{
+ all:initial!important;content:""!important;position:absolute!important;left:48%!important;top:48%!important;
+ width:24%!important;height:2px!important;border-radius:3px!important;background:#60364a!important;
+ transform:rotate(35deg)!important;transform-origin:0 50%!important;
+}
+#rentalView .availability-section .closing-notice p{
+ display:flex!important;flex-direction:column!important;gap:9px!important;
+ width:100%!important;min-width:0!important;margin:0!important;padding:0!important;
+}
+#rentalView .availability-section .closing-notice .notice-line{
+ display:flex!important;align-items:center!important;gap:10px!important;
+ width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box!important;
+ min-height:0!important;height:auto!important;margin:0!important;padding:11px 13px!important;
+ border:1px solid rgba(255,237,218,.35)!important;border-radius:999px!important;
+ background:linear-gradient(105deg,rgba(255,247,236,.15),rgba(255,237,219,.075))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.13)!important;
+ color:#fff8f1!important;font-size:13px!important;line-height:1.4!important;text-align:left!important;
+ white-space:normal!important;word-break:normal!important;overflow-wrap:break-word!important;writing-mode:horizontal-tb!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:before{
+ content:""!important;display:block!important;position:relative!important;flex:0 0 28px!important;
+ width:28px!important;height:28px!important;min-width:28px!important;min-height:28px!important;
+ margin:0!important;padding:0!important;box-sizing:border-box!important;border:1px solid rgba(255,229,198,.76)!important;
+ border-radius:50%!important;background-color:rgba(255,239,220,.10)!important;color:#ffe8c9!important;font-size:0!important;line-height:1!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(1):before{
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffe8c9' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3 10 9-7 9 7'/%3E%3Cpath d='M5 9v11h14V9M9 20v-6h6v6'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:center!important;background-size:17px 17px!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(2):before{
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffe8c9' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3.5 2'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:center!important;background-size:17px 17px!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(3):before{
+ content:"45′"!important;font-size:10px!important;font-weight:800!important;display:flex!important;align-items:center!important;justify-content:center!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(4):before{
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffe8c9' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v18M3 12h18'/%3E%3Cpath d='m7 7 5-4 5 4M7 17l5 4 5-4'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:center!important;background-size:17px 17px!important;
+}
+#rentalView .availability-section .closing-notice .notice-time{display:inline!important;white-space:normal!important;color:#ffdc9b!important;font-weight:800!important}
+@media(max-width:600px){
+ #rentalView .availability-section .closing-notice{margin:15px 0 19px!important}
+ #rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark{width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important;margin-bottom:12px!important}
+ #rentalView .availability-section .closing-notice .notice-line{gap:8px!important;padding:10px 11px!important;font-size:12px!important;line-height:1.38!important}
+ #rentalView .availability-section .closing-notice .notice-line:before{flex-basis:27px!important;width:27px!important;height:27px!important;min-width:27px!important;min-height:27px!important}
+}
+</style>
+
 </body></html>
