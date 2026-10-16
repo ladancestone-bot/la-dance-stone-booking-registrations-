@@ -135,6 +135,7 @@
 .timetable-intro strong{font-size:19px}
 .timetable-intro p{font-size:11px;line-height:1.5}
 
+} /* Close mobile-only agenda styles; keep following desktop CSS active. */
 /* C variant: compact seven-day timetable, scoped only to dance classes */
 .timetable-panel .cal-scroll{overflow:auto}
 .timetable-panel .calendar{min-width:0;grid-template-columns:58px repeat(7,minmax(0,1fr))}
@@ -1531,6 +1532,14 @@ img,svg,video,canvas{max-width:100%}
 }
 
 
+/* Prevent inline icons and SVGs from escaping their intended layout */
+svg{max-width:100%;height:auto}
+button svg,a svg,.iconbox svg,.home-icon svg,.rental-amenity-icon svg{display:block;flex:none;max-width:100%;max-height:100%}
+@media(min-width:761px){
+ #homeView .choices .choice{overflow:hidden}
+ #homeView .choices .choice svg{max-width:35px!important;max-height:35px!important}
+ #rentalView svg{max-width:32px}
+}
 /* Desktop-only: make dance registration schedules look like a desktop timetable, not a mobile list */
 @media(min-width:761px){
  /* Weekly timetable preview on the class-registration overview */
