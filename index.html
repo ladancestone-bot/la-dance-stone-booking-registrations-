@@ -9039,4 +9039,25 @@ body::after{background:linear-gradient(145deg,rgba(39,22,25,.22),rgba(55,32,31,.
 }
 </style>
 
+
+<style id="lds-global-studio-background-warm-light-20261017">
+/* Global studio-photo grade: brighter, warmer, less muddy; affects every view using the shared background. */
+#homeView::before{
+ filter:blur(7px) brightness(.86) saturate(1.04) sepia(.07)!important;
+ transform:scale(1.04)!important;
+}
+#homeView::after{
+ background:linear-gradient(180deg,
+  rgba(255,220,177,.045) 0%,
+  rgba(108,62,42,.015) 42%,
+  rgba(74,39,29,.19) 100%)!important;
+}
+@media(max-width:760px){
+ #homeView::before{filter:blur(6px) brightness(.88) saturate(1.05) sepia(.06)!important}
+ #homeView::after{
+  background:linear-gradient(180deg,rgba(255,224,185,.035) 0%,rgba(111,66,43,.015) 45%,rgba(72,39,30,.16) 100%)!important;
+ }
+}
+</style>
+
 </body></html>
