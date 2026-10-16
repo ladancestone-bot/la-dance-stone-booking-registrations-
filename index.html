@@ -5932,5 +5932,152 @@ body::after{background:linear-gradient(145deg,rgba(39,22,25,.22),rgba(55,32,31,.
 }
 </style>
 
+
+<style id="lds-editorial-liquid-glass-decard-2026">
+/* Editorial liquid glass: one calendar surface, open legend, fewer nested card shapes. */
+#rentalView .availability-section .closing-notice{
+ display:grid!important;grid-template-columns:38px minmax(0,1fr)!important;gap:13px!important;
+ margin:22px 0 30px!important;padding:17px 0 19px!important;
+ border:0!important;border-top:1px solid rgba(255,239,226,.38)!important;
+ border-bottom:1px solid rgba(255,239,226,.28)!important;border-radius:0!important;
+ background:linear-gradient(90deg,rgba(68,25,42,.60),rgba(54,27,37,.28) 75%,transparent)!important;
+ box-shadow:none!important;backdrop-filter:blur(9px)!important;-webkit-backdrop-filter:blur(9px)!important;
+}
+#rentalView .availability-section .closing-notice:before,
+#rentalView .availability-section .closing-notice:after{display:none!important}
+#rentalView .availability-section .closing-notice .closing-notice-mark{
+ width:36px!important;height:36px!important;border-radius:50%!important;
+ background:linear-gradient(145deg,rgba(255,247,237,.15),rgba(255,247,237,.04))!important;
+ border:1px solid rgba(255,240,227,.52)!important;color:#f7dfb4!important;
+ box-shadow:none!important;
+}
+#rentalView .availability-section .closing-notice strong{
+ color:#fff3e9!important;font-size:clamp(19px,4.8vw,25px)!important;
+ line-height:1.14!important;font-weight:750!important;text-shadow:none!important;
+}
+#rentalView .availability-section .closing-notice p{
+ margin-top:13px!important;gap:10px!important;color:rgba(255,247,240,.93)!important;
+ font-size:13px!important;line-height:1.55!important;text-shadow:none!important;
+}
+#rentalView .availability-section .closing-notice .notice-line{padding-left:16px!important}
+#rentalView .availability-section .closing-notice .notice-line:before{
+ width:6px!important;height:6px!important;top:.56em!important;
+ background:#e5c58b!important;border:0!important;box-shadow:0 0 0 3px rgba(229,197,139,.12)!important;
+}
+#rentalView .availability-section .closing-notice .notice-time{color:#f0d49e!important;font-weight:800!important}
+
+/* Keep the calendar itself as the only large framed component. Header and table meet cleanly. */
+#rentalView .availability-section>.calendar-panel{
+ display:flex!important;flex-direction:column!important;gap:0!important;
+ background:transparent!important;border:0!important;border-radius:0!important;
+ box-shadow:none!important;overflow:visible!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+#rentalView .availability-section .cal-toolbar{
+ position:relative!important;z-index:1!important;
+ min-height:72px!important;padding:12px 16px!important;
+ border:1px solid rgba(255,242,232,.60)!important;border-bottom:0!important;
+ border-radius:22px 22px 0 0!important;
+ background:linear-gradient(115deg,rgba(91,30,52,.97),rgba(61,23,40,.98) 68%,rgba(43,21,32,.98))!important;
+ box-shadow:0 8px 20px rgba(26,10,17,.14),inset 0 1px 0 rgba(255,255,255,.18)!important;
+}
+#rentalView .availability-section .cal-scroll{
+ border:1px solid rgba(255,242,232,.54)!important;border-radius:0 0 19px 19px!important;
+ border-top:1px solid rgba(255,242,232,.38)!important;
+ background:linear-gradient(145deg,rgba(255,248,241,.12),rgba(54,32,39,.20))!important;
+ box-shadow:0 12px 24px rgba(24,10,16,.10)!important;overflow-x:hidden!important;overflow-y:auto!important;
+}
+#rentalView .availability-section .rental-calendar{background:transparent!important;gap:0!important}
+#rentalView .availability-section .rent-day{
+ background:rgba(249,238,226,.94)!important;border:0!important;
+ border-right:1px solid rgba(96,55,60,.09)!important;border-bottom:1px solid rgba(96,55,60,.10)!important;
+ box-shadow:none!important;
+}
+#rentalView .availability-section .rent-day button{color:#69394b!important;text-shadow:none!important;font-weight:800!important}
+#rentalView .availability-section .rent-day button strong{color:#422632!important;text-shadow:none!important;font-weight:750!important}
+#rentalView .availability-section .rent-day.selected-day{
+ background:linear-gradient(180deg,#f1dfc9,#d5b79b)!important;
+ box-shadow:inset 0 -3px #79384f!important;
+}
+#rentalView .availability-section .rent-time{
+ color:#472833!important;background:linear-gradient(180deg,#fff8f0,#e8d6c8)!important;
+ border:0!important;border-bottom:1px solid rgba(94,56,61,.13)!important;
+ box-shadow:inset -1px 0 rgba(94,56,61,.10)!important;text-shadow:none!important;font-weight:900!important;
+}
+#rentalView .availability-section .rent-cell{
+ background:transparent!important;border:0!important;box-shadow:none!important;padding:4px 3px!important;
+}
+#rentalView .availability-section .rent-slot{
+ border-radius:12px!important;border:1px solid rgba(255,255,255,.72)!important;
+ box-shadow:0 2px 5px rgba(31,14,20,.11),inset 0 1px 0 rgba(255,255,255,.62)!important;
+ backdrop-filter:blur(7px) saturate(1.03)!important;-webkit-backdrop-filter:blur(7px) saturate(1.03)!important;
+}
+#rentalView .availability-section .rent-slot:not(.busy):not(.chosen){
+ background:linear-gradient(145deg,rgba(255,249,242,.98),rgba(227,210,195,.96))!important;color:#432731!important;
+}
+#rentalView .availability-section .rent-slot.busy{
+ background:linear-gradient(145deg,#793249,#552039)!important;color:#fff8f2!important;
+ border-color:rgba(255,238,234,.66)!important;box-shadow:0 2px 5px rgba(31,10,19,.12),inset 0 1px 0 rgba(255,255,255,.17)!important;
+}
+#rentalView .availability-section .rent-slot.chosen{
+ background:linear-gradient(145deg,#f6e4b4,#d6b16e)!important;color:#43282b!important;
+ border-color:#fff1ca!important;box-shadow:0 0 0 1px rgba(237,204,137,.25),0 3px 7px rgba(34,17,13,.14),inset 0 1px 0 #fff7e3!important;
+}
+
+/* Legend is now an open, separate footer—not another card full of smaller cards. */
+#rentalView .availability-section .calendar-help{
+ position:relative!important;isolation:isolate!important;overflow:visible!important;
+ display:block!important;margin:21px 0 0!important;padding:0!important;
+ border:0!important;border-radius:0!important;background:transparent!important;
+ box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+#rentalView .availability-section .calendar-help:before{display:none!important}
+#rentalView .availability-section .availability-legend{
+ display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:flex-start!important;
+ gap:0!important;margin:0 0 15px!important;padding:0 0 13px!important;
+ border-bottom:1px solid rgba(255,244,234,.26)!important;
+}
+#rentalView .availability-section .availability-legend span{
+ display:inline-flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;
+ gap:9px!important;min-height:0!important;padding:6px 17px 6px 0!important;margin:0 17px 0 0!important;
+ border:0!important;border-radius:0!important;background:transparent!important;
+ color:#fff6ef!important;font-size:13px!important;font-weight:750!important;text-align:left!important;
+ box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+#rentalView .availability-section .legend-block{
+ width:14px!important;height:14px!important;flex:0 0 14px!important;margin:0!important;
+ border:1px solid rgba(255,255,255,.85)!important;border-radius:50%!important;
+ box-shadow:0 0 0 3px rgba(255,255,255,.08),inset 0 1px 0 rgba(255,255,255,.7)!important;
+}
+#rentalView .availability-section .legend-block.free{background:linear-gradient(145deg,#d4ebd6,#7eae8d)!important}
+#rentalView .availability-section .legend-block.reserved{background:linear-gradient(145deg,#e9bdcb,#ad5272)!important}
+#rentalView .availability-section .legend-block.chosen{background:linear-gradient(145deg,#fff0c0,#d0a45b)!important}
+#rentalView .availability-section .calendar-help p{
+ margin:9px 0 0!important;padding:0!important;border:0!important;border-radius:0!important;
+ background:transparent!important;color:rgba(255,247,240,.88)!important;
+ font-size:12px!important;line-height:1.65!important;text-shadow:none!important;
+}
+#rentalView .availability-section #selectionHint{
+ color:#fff4e8!important;font-weight:650!important;
+}
+@media(max-width:760px){
+ #rentalView .availability-section .closing-notice{
+  grid-template-columns:31px minmax(0,1fr)!important;gap:10px!important;
+  margin:18px 0 24px!important;padding:15px 0 16px!important;
+ }
+ #rentalView .availability-section .closing-notice .closing-notice-mark{width:30px!important;height:30px!important;font-size:17px!important}
+ #rentalView .availability-section .closing-notice strong{font-size:19px!important}
+ #rentalView .availability-section .closing-notice p{font-size:12px!important;gap:8px!important}
+ #rentalView .availability-section .cal-toolbar{min-height:61px!important;padding:10px 11px!important;border-radius:18px 18px 0 0!important}
+ #rentalView .availability-section .cal-scroll{border-radius:0 0 15px 15px!important}
+ #rentalView .availability-section .rent-cell{padding:3px 2px!important}
+ #rentalView .availability-section .rent-slot{border-radius:10px!important}
+ #rentalView .availability-section .calendar-help{margin-top:18px!important}
+ #rentalView .availability-section .availability-legend{gap:3px 0!important;margin-bottom:12px!important;padding-bottom:10px!important}
+ #rentalView .availability-section .availability-legend span{font-size:12px!important;margin-right:13px!important;padding-right:0!important;gap:7px!important}
+ #rentalView .availability-section .legend-block{width:13px!important;height:13px!important;flex-basis:13px!important}
+ #rentalView .availability-section .calendar-help p{font-size:11px!important}
+}
+</style>
+
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
 </body></html>
