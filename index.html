@@ -3783,6 +3783,148 @@ body::after{
 }
 </style>
 
+
+<style id="lds-transparent-parent-glass-fix">
+/*
+  The studio photograph is already the page background.
+  Remove the extra opaque "sheet" surfaces from the page and table wrappers;
+  apply the glass material to each table component itself.
+*/
+body{
+ background:transparent!important;
+}
+body::before{
+ opacity:1!important;
+}
+.wrap{
+ background:transparent!important;
+ box-shadow:none!important;
+}
+.view:not(#homeView),
+#timetableView,
+#rentalView,
+#registrationView{
+ background:transparent!important;
+}
+.view:not(#homeView)::before,
+.view:not(#homeView)::after{
+ background:transparent!important;
+ box-shadow:none!important;
+}
+#registrationView .class-week-preview,
+#timetableView .class-week-preview,
+.class-week-preview{
+ background:transparent!important;
+ border:0!important;
+ border-radius:0!important;
+ box-shadow:none!important;
+ backdrop-filter:none!important;
+ -webkit-backdrop-filter:none!important;
+ padding:clamp(14px,2.5vw,24px) 0!important;
+ margin:26px 0 34px!important;
+}
+.class-week-heading{
+ background:transparent!important;
+ border:0!important;
+ box-shadow:none!important;
+}
+.class-week-scroll,
+.class-week-calendar-scroll{
+ background:rgba(255,249,241,.10)!important;
+ border:1px solid rgba(255,255,255,.76)!important;
+ border-radius:22px!important;
+ box-shadow:0 18px 36px rgba(43,25,24,.15),inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 0 rgba(255,255,255,.28)!important;
+ backdrop-filter:blur(9px) saturate(1.18)!important;
+ -webkit-backdrop-filter:blur(9px) saturate(1.18)!important;
+ overflow:auto!important;
+}
+.class-calendar-grid{
+ background:transparent!important;
+}
+.class-calendar-corner,
+.class-calendar-dayhead,
+.class-calendar-time{
+ background:linear-gradient(145deg,rgba(255,250,243,.58),rgba(239,222,204,.34))!important;
+ border-color:rgba(255,255,255,.50)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.55)!important;
+}
+.class-calendar-slot{
+ background:rgba(255,250,243,.16)!important;
+ border-color:rgba(255,255,255,.30)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.28)!important;
+}
+.class-calendar-slot.booked{
+ background:linear-gradient(145deg,rgba(255,251,244,.28),rgba(234,215,194,.16))!important;
+}
+#timetableView .timetable-panel,
+#rentalView .calendar-panel,
+.view:not(#homeView) .availability-section .calendar-panel{
+ background:rgba(255,249,242,.09)!important;
+ border:1px solid rgba(255,255,255,.84)!important;
+ border-radius:26px!important;
+ box-shadow:0 20px 44px rgba(41,24,23,.16),inset 0 1px 0 rgba(255,255,255,.90),inset 0 -1px 0 rgba(255,255,255,.25)!important;
+ backdrop-filter:blur(10px) saturate(1.18)!important;
+ -webkit-backdrop-filter:blur(10px) saturate(1.18)!important;
+ overflow:hidden!important;
+}
+#timetableView .timetable-panel .cal-scroll,
+#rentalView .calendar-panel .cal-scroll,
+.view:not(#homeView) .availability-section .cal-scroll{
+ background:rgba(255,250,244,.08)!important;
+}
+#timetableView .timetable-panel .calendar,
+#rentalView .calendar-panel .calendar{
+ background:transparent!important;
+}
+#timetableView .timetable-panel .calendar .day,
+#rentalView .calendar-panel .calendar .day{
+ background:linear-gradient(145deg,rgba(255,250,243,.62),rgba(239,222,204,.38))!important;
+ border-color:rgba(255,255,255,.52)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.72)!important;
+}
+#timetableView .timetable-panel .calendar .time,
+#rentalView .calendar-panel .calendar .time{
+ background:linear-gradient(90deg,rgba(238,221,204,.42),rgba(255,250,244,.22))!important;
+ border-color:rgba(255,255,255,.38)!important;
+}
+#timetableView .timetable-panel .calendar .cell,
+#rentalView .calendar-panel .calendar .cell{
+ background:rgba(255,250,244,.12)!important;
+ border-color:rgba(255,255,255,.36)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.20)!important;
+}
+#timetableView .timetable-panel .calendar .free-time{
+ background:rgba(255,250,244,.12)!important;
+ border:1px dashed rgba(255,255,255,.46)!important;
+ color:#8b776c!important;
+}
+#timetableView .timetable-panel .cal-toolbar,
+#rentalView .calendar-panel .cal-toolbar{
+ background:linear-gradient(125deg,rgba(91,35,53,.92),rgba(54,20,31,.88))!important;
+ border-bottom:1px solid rgba(255,255,255,.48)!important;
+}
+.view:not(#homeView) .availability-section{
+ background:transparent!important;
+ border:0!important;
+ border-radius:0!important;
+ box-shadow:none!important;
+ backdrop-filter:none!important;
+ -webkit-backdrop-filter:none!important;
+ padding:0!important;
+ margin:32px 0 44px!important;
+}
+.view:not(#homeView) .availability-section .calendar-panel{
+ margin-top:18px!important;
+}
+@media(max-width:760px){
+ .class-week-preview{padding:12px 0 20px!important;margin:20px 0 28px!important}
+ .class-week-scroll,.class-week-calendar-scroll{border-radius:18px!important}
+ #timetableView .timetable-panel,
+ #rentalView .calendar-panel,
+ .view:not(#homeView) .availability-section .calendar-panel{border-radius:21px!important}
+}
+</style>
+
 </head>
 <body>
 <main class="wrap">
