@@ -4892,5 +4892,82 @@ body::after{
 }
 </style>
 
+
+<style id="lds-timetable-scroll-and-deep-glass-v2">
+/* Restore natural page scrolling and keep the full timetable accessible vertically. CSS only. */
+html,body{height:auto!important;min-height:100%!important;overflow-y:auto!important;overscroll-behavior-y:auto!important}
+#timetableView{height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important;overscroll-behavior:initial!important}
+#timetableView.active{height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important}
+#timetableView .timetable-panel{height:auto!important;max-height:none!important;overflow:visible!important}
+#timetableView .timetable-panel .cal-scroll{
+ height:auto!important;max-height:none!important;overflow-x:auto!important;overflow-y:visible!important;
+ overscroll-behavior-y:auto!important;touch-action:pan-x pan-y!important;
+ -webkit-overflow-scrolling:touch!important;position:relative!important;
+}
+#timetableView .timetable-panel .calendar{height:auto!important;min-height:0!important}
+#timetableView .timetable-panel .calendar .day{position:relative!important;top:auto!important}
+#timetableView .timetable-panel .calendar-help{position:relative!important;z-index:1}
+#timetableView .timetable-panel .calendar .cell{
+ background:linear-gradient(145deg,rgba(106,79,74,.36),rgba(48,32,36,.24))!important;
+ border-color:rgba(255,255,255,.40)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.20),inset 0 -1px 0 rgba(24,13,18,.16)!important;
+}
+#timetableView .timetable-panel .calendar .day{
+ background:linear-gradient(145deg,rgba(255,247,236,.78),rgba(190,159,143,.52))!important;
+ border-color:rgba(255,255,255,.62)!important;
+}
+#timetableView .timetable-panel .calendar .time{
+ background:linear-gradient(90deg,rgba(96,66,66,.73),rgba(65,43,47,.56))!important;
+ color:#fff9f2!important;text-shadow:0 1px 4px rgba(30,14,20,.55)!important;
+ border-color:rgba(255,255,255,.35)!important;
+}
+#timetableView .timetable-panel .calendar .event{
+ box-shadow:0 6px 15px rgba(24,12,18,.23),inset 0 1px 0 rgba(255,255,255,.68),inset 0 -2px 0 rgba(45,19,29,.12)!important;
+ border:1px solid rgba(255,255,255,.92)!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event:not(.pink):not(.gold):not(.plum){
+ background:linear-gradient(145deg,rgba(225,241,220,.98),rgba(153,192,156,.96))!important;
+ color:#1e3b2b!important;border-left:4px solid #668e6e!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event.pink{
+ background:linear-gradient(145deg,rgba(250,226,239,.98),rgba(207,157,187,.96))!important;
+ color:#4f2038!important;border-left:4px solid #9c5a78!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event.gold{
+ background:linear-gradient(145deg,rgba(255,238,213,.98),rgba(215,174,137,.96))!important;
+ color:#573725!important;border-left:4px solid #ad7c58!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event.plum{
+ background:linear-gradient(145deg,rgba(242,225,244,.98),rgba(182,145,194,.96))!important;
+ color:#45244f!important;border-left:4px solid #8b6798!important;
+}
+#timetableView .timetable-panel .calendar .event.occupied-event{
+ background:linear-gradient(145deg,rgba(125,42,67,.99),rgba(49,13,29,.99))!important;
+ color:#fffaf5!important;border-left:4px solid #e6c08a!important;
+}
+#timetableView .timetable-panel .calendar .event.occupied-event .event-name,
+#timetableView .timetable-panel .calendar .event.occupied-event .event-audience{color:#fffaf5!important}
+#timetableView .timetable-panel .calendar-help{
+ background:linear-gradient(145deg,rgba(83,57,57,.74),rgba(42,27,33,.62))!important;
+ color:#fff8f1!important;backdrop-filter:blur(20px) saturate(1.25)!important;
+ -webkit-backdrop-filter:blur(20px) saturate(1.25)!important;
+}
+#timetableView .timetable-panel .timetable-legend,
+#timetableView .timetable-panel .calendar-help p{color:#fff8f1!important}
+@media(max-width:760px){
+ #timetableView .timetable-panel .cal-scroll{
+  display:block!important;overflow-x:hidden!important;overflow-y:visible!important;
+  max-height:none!important;height:auto!important;touch-action:pan-y!important;
+ }
+ #timetableView .timetable-panel .calendar{
+  width:100%!important;min-width:0!important;grid-template-columns:42px repeat(7,minmax(0,1fr))!important;
+ }
+ #timetableView .timetable-panel .calendar .day{position:relative!important;top:auto!important}
+ #timetableView .timetable-panel .calendar .cell{height:59px!important}
+ #timetableView .timetable-panel .calendar .event{min-height:0!important}
+ #timetableView .timetable-panel .calendar-help{margin-bottom:12px}
+}
+</style>
+
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
 </body></html>
