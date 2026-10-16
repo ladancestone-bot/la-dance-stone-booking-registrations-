@@ -10562,4 +10562,27 @@ body::after{
  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
 }
 </style>
+<style id="lds-rental-address-backplate-removal-20261017">
+/* Match the amenity fix: remove the tiny rectangular glass/backplate behind the address.
+   Keep the address text and small gold dot, but no pill, tile, blur, or shadow. */
+#rentalView .rental-intro .rental-address,
+#rentalView .rental-intro .rental-address::before,
+#rentalView .rental-intro .rental-address::after,
+#rentalView .rental-intro .rental-address > *,
+#rentalView .rental-intro .rental-address > *::before,
+#rentalView .rental-intro .rental-address > *::after{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ box-shadow:none!important;filter:none!important;-webkit-filter:none!important;
+ backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+ border:0!important;outline:0!important;border-radius:0!important;
+}
+#rentalView .rental-intro .rental-address{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ width:max-content!important;max-width:100%!important;min-height:0!important;
+ padding:0!important;overflow:visible!important;
+}
+#rentalView .rental-intro .rental-address span{
+ background:transparent!important;box-shadow:none!important;border:0!important;
+}
+</style>
 </body></html>
