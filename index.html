@@ -3512,6 +3512,132 @@ body::after{
 }
 </style>
 
+
+<style id="lds-glass-separated-panels">
+/* Separate each functional area visually; retain page scrolling and existing booking behavior. */
+.view:not(#homeView) .availability-section{
+ display:flow-root;
+ margin:34px 0 42px!important;
+ padding:clamp(16px,2.5vw,28px)!important;
+ border:1px solid rgba(255,255,255,.76)!important;
+ border-radius:28px!important;
+ background:linear-gradient(145deg,rgba(255,250,243,.46),rgba(235,216,198,.26))!important;
+ box-shadow:0 18px 42px rgba(47,27,24,.11),inset 0 1px 0 rgba(255,255,255,.88),inset 0 -1px 0 rgba(92,58,46,.06)!important;
+ backdrop-filter:blur(14px) saturate(1.12)!important;
+ -webkit-backdrop-filter:blur(14px) saturate(1.12)!important;
+}
+.view:not(#homeView) .availability-section .availability-heading{
+ margin:0 0 22px!important;
+ padding:0 0 18px!important;
+ border-bottom:1px solid rgba(181,150,125,.34)!important;
+}
+.view:not(#homeView) .availability-section .availability-heading h2{
+ text-shadow:0 1px 0 rgba(255,255,255,.48);
+}
+.view:not(#homeView) .availability-section .cal-scroll{
+ max-height:390px!important;
+ overflow:auto!important;
+ margin:0!important;
+ border:1px solid rgba(255,255,255,.9)!important;
+ border-radius:20px!important;
+ background:linear-gradient(145deg,rgba(255,253,249,.40),rgba(234,216,198,.24))!important;
+ box-shadow:0 12px 28px rgba(55,32,27,.10),inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(120,81,59,.08)!important;
+ backdrop-filter:blur(16px) saturate(1.12)!important;
+ -webkit-backdrop-filter:blur(16px) saturate(1.12)!important;
+ scrollbar-color:rgba(112,72,70,.36) rgba(255,250,244,.28);
+}
+.view:not(#homeView) .availability-section .rental-calendar{
+ min-width:920px!important;
+ background:transparent!important;
+}
+.view:not(#homeView) .availability-section .rent-day{
+ background:linear-gradient(180deg,rgba(255,252,247,.91),rgba(232,215,198,.74))!important;
+ border-color:rgba(255,255,255,.70)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.94),0 2px 5px rgba(57,36,28,.045)!important;
+}
+.view:not(#homeView) .availability-section .rent-time{
+ background:linear-gradient(90deg,rgba(238,221,205,.78),rgba(255,251,246,.65))!important;
+ border-color:rgba(255,255,255,.62)!important;
+}
+.view:not(#homeView) .availability-section .rent-cell{
+ background:rgba(255,251,246,.29)!important;
+ border-color:rgba(255,255,255,.56)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.35)!important;
+}
+.view:not(#homeView) .availability-section .rent-slot{
+ position:relative;
+ overflow:hidden;
+ border-radius:11px!important;
+ border:1px solid rgba(255,255,255,.88)!important;
+ background:linear-gradient(145deg,rgba(255,251,241,.91),rgba(228,211,189,.80))!important;
+ color:#6b5144!important;
+ box-shadow:0 5px 11px rgba(58,35,28,.10),inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(102,69,48,.07)!important;
+}
+.view:not(#homeView) .availability-section .rent-slot.busy{
+ background:linear-gradient(145deg,rgba(125,55,76,.98),rgba(66,24,39,.99))!important;
+ color:#fff9f4!important;
+ border-color:rgba(255,255,255,.40)!important;
+ box-shadow:0 5px 13px rgba(72,24,36,.19),inset 0 1px 0 rgba(255,255,255,.22)!important;
+}
+.view:not(#homeView) .availability-section .rent-slot.chosen{
+ background:linear-gradient(145deg,#f8e8bd,#d8b96f)!important;
+ color:#4b341c!important;
+ border-color:#c5a16e!important;
+ box-shadow:0 0 0 1px rgba(255,255,255,.82),0 6px 15px rgba(126,91,37,.20),inset 0 1px 0 #fff!important;
+}
+.view:not(#homeView) .availability-section .availability-legend{
+ padding:15px 4px 0!important;
+ gap:16px!important;
+}
+.view:not(#homeView) .availability-section .calendar-help{
+ margin-top:14px!important;
+ padding:16px 18px!important;
+ border:1px solid rgba(255,255,255,.72)!important;
+ border-radius:17px!important;
+ background:linear-gradient(145deg,rgba(255,251,245,.56),rgba(239,223,207,.35))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.84)!important;
+}
+.view:not(#homeView) .rental-highlights{gap:14px!important;margin:30px 0 38px!important}
+.view:not(#homeView) .rental-highlights>div{
+ border-radius:19px!important;
+ background:linear-gradient(145deg,rgba(255,251,245,.76),rgba(238,220,203,.52))!important;
+ border:1px solid rgba(255,255,255,.84)!important;
+ box-shadow:0 10px 24px rgba(55,32,27,.08),inset 0 1px 0 #fff!important;
+ backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;
+}
+.view:not(#homeView) .rental-gallery{gap:20px!important;margin:32px 0!important}
+.view:not(#homeView) .gallery-card{
+ border-radius:24px!important;
+ border:1px solid rgba(255,255,255,.85)!important;
+ box-shadow:0 16px 34px rgba(47,27,24,.15),inset 0 1px 0 rgba(255,255,255,.85)!important;
+ overflow:hidden;
+}
+.view:not(#homeView) .rental-layout.booking-open{gap:22px!important;margin:30px 0 38px!important}
+.view:not(#homeView) .rental-layout.booking-open>.panel,
+.view:not(#homeView) .rental-layout.booking-open>.price-card{
+ border-radius:24px!important;
+}
+@media(max-width:760px){
+ .view:not(#homeView) .availability-section{
+  margin:27px 0 34px!important;
+  padding:14px!important;
+  border-radius:23px!important;
+ }
+ .view:not(#homeView) .availability-section .availability-heading{margin-bottom:17px!important;padding-bottom:14px!important}
+ .view:not(#homeView) .availability-section .cal-scroll{
+  max-height:340px!important;
+  border-radius:15px!important;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+ }
+ .view:not(#homeView) .availability-section .rental-calendar{min-width:900px!important}
+ .view:not(#homeView) .availability-section .calendar-help{padding:13px!important}
+ .view:not(#homeView) .rental-highlights{gap:10px!important;margin:24px 0 30px!important}
+ .view:not(#homeView) .rental-gallery{gap:15px!important;margin:24px 0!important}
+ .view:not(#homeView) .rental-layout.booking-open{gap:15px!important;margin:23px 0 30px!important}
+}
+</style>
+
 </head>
 <body>
 <main class="wrap">
