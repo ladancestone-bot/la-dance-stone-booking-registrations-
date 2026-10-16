@@ -1575,6 +1575,77 @@ button svg,a svg,.iconbox svg,.home-icon svg,.rental-amenity-icon svg{display:bl
  #timetableView .event{font-size:9px!important;padding:4px!important;line-height:1.2!important;overflow-wrap:anywhere!important}
  #timetableView .event b{font-size:9px!important}
 }
+
+/* Desktop-only refinements requested from the visual review. Mobile layout remains unchanged. */
+@media(min-width:761px){
+  /* Make the brown studio footer genuinely full-bleed on every app view. */
+  .brand-footer,
+  .view .brand-footer{
+    width:100vw!important;
+    min-width:100vw!important;
+    max-width:100vw!important;
+    margin-left:calc(50% - 50vw)!important;
+    margin-right:calc(50% - 50vw)!important;
+    border-radius:0!important;
+    box-sizing:border-box!important;
+  }
+  .view:not(#rentalView)>.brand-footer{margin-top:34px!important}
+  #rentalView .brand-footer{margin-top:34px!important}
+  .brand-footer-main{max-width:1040px!important;padding-left:28px!important;padding-right:28px!important}
+
+  /* Two gallery photos should fill the row evenly, with no empty third column. */
+  #rentalView .rental-gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+    margin:20px 0 22px!important;
+  }
+  #rentalView .gallery-card>img{height:190px!important}
+  #rentalView .gallery-caption{padding:13px 15px 15px!important;min-height:0!important}
+  #rentalView .gallery-caption strong{font-size:21px!important}
+  #rentalView .rental-highlights{gap:8px!important;margin:16px 0 22px!important}
+  #rentalView .rental-highlights>div{padding:12px!important}
+  #rentalView .rental-layout{gap:14px!important;margin-top:14px!important;margin-bottom:28px!important}
+  #rentalView .booking-panel,#rentalView .price-card{padding:21px!important}
+  #rentalView .price-card{min-height:230px!important}
+  #rentalView .price-card h3{font-size:29px!important;margin:13px 0 5px!important}
+  #rentalView .price-card .amount{font-size:39px!important}
+
+  /* Shorten the desktop weekly calendar so more of the timetable is visible at once. */
+  #rentalView .availability-section{margin-top:26px!important}
+  #rentalView .availability-heading{margin-bottom:12px!important}
+  #rentalView .availability-heading h2{font-size:40px!important}
+  #rentalView .rental-calendar{grid-template-columns:54px repeat(7,minmax(0,1fr))!important;min-width:0!important}
+  #rentalView .rent-day{padding:8px 3px!important}
+  #rentalView .rent-day button{font-size:9px!important}
+  #rentalView .rent-day button strong{font-size:19px!important;margin-top:3px!important}
+  #rentalView .rent-time{min-height:43px!important;height:43px!important;padding:6px 3px!important;font-size:9px!important}
+  #rentalView .rent-cell{height:43px!important;min-height:43px!important;padding:2px!important}
+  #rentalView .rent-slot{padding:4px!important;gap:2px!important;font-size:8px!important}
+  #rentalView .rent-slot strong,#rentalView .rent-slot small{font-size:8px!important}
+
+  /* Slightly tighter class-registration cards and timetable preview. */
+  #classOverview .class-choices-four{gap:10px!important}
+  #classOverview .class-choices.class-choices-four>.choice{
+    padding:16px 17px!important;
+    grid-template-columns:36px minmax(0,1fr) 32px!important;
+    column-gap:12px!important;
+  }
+  #classOverview .class-choices.class-choices-four>.choice .iconbox{width:32px!important;height:32px!important;font-size:17px!important}
+  #classOverview .class-choices.class-choices-four>.choice h3{font-size:23px!important;margin-bottom:3px!important}
+  #classOverview .class-choices.class-choices-four>.choice p{font-size:12px!important;line-height:1.4!important}
+  #classOverview .class-choices.class-choices-four>.choice .arrow{width:32px!important;height:32px!important;font-size:19px!important}
+  #classOverview .class-week-preview{padding:16px 18px!important;margin:16px 0 22px!important}
+  #classOverview .class-week-heading h3{font-size:27px!important}
+  #classOverview .class-calendar-grid{grid-template-rows:34px repeat(6,minmax(42px,auto))!important}
+  #classOverview .class-calendar-time{padding:6px 2px!important}
+  #classOverview .class-calendar-slot{padding:4px!important;font-size:8px!important;line-height:1.15!important}
+  #classOverview .class-calendar-slot strong,#classOverview .class-calendar-slot span{font-size:8px!important;line-height:1.15!important}
+
+  /* Reduce the overall home cards slightly, without changing phone sizing. */
+  #homeView .choices{gap:11px!important}
+  #homeView .choice{padding-top:18px!important;padding-bottom:18px!important}
+  #homeView .choice h3{font-size:23px!important}
+}
 </style>
 </head>
 <body>
