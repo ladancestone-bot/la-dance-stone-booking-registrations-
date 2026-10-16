@@ -5276,5 +5276,67 @@ body::after{background:linear-gradient(145deg,rgba(39,22,25,.22),rgba(55,32,31,.
 }
 </style>
 
+
+<style id="lds-final-seven-day-rental-glass">
+/* Highest-priority mobile calendar correction. Presentation only; preserve all booking behavior. */
+@media(max-width:760px){
+ #rentalView.view:not(#homeView) .availability-section>.calendar-panel>.cal-scroll{
+  width:100%!important;max-width:100%!important;min-width:0!important;
+  overflow-x:hidden!important;overflow-y:auto!important;
+  touch-action:pan-y!important;-webkit-overflow-scrolling:touch!important;
+ }
+ #rentalView.view:not(#homeView) .availability-section .rental-calendar,
+ #rentalView.view:not(#homeView) .availability-section>.calendar-panel .rental-calendar{
+  display:grid!important;width:100%!important;max-width:100%!important;min-width:0!important;
+  box-sizing:border-box!important;
+  grid-template-columns:35px repeat(7,minmax(0,1fr))!important;
+  overflow:visible!important;
+ }
+ #rentalView.view:not(#homeView) .availability-section .rental-calendar>*{
+  min-width:0!important;width:auto!important;max-width:100%!important;box-sizing:border-box!important;
+ }
+ #rentalView.view:not(#homeView) .availability-section .rent-day,
+ #rentalView.view:not(#homeView) .availability-section .rent-time,
+ #rentalView.view:not(#homeView) .availability-section .rent-cell{
+  min-width:0!important;width:auto!important;max-width:100%!important;
+ }
+ #rentalView.view:not(#homeView) .availability-section .rent-slot{
+  min-width:0!important;width:100%!important;max-width:100%!important;
+ }
+ #rentalView.view:not(#homeView) .availability-section .rent-slot strong,
+ #rentalView.view:not(#homeView) .availability-section .rent-slot small{
+  white-space:normal!important;overflow-wrap:anywhere!important;
+ }
+ #timetableView.view:not(#homeView) .timetable-panel .cal-scroll{
+  background:rgba(70,48,49,.18)!important;
+  border:1px solid rgba(255,255,255,.28)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 8px 22px rgba(25,13,17,.12)!important;
+  backdrop-filter:blur(20px) saturate(1.2)!important;
+  -webkit-backdrop-filter:blur(20px) saturate(1.2)!important;
+ }
+ #timetableView.view:not(#homeView) .timetable-panel .calendar{
+  background:rgba(76,52,52,.17)!important;
+ }
+ #timetableView.view:not(#homeView) .timetable-panel .calendar .day{
+  background:linear-gradient(145deg,rgba(255,245,232,.44),rgba(211,180,158,.27))!important;
+  border-color:rgba(255,255,255,.34)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.36)!important;
+ }
+ #timetableView.view:not(#homeView) .timetable-panel .calendar .time{
+  background:linear-gradient(90deg,rgba(87,59,60,.56),rgba(66,45,48,.40))!important;
+  color:#fff5ec!important;border-color:rgba(255,255,255,.24)!important;
+ }
+ #timetableView.view:not(#homeView) .timetable-panel .calendar .cell{
+  background:rgba(255,246,236,.10)!important;
+  border-color:rgba(255,255,255,.23)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10)!important;
+ }
+ #timetableView.view:not(#homeView) .timetable-panel .calendar .event{
+  backdrop-filter:blur(12px) saturate(1.24)!important;
+  -webkit-backdrop-filter:blur(12px) saturate(1.24)!important;
+ }
+}
+</style>
+
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
 </body></html>
