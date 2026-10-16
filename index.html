@@ -7912,5 +7912,154 @@ body::after{background:linear-gradient(145deg,rgba(39,22,25,.22),rgba(55,32,31,.
 }
 </style>
 
+
+<style id="lds-central-clock-orbiting-glass-reminders">
+/* New art direction: a real clock at the centre, four glass reminders orbiting it. */
+#rentalView .availability-section .closing-notice{
+ display:grid!important;position:relative!important;isolation:isolate!important;
+ grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+ grid-template-rows:auto minmax(145px,auto) minmax(145px,auto)!important;
+ column-gap:clamp(24px,5vw,76px)!important;row-gap:clamp(22px,4vw,54px)!important;
+ align-items:stretch!important;justify-items:stretch!important;
+ width:100%!important;box-sizing:border-box!important;
+ margin:32px 0 42px!important;padding:0!important;
+ background:transparent!important;border:0!important;border-radius:0!important;
+ box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+#rentalView .availability-section .closing-notice:before{
+ content:""!important;display:block!important;position:absolute!important;
+ z-index:0!important;left:50%!important;top:56%!important;
+ width:clamp(205px,44%,360px)!important;aspect-ratio:1!important;
+ transform:translate(-50%,-50%)!important;border-radius:50%!important;
+ border:1px solid rgba(255,224,202,.20)!important;
+ background:radial-gradient(circle,rgba(255,234,216,.045) 0 42%,transparent 43% 58%,rgba(255,227,206,.045) 59% 60%,transparent 61%)!important;
+ box-shadow:0 0 0 1px rgba(255,255,255,.025),inset 0 0 28px rgba(255,224,201,.025)!important;
+ pointer-events:none!important;
+}
+#rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark{
+ display:block!important;position:absolute!important;z-index:4!important;
+ left:50%!important;top:56%!important;transform:translate(-50%,-50%)!important;
+ width:clamp(116px,24vw,194px)!important;aspect-ratio:1!important;height:auto!important;
+ border-radius:50%!important;overflow:hidden!important;color:transparent!important;font-size:0!important;
+ border:2px solid rgba(255,225,198,.88)!important;
+ background:
+ radial-gradient(circle at 30% 20%,rgba(255,255,255,.32),transparent 23%),
+ radial-gradient(circle at 37% 29%,rgba(143,43,78,.98),rgba(75,16,46,.99) 64%,rgba(35,7,26,1))!important;
+ box-shadow:inset 0 2px 5px rgba(255,255,255,.28),inset 0 -12px 22px rgba(12,1,7,.38),0 0 0 8px rgba(255,233,213,.045),0 18px 38px rgba(15,2,9,.26)!important;
+}
+#rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark:before{
+ content:""!important;display:block!important;position:absolute!important;
+ left:49%!important;top:17%!important;width:3px!important;height:34%!important;
+ border-radius:10px!important;background:linear-gradient(#fff1cc,#e6b56d)!important;
+ transform-origin:50% 97%!important;transform:rotate(52deg)!important;
+ box-shadow:0 0 5px rgba(255,222,163,.22)!important;
+}
+#rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark:after{
+ content:""!important;display:block!important;position:absolute!important;
+ left:49%!important;top:31%!important;width:4px!important;height:24%!important;
+ border-radius:10px!important;background:linear-gradient(#fff6de,#e6bd7d)!important;
+ transform-origin:50% 88%!important;transform:rotate(310deg)!important;
+ box-shadow:0 0 4px rgba(255,222,163,.2)!important;
+}
+#rentalView .availability-section .closing-notice>div{
+ display:contents!important;
+}
+#rentalView .availability-section .closing-notice strong{
+ display:block!important;grid-column:1 / -1!important;grid-row:1!important;
+ width:calc(100% - 90px)!important;max-width:650px!important;
+ margin:0 auto clamp(6px,1.5vw,16px)!important;padding:0!important;
+ color:#fff8f1!important;text-align:center!important;
+ font-family:Inter,"Avenir Next",Avenir,system-ui,sans-serif!important;
+ font-size:clamp(23px,4vw,34px)!important;font-weight:800!important;
+ line-height:1.12!important;letter-spacing:-.04em!important;
+}
+#rentalView .availability-section .closing-notice p{
+ display:contents!important;
+}
+#rentalView .availability-section .closing-notice .notice-line{
+ display:flex!important;flex-direction:column!important;justify-content:center!important;
+ position:relative!important;z-index:2!important;box-sizing:border-box!important;
+ width:100%!important;min-width:0!important;min-height:145px!important;
+ margin:0!important;padding:28px clamp(15px,2.5vw,30px) 20px!important;
+ color:rgba(255,249,243,.98)!important;
+ font-family:Inter,"Avenir Next",Avenir,system-ui,sans-serif!important;
+ font-size:clamp(13px,1.65vw,17px)!important;line-height:1.48!important;text-align:center!important;
+ border:1px solid rgba(255,226,207,.56)!important;
+ border-radius:36px 48px 34px 45px / 34px 37px 45px 39px!important;
+ background:
+ radial-gradient(ellipse at 15% 7%,rgba(255,255,255,.19),transparent 38%),
+ linear-gradient(145deg,rgba(255,242,228,.17),rgba(255,235,219,.065) 60%,rgba(255,247,238,.11))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.30),inset 0 -10px 24px rgba(255,225,203,.035),0 12px 28px rgba(14,2,9,.12)!important;
+ backdrop-filter:blur(20px) saturate(1.12)!important;-webkit-backdrop-filter:blur(20px) saturate(1.12)!important;
+ transform:none!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(1){
+ grid-column:1!important;grid-row:2!important;align-self:start!important;
+ border-radius:38px 48px 43px 34px / 34px 40px 43px 42px!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(2){
+ grid-column:2!important;grid-row:2!important;align-self:start!important;
+ border-radius:47px 36px 38px 46px / 38px 34px 44px 42px!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(3){
+ grid-column:1!important;grid-row:3!important;align-self:end!important;
+ border-radius:35px 45px 48px 38px / 42px 39px 35px 44px!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(4){
+ grid-column:2!important;grid-row:3!important;align-self:end!important;
+ border-radius:46px 39px 44px 48px / 36px 43px 39px 46px!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:before{
+ content:""!important;display:flex!important;position:absolute!important;top:0!important;left:50%!important;
+ transform:translate(-50%,-42%)!important;align-items:center!important;justify-content:center!important;
+ width:42px!important;height:42px!important;box-sizing:border-box!important;
+ border:1px solid rgba(255,232,211,.88)!important;border-radius:50%!important;
+ background:radial-gradient(circle at 28% 20%,rgba(255,255,255,.42),transparent 40%),linear-gradient(145deg,rgba(143,46,80,.98),rgba(58,12,39,.99))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.38),0 5px 14px rgba(14,2,9,.20)!important;
+ color:#ffe7b9!important;font-family:Georgia,serif!important;font-size:21px!important;line-height:1!important;
+}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(1):before{content:"⌂"!important}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(2):before{content:"☾"!important}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(3):before{content:"⌛"!important;font-size:18px!important}
+#rentalView .availability-section .closing-notice .notice-line:nth-child(4):before{content:"↗"!important;font-size:22px!important}
+#rentalView .availability-section .closing-notice .notice-time{
+ color:#f5d49a!important;font-weight:850!important;white-space:normal!important;
+}
+@media(max-width:760px){
+ #rentalView .availability-section .closing-notice{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  grid-template-rows:auto minmax(145px,auto) minmax(145px,auto)!important;
+  column-gap:18px!important;row-gap:26px!important;margin:24px 0 30px!important;
+ }
+ #rentalView .availability-section .closing-notice:before{
+  top:56%!important;width:72%!important;max-width:280px!important;
+ }
+ #rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark{
+  top:56%!important;width:clamp(88px,25vw,118px)!important;border-width:1.5px!important;
+  box-shadow:inset 0 2px 5px rgba(255,255,255,.28),inset 0 -8px 16px rgba(12,1,7,.38),0 0 0 5px rgba(255,233,213,.045),0 12px 24px rgba(15,2,9,.22)!important;
+ }
+ #rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark:before{width:2px!important}
+ #rentalView .availability-section .closing-notice .closing-notice-mark.clock-mark:after{width:3px!important}
+ #rentalView .availability-section .closing-notice strong{
+  width:calc(100% - 28px)!important;font-size:clamp(20px,5.5vw,26px)!important;
+  margin-bottom:4px!important;
+ }
+ #rentalView .availability-section .closing-notice .notice-line{
+  min-height:145px!important;padding:28px 11px 14px!important;
+  font-size:clamp(11px,3.1vw,13px)!important;line-height:1.42!important;
+  border-radius:25px 32px 27px 30px!important;
+ }
+ #rentalView .availability-section .closing-notice .notice-line:before{
+  width:34px!important;height:34px!important;font-size:18px!important;
+ }
+}
+@media(max-width:380px){
+ #rentalView .availability-section .closing-notice{column-gap:12px!important;row-gap:24px!important}
+ #rentalView .availability-section .closing-notice .notice-line{min-height:150px!important;padding:26px 8px 12px!important;font-size:11px!important}
+ #rentalView .availability-section .closing-notice .notice-line:before{width:30px!important;height:30px!important;font-size:16px!important}
+ #rentalView .availability-section .closing-notice .notice-line:nth-child(3):before{font-size:14px!important}
+}
+</style>
+
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
 </body></html>
