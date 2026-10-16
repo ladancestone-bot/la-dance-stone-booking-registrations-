@@ -10669,4 +10669,42 @@ main,.wrap,main.wrap,body>main{
  }
 }
 </style>
+<style id="lds-footer-anchored-to-page-end-20261017">
+/* Make the footer reach the true end of every page. Short pages pin it to the viewport bottom;
+   long pages keep it after the content. No fixed overlay and no photo strip after the footer. */
+@media(min-width:0px){
+ #homeView.active,#rentalView.active,#timetableView.active,#classesView.active{
+  display:flex!important;flex-direction:column!important;
+  min-height:100vh!important;min-height:100dvh!important;
+  box-sizing:border-box!important;
+  background-color:#5b473a!important;background-image:none!important;
+ }
+ #homeView.active>.brand-footer,#rentalView.active>.brand-footer,
+ #timetableView.active>.brand-footer,#classesView.active>.brand-footer{
+  flex:0 0 auto!important;flex-shrink:0!important;
+  margin-top:auto!important;margin-bottom:0!important;
+  position:relative!important;top:auto!important;bottom:auto!important;
+  width:100vw!important;max-width:100vw!important;
+  background:#5b473a!important;background-color:#5b473a!important;
+  background-image:none!important;border:0!important;border-radius:0!important;
+  box-shadow:none!important;transform:none!important;
+ }
+ #homeView.active::before,#homeView.active::after,
+ #rentalView.active::before,#rentalView.active::after,
+ #timetableView.active::before,#timetableView.active::after,
+ #classesView.active::before,#classesView.active::after{
+  background-image:none!important;
+ }
+ html,body,body>main,main.wrap{
+  margin-bottom:0!important;padding-bottom:0!important;
+  background-color:#5b473a!important;background-image:none!important;
+ }
+}
+@media(max-width:760px){
+ #homeView.active>.brand-footer,#rentalView.active>.brand-footer,
+ #timetableView.active>.brand-footer,#classesView.active>.brand-footer{
+  padding-bottom:calc(26px + env(safe-area-inset-bottom, 0px))!important;
+ }
+}
+</style>
 </body></html>
