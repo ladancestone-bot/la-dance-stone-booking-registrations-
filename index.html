@@ -1646,6 +1646,107 @@ button svg,a svg,.iconbox svg,.home-icon svg,.rental-amenity-icon svg{display:bl
   #homeView .choice{padding-top:18px!important;padding-bottom:18px!important}
   #homeView .choice h3{font-size:23px!important}
 }
+
+/* Follow-up: edge-to-edge studio footer on every screen, and a more compact desktop UI. */
+.brand-footer,
+.view .brand-footer{
+  position:relative!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  display:block!important;
+  width:100vw!important;
+  min-width:100vw!important;
+  max-width:100vw!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  border-radius:0!important;
+  box-sizing:border-box!important;
+}
+.brand-footer-main{
+  width:100%!important;
+  max-width:1040px!important;
+  margin:0 auto!important;
+  box-sizing:border-box!important;
+}
+@media(min-width:761px){
+  .view:not(#rentalView)>.brand-footer,
+  #rentalView .brand-footer{margin-top:24px!important}
+  .brand-footer{padding:22px 0 22px!important}
+  .brand-footer-main{padding-left:28px!important;padding-right:28px!important;gap:22px!important}
+  .brand-footer-copy{gap:7px!important}
+  .brand-footer-copy p{font-size:12px!important;line-height:1.5!important;margin:6px 0!important}
+  .brand-footer-copy a{font-size:12px!important}
+  .brand-footer-copy small{font-size:11px!important}
+  .brand-footer-logo-image{width:145px!important;max-width:145px!important;max-height:68px!important}
+
+  /* Compact desktop class-registration overview and calendar. */
+  #classOverview .class-week-preview{padding:12px 14px!important;margin:12px 0 16px!important}
+  #classOverview .class-week-heading{margin-bottom:10px!important}
+  #classOverview .class-week-heading h3{font-size:24px!important}
+  #classOverview .class-week-heading p{font-size:10px!important;line-height:1.4!important}
+  #classOverview .class-calendar-grid{
+    grid-template-columns:44px repeat(7,minmax(0,1fr))!important;
+    grid-template-rows:29px repeat(6,minmax(32px,auto))!important;
+  }
+  #classOverview .class-calendar-corner,#classOverview .class-calendar-dayhead{padding:4px 2px!important;font-size:7px!important}
+  #classOverview .class-calendar-time{padding:4px 2px!important;font-size:8px!important}
+  #classOverview .class-calendar-slot{padding:3px!important;gap:2px!important;font-size:7px!important;line-height:1.1!important}
+  #classOverview .class-calendar-slot strong,#classOverview .class-calendar-slot span{font-size:7px!important;line-height:1.1!important}
+
+  #classOverview .class-choices.class-choices-four>.choice{
+    padding:12px 13px!important;
+    grid-template-columns:30px minmax(0,1fr) 28px!important;
+    column-gap:10px!important;
+  }
+  #classOverview .class-choices.class-choices-four>.choice .iconbox{width:27px!important;height:27px!important;font-size:15px!important}
+  #classOverview .class-choices.class-choices-four>.choice h3{font-size:20px!important}
+  #classOverview .class-choices.class-choices-four>.choice p{font-size:11px!important;line-height:1.35!important}
+  #classOverview .class-choices.class-choices-four>.choice .arrow{width:27px!important;height:27px!important;font-size:17px!important}
+
+  /* More compact rental registration, price summary and availability grid. */
+  #rentalView .viewhead{margin-bottom:16px!important}
+  #rentalView .viewhead h2{font-size:42px!important}
+  #rentalView .rental-gallery{margin:14px 0 16px!important;gap:10px!important}
+  #rentalView .gallery-card>img{height:165px!important}
+  #rentalView .gallery-caption{padding:10px 12px!important}
+  #rentalView .gallery-caption strong{font-size:19px!important}
+  #rentalView .gallery-caption span{font-size:10px!important}
+  #rentalView .rental-highlights{margin:12px 0 16px!important}
+  #rentalView .rental-highlights>div{padding:9px!important}
+  #rentalView .rental-highlights strong{font-size:18px!important}
+  #rentalView .rental-highlights small{font-size:9px!important}
+  #rentalView .rental-layout{gap:10px!important;margin-top:10px!important;margin-bottom:20px!important}
+  #rentalView .booking-panel,#rentalView .price-card{padding:16px!important}
+  #rentalView .panel h3{font-size:25px!important}
+  #rentalView .panel p{font-size:11px!important;line-height:1.5!important}
+  #rentalView .fields{gap:9px!important;margin-top:13px!important}
+  #rentalView .fields input,#rentalView .fields select,#rentalView .email-label input{padding:10px!important;font-size:12px!important}
+  #rentalView .action{padding:11px 15px!important;margin-top:13px!important}
+  #rentalView .price-card h3{font-size:25px!important;margin:10px 0 4px!important}
+  #rentalView .price-card .amount{font-size:34px!important}
+  #rentalView .price-card p,#rentalView .price-card .rule{font-size:10px!important}
+  #rentalView .availability-section{margin-top:18px!important}
+  #rentalView .availability-heading{margin-bottom:9px!important}
+  #rentalView .availability-heading h2{font-size:34px!important;margin:6px 0!important}
+  #rentalView .availability-heading p{font-size:10px!important;line-height:1.45!important}
+  #rentalView .rental-calendar{grid-template-columns:46px repeat(7,minmax(0,1fr))!important;min-width:0!important}
+  #rentalView .rent-day{padding:6px 2px!important}
+  #rentalView .rent-day button{font-size:8px!important}
+  #rentalView .rent-day button strong{font-size:17px!important;margin-top:2px!important}
+  #rentalView .rent-time{height:35px!important;min-height:35px!important;padding:5px 2px!important;font-size:8px!important}
+  #rentalView .rent-cell{height:35px!important;min-height:35px!important;padding:1px!important}
+  #rentalView .rent-slot{padding:2px!important;gap:1px!important;font-size:7px!important;line-height:1.05!important}
+  #rentalView .rent-slot strong,#rentalView .rent-slot small{font-size:7px!important}
+  #rentalView .calendar-help{padding:9px 12px!important;font-size:10px!important}
+}
+@media(max-width:760px){
+  /* Footer remains full width on mobile too; preserve the existing inner layout and font sizing. */
+  .brand-footer,.view .brand-footer{
+    width:100vw!important;min-width:100vw!important;max-width:100vw!important;
+    margin-left:calc(50% - 50vw)!important;margin-right:0!important;
+    border-radius:0!important;transform:none!important;left:auto!important;
+  }
+}
 </style>
 </head>
 <body>
