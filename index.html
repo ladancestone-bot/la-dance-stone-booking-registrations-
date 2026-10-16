@@ -5125,5 +5125,156 @@ body::after{background:linear-gradient(145deg,rgba(39,22,25,.22),rgba(55,32,31,.
 }
 </style>
 
+
+<style id="lds-calendar-compact-weekly-glass-restoration">
+/* Restore the compact, scrollable weekly calendars on mobile. CSS only: no schedule or booking logic changes. */
+#timetableView .timetable-panel,
+#rentalView .availability-section>.calendar-panel{
+ width:100%!important;max-width:100%!important;min-width:0!important;
+}
+#timetableView .timetable-panel .cal-scroll,
+#rentalView .availability-section>.calendar-panel>.cal-scroll{
+ height:auto!important;
+ max-height:440px!important;
+ overflow-x:hidden!important;
+ overflow-y:auto!important;
+ overscroll-behavior-y:contain!important;
+ overscroll-behavior-x:contain!important;
+ -webkit-overflow-scrolling:touch!important;
+ touch-action:pan-y!important;
+ scrollbar-width:thin!important;
+ scrollbar-color:rgba(230,204,184,.62) rgba(56,35,38,.20)!important;
+ border-radius:18px!important;
+}
+#timetableView .timetable-panel .calendar{
+ width:100%!important;min-width:0!important;
+ grid-template-columns:46px repeat(7,minmax(0,1fr))!important;
+ background:linear-gradient(145deg,rgba(70,49,48,.18),rgba(35,25,30,.24))!important;
+}
+#timetableView .timetable-panel .calendar .day{
+ position:sticky!important;top:0!important;z-index:5!important;
+}
+#timetableView .timetable-panel .calendar .cell{height:55px!important;min-width:0!important}
+#timetableView .timetable-panel .calendar .event{
+ box-sizing:border-box!important;min-width:0!important;max-width:100%!important;
+ padding:4px 3px!important;overflow:hidden!important;overflow-wrap:anywhere!important;
+}
+#timetableView .timetable-panel .calendar .event b{font-weight:850!important}
+#timetableView .timetable-panel .calendar .event span{font-weight:750!important}
+#timetableView .timetable-panel .calendar-help{
+ background:linear-gradient(135deg,rgba(71,48,49,.80),rgba(40,27,32,.72))!important;
+ color:#fff8f1!important;
+}
+#rentalView .availability-section{width:100%!important;min-width:0!important;box-sizing:border-box!important}
+#rentalView .availability-section>.calendar-panel{
+ overflow:hidden!important;border-radius:22px!important;
+ background:linear-gradient(145deg,rgba(255,246,235,.25),rgba(59,40,41,.30))!important;
+ border:1px solid rgba(255,248,239,.70)!important;
+ box-shadow:0 20px 44px rgba(25,13,17,.24),inset 0 1px 0 rgba(255,255,255,.65)!important;
+ backdrop-filter:blur(22px) saturate(1.2)!important;-webkit-backdrop-filter:blur(22px) saturate(1.2)!important;
+}
+#rentalView .availability-section>.calendar-panel>.cal-scroll{
+ max-height:440px!important;overflow-x:hidden!important;overflow-y:auto!important;
+ touch-action:pan-y!important;-webkit-overflow-scrolling:touch!important;
+ background:linear-gradient(145deg,rgba(75,54,52,.22),rgba(39,27,31,.25))!important;
+ border:0!important;border-radius:0!important;
+}
+#rentalView .availability-section .rental-calendar{
+ width:100%!important;min-width:0!important;
+ grid-template-columns:46px repeat(7,minmax(0,1fr))!important;
+ background:transparent!important;
+}
+#rentalView .availability-section .rent-day{
+ position:sticky!important;top:0!important;z-index:5!important;
+ min-width:0!important;padding:5px 1px!important;
+ background:linear-gradient(145deg,rgba(255,246,235,.88),rgba(196,161,143,.72))!important;
+}
+#rentalView .availability-section .rent-day button{
+ display:flex!important;flex-direction:column!important;align-items:center!important;
+ width:100%!important;min-width:0!important;padding:2px 0!important;
+ font-size:clamp(8px,2.2vw,12px)!important;line-height:1.2!important;
+}
+#rentalView .availability-section .rent-day button strong{
+ font-size:clamp(14px,3.8vw,20px)!important;line-height:1.15!important;margin-top:3px!important;
+}
+#rentalView .availability-section .rent-time{
+ height:39px!important;min-height:39px!important;box-sizing:border-box!important;
+ padding:5px 1px!important;font-size:clamp(7px,1.9vw,11px)!important;
+ background:linear-gradient(90deg,rgba(88,60,61,.82),rgba(56,38,42,.65))!important;
+ color:#fff7ef!important;border-color:rgba(255,255,255,.32)!important;
+}
+#rentalView .availability-section .rent-cell{
+ height:39px!important;min-height:39px!important;min-width:0!important;
+ box-sizing:border-box!important;padding:1px!important;
+ background:rgba(72,51,51,.25)!important;border-color:rgba(255,255,255,.28)!important;
+}
+#rentalView .availability-section .rent-slot{
+ display:flex!important;flex-direction:column!important;justify-content:center!important;
+ align-items:center!important;gap:1px!important;width:100%!important;min-width:0!important;
+ height:100%!important;box-sizing:border-box!important;padding:2px 0!important;
+ border-radius:6px!important;overflow:hidden!important;
+ font-size:clamp(5px,1.45vw,8px)!important;line-height:1.08!important;
+}
+#rentalView .availability-section .rent-slot strong,
+#rentalView .availability-section .rent-slot small{
+ display:block!important;max-width:100%!important;min-width:0!important;
+ font-size:clamp(5px,1.4vw,8px)!important;line-height:1.1!important;
+ letter-spacing:-.035em!important;overflow-wrap:anywhere!important;
+}
+#rentalView .availability-section .rent-slot.busy{
+ background:linear-gradient(145deg,rgba(125,42,67,.98),rgba(49,13,29,.99))!important;
+ color:#fffaf5!important;border:1px solid rgba(255,255,255,.58)!important;
+}
+#rentalView .availability-section .rent-slot.chosen{
+ background:linear-gradient(145deg,rgba(255,239,195,.98),rgba(203,163,83,.96))!important;
+ color:#493018!important;border:1px solid rgba(255,255,255,.92)!important;
+}
+#rentalView .availability-section .calendar-help{
+ background:linear-gradient(145deg,rgba(68,47,48,.82),rgba(41,28,32,.74))!important;
+ color:#fff8f1!important;border-top:1px solid rgba(255,255,255,.48)!important;
+}
+#rentalView .availability-section .calendar-help p,
+#rentalView .availability-section .availability-legend{color:#fff8f1!important}
+@media(max-width:760px){
+ #timetableView .timetable-panel .cal-scroll,
+ #rentalView .availability-section>.calendar-panel>.cal-scroll{
+  max-height:min(44vh,390px)!important;min-height:270px!important;
+  overflow-x:hidden!important;overflow-y:auto!important;touch-action:pan-y!important;
+ }
+ #timetableView .timetable-panel .calendar{grid-template-columns:38px repeat(7,minmax(0,1fr))!important}
+ #timetableView .timetable-panel .calendar .day{padding:7px 0!important;font-size:clamp(8px,2.3vw,11px)!important}
+ #timetableView .timetable-panel .calendar .day strong{font-size:clamp(14px,4vw,20px)!important;margin-top:3px!important}
+ #timetableView .timetable-panel .calendar .time{font-size:clamp(8px,2.1vw,10px)!important;padding:6px 0 0!important}
+ #timetableView .timetable-panel .calendar .cell{height:50px!important}
+ #timetableView .timetable-panel .calendar .event{min-height:0!important;height:calc(100% - 4px)!important;margin:2px 1px!important;padding:3px 2px!important;border-radius:7px!important}
+ #timetableView .timetable-panel .calendar .event b{font-size:clamp(6px,1.7vw,8px)!important;line-height:1.1!important;letter-spacing:-.04em!important}
+ #timetableView .timetable-panel .calendar .event span{font-size:clamp(5px,1.45vw,7px)!important;line-height:1.1!important;margin-top:2px!important}
+ #rentalView .availability-section{margin:22px 0 28px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+ #rentalView .availability-section>.calendar-panel{border-radius:19px!important}
+ #rentalView .availability-section>.calendar-panel .cal-toolbar{padding:12px 9px!important;gap:6px!important}
+ #rentalView .availability-section>.calendar-panel .cal-title{font-size:clamp(12px,3.5vw,16px)!important;text-align:center!important}
+ #rentalView .availability-section>.calendar-panel .cal-toolbar button{width:34px!important;height:34px!important;flex:0 0 34px!important}
+ #rentalView .availability-section>.calendar-panel>.cal-scroll{max-height:min(44vh,390px)!important}
+ #rentalView .availability-section .rental-calendar{grid-template-columns:38px repeat(7,minmax(0,1fr))!important}
+ #rentalView .availability-section .rent-day{padding:4px 0!important}
+ #rentalView .availability-section .rent-day button{font-size:clamp(7px,2vw,10px)!important}
+ #rentalView .availability-section .rent-day button strong{font-size:clamp(13px,3.7vw,18px)!important}
+ #rentalView .availability-section .rent-time{height:35px!important;min-height:35px!important;font-size:clamp(6px,1.8vw,8px)!important}
+ #rentalView .availability-section .rent-cell{height:35px!important;min-height:35px!important}
+ #rentalView .availability-section .rent-slot{border-radius:4px!important;padding:1px 0!important}
+ #rentalView .availability-section .rent-slot strong,
+ #rentalView .availability-section .rent-slot small{font-size:clamp(4px,1.25vw,6px)!important;letter-spacing:-.06em!important}
+ #rentalView .availability-section .calendar-help{padding:11px!important}
+ #rentalView .availability-section .availability-legend{gap:8px 12px!important;font-size:10px!important}
+ #rentalView .availability-section .calendar-help p{font-size:10px!important;line-height:1.45!important}
+}
+@media(max-width:380px){
+ #timetableView .timetable-panel .calendar{grid-template-columns:34px repeat(7,minmax(0,1fr))!important}
+ #rentalView .availability-section .rental-calendar{grid-template-columns:34px repeat(7,minmax(0,1fr))!important}
+ #rentalView .availability-section .rent-slot strong,
+ #rentalView .availability-section .rent-slot small{font-size:4px!important}
+}
+</style>
+
 <!-- Preview deployment refresh: 2026-10-12; mobile agenda, varied class colors, contextual navigation, corrected fees -->
 </body></html>
