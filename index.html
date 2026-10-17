@@ -4071,7 +4071,7 @@ body::after{
 </div>
 <div id="classDetail" class="class-detail" style="display:none">
 <button class="back class-detail-back" id="classBack"><span>←</span>Grįžti į pamokų pasirinkimą</button>
-<div class="class-detail-hero"><div><div class="eyebrow">Jūsų pasirinkimas</div><h2 id="classTitle"></h2><p id="classDescription"></p></div><span class="pill"><span class="brand-lockup"><span class="brand-lockup-main" style="font-size:17px">La Dance Stone</span><span class="brand-lockup-sub">Šokių&nbsp;studija</span></span></span></div>
+<div class="class-detail-hero"><div><div class="eyebrow">Jūsų pasirinkimas</div><h2 id="classTitle"></h2><p id="classDescription"></p></div></div>
 <div class="class-detail-grid">
 <div class="panel class-registration-panel" id="classRegistrationPanel"><div class="eyebrow">Registracija</div><h3>Pasirinkite, kaip norite prisijungti.</h3><p>Pasirinkite abonementą arba vienkartinę pamoką. Kaina ir registracijos mokestis atsinaujins pagal Jūsų pasirinkimą.</p>
 <div class="class-option-cards">
@@ -15308,6 +15308,12 @@ body::after{
   #classesView #classOverview #classDetail,
   #classesView #classDetail.class-detail{gap:18px!important}
 }
+</style>
+
+
+<style id="lds-class-detail-single-back-control-20261017">
+/* Keep the original top navigation button; suppress the redundant capsule-style back control. */
+#classesView #classDetail .class-detail-back{display:none!important}
 </style>
 
 </body></html>
