@@ -17498,3 +17498,54 @@ html body #rentalView.view:not(#homeView) .rental-gallery .gallery-card .gallery
 }
 </style>
 
+<style id="lds-availability-status-text-only-checkmark-20261018">
+/* Minimal, no-card availability status: rotating arrow resolves into a check mark. */
+html body #rentalView.view:not(#homeView) .availability-heading>.pill{
+  display:inline-flex!important;align-items:center!important;justify-content:flex-start!important;
+  gap:12px!important;width:auto!important;max-width:100%!important;min-height:0!important;
+  padding:8px 0!important;margin:8px 0 0!important;box-sizing:border-box!important;
+  white-space:normal!important;text-align:left!important;
+  color:#fffaf2!important;font-size:clamp(14px,1.5vw,17px)!important;
+  font-weight:600!important;line-height:1.4!important;letter-spacing:.01em!important;
+  border:0!important;border-radius:0!important;background:transparent!important;
+  background-image:none!important;box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;overflow:visible!important;
+  text-shadow:0 1px 7px rgba(34,18,15,.72)!important;
+}
+html body #rentalView.view:not(#homeView) .availability-heading>.pill::before{
+  content:"↻"!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  flex:0 0 24px!important;width:24px!important;height:24px!important;
+  border:0!important;border-radius:0!important;background:transparent!important;
+  box-shadow:none!important;color:#fff4df!important;font-size:25px!important;line-height:1!important;
+  animation:ldsAvailabilityArrowSpin 1.15s linear infinite!important;
+}
+html body #rentalView.view:not(#homeView) .availability-heading>.pill::after{
+  content:"✓"!important;position:static!important;display:inline-flex!important;
+  align-items:center!important;justify-content:center!important;
+  width:0!important;opacity:0!important;overflow:hidden!important;
+  color:#e9f0d5!important;font-size:21px!important;font-weight:800!important;line-height:1!important;
+  transform:scale(.35)!important;transition:width .2s ease,opacity .2s ease,transform .2s ease!important;
+  animation:ldsAvailabilityCheckReveal 4s infinite!important;
+}
+@keyframes ldsAvailabilityArrowSpin{
+  from{transform:rotate(0deg)}to{transform:rotate(360deg)}
+}
+@keyframes ldsAvailabilityCheckReveal{
+  0%,64%{width:0;opacity:0;transform:scale(.35)}
+  72%,94%{width:22px;opacity:1;transform:scale(1)}
+  100%{width:0;opacity:0;transform:scale(.35)}
+}
+@media(max-width:760px){
+ html body #rentalView.view:not(#homeView) .availability-heading>.pill{
+   width:auto!important;min-height:0!important;padding:8px 0!important;margin:12px 0 0!important;
+   gap:10px!important;font-size:14px!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ html body #rentalView.view:not(#homeView) .availability-heading>.pill::before{animation:none!important}
+ html body #rentalView.view:not(#homeView) .availability-heading>.pill::after{
+   animation:none!important;width:22px!important;opacity:1!important;transform:none!important;
+ }
+}
+</style>
+
