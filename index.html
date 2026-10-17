@@ -4474,85 +4474,82 @@ function renderCalendar(){
 function openClassEvent(el){const e=events[Number(el.dataset.classEvent)];if(!e||e.kind!=='class'||!groups[e.group])return;classReturnView='timetable';showView('classes');showClassDetail(e.group);$('classGroup').value=String(e.option);document.querySelector('input[name="classBookingType"][value="group"]').checked=true;$('classGroupLabel').style.display=e.group==='adult'?'none':'';$('classSingleNote').style.display='none';$('classPaymentNote').style.display='none';$('classToast').classList.remove('show');const back=$('classBack');back.innerHTML='<span>←</span>Grįžti į tvarkaraštį';$('classDetail').scrollIntoView({behavior:'smooth',block:'start'})}
 $('prevWeek').onclick=()=>{week.setDate(week.getDate()-7);renderCalendar()};$('nextWeek').onclick=()=>{week.setDate(week.getDate()+7);renderCalendar()};loadLiveTimetable();
 
-/* Seamless infinite 3D carousel for the homepage cards. */
+/* Stable infinite 3D carousel: calculate from layout coordinates, never transformed bounds. */
 (function(){
  const root=document.getElementById('homeView');
  if(!root)return;
  const rail=root.querySelector('.choices');
- if(!rail)return;
- if(rail.dataset.infiniteCarouselReady==='1')return;
+ if(!rail||rail.dataset.infiniteCarouselReady==='1')return;
  rail.dataset.infiniteCarouselReady='1';
  const originals=Array.from(rail.querySelectorAll('.choice'));
  if(originals.length<2)return;
- const originalCount=originals.length;
- /* Add a copy before and after the original set; the scroll position is recentered invisibly. */
- const makeCopy=(card)=>{
+ const count=originals.length;
+ const cloneCard=card=>{
    const clone=card.cloneNode(true);
    clone.dataset.carouselClone='1';
    clone.setAttribute('aria-hidden','true');
    clone.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
-   clone.addEventListener('click',function(){
-     const target=clone.dataset.view;
-     if(target&&typeof showView==='function')showView(target);
-   });
    return clone;
  };
  const before=document.createDocumentFragment();
- originals.slice().forEach(card=>before.appendChild(makeCopy(card)));
+ originals.forEach(card=>before.appendChild(cloneCard(card)));
  rail.insertBefore(before,rail.firstChild);
- originals.slice().forEach(card=>rail.appendChild(makeCopy(card)));
- const allCards=Array.from(rail.querySelectorAll('.choice'));
- let queued=false, recentering=false, groupWidth=0;
+ originals.forEach(card=>rail.appendChild(cloneCard(card)));
+ const cards=Array.from(rail.querySelectorAll('.choice'));
+ let groupWidth=0,queued=false,settleTimer=0,adjusting=false,lastWidth=0;
  const measure=()=>{
-   groupWidth=0;
-   for(let i=0;i<originalCount;i++){
-     const card=allCards[originalCount+i];
-     if(card)groupWidth+=card.getBoundingClientRect().width;
-     if(i<originalCount-1)groupWidth+=parseFloat(getComputedStyle(rail).columnGap||getComputedStyle(rail).gap||0)||0;
-   }
+   const base=cards[count];
+   const next=cards[count*2];
+   if(base&&next)groupWidth=next.offsetLeft-base.offsetLeft;
+   lastWidth=rail.clientWidth;
  };
- const centerOriginalSet=()=>{
+ const positionToCenter=()=>{
    measure();
-   if(groupWidth>0){
-     rail.scrollLeft=groupWidth;
-     requestUpdate();
-   }
+   if(groupWidth>0)rail.scrollLeft=cards[count].offsetLeft-(rail.clientWidth-cards[count].offsetWidth)/2;
+   update();
  };
  function update(){
    queued=false;
-   const mobile=window.matchMedia('(max-width:760px)').matches;
-   const rr=rail.getBoundingClientRect();
-   const center=mobile?rr.left+rr.width/2:window.innerWidth/2;
-   allCards.forEach(card=>{
-     const cr=card.getBoundingClientRect();
-     const delta=(cr.left+cr.width/2)-center;
-     const ratio=Math.max(-1.4,Math.min(1.4,delta/Math.max(1,cr.width)));
+   if(!groupWidth)measure();
+   const center=rail.scrollLeft+rail.clientWidth/2;
+   cards.forEach(card=>{
+     /* offsetLeft/offsetWidth are untransformed layout coordinates: avoids transform feedback jitter. */
+     const cardCenter=card.offsetLeft+card.offsetWidth/2;
+     const delta=cardCenter-center;
+     const ratio=Math.max(-2,Math.min(2,delta/Math.max(1,card.offsetWidth)));
      const abs=Math.min(1,Math.abs(ratio));
-     card.classList.toggle('is-center',Math.abs(delta)<cr.width*.34);
-     card.classList.toggle('is-side',Math.abs(delta)>=cr.width*.34);
-     card.style.setProperty('--card-rotate',mobile?(-ratio*6)+'deg':'0deg');
-     card.style.setProperty('--card-scale',(1-abs*.25).toFixed(3));
-     card.style.setProperty('--card-lift',(Math.abs(delta)<cr.width*.34?18:20+abs*16)+'px');
-     card.style.zIndex=String(20-Math.round(abs*8));
-     card.style.filter='brightness('+(1-abs*.045).toFixed(3)+')';
+     const active=abs<.38;
+     card.classList.toggle('is-center',active);
+     card.classList.toggle('is-side',!active);
+     card.style.setProperty('--card-rotate',window.matchMedia('(max-width:760px)').matches?(-ratio*8)+'deg':'0deg');
+     card.style.setProperty('--card-scale',(1-abs*.28).toFixed(3));
+     card.style.setProperty('--card-lift',(active?18:24+abs*10)+'px');
+     card.style.zIndex=String(30-Math.round(abs*10));
    });
  }
- function requestUpdate(){if(!queued){queued=true;window.requestAnimationFrame(update)}}
- rail.addEventListener('scroll',function(){
-   if(recentering||!groupWidth)return;
-   const leftLimit=groupWidth*.45;
-   const rightLimit=groupWidth*1.55;
-   if(rail.scrollLeft<leftLimit||rail.scrollLeft>rightLimit){
-     recentering=true;
-     const delta=rail.scrollLeft<leftLimit?groupWidth:-groupWidth;
-     rail.scrollLeft+=delta;
-     requestAnimationFrame(()=>{recentering=false;requestUpdate()});
-   }else requestUpdate();
+ function requestUpdate(){if(!queued){queued=true;requestAnimationFrame(update)}}
+ function recenterIfNeeded(){
+   if(adjusting||!groupWidth)return;
+   const x=rail.scrollLeft;
+   if(x<groupWidth*.35||x>groupWidth*1.65){
+     adjusting=true;
+     rail.scrollLeft=x<groupWidth*.35?x+groupWidth:x-groupWidth;
+     requestAnimationFrame(()=>{adjusting=false;requestUpdate()});
+   }
+ }
+ rail.addEventListener('scroll',()=>{
+   requestUpdate();
+   clearTimeout(settleTimer);
+   settleTimer=setTimeout(recenterIfNeeded,140);
  },{passive:true});
- window.addEventListener('resize',()=>{measure();requestUpdate()},{passive:true});
+ rail.addEventListener('scrollend',recenterIfNeeded,{passive:true});
+ window.addEventListener('resize',()=>{
+   const widthChanged=rail.clientWidth!==lastWidth;
+   measure();
+   if(widthChanged)positionToCenter();else requestUpdate();
+ },{passive:true});
  if('ResizeObserver' in window)new ResizeObserver(()=>{measure();requestUpdate()}).observe(rail);
- requestAnimationFrame(centerOriginalSet);
- update();
+ requestAnimationFrame(positionToCenter);
 })();
 
 </script>
@@ -11615,5 +11612,24 @@ body:has(#homeView.active)::after{
  }
  #homeView .choice{scroll-snap-align:center!important}
 }
+</style>
+
+<style id="lds-carousel-stable-motion-burgundy-depth-20261017">
+#homeView .choice{
+ transition:transform .18s ease-out,background .28s ease,box-shadow .28s ease,border-color .28s ease!important;
+ will-change:transform!important;
+}
+#homeView .choice.is-center{
+ background:linear-gradient(145deg,rgba(190,35,76,.98) 0%,rgba(143,15,53,.99) 48%,rgba(67,9,32,1) 100%)!important;
+ box-shadow:inset 0 1px 0 rgba(255,247,232,.8),inset 0 -40px 54px rgba(22,4,13,.32),0 26px 52px rgba(22,5,13,.46),0 0 38px rgba(211,76,117,.34)!important;
+}
+#homeView .choice.is-side{
+ background:linear-gradient(145deg,rgba(132,64,77,.72),rgba(75,30,47,.84) 56%,rgba(39,17,29,.92))!important;
+}
+@media(max-width:760px){
+ #homeView .choices{scroll-snap-type:none!important;scroll-behavior:auto!important}
+ #homeView .choice{scroll-snap-align:none!important;transition:transform .18s ease-out,background .28s ease,box-shadow .28s ease!important}
+}
+@media(prefers-reduced-motion:reduce){#homeView .choice{transition:none!important}}
 </style>
 </body></html>
