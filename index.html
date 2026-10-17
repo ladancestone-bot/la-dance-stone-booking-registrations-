@@ -4075,7 +4075,7 @@ body::after{
   <div class="rental-checkin-title"><span class="rental-checkin-phone" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="14" cy="25" r="5"/><path d="m18 21 11-11 5 5-11 11M25 14l4 4"/></svg></span><div><h3>Self check-in</h3><em>Nuoma vyksta Airbnb principu</em></div></div>
   <div class="rental-checkin-steps"><div><b>1</b><span>Užsiregistruojate ir pasirenkate laiką</span></div><div><b>2</b><span>Atliekate mokėjimą</span></div><div><b>3</b><span>Gaunate atvykimo informaciją</span></div><div><b>4</b><span>Atvykstate į studiją</span></div></div>
 </section>
-<section class="availability-section"><div class="availability-heading"><div><div class="eyebrow">Interaktyvus užimtumo vaizdas</div><h2>Laisvų valandų <span class="availability-heading-accent">kalendorius.</span></h2><p>Paspauskite ant dienos arba laisvos valandos. Pasirinktas laikotarpis bus pažymėtas vientisai — nereikia rezervuoti kiekvienos valandos atskirai.</p></div><span class="pill">Atnaujinamas realus užimtumas</span></div><div class="rental-reminder-simple"><span class="closing-notice-mark clock-mark" aria-hidden="true">◷</span><div><strong>Malonus priminimas prieš rezervuojant</strong><p><span class="notice-line">Pastatas automatiškai užrakinamas <span class="notice-time">22.00&nbsp;val.</span></span><span class="notice-line">Paskutinis rezervuojamas laikotarpis – <span class="notice-time">21.00–21.45&nbsp;val.</span></span><span class="notice-line">Šis 45 minučių laikotarpis kainuoja tiek pat, kiek viena valanda.</span><span class="notice-line">Prašome pasilikti pakankamai laiko susitvarkyti ir išeiti iš pastato iki <span class="notice-time">22.00&nbsp;val.</span></span></p></div></div>
+<section class="availability-section"><div class="availability-heading"><div><div class="eyebrow">Interaktyvus užimtumo vaizdas</div><h2>Laisvų valandų <span class="availability-heading-accent">kalendorius.</span></h2><p>Paspauskite ant dienos arba laisvos valandos. Pasirinktas laikotarpis bus pažymėtas vientisai — nereikia rezervuoti kiekvienos valandos atskirai.</p></div><span class="pill availability-status-pill" role="status" aria-live="polite"><span class="availability-status-icon" aria-hidden="true"><span class="availability-status-refresh">↻</span><span class="availability-status-check">✓</span></span><span class="availability-status-loading">Atnaujinamas realus užimtumas</span><span class="availability-status-done">Užimtumas atnaujintas</span></span></div><div class="rental-reminder-simple"><span class="closing-notice-mark clock-mark" aria-hidden="true">◷</span><div><strong>Malonus priminimas prieš rezervuojant</strong><p><span class="notice-line">Pastatas automatiškai užrakinamas <span class="notice-time">22.00&nbsp;val.</span></span><span class="notice-line">Paskutinis rezervuojamas laikotarpis – <span class="notice-time">21.00–21.45&nbsp;val.</span></span><span class="notice-line">Šis 45 minučių laikotarpis kainuoja tiek pat, kiek viena valanda.</span><span class="notice-line">Prašome pasilikti pakankamai laiko susitvarkyti ir išeiti iš pastato iki <span class="notice-time">22.00&nbsp;val.</span></span></p></div></div>
 <div class="calendar-panel"><div class="cal-toolbar"><button id="prevRentWeek" aria-label="Ankstesnė savaitė">‹</button><div class="cal-title" id="rentWeekLabel">2026 m. spalio 12–18 d.</div><button id="nextRentWeek" aria-label="Kita savaitė">›</button></div><div class="cal-scroll"><div id="rentalCalendar" class="rental-calendar"></div></div><div class="calendar-help"><div class="availability-legend"><span><i class="legend-block free"></i>Laisva</span><span><i class="legend-block reserved"></i>Užimta</span><span><i class="legend-block chosen"></i>Jūsų pasirinkimas</span></div><p id="selectionHint">Pasirinktas laikas bus parodytas lentelėje kaip vienas ištisinis intervalas.</p><p>Pažymėjimai yra demonstraciniai. Tikras studijos užimtumas bus rodomas prijungus rezervacijų duomenų bazę.</p></div></div></section>
 <div class="rental-layout" id="rentalBooking">
 <div class="panel booking-panel"><div class="eyebrow">Pasirinkite laiką</div><h3>Rezervuokite visą savo laiką vienu kartu.</h3><p>Pasirinkite dieną ir pradžios laiką, tada nurodykite, kiek valandų norite rezervuoti. Lentelėje iš karto matysite vientisą pasirinkto laiko intervalą.</p>
@@ -17546,6 +17546,57 @@ html body #rentalView.view:not(#homeView) .availability-heading>.pill::after{
  html body #rentalView.view:not(#homeView) .availability-heading>.pill::after{
    animation:none!important;width:22px!important;opacity:1!important;transform:none!important;
  }
+}
+</style>
+
+<style id="lds-availability-status-one-shot-20261018">
+/* One-shot status feedback: one refresh rotation, then a persistent checkmark. No pill/card. */
+html body #rentalView.view:not(#homeView) .availability-heading>.availability-status-pill{
+ display:inline-flex!important;align-items:center!important;justify-content:flex-start!important;
+ gap:10px!important;width:auto!important;max-width:100%!important;min-height:0!important;
+ padding:8px 0!important;margin:8px 0 0!important;white-space:normal!important;
+ border:0!important;border-radius:0!important;background:transparent!important;
+ background-image:none!important;box-shadow:none!important;backdrop-filter:none!important;
+ -webkit-backdrop-filter:none!important;overflow:visible!important;
+ color:#fffaf2!important;font-size:clamp(14px,1.5vw,17px)!important;
+ font-weight:600!important;line-height:1.4!important;
+ text-shadow:0 1px 7px rgba(34,18,15,.72)!important;
+}
+html body #rentalView.view:not(#homeView) .availability-status-icon{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ position:relative!important;flex:0 0 25px!important;width:25px!important;height:25px!important;
+ color:#fff4df!important;font-size:24px!important;line-height:1!important;
+}
+html body #rentalView.view:not(#homeView) .availability-status-refresh{
+ display:inline-block!important;animation:ldsStatusSpinOnce .9s cubic-bezier(.4,0,.2,1) 1 both!important;
+}
+html body #rentalView.view:not(#homeView) .availability-status-check{
+ position:absolute!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;
+ color:#dcebc9!important;font-size:23px!important;font-weight:800!important;
+ opacity:0!important;transform:scale(.55)!important;
+ animation:ldsStatusCheckStay .25s ease-out .9s 1 forwards!important;
+}
+html body #rentalView.view:not(#homeView) .availability-status-loading{
+ display:inline-block!important;animation:ldsStatusLoadingFade .25s ease-out 1.05s 1 forwards!important;
+}
+html body #rentalView.view:not(#homeView) .availability-status-done{
+ display:inline-block!important;opacity:0!important;max-width:0!important;overflow:hidden!important;
+ white-space:nowrap!important;animation:ldsStatusDoneStay .25s ease-out 1.05s 1 forwards!important;
+}
+@keyframes ldsStatusSpinOnce{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes ldsStatusCheckStay{to{opacity:1;transform:scale(1)}}
+@keyframes ldsStatusLoadingFade{to{opacity:0;max-width:0;display:none}}
+@keyframes ldsStatusDoneStay{to{opacity:1;max-width:240px}}
+@media(max-width:760px){
+ html body #rentalView.view:not(#homeView) .availability-heading>.availability-status-pill{
+  margin:12px 0 0!important;font-size:14px!important;gap:9px!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ html body #rentalView.view:not(#homeView) .availability-status-refresh{animation:none!important;opacity:0!important}
+ html body #rentalView.view:not(#homeView) .availability-status-check{animation:none!important;opacity:1!important;transform:none!important}
+ html body #rentalView.view:not(#homeView) .availability-status-loading{display:none!important}
+ html body #rentalView.view:not(#homeView) .availability-status-done{animation:none!important;opacity:1!important;max-width:240px!important}
 }
 </style>
 
