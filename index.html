@@ -17943,3 +17943,53 @@ html body #rentalView.view:not(#homeView) .availability-section>.calendar-help p
 }
 </style>
 
+<style id="lds-calendar-legend-centered-full-width-20261018">
+/* Center the three independent legend bubbles across the available width. */
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .availability-legend{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  align-items:stretch!important;
+  justify-items:stretch!important;
+  justify-content:stretch!important;
+  width:100%!important;
+  gap:12px!important;
+  margin:0!important;
+  padding:0!important;
+  text-align:center!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .availability-legend>span{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  min-width:0!important;
+  min-height:48px!important;
+  box-sizing:border-box!important;
+  margin:0!important;
+  padding:10px 8px!important;
+  gap:8px!important;
+  text-align:center!important;
+  white-space:normal!important;
+  border-radius:999px!important;
+  background:rgba(255,247,235,.06)!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .availability-legend>span .legend-block{
+  flex:0 0 12px!important;
+  width:12px!important;
+  height:12px!important;
+}
+@media(max-width:760px){
+ html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .availability-legend{
+   grid-template-columns:repeat(3,minmax(0,1fr))!important;
+   gap:8px!important;
+ }
+ html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .availability-legend>span{
+   min-height:46px!important;padding:9px 5px!important;gap:6px!important;
+   font-size:clamp(10px,2.9vw,12px)!important;line-height:1.25!important;
+ }
+ html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .availability-legend>span .legend-block{
+   flex-basis:10px!important;width:10px!important;height:10px!important;
+ }
+}
+</style>
+
