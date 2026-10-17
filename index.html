@@ -16864,6 +16864,26 @@ body::after{
   }
 }
 </style>
+<style id="lds-center-arch-width-and-heading-size-20261017">
+@media(max-width:760px){
+  /* Restore the previous heading size; widen only the active center arch by a tiny amount. */
+  #homeView .choices>.choice.is-center,
+  #homeView .choices>.choice[data-carousel-clone="1"].is-center{
+    width:calc(var(--choice-width, 240px) + 8px)!important;
+    max-width:calc(100vw - 24px)!important;
+  }
+  #homeView .choices>.choice.is-center h3,
+  #homeView .choices>.choice[data-carousel-clone="1"].is-center h3{
+    font-size:1em!important;
+    letter-spacing:normal!important;
+    word-break:keep-all!important;
+    overflow-wrap:normal!important;
+    hyphens:none!important;
+    text-wrap:balance!important;
+    padding-inline:5px!important;
+  }
+}
+</style>
 <script id="lds-home-carousel-manual-snap-controller-20261017">
 /* Infinite manual swipe carousel. Preserve existing cards, design and booking behavior. */
 (function(){
