@@ -16422,6 +16422,28 @@ html body #rentalView.view:not(#homeView) .availability-section > .calendar-pane
 }
 </style>
 
+
+<style id="lds-rental-sticky-header-unclip-grid-20261018">
+/* Critical: the grid itself must not clip sticky weekday/date cells. The scroll viewport clips the table instead. */
+html body #rentalView.view:not(#homeView) .availability-section > .calendar-panel > .cal-scroll > #rentalCalendar{
+  overflow:visible!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section > .calendar-panel > .cal-scroll > #rentalCalendar > .rent-day{
+  position:-webkit-sticky!important;
+  position:sticky!important;
+  top:0!important;
+  z-index:180!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section > .calendar-panel > .cal-scroll.is-scrolling > #rentalCalendar > .rent-day{
+  background:rgba(69,44,41,.94)!important;
+  background-color:rgba(69,44,41,.94)!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section > .calendar-panel > .cal-scroll.is-scrolling > #rentalCalendar > .rent-day.selected-day{
+  background:rgba(105,34,61,.98)!important;
+  background-color:rgba(105,34,61,.98)!important;
+}
+</style>
+
 </body></html>
 
 
