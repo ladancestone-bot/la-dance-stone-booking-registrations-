@@ -4020,9 +4020,9 @@ body::after{
   <p class="home-values">Pasirinkite, ką norite nuveikti: peržiūrėti tvarkaraštį, išsinuomoti studiją ar užsiregistruoti į pamokas.</p>
 </div>
 <div class="choices">
-<button class="choice" data-view="timetable"><span class="num">SAVAITĖS PLANAS</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="11" width="32" height="29" rx="5"/><path d="M16 7v9M32 7v9M8 19h32"/><path d="M16 25h4M28 25h4M16 32h4M28 32h4"/><path d="M24 19v21" opacity=".22"/></svg></span><h3>Tvarkaraštis</h3><p>Užsiėmimų laikai</p><span class="arrow">→</span></button>
-<button class="choice" data-view="rental"><span class="num">STUDIJOS ERDVĖ</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M5 42V21C5 10 13 4 24 4s19 6 19 17v21"/><path d="M11 42V22c0-8 5-13 13-13s13 5 13 13v20"/><path d="M17 42V24c0-4 3-7 7-7s7 3 7 7v18"/><path d="M4 42h40" opacity=".7"/><path d="M24 25v17" opacity=".5"/></svg></span><h3>Studijos nuoma</h3><p>Laisvi laikai ir rezervacija</p><span class="arrow">→</span></button>
-<button class="choice" data-view="classes"><span class="num">ŠOKIŲ PAMOKOS</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="5" width="28" height="38" rx="5"/><path d="M17 14h14M17 20h14M17 26h8"/><path d="m26 33 4 4 7-8"/><path d="M15 5v-2M33 5v-2" opacity=".6"/></svg></span><h3>Registracija į pamokas</h3><p>Grupės ir registracija</p><span class="arrow">→</span></button>
+<button class="choice" data-view="timetable"><span class="num">SAVAITĖS PLANAS</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="11" width="32" height="29" rx="5"/><path d="M16 7v9M32 7v9M8 19h32"/><path d="M16 25h4M28 25h4M16 32h4M28 32h4"/><path d="M24 19v21" opacity=".22"/></svg></span><h3>Tvarkaraštis</h3><p>Užsiėmimų laikai</p><span class="choice-action">Peržiūrėti tvarkaraštį <span aria-hidden="true">→</span></span><span class="arrow" aria-hidden="true">→</span></button>
+<button class="choice" data-view="rental"><span class="num">STUDIJOS ERDVĖ</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M5 42V21C5 10 13 4 24 4s19 6 19 17v21"/><path d="M11 42V22c0-8 5-13 13-13s13 5 13 13v20"/><path d="M17 42V24c0-4 3-7 7-7s7 3 7 7v18"/><path d="M4 42h40" opacity=".7"/><path d="M24 25v17" opacity=".5"/></svg></span><h3>Studijos nuoma</h3><p>Laisvi laikai ir rezervacija</p><span class="choice-action">Rezervuoti studiją <span aria-hidden="true">→</span></span><span class="arrow" aria-hidden="true">→</span></button>
+<button class="choice" data-view="classes"><span class="num">ŠOKIŲ PAMOKOS</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="5" width="28" height="38" rx="5"/><path d="M17 14h14M17 20h14M17 26h8"/><path d="m26 33 4 4 7-8"/><path d="M15 5v-2M33 5v-2" opacity=".6"/></svg></span><h3>Registracija į pamokas</h3><p>Grupės ir registracija</p><span class="choice-action">Registruotis į pamokas <span aria-hidden="true">→</span></span><span class="arrow" aria-hidden="true">→</span></button>
 </div>
 
 <section id="rentalCashConfirm" aria-live="polite" aria-labelledby="rentalCashConfirmTitle" style="display:none">
@@ -16598,3 +16598,52 @@ body::after{
   border-color:rgba(255,244,226,.92)!important;
 }
 </style>
+
+
+<style id="lds-approved-carousel-action-labels-20261017">
+/* Approved refinement: action label and arrow share one line; all arches keep the same glass treatment. */
+#homeView .choices .choice .choice-action{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;
+ width:100%!important;margin-top:26px!important;color:rgba(255,247,236,.96)!important;
+ font-size:14px!important;line-height:1.35!important;font-weight:500!important;text-align:center!important;
+ text-shadow:0 2px 10px rgba(27,9,18,.3)!important;
+}
+#homeView .choices .choice .choice-action span{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ width:25px!important;height:25px!important;flex:0 0 25px!important;border:1px solid rgba(255,239,220,.75)!important;
+ border-radius:50%!important;font-size:18px!important;line-height:1!important;
+}
+#homeView .choices .choice .arrow{display:none!important}
+@media(max-width:760px){
+ #homeView .choices .choice .choice-action{font-size:13px!important;gap:7px!important;margin-top:24px!important}
+ #homeView .choices .choice .choice-action span{width:23px!important;height:23px!important;flex-basis:23px!important}
+}
+</style>
+<script id="lds-home-carousel-loop-20261017">
+/* Loop the existing homepage card carousel without changing card click behavior. */
+(function(){
+ const init=()=>{
+  const home=document.querySelector('#homeView');
+  const track=home&&home.querySelector('.choices');
+  if(!track||track.dataset.ldsLoopReady==='1')return;
+  track.dataset.ldsLoopReady='1';
+  let timer=null;
+  const cards=()=>Array.from(track.querySelectorAll('.choice'));
+  const isMobile=()=>window.matchMedia('(max-width:760px)').matches;
+  const advance=()=>{
+   if(!isMobile()||!home.classList.contains('active'))return;
+   const items=cards();if(items.length<2)return;
+   const current=items.reduce((best,el)=>Math.abs(el.getBoundingClientRect().left+el.getBoundingClientRect().width/2-window.innerWidth/2)<Math.abs(best.getBoundingClientRect().left+best.getBoundingClientRect().width/2-window.innerWidth/2)?el:best,items[0]);
+   const next=current.nextElementSibling;
+   if(next){next.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}
+   else{track.scrollTo({left:0,behavior:'smooth'});}
+  };
+  const start=()=>{if(timer)clearInterval(timer);timer=setInterval(advance,4800)};
+  track.addEventListener('pointerdown',()=>{if(timer)clearInterval(timer);timer=setInterval(advance,6500)},{passive:true});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){if(timer)clearInterval(timer);timer=null}else start()});
+  window.addEventListener('resize',start,{passive:true});
+  start();
+ };
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
