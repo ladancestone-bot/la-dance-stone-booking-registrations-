@@ -16707,12 +16707,25 @@ body::after{
     function schedule(){if(!frame)frame=requestAnimationFrame(update);}
     function wrapIfNeeded(){
       if(!isMobile()||wrapping)return;
-      const all=cards(),firstClone=all[0],lastClone=all[all.length-1],firstOriginal=originals[0],lastOriginal=originals[originals.length-1];
-      const x=rail.scrollLeft;
-      if(x<firstOriginal.offsetLeft-rail.clientWidth*.18){wrapping=true;centerCard(lastOriginal,'auto');wrapping=false;}
-      else if(x>lastOriginal.offsetLeft+lastOriginal.offsetWidth-rail.clientWidth*.82){wrapping=true;centerCard(firstOriginal,'auto');wrapping=false;}
+      const all=cards();
+      const firstClone=all.find(card=>card.dataset.carouselClone==='1'&&card.dataset.carouselEdge==='before');
+      const lastClone=all.find(card=>card.dataset.carouselClone==='1'&&card.dataset.carouselEdge==='after');
+      const railRect=rail.getBoundingClientRect(),center=railRect.left+railRect.width/2;
+      let nearest=null,nearestDistance=Infinity;
+      all.forEach(card=>{
+        const rect=card.getBoundingClientRect();
+        const distance=Math.abs((rect.left+rect.width/2)-center);
+        if(distance<nearestDistance){nearest=card;nearestDistance=distance;}
+      });
+      const target=nearest===firstClone?originals[originals.length-1]:(nearest===lastClone?originals[0]:null);
+      if(target){
+        wrapping=true;
+        centerCard(target,'auto');
+        schedule();
+        requestAnimationFrame(()=>{wrapping=false;schedule();});
+      }
     }
-    function onScroll(){schedule();clearTimeout(settleTimer);settleTimer=setTimeout(wrapIfNeeded,140);}
+    function onScroll(){schedule();clearTimeout(settleTimer);settleTimer=setTimeout(wrapIfNeeded,180);}
     rail.addEventListener('scroll',onScroll,{passive:true});
     rail.addEventListener('scrollend',wrapIfNeeded,{passive:true});
     window.addEventListener('resize',()=>{if(isMobile())centerCard(originals[1],'auto');schedule();},{passive:true});
