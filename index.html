@@ -16694,7 +16694,7 @@ body::after{
     const ratio=Math.max(-1.5,Math.min(1.5,delta/Math.max(1,cr.width))),abs=Math.min(1,Math.abs(ratio)),active=abs<.42;
     card.classList.toggle('is-center',active);card.classList.toggle('is-side',!active);
     card.style.setProperty('--card-rotate',(-ratio*28)+'deg');
-    card.style.setProperty('--card-scale',(active?1:Math.max(.78,1-abs*.22)).toFixed(3));
+    card.style.setProperty('--card-scale',(active?1:Math.max(.66,1-abs*.34)).toFixed(3));
     card.style.setProperty('--card-depth',(active?0:-24)+'px');
     card.style.zIndex=String(6-Math.round(abs*3));
    });
