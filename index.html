@@ -4496,8 +4496,8 @@ $('prevWeek').onclick=()=>{week.setDate(week.getDate()-7);renderCalendar()};$('n
      card.classList.toggle('is-center',Math.abs(delta)<cr.width*.34);
      card.classList.toggle('is-side',Math.abs(delta)>=cr.width*.34);
      card.style.setProperty('--card-rotate',mobile?(-ratio*13)+'deg':'0deg');
-     card.style.setProperty('--card-scale',(1-abs*.22).toFixed(3));
-     card.style.setProperty('--card-lift',(Math.abs(delta)<cr.width*.34?12:8+abs*12)+'px');
+     card.style.setProperty('--card-scale',(1-abs*.34).toFixed(3));
+     card.style.setProperty('--card-lift',(Math.abs(delta)<cr.width*.34?18:20+abs*16)+'px');
      card.style.zIndex=String(10-Math.round(abs*5));
      card.style.filter='brightness('+(1-abs*.055).toFixed(3)+')';
    });
@@ -11294,6 +11294,71 @@ body:has(#homeView.active)::after{
 @media(max-width:380px){
  #homeView .choices{padding-left:18vw!important;padding-right:18vw!important}
  #homeView .choice{flex-basis:64vw!important;width:64vw!important}
+}
+</style>
+
+<style id="lds-home-carousel-tall-narrow-orbit-20261017">
+/* Tall, narrow arch cards with a deeper circular 3D orbit. */
+#homeView .choices{
+ perspective:1450px!important;
+ perspective-origin:50% 45%!important;
+ transform-style:preserve-3d!important;
+}
+#homeView .choice{
+ border-radius:48% 48% 9px 9px / 23% 23% 9px 9px!important;
+ transform-origin:50% 48%!important;
+ transition:transform .28s cubic-bezier(.2,.7,.2,1),background .35s ease,box-shadow .35s ease,filter .28s ease!important;
+}
+#homeView .choice.is-center{
+ transform:perspective(1150px) rotateY(0deg) translateY(18px) scale(1.035)!important;
+}
+#homeView .choice.is-side{
+ transform:perspective(1150px) rotateY(var(--card-rotate,0deg)) translateY(var(--card-lift,30px)) scale(var(--card-scale,.66))!important;
+}
+@media(max-width:760px){
+ #homeView .choices{
+  width:calc(100% + 42px)!important;
+  max-width:none!important;
+  margin-left:-21px!important;margin-right:-21px!important;
+  padding:22px 25vw 48px!important;
+  gap:4px!important;
+  overflow-x:auto!important;overflow-y:visible!important;
+  scroll-snap-type:x mandatory!important;
+  scroll-padding-inline:25vw!important;
+  perspective:1450px!important;perspective-origin:50% 45%!important;
+  transform-style:preserve-3d!important;
+ }
+ #homeView .choice{
+  flex:0 0 54vw!important;
+  width:54vw!important;max-width:220px!important;min-width:0!important;
+  min-height:390px!important;height:390px!important;
+  padding:70px 12px 22px!important;
+  border-radius:48% 48% 8px 8px / 23% 23% 8px 8px!important;
+  scroll-snap-align:center!important;
+ }
+ #homeView .choice.is-center{
+  transform:perspective(1150px) rotateY(0deg) translateY(18px) scale(1.035)!important;
+ }
+ #homeView .choice.is-side{
+  transform:perspective(1150px) rotateY(var(--card-rotate,0deg)) translateY(var(--card-lift,30px)) scale(var(--card-scale,.66))!important;
+ }
+ #homeView .choice .num{
+  font-size:8px!important;letter-spacing:.12em!important;line-height:1.35!important;
+ }
+ #homeView .choice .home-icon{
+  width:48px!important;height:48px!important;margin-bottom:15px!important;
+ }
+ #homeView .choice .home-icon svg{width:24px!important;height:24px!important}
+ #homeView .choice h3{font-size:clamp(19px,5vw,24px)!important;line-height:1.06!important}
+ #homeView .choice p{font-size:11px!important;line-height:1.38!important}
+ #homeView .choice .arrow{width:40px!important;height:40px!important}
+}
+@media(max-width:380px){
+ #homeView .choices{padding-left:24vw!important;padding-right:24vw!important}
+ #homeView .choice{flex-basis:56vw!important;width:56vw!important;min-height:375px!important;height:375px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ #homeView .choice{transition:none!important}
 }
 </style>
 </body></html>
