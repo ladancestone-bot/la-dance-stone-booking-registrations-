@@ -16752,6 +16752,62 @@ body::after{
   #homeView .choices>.choice{background:rgba(255,255,255,.12)!important}
 }
 </style>
+<style id="lds-glass-specificity-conflict-fix-20261017">
+/* Last-in-cascade correction: neutralize older high-specificity tinted card rules. */
+#homeView .choices .choice[data-view="timetable"],
+#homeView .choices .choice[data-view="rental"],
+#homeView .choices .choice[data-view="classes"],
+#homeView .choices .choice[data-carousel-clone="1"],
+#homeView .choices .choice[data-view="timetable"].is-center,
+#homeView .choices .choice[data-view="rental"].is-center,
+#homeView .choices .choice[data-view="classes"].is-center,
+#homeView .choices .choice[data-view="timetable"].is-side,
+#homeView .choices .choice[data-view="rental"].is-side,
+#homeView .choices .choice[data-view="classes"].is-side,
+#homeView .choices .choice[data-view="timetable"][data-loop-clone="1"],
+#homeView .choices .choice[data-view="rental"][data-loop-clone="1"],
+#homeView .choices .choice[data-view="classes"][data-loop-clone="1"]{
+  background:rgba(255,255,255,.012)!important;
+  background-image:none!important;
+  background-color:rgba(255,255,255,.012)!important;
+  -webkit-backdrop-filter:blur(10px) saturate(135%)!important;
+  backdrop-filter:blur(10px) saturate(135%)!important;
+  box-shadow:
+    inset 0 1.5px 0 rgba(255,255,255,.96),
+    inset 1px 0 0 rgba(255,255,255,.36),
+    inset -1px 0 0 rgba(255,241,218,.22),
+    inset 0 -1px 0 rgba(255,255,255,.14),
+    0 0 0 1px rgba(255,232,202,.16),
+    0 0 16px rgba(255,227,188,.11),
+    0 8px 22px rgba(23,11,15,.06)!important;
+}
+#homeView .choices .choice[data-view="timetable"].is-center,
+#homeView .choices .choice[data-view="rental"].is-center,
+#homeView .choices .choice[data-view="classes"].is-center{
+  background:rgba(255,255,255,.008)!important;
+  background-image:none!important;
+  background-color:rgba(255,255,255,.008)!important;
+}
+#homeView .choices .choice[data-view="timetable"]::before,
+#homeView .choices .choice[data-view="rental"]::before,
+#homeView .choices .choice[data-view="classes"]::before,
+#homeView .choices .choice[data-carousel-clone="1"]::before,
+#homeView .choices .choice[data-loop-clone="1"]::before{
+  background:linear-gradient(112deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.025) 9%,transparent 24%,transparent 76%,rgba(255,227,190,.025) 90%,rgba(255,255,255,.10) 100%)!important;
+  background-image:linear-gradient(112deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.025) 9%,transparent 24%,transparent 76%,rgba(255,227,190,.025) 90%,rgba(255,255,255,.10) 100%)!important;
+  background-color:transparent!important;
+  opacity:1!important;
+}
+#homeView .choices .choice[data-view="timetable"]::after,
+#homeView .choices .choice[data-view="rental"]::after,
+#homeView .choices .choice[data-view="classes"]::after,
+#homeView .choices .choice[data-carousel-clone="1"]::after,
+#homeView .choices .choice[data-loop-clone="1"]::after{
+  background:transparent!important;
+  background-color:transparent!important;
+  border-color:rgba(255,248,235,.30)!important;
+}
+</style>
 <script id="lds-home-carousel-manual-snap-controller-20261017">
 /* Stability recovery: show all cards, keep 3D styling, circular manual swipe. No autoplay. */
 (function(){
