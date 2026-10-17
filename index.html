@@ -17303,3 +17303,23 @@ html body #rentalView.view:not(#homeView) .rental-gallery .gallery-card .gallery
 }
 </style>
 
+<style id="lds-rental-gallery-caption-more-transparent-20261017">
+/* Make rental gallery caption glass noticeably more transparent, not milky/opaque. */
+html body #rentalView.view:not(#homeView) .rental-gallery .gallery-card .gallery-caption{
+  background:linear-gradient(145deg,rgba(255,247,236,.10),rgba(89,55,45,.22))!important;
+  background-color:rgba(122,82,65,.12)!important;
+  border-top:1px solid rgba(255,250,242,.34)!important;
+  -webkit-backdrop-filter:blur(8px) saturate(1.08)!important;
+  backdrop-filter:blur(8px) saturate(1.08)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12)!important;
+}
+@media(max-width:760px){
+  html body #rentalView.view:not(#homeView) .rental-gallery .gallery-card .gallery-caption{
+    background:linear-gradient(145deg,rgba(255,247,236,.09),rgba(74,43,39,.24))!important;
+    background-color:rgba(122,82,65,.12)!important;
+    -webkit-backdrop-filter:blur(8px) saturate(1.06)!important;
+    backdrop-filter:blur(8px) saturate(1.06)!important;
+  }
+}
+</style>
+
