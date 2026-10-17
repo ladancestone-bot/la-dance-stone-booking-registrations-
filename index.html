@@ -12958,4 +12958,63 @@ body:has(#timetableView.active)::before{
 }
 </style>
 
+
+<style id="lds-timetable-max-glass-first-view-20261017">
+/* Maximum transparency for the timetable's first view: retain only legible borders, labels and lesson cards. */
+#timetableView .timetable-panel{
+ background:rgba(255,248,238,.025)!important;
+ background-image:none!important;
+ -webkit-backdrop-filter:blur(1px) saturate(1.03)!important;
+ backdrop-filter:blur(1px) saturate(1.03)!important;
+ box-shadow:inset 0 0 0 1px rgba(255,249,239,.10),0 12px 30px rgba(30,14,18,.08)!important;
+}
+#timetableView .timetable-panel .cal-scroll,
+#timetableView .timetable-panel #calendar,
+#timetableView .timetable-panel .calendar{
+ background:transparent!important;background-image:none!important;
+}
+#timetableView .timetable-panel .calendar .cell{
+ background:transparent!important;background-image:none!important;
+ border:1px solid rgba(255,248,237,.13)!important;
+ box-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar .day{
+ background:rgba(255,245,232,.035)!important;background-image:none!important;
+ border:1px solid rgba(255,248,237,.16)!important;
+ box-shadow:none!important;
+ -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+#timetableView .timetable-panel .calendar .time{
+ background:rgba(56,34,35,.24)!important;background-image:none!important;
+ border:1px solid rgba(255,248,237,.13)!important;
+ box-shadow:none!important;
+ -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .cell{
+ background:rgba(56,35,34,.035)!important;
+}
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .day,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .time{
+ background:rgba(59,37,37,.72)!important;
+}
+#timetableView .timetable-panel .calendar .event{
+ -webkit-backdrop-filter:blur(2px) saturate(1.05)!important;
+ backdrop-filter:blur(2px) saturate(1.05)!important;
+}
+#timetableView .timetable-panel .calendar-help{
+ background:rgba(80,53,47,.10)!important;
+ -webkit-backdrop-filter:blur(2px) saturate(1.04)!important;
+ backdrop-filter:blur(2px) saturate(1.04)!important;
+}
+@media(max-width:760px){
+ #timetableView .timetable-panel{
+  background:rgba(255,248,238,.015)!important;
+  -webkit-backdrop-filter:blur(1px) saturate(1.02)!important;
+  backdrop-filter:blur(1px) saturate(1.02)!important;
+ }
+ #timetableView .timetable-panel .calendar .cell{background:transparent!important}
+ #timetableView .timetable-panel .calendar .day{background:rgba(255,245,232,.025)!important}
+}
+</style>
+
 </body></html>
