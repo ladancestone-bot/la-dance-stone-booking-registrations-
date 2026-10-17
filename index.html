@@ -14126,4 +14126,101 @@ body::after{
 }
 </style>
 
+
+<style id="lds-registration-timetable-colorful-glass-v3-20261017">
+/* Make the class schedule feel like colorful glass over the existing photo. Keep data and behavior intact. */
+#homeView .class-week-preview{
+ background:linear-gradient(135deg,rgba(255,244,229,.13),rgba(116,76,72,.10) 48%,rgba(49,27,35,.13))!important;
+ border:1px solid rgba(255,246,233,.48)!important;
+ box-shadow:0 18px 38px rgba(38,18,24,.14),inset 0 1px 0 rgba(255,255,255,.34),inset 0 -1px 0 rgba(42,21,27,.10)!important;
+ -webkit-backdrop-filter:blur(15px) saturate(1.18)!important;
+ backdrop-filter:blur(15px) saturate(1.18)!important;
+}
+/* Header is part of the glass panel, not a separate opaque cream rectangle. */
+#homeView .class-week-heading,
+#homeView .class-week-heading>div,
+#homeView .class-week-heading .eyebrow,
+#homeView .class-week-heading h3,
+#homeView .class-week-heading p{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ border:0!important;box-shadow:none!important;
+}
+#homeView .class-week-heading .eyebrow{
+ color:#e8cda0!important;letter-spacing:.24em!important;font-weight:700!important;
+ text-shadow:0 2px 7px rgba(42,20,26,.45)!important;
+}
+#homeView .class-week-heading h3{
+ color:#fff8ef!important;font-family:'Cormorant Garamond',Georgia,serif!important;
+ font-size:clamp(29px,6.4vw,37px)!important;line-height:1.03!important;font-weight:600!important;
+ text-shadow:0 2px 10px rgba(42,20,26,.48)!important;
+}
+#homeView .class-week-heading p{
+ color:rgba(255,248,239,.94)!important;font-size:12px!important;line-height:1.55!important;
+ text-shadow:0 1px 7px rgba(42,20,26,.45)!important;
+}
+/* Outer calendar: clear glass with a soft pearl rim, no grey sheet. */
+#homeView .class-week-scroll,
+#homeView .class-week-calendar-scroll{
+ background:rgba(255,247,237,.025)!important;background-color:rgba(255,247,237,.025)!important;
+ border:1px solid rgba(255,248,238,.48)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.26),0 8px 22px rgba(34,17,22,.07)!important;
+ -webkit-backdrop-filter:blur(5px) saturate(1.12)!important;
+ backdrop-filter:blur(5px) saturate(1.12)!important;
+}
+#homeView .class-calendar-grid{background:transparent!important;background-color:transparent!important;background-image:none!important}
+#homeView .class-calendar-corner,
+#homeView .class-calendar-dayhead{
+ background:linear-gradient(135deg,rgba(255,248,238,.13),rgba(105,64,72,.12))!important;
+ background-color:rgba(255,248,238,.10)!important;background-image:linear-gradient(135deg,rgba(255,248,238,.13),rgba(105,64,72,.12))!important;
+ color:#fff8ef!important;border-color:rgba(255,248,238,.32)!important;
+ text-shadow:0 1px 5px rgba(39,17,25,.64)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.18)!important;
+}
+#homeView .class-calendar-time{
+ background:linear-gradient(135deg,rgba(98,54,68,.28),rgba(58,32,43,.20))!important;
+ background-color:rgba(73,42,51,.22)!important;color:#fff8ef!important;
+ border-color:rgba(255,248,238,.25)!important;text-shadow:0 1px 5px rgba(39,17,25,.64)!important;
+}
+#homeView .class-calendar-slot{
+ background:rgba(255,247,237,.018)!important;background-color:rgba(255,247,237,.018)!important;
+ background-image:none!important;border-color:rgba(255,248,238,.19)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.08)!important;
+}
+/* More visible, distinct glass tints for lessons and occupied times. */
+#homeView .class-calendar-slot.booked{
+ background:linear-gradient(140deg,rgba(220,239,215,.90),rgba(160,195,158,.74))!important;
+ background-color:rgba(190,220,182,.78)!important;
+ border-left:3px solid rgba(103,145,105,.98)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 3px 9px rgba(34,20,26,.08)!important;
+}
+#homeView .class-calendar-slot.occupied{
+ background:linear-gradient(140deg,rgba(249,220,218,.91),rgba(216,161,168,.79))!important;
+ background-color:rgba(225,183,184,.82)!important;
+ border-left:3px solid rgba(164,76,93,.98)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 3px 9px rgba(34,20,26,.08)!important;
+}
+#homeView .class-calendar-slot.free{
+ background:linear-gradient(135deg,rgba(255,248,239,.035),rgba(224,193,181,.025))!important;
+ background-color:rgba(255,248,239,.025)!important;color:rgba(255,248,239,.93)!important;
+ border-style:dashed!important;border-color:rgba(255,248,239,.24)!important;
+}
+#homeView .class-calendar-slot strong{color:#552337!important;text-shadow:none!important}
+#homeView .class-calendar-slot span{color:#38272a!important}
+#homeView .class-calendar-slot small{color:#57413f!important}
+/* Pricing note below the table also belongs to the same glass system. */
+#homeView .class-week-note{
+ background:linear-gradient(120deg,rgba(255,248,239,.10),rgba(255,248,239,.035))!important;
+ border:1px solid rgba(255,248,239,.26)!important;border-radius:13px!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.20)!important;
+ color:#fff5e9!important;text-shadow:0 1px 4px rgba(40,20,25,.32)!important;
+}
+#homeView .class-week-note span{color:#efd09a!important}
+@media(max-width:760px){
+ #homeView .class-week-preview{padding:16px 11px!important}
+ #homeView .class-week-heading{margin-bottom:13px!important}
+ #homeView .class-week-heading .pill{display:none!important}
+ #homeView .class-week-scroll,#homeView .class-week-calendar-scroll{border-radius:16px!important}
+ #homeView .class-calendar-slot.booked,#homeView .class-calendar-slot.occupied{border-radius:0!important}
+}
+</style>
+
 </body></html>
