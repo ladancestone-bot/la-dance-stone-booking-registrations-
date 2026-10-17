@@ -3924,9 +3924,9 @@ body::after{
   <p class="home-values">Pasirinkite, ką norite nuveikti: peržiūrėti tvarkaraštį, išsinuomoti studiją ar užsiregistruoti į pamokas.</p>
 </div>
 <div class="choices">
-<button class="choice" data-view="timetable"><span class="num">SAVAITĖS PLANAS</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="7" width="23" height="21" rx="2"/><path d="M10 4v6M22 4v6M5 13h22M11 13v14M19 13v14M5 20h22"/></svg></span><h3>Tvarkaraštis</h3><p>Užsiėmimų laikai</p><span class="arrow">→</span></button>
-<button class="choice" data-view="rental"><span class="num">STUDIJOS ERDVĖ</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 14.5 16 4l12.5 10.5M7 12v16h18V12M13 28v-9h6v9"/></svg></span><h3>Studijos nuoma</h3><p>Laisvi laikai ir rezervacija</p><span class="arrow">→</span></button>
-<button class="choice" data-view="classes"><span class="num">ŠOKIŲ PAMOKOS</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="20" height="24" rx="2"/><path d="M11 10h10M11 15h10M11 20h5"/><path d="m19 22 2 2 4-5"/></svg></span><h3>Registracija į pamokas</h3><p>Grupės ir registracija</p><span class="arrow">→</span></button>
+<button class="choice" data-view="timetable"><span class="num">SAVAITĖS PLANAS</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="11" width="32" height="29" rx="5"/><path d="M16 7v9M32 7v9M8 19h32"/><path d="M16 25h4M28 25h4M16 32h4M28 32h4"/><path d="M24 19v21" opacity=".22"/></svg></span><h3>Tvarkaraštis</h3><p>Užsiėmimų laikai</p><span class="arrow">→</span></button>
+<button class="choice" data-view="rental"><span class="num">STUDIJOS ERDVĖ</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M5 42V21C5 10 13 4 24 4s19 6 19 17v21"/><path d="M11 42V22c0-8 5-13 13-13s13 5 13 13v20"/><path d="M17 42V24c0-4 3-7 7-7s7 3 7 7v18"/><path d="M4 42h40" opacity=".7"/><path d="M24 25v17" opacity=".5"/></svg></span><h3>Studijos nuoma</h3><p>Laisvi laikai ir rezervacija</p><span class="arrow">→</span></button>
+<button class="choice" data-view="classes"><span class="num">ŠOKIŲ PAMOKOS</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="5" width="28" height="38" rx="5"/><path d="M17 14h14M17 20h14M17 26h8"/><path d="m26 33 4 4 7-8"/><path d="M15 5v-2M33 5v-2" opacity=".6"/></svg></span><h3>Registracija į pamokas</h3><p>Grupės ir registracija</p><span class="arrow">→</span></button>
 </div>
 
 <section id="rentalCashConfirm" aria-live="polite" aria-labelledby="rentalCashConfirmTitle" style="display:none">
@@ -11861,5 +11861,35 @@ body:has(#homeView.active)::after{
 #homeView .choices .choice .arrow{position:relative!important;z-index:3!important}
 #homeView .choices .choice.is-center::before{opacity:.68!important}
 #homeView .choices .choice.is-side::before{opacity:.4!important}
+</style>
+
+<style id="lds-home-icons-premium-responsive-refinement-20261017">
+#homeView .choices .choice .home-icon{
+ width:66px!important;height:66px!important;min-width:66px!important;
+ display:grid!important;place-items:center!important;
+ margin:0 auto 20px!important;padding:0!important;
+ border:1px solid rgba(255,231,201,.84)!important;border-radius:50%!important;
+ background:radial-gradient(circle at 32% 24%,rgba(255,246,229,.25),rgba(255,228,194,.07) 48%,rgba(35,9,21,.28) 100%)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.48),inset 0 -7px 14px rgba(25,7,17,.2),0 0 0 4px rgba(255,231,201,.045),0 7px 20px rgba(19,5,13,.18)!important;
+ color:#fff0d9!important;flex-shrink:0!important;
+}
+#homeView .choices .choice .home-icon svg{
+ display:block!important;width:34px!important;height:34px!important;
+ max-width:70%!important;max-height:70%!important;
+ margin:0!important;overflow:visible!important;
+ filter:drop-shadow(0 1px 2px rgba(28,8,17,.22))!important;
+}
+#homeView .choices .choice.is-center .home-icon{
+ border-color:rgba(255,239,213,.98)!important;
+ background:radial-gradient(circle at 30% 22%,rgba(255,249,235,.34),rgba(255,224,188,.1) 48%,rgba(41,7,22,.3) 100%)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.62),inset 0 -8px 14px rgba(35,5,18,.2),0 0 0 4px rgba(255,226,192,.08),0 0 24px rgba(255,211,167,.16)!important;
+}
+#homeView .choices .choice.is-side .home-icon{transform:scale(.9)!important;opacity:.88!important}
+@media(max-width:760px){
+ #homeView .choices .choice .home-icon{
+  width:56px!important;height:56px!important;min-width:56px!important;margin-bottom:16px!important;
+ }
+ #homeView .choices .choice .home-icon svg{width:30px!important;height:30px!important}
+}
 </style>
 </body></html>
