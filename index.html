@@ -16658,7 +16658,7 @@ body::after{
 }
 </style>
 <script id="lds-home-carousel-manual-snap-controller-20261017">
-/* Seamless continuous carousel: slow automatic drift, touch remains available, no end pause. */
+/* Continuous, seamless mobile carousel. Uses clone-to-original cycle width, not end-of-track thresholds. */
 (function(){
  function init(){
   const home=document.getElementById('homeView'),rail=home&&home.querySelector('.choices');
@@ -16666,9 +16666,9 @@ body::after{
   rail.dataset.manualSnapReady='1';
   const originals=Array.from(rail.querySelectorAll(':scope > .choice:not([data-carousel-clone="1"]):not([data-loop-clone])'));
   if(originals.length<3)return;
-  let styleFrame=0,autoFrame=0,lastTime=0,wrapping=false,userInteracting=false,resumeTimer=0;
+  let styleFrame=0,autoFrame=0,lastTime=0,userInteracting=false,resumeTimer=0;
   const isMobile=()=>window.matchMedia('(max-width:760px)').matches;
-  const speed=14; // pixels per second: slow, premium motion
+  const speed=12;
   function cloneCard(card,edge){
    const clone=card.cloneNode(true);clone.dataset.carouselClone='1';clone.dataset.carouselEdge=edge;clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;
    clone.querySelectorAll('a,button,[tabindex]').forEach(el=>el.tabIndex=-1);
@@ -16676,7 +16676,9 @@ body::after{
    return clone;
   }
   if(!rail.querySelector(':scope > .choice[data-carousel-clone="1"]')){
-   originals.slice(-2).forEach(card=>rail.insertBefore(cloneCard(card,'before'),rail.querySelector(':scope > .choice:not([data-carousel-clone="1"])')));
+   const before=document.createDocumentFragment();
+   originals.slice(-2).forEach(card=>before.appendChild(cloneCard(card,'before')));
+   rail.insertBefore(before,originals[0]);
    originals.slice(0,2).forEach(card=>rail.appendChild(cloneCard(card,'after')));
   }
   const cards=()=>Array.from(rail.querySelectorAll(':scope > .choice'));
@@ -16700,26 +16702,24 @@ body::after{
    });
   }
   function scheduleStyle(){if(!styleFrame)styleFrame=requestAnimationFrame(update)}
+  function cycleMetrics(){
+   const first=originals[0];
+   const after=cards().find(c=>c.dataset.carouselClone==='1'&&c.dataset.carouselEdge==='after'&&c.dataset.view===first.dataset.view);
+   const last=originals[originals.length-1];
+   if(!first||!after||!last)return null;
+   const width=after.offsetLeft-first.offsetLeft;
+   return width>0?{first:first.offsetLeft,last:last.offsetLeft,after:after.offsetLeft,width}:null;
+  }
   function loop(time){
    autoFrame=0;
    if(!isMobile()||userInteracting){lastTime=0;return}
    if(!lastTime)lastTime=time;
    const dt=Math.min(40,time-lastTime);lastTime=time;
-   const all=cards(),firstOriginal=originals[0],lastOriginal=originals[originals.length-1];
-   const beforeClones=all.filter(c=>c.dataset.carouselClone==='1'&&c.dataset.carouselEdge==='before');
-   const afterClones=all.filter(c=>c.dataset.carouselClone==='1'&&c.dataset.carouselEdge==='after');
-   // Move continuously, without CSS snap fighting the animation.
    rail.scrollLeft+=speed*dt/1000;
-   const rightEdge=lastOriginal.offsetLeft+lastOriginal.offsetWidth;
-   if(rail.scrollLeft>=rightEdge){
-    const cycleWidth=lastOriginal.offsetLeft-firstOriginal.offsetLeft;
-    if(cycleWidth>0)rail.scrollLeft-=cycleWidth;
-   }
-   // If a user swipes across either edge, recover by a whole cycle without a visible pause.
-   const leftLimit=firstOriginal.offsetLeft;
-   if(rail.scrollLeft<leftLimit){
-    const cycleWidth=lastOriginal.offsetLeft-firstOriginal.offsetLeft;
-    if(cycleWidth>0)rail.scrollLeft+=cycleWidth;
+   const m=cycleMetrics();
+   if(m){
+    if(rail.scrollLeft>=m.after)rail.scrollLeft-=m.width;
+    else if(rail.scrollLeft<m.first)rail.scrollLeft+=m.width;
    }
    scheduleStyle();
    autoFrame=requestAnimationFrame(loop);
