@@ -13704,4 +13704,80 @@ body::after{
 }
 </style>
 
+
+<style id="lds-final-ultra-clear-calendar-grid-20261017">
+/* ULTRA-CLEAR TIMETABLE GRID: expose the photo through every empty grid surface.
+   Intentionally do not target the colored lesson/booking cards themselves. */
+#timetableView .timetable-panel .calendar,
+#timetableView .timetable-panel .calendar-agenda,
+#timetableView .timetable-panel .calendar > *,
+#timetableView .timetable-panel .calendar .cell:not(.event),
+#timetableView .timetable-panel .calendar .cell:not(.event)::before,
+#timetableView .timetable-panel .calendar .cell:not(.event)::after,
+#timetableView .timetable-panel .class-calendar-grid,
+#timetableView .timetable-panel .class-calendar-grid > div:not(.class-calendar-slot),
+#timetableView .timetable-panel .class-calendar-corner,
+#timetableView .timetable-panel .class-calendar-dayhead,
+#timetableView .timetable-panel .calendar-mobile-table,
+#timetableView .timetable-panel .calendar-mobile-table thead,
+#timetableView .timetable-panel .calendar-mobile-table tbody,
+#timetableView .timetable-panel .calendar-mobile-table tr,
+#timetableView .timetable-panel .calendar-mobile-table td:not(:has(.mobile-event)),
+#timetableView .timetable-panel .calendar-mobile-table th {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+/* Empty grid divs: almost invisible separators only. */
+#timetableView .timetable-panel .calendar .cell:not(.event),
+#timetableView .timetable-panel .class-calendar-grid > div:not(.class-calendar-slot),
+#timetableView .timetable-panel .calendar-mobile-table td:not(:has(.mobile-event)) {
+  border-color: rgba(255, 248, 239, .11) !important;
+}
+/* Day/date and time labels remain legible without a milky slab. */
+#timetableView .timetable-panel .calendar .day,
+#timetableView .timetable-panel .class-calendar-dayhead,
+#timetableView .timetable-panel .class-calendar-corner,
+#timetableView .timetable-panel .calendar-mobile-table th {
+  background: rgba(255, 248, 239, .025) !important;
+  background-color: rgba(255, 248, 239, .025) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+#timetableView .timetable-panel .calendar .time,
+#timetableView .timetable-panel .class-calendar-time {
+  background: rgba(69, 39, 43, .16) !important;
+  background-color: rgba(69, 39, 43, .16) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+/* Scrolling: darken only sticky day/date/time headers, never the grid or event cards. */
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .day,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .time,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .class-calendar-dayhead,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .class-calendar-time {
+  background: rgba(55, 27, 35, .84) !important;
+  background-color: rgba(55, 27, 35, .84) !important;
+  background-image: none !important;
+  -webkit-backdrop-filter: blur(7px) saturate(1.08) !important;
+  backdrop-filter: blur(7px) saturate(1.08) !important;
+}
+/* Protect the existing colored class and rental cards. */
+#timetableView .timetable-panel .calendar .event,
+#timetableView .timetable-panel .calendar .event *,
+#timetableView .timetable-panel .calendar-mobile-table .mobile-event,
+#timetableView .timetable-panel .calendar-mobile-table .mobile-event *,
+#timetableView .timetable-panel .class-calendar-slot {
+  opacity: 1 !important;
+  -webkit-backdrop-filter: initial !important;
+  backdrop-filter: initial !important;
+}
+</style>
+
 </body></html>
