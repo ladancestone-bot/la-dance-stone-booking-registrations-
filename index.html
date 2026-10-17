@@ -16815,23 +16815,37 @@ body::after{
   const home=document.getElementById('homeView'),rail=home&&home.querySelector('.choices');
   if(!rail||rail.dataset.manualSnapReady==='1')return;
   rail.dataset.manualSnapReady='1';
-  const originals=Array.from(rail.querySelectorAll(':scope > .choice:not([data-carousel-clone="1"]):not([data-loop-clone])'));
+  /* Remove every legacy and current clone first; otherwise old carousel copies can consume the track's edge space. */
+  rail.querySelectorAll(':scope > .choice[data-carousel-clone],:scope > .choice[data-loop-clone]').forEach(c=>c.remove());
+  const originals=Array.from(rail.querySelectorAll(':scope > .choice[data-view]'));
   if(originals.length<3)return;
   let frame=0,settleTimer=0,wrapping=false,wrapRelease=0;
   const isMobile=()=>window.matchMedia('(max-width:760px)').matches;
   function cloneCard(card,edge){
    const clone=card.cloneNode(true);
    clone.dataset.carouselClone='1';clone.dataset.carouselEdge=edge;
+   /* Explicitly keep edge copies in the mobile track even if legacy CSS hides clones. */
+   clone.style.setProperty('display','flex','important');
+   clone.style.setProperty('visibility','visible','important');
+   clone.style.setProperty('opacity','1','important');
+   clone.style.setProperty('flex-shrink','0','important');
+   clone.style.setProperty('pointer-events','auto','important');
    clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;
    clone.querySelectorAll('a,button,[tabindex]').forEach(el=>el.tabIndex=-1);
    clone.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const target=originals.find(c=>c.dataset.view===clone.dataset.view);if(target)target.click()});
    return clone;
   }
-  rail.querySelectorAll(':scope > .choice[data-carousel-clone="1"]').forEach(c=>c.remove());
+  /* Clones were cleared above before collecting the originals. */
   const before=document.createDocumentFragment();
   originals.slice(-2).forEach(card=>before.appendChild(cloneCard(card,'before')));
   rail.insertBefore(before,originals[0]);
   originals.slice(0,2).forEach(card=>rail.appendChild(cloneCard(card,'after')));
+  /* The next card after the final original must be the first original's visible clone. */
+  rail.querySelectorAll(':scope > .choice[data-carousel-clone="1"]').forEach(clone=>{
+   clone.style.setProperty('display','flex','important');
+   clone.style.setProperty('visibility','visible','important');
+   clone.style.setProperty('opacity','1','important');
+  });
   const cards=()=>Array.from(rail.querySelectorAll(':scope > .choice'));
   function centerCard(card){
    if(!card)return;
