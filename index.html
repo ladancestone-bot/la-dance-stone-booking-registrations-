@@ -16620,64 +16620,62 @@ body::after{
 }
 </style>
 <script id="lds-home-carousel-loop-20261017">
-/* Responsive, pause-aware circular carousel for the existing homepage cards. */
+/* Seamless looping carousel: append visual clones, then silently reset to the real first card. */
 (function(){
  const init=()=>{
-  const home=document.querySelector('#homeView');
-  const track=home&&home.querySelector('.choices');
+  const home=document.querySelector('#homeView'),track=home&&home.querySelector('.choices');
   if(!track||track.dataset.ldsLoopReady==='1')return;
   track.dataset.ldsLoopReady='1';
-  let timer=null, userInteracting=false, interactionTimer=null;
+  let timer=null,interactionTimer=null,userInteracting=false,resetting=false;
+  const originals=()=>Array.from(track.querySelectorAll(':scope > .choice:not([data-loop-clone="1"])'));
   const cards=()=>Array.from(track.querySelectorAll(':scope > .choice'));
-  const isMobile=()=>window.matchMedia('(max-width:760px)').matches;
+  const mobile=()=>window.matchMedia('(max-width:760px)').matches;
+  originals().forEach((card,i)=>{
+   const clone=card.cloneNode(true);
+   clone.dataset.loopClone='1';
+   clone.setAttribute('aria-hidden','true');
+   clone.tabIndex=-1;
+   clone.querySelectorAll('a,button,input,select,textarea,[tabindex]').forEach(el=>el.tabIndex=-1);
+   track.appendChild(clone);
+  });
   const centerCard=()=>{
-   const items=cards();if(!items.length)return null;
-   return items.reduce((best,el)=>{
-    const dist=el.getBoundingClientRect().left+el.getBoundingClientRect().width/2-window.innerWidth/2;
-    const bestDist=best.getBoundingClientRect().left+best.getBoundingClientRect().width/2-window.innerWidth/2;
-    return Math.abs(dist)<Math.abs(bestDist)?el:best;
-   },items[0]);
+   const list=cards();if(!list.length)return null;
+   return list.reduce((best,el)=>{
+    const d=Math.abs(el.getBoundingClientRect().left+el.getBoundingClientRect().width/2-window.innerWidth/2);
+    const bd=Math.abs(best.getBoundingClientRect().left+best.getBoundingClientRect().width/2-window.innerWidth/2);
+    return d<bd?el:best;
+   },list[0]);
   };
-  const updateState=()=>{
-   const items=cards(),center=centerCard();
-   items.forEach(el=>{
-    el.classList.toggle('is-center',el===center);
-    el.classList.toggle('is-side',el!==center);
-   });
+  const state=()=>{
+   const current=centerCard();
+   cards().forEach(el=>{el.classList.toggle('is-center',el===current);el.classList.toggle('is-side',el!==current)});
   };
   const advance=()=>{
-   if(!isMobile()||!home.classList.contains('active')||document.hidden||userInteracting)return;
-   const items=cards();if(items.length<2)return;
-   const current=centerCard();if(!current)return;
-   const index=items.indexOf(current),next=items[(index+1)%items.length];
-   if(index===items.length-1){
-    /* Move to the start smoothly after the last card, keeping the carousel circular. */
-    track.scrollTo({left:0,behavior:'smooth'});
-   }else{
-    next.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
-   }
-   window.setTimeout(updateState,260);
+   if(!mobile()||!home.classList.contains('active')||document.hidden||userInteracting)return;
+   const list=cards(),current=centerCard();if(!current)return;
+   const idx=list.indexOf(current),next=list[(idx+1)%list.length];
+   next.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+   window.setTimeout(()=>{
+    if(next.dataset.loopClone==='1'){
+     const original=originals()[0];
+     if(original){resetting=true;track.scrollTo({left:original.offsetLeft-track.offsetLeft,behavior:'auto'});resetting=false;}
+    }
+    state();
+   },520);
   };
-  const start=()=>{
-   if(timer)clearInterval(timer);
-   timer=null;
-   if(isMobile()&&!document.hidden)timer=setInterval(advance,4600);
-  };
-  const pauseForInteraction=()=>{
-   userInteracting=true;
-   if(timer)clearInterval(timer);
-   timer=null;
+  const start=()=>{if(timer)clearInterval(timer);timer=null;if(mobile()&&!document.hidden)timer=setInterval(advance,4300)};
+  const pause=()=>{
+   userInteracting=true;if(timer)clearInterval(timer);timer=null;
    if(interactionTimer)clearTimeout(interactionTimer);
-   interactionTimer=setTimeout(()=>{userInteracting=false;start()},7000);
+   interactionTimer=setTimeout(()=>{userInteracting=false;start()},6500);
   };
-  track.addEventListener('pointerdown',pauseForInteraction,{passive:true});
-  track.addEventListener('touchstart',pauseForInteraction,{passive:true});
-  track.addEventListener('scroll',()=>{window.requestAnimationFrame(updateState)},{passive:true});
-  track.addEventListener('focusin',pauseForInteraction);
-  track.addEventListener('focusout',()=>{if(interactionTimer)clearTimeout(interactionTimer);interactionTimer=setTimeout(()=>{userInteracting=false;start()},2500)});
+  track.addEventListener('pointerdown',pause,{passive:true});
+  track.addEventListener('touchstart',pause,{passive:true});
+  track.addEventListener('focusin',pause);
+  track.addEventListener('scroll',()=>{if(!resetting)window.requestAnimationFrame(state)},{passive:true});
   document.addEventListener('visibilitychange',()=>{if(document.hidden){if(timer)clearInterval(timer);timer=null}else start()});
-  window.addEventListener('resize',()=>{updateState();start()},{passive:true});
-  updateState();start();
+  window.addEventListener('resize',()=>{state();start()},{passive:true});
+  state();start();
  };
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
@@ -16743,5 +16741,36 @@ body::after{
 #homeView .choices .choice[data-view="classes"]::before{
  background-image:linear-gradient(135deg,rgba(255,248,239,.16),rgba(169,112,126,.10) 44%,rgba(42,18,30,.18))!important;
  background-color:transparent!important;opacity:1!important;
+}
+</style>
+
+<style id="lds-darker-uniform-liquid-glass-carousel-20261017">
+/* Darker, richer smoke-brown/burgundy glass. All three real cards and loop clones match exactly. */
+#homeView .choices .choice[data-view="timetable"],
+#homeView .choices .choice[data-view="rental"],
+#homeView .choices .choice[data-view="classes"],
+#homeView .choices .choice[data-loop-clone="1"]{
+ background:linear-gradient(145deg,rgba(103,70,66,.60) 0%,rgba(79,43,45,.68) 42%,rgba(35,20,27,.82) 100%)!important;
+ border:1px solid rgba(255,235,214,.78)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -24px 42px rgba(20,8,14,.24),0 18px 42px rgba(18,8,12,.28)!important;
+ -webkit-backdrop-filter:blur(26px) saturate(130%)!important;
+ backdrop-filter:blur(26px) saturate(130%)!important;
+}
+#homeView .choices .choice[data-view="timetable"]::before,
+#homeView .choices .choice[data-view="rental"]::before,
+#homeView .choices .choice[data-view="classes"]::before,
+#homeView .choices .choice[data-loop-clone="1"]::before{
+ background-image:linear-gradient(135deg,rgba(255,244,229,.12),rgba(133,89,91,.08) 45%,rgba(22,12,19,.28))!important;
+ background-color:transparent!important;opacity:1!important;
+}
+#homeView .choices .choice[data-view="timetable"].is-center,
+#homeView .choices .choice[data-view="rental"].is-center,
+#homeView .choices .choice[data-view="classes"].is-center,
+#homeView .choices .choice[data-loop-clone="1"].is-center{
+ background:linear-gradient(145deg,rgba(103,70,66,.60) 0%,rgba(79,43,45,.68) 42%,rgba(35,20,27,.82) 100%)!important;
+}
+@media(max-width:760px){
+ #homeView .choices{scroll-snap-type:x mandatory!important;scroll-behavior:smooth!important}
+ #homeView .choices .choice{scroll-snap-stop:normal!important}
 }
 </style>
