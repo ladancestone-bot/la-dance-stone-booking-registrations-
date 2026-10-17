@@ -4023,7 +4023,7 @@ body::after{
 <button class="back" data-view="home"><span>←</span>GRĮŽTI Į PASIRINKIMĄ</button>
 <div id="classOverview">
 <div class="viewhead"><div><p>Peržiūrėkite savaitės tvarkaraštį ir žemiau pasirinkite savo grupę.</p></div><span class="pill">Vaikams · paaugliams · suaugusiesiems</span></div>
-<div class="closing-notice closing-notice-classes"><span class="closing-notice-mark" aria-hidden="true">✦</span><div><strong>Trumpas priminimas apie pastato uždarymą</strong><p>Pastatas automatiškai užrakinamas <span class="notice-time">22.00&nbsp;val.</span> Paskutinis galimas užsiėmimo laikas – <span class="notice-time">21.00–21.45&nbsp;val.</span> Po užsiėmimo prašome palikti pakankamai laiko susitvarkyti ir išeiti iki pastato užrakinimo.</p></div></div><div class="class-week-preview">
+<div class="class-week-preview">
 <div class="class-week-heading"><div><div class="eyebrow">Savaitės tvarkaraštis</div><h3>Pamokų laikai</h3><p>Trumpa savaitės apžvalga. Pasirinkite grupę žemiau.</p></div><span class="pill">Studijos tvarkaraštis</span></div>
 <div class="class-week-scroll class-week-calendar-scroll" aria-label="Savaitės tvarkaraštis. Slinkite į šoną, kad pamatytumėte visas dienas.">
 <div class="class-calendar-grid">
@@ -14859,6 +14859,32 @@ body::after{
 }
 @media(max-width:760px){
  #classesView button.back[data-view="home"]{font-size:11px!important;margin-bottom:15px!important}
+}
+</style>
+
+
+<style id="lds-remove-closing-reminder-and-muted-rose-20261017">
+/* Refined muted rose glass: dusty rose, not saturated pink. */
+#classesView #classOverview .class-calendar-corner,
+#classesView #classOverview .class-calendar-dayhead{
+ background:#c9a1a8!important;
+ background-image:linear-gradient(145deg,rgba(230,205,207,.97),rgba(185,137,147,.96))!important;
+ color:#4d3035!important;
+ border:1px solid rgba(255,246,242,.88)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 3px 8px rgba(55,32,32,.10)!important;
+}
+#classesView #classOverview .class-calendar-corner{color:#603b42!important}
+#classesView #classOverview .class-calendar-time{
+ background:#d9b9bd!important;
+ background-image:linear-gradient(145deg,rgba(239,220,220,.97),rgba(205,166,172,.96))!important;
+ color:#52363b!important;
+ border:1px solid rgba(255,247,244,.9)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.78),0 3px 8px rgba(55,32,32,.08)!important;
+}
+@media(max-width:760px){
+ #classesView #classOverview .class-calendar-corner,
+ #classesView #classOverview .class-calendar-dayhead{background-image:linear-gradient(145deg,rgba(230,205,207,.97),rgba(185,137,147,.96))!important}
+ #classesView #classOverview .class-calendar-time{background-image:linear-gradient(145deg,rgba(239,220,220,.97),rgba(205,166,172,.96))!important}
 }
 </style>
 
