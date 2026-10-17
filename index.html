@@ -14223,4 +14223,19 @@ body::after{
 }
 </style>
 
+
+<style id="lds-fix-home-navigation-click-20261017">
+/* Safety fix: keep the main home navigation cards clickable above decorative glass layers. */
+#homeView .choices{position:relative!important;isolation:isolate!important}
+#homeView .choices>.choice{
+ position:relative!important;z-index:5!important;pointer-events:auto!important;cursor:pointer!important;
+ touch-action:manipulation!important;
+}
+#homeView .choices>.choice::before,
+#homeView .choices>.choice::after{
+ pointer-events:none!important;
+}
+#homeView .choices>.choice>*{pointer-events:none!important}
+</style>
+
 </body></html>
