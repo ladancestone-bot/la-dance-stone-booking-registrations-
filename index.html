@@ -11980,141 +11980,179 @@ body:has(#homeView.active)::after{
 </style>
 
 
+
 <style id="lds-timetable-mineral-glass-polish-20261017">
-/* Timetable: repair the seven-column grid first, then apply the same soft glass language as rental availability.
-   CSS only. Preserve the existing event data, click handlers, week navigation and booking flow. */
+/* Timetable: stronger clear glass over the real La Dance Stone studio photo.
+   Preserve schedule data, event clicks and previous/next-week behavior. */
+#timetableView{
+ position:relative!important;isolation:isolate!important;
+ background:transparent!important;
+}
+#timetableView:before{
+ content:""!important;position:absolute!important;z-index:-2!important;
+ inset:-18px -20px -28px!important;pointer-events:none!important;
+ background-image:url("https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg")!important;
+ background-size:cover!important;background-position:center 48%!important;
+ filter:blur(13px) saturate(.94) brightness(.78)!important;transform:scale(1.035)!important;
+}
+#timetableView:after{
+ content:""!important;position:absolute!important;z-index:-1!important;
+ inset:-18px -20px -28px!important;pointer-events:none!important;
+ background:linear-gradient(180deg,rgba(49,28,26,.22),rgba(55,31,32,.28) 52%,rgba(37,20,25,.36))!important;
+}
 #timetableView .timetable-back{
  display:flex!important;align-items:center!important;justify-content:center!important;
- width:42px!important;height:42px!important;min-width:42px!important;
- margin:0 auto 14px!important;padding:0!important;gap:0!important;
- border:0!important;border-radius:50%!important;background:transparent!important;
- color:#f9e8d8!important;box-shadow:none!important;font-size:0!important;line-height:1!important;
+ width:44px!important;height:40px!important;margin:0 auto 13px!important;padding:0!important;
+ background:transparent!important;border:0!important;border-radius:50%!important;
+ box-shadow:none!important;color:#fff1e3!important;font-size:0!important;
 }
-#timetableView .timetable-back span{display:block!important;margin:0!important;padding:0!important;font:300 31px/1 Arial,sans-serif!important;color:#f9e8d8!important;transform:translateY(-1px)!important}
-#timetableView .timetable-back:hover{background:rgba(255,244,231,.10)!important}
+#timetableView .timetable-back span{
+ display:block!important;margin:0!important;padding:0!important;
+ color:#fff1e3!important;font-family:Arial,sans-serif!important;font-size:34px!important;
+ font-weight:300!important;line-height:1!important;text-shadow:0 2px 12px rgba(31,13,18,.55)!important;
+}
 #timetableView .timetable-heading{
  position:relative!important;isolation:isolate!important;overflow:hidden!important;
- background:linear-gradient(135deg,rgba(255,247,235,.40),rgba(174,128,108,.28) 45%,rgba(82,43,49,.40))!important;
- border:1px solid rgba(255,239,222,.82)!important;border-radius:25px!important;
- box-shadow:inset 0 1px 0 rgba(255,255,255,.62),inset 0 -22px 40px rgba(48,20,28,.12),0 16px 34px rgba(39,16,23,.16)!important;
- backdrop-filter:blur(28px) saturate(1.25)!important;-webkit-backdrop-filter:blur(28px) saturate(1.25)!important;
+ padding:25px 22px 23px!important;margin:0 0 18px!important;
+ border:1px solid rgba(255,243,227,.72)!important;border-radius:27px!important;
+ background:linear-gradient(135deg,rgba(255,246,232,.24),rgba(211,179,157,.13) 36%,rgba(77,42,44,.30) 100%)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.58),inset 0 0 0 1px rgba(255,235,215,.12),inset 0 -22px 45px rgba(37,16,22,.12),0 16px 35px rgba(29,12,17,.18)!important;
+ -webkit-backdrop-filter:blur(28px) saturate(1.3)!important;backdrop-filter:blur(28px) saturate(1.3)!important;
 }
-#timetableView .timetable-heading:before{content:""!important;position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important;background:linear-gradient(112deg,rgba(255,250,238,.22),transparent 34% 70%,rgba(255,224,193,.16))!important}
-#timetableView .timetable-heading h2,#timetableView .timetable-heading p{position:relative!important;z-index:1!important}
-#timetableView .timetable-heading h2{color:#fff5e9!important;text-shadow:0 2px 16px rgba(43,16,24,.30)!important}
-#timetableView .timetable-heading p{color:rgba(255,247,237,.97)!important}
+#timetableView .timetable-heading:before{
+ content:""!important;position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important;
+ background:linear-gradient(112deg,rgba(255,255,255,.18),transparent 28% 66%,rgba(255,222,187,.13)),radial-gradient(ellipse at 12% 0%,rgba(255,243,222,.18),transparent 46%)!important;
+}
+#timetableView .timetable-heading h2{
+ color:#fff5e9!important;text-shadow:0 2px 18px rgba(37,14,20,.48)!important;
+}
+#timetableView .timetable-heading p{
+ color:rgba(255,247,237,.96)!important;text-shadow:0 1px 8px rgba(37,14,20,.44)!important;
+}
 #timetableView .timetable-panel{
- width:100%!important;max-width:100%!important;min-width:0!important;overflow:hidden!important;
- border-radius:27px!important;border:1px solid rgba(255,239,222,.86)!important;
- background:linear-gradient(145deg,rgba(255,246,235,.34),rgba(166,126,111,.25) 52%,rgba(68,39,47,.36))!important;
- box-shadow:inset 0 1px 0 rgba(255,255,255,.60),inset 0 -1px 0 rgba(255,255,255,.22),0 22px 46px rgba(34,12,21,.25)!important;
- backdrop-filter:blur(28px) saturate(1.28)!important;-webkit-backdrop-filter:blur(28px) saturate(1.28)!important;
+ position:relative!important;isolation:isolate!important;overflow:hidden!important;
+ width:100%!important;max-width:100%!important;min-width:0!important;
+ border:1px solid rgba(255,242,226,.82)!important;border-radius:28px!important;
+ background:linear-gradient(135deg,rgba(255,248,238,.18),rgba(230,204,185,.10) 30%,rgba(91,59,58,.20) 72%,rgba(55,29,37,.25))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 0 0 1px rgba(255,238,218,.13),inset 0 -22px 45px rgba(35,16,23,.10),0 22px 48px rgba(29,12,18,.25)!important;
+ -webkit-backdrop-filter:blur(25px) saturate(1.42)!important;backdrop-filter:blur(25px) saturate(1.42)!important;
 }
+#timetableView .timetable-panel:before{
+ content:""!important;position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important;
+ border-radius:inherit!important;
+ background:linear-gradient(118deg,rgba(255,255,255,.12),transparent 22% 73%,rgba(255,224,195,.10)),radial-gradient(ellipse at 0% 0%,rgba(255,246,229,.16),transparent 36%)!important;
+}
+#timetableView .timetable-panel .cal-toolbar,
+#timetableView .timetable-panel .cal-scroll,
+#timetableView .timetable-panel .calendar-agenda,
+#timetableView .timetable-panel .calendar-help{position:relative!important;z-index:1!important}
 #timetableView .timetable-panel .cal-toolbar{
- display:flex!important;align-items:center!important;justify-content:space-between!important;
- min-height:70px!important;padding:13px 14px!important;gap:8px!important;
- background:linear-gradient(120deg,rgba(106,48,66,.94),rgba(67,27,43,.96) 58%,rgba(91,49,51,.94))!important;
- border-bottom:1px solid rgba(255,239,223,.60)!important;
- box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -10px 22px rgba(22,5,14,.12)!important;
+ min-height:70px!important;padding:13px 15px!important;gap:10px!important;
+ background:linear-gradient(120deg,rgba(94,39,57,.78),rgba(57,24,39,.76) 56%,rgba(82,46,47,.72))!important;
+ border-bottom:1px solid rgba(255,243,228,.42)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -8px 20px rgba(28,7,17,.08)!important;
+ -webkit-backdrop-filter:blur(22px) saturate(1.35)!important;backdrop-filter:blur(22px) saturate(1.35)!important;
 }
-#timetableView .timetable-panel .cal-title{flex:1!important;min-width:0!important;color:#fff0df!important;font:700 clamp(15px,4vw,22px)/1.2 'Cormorant Garamond',Georgia,serif!important;text-align:center!important;white-space:normal!important;text-shadow:0 2px 9px rgba(20,4,13,.30)!important}
+#timetableView .timetable-panel .cal-title{
+ color:#fff2e3!important;font-family:'Cormorant Garamond',Georgia,serif!important;
+ font-size:clamp(15px,4vw,22px)!important;font-weight:700!important;text-align:center!important;
+ text-shadow:0 2px 10px rgba(27,7,16,.45)!important;
+}
 #timetableView .timetable-panel .cal-toolbar button{
  display:grid!important;place-items:center!important;flex:0 0 40px!important;width:40px!important;height:40px!important;
- margin:0!important;padding:0!important;color:#f9e8d8!important;font-size:27px!important;font-weight:300!important;line-height:1!important;
- background:linear-gradient(145deg,rgba(255,247,235,.32),rgba(255,226,204,.12))!important;
- border:1px solid rgba(255,241,222,.86)!important;border-radius:14px!important;
- box-shadow:inset 0 1px 0 rgba(255,255,255,.48),0 5px 13px rgba(24,8,16,.18)!important;
+ padding:0!important;border-radius:15px!important;color:#fff1e2!important;font-size:27px!important;line-height:1!important;
+ border:1px solid rgba(255,244,229,.75)!important;
+ background:linear-gradient(145deg,rgba(255,249,239,.28),rgba(255,226,203,.09))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.48),0 5px 13px rgba(25,8,16,.16)!important;
 }
 #timetableView .timetable-panel .cal-scroll{
- display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;
- overflow-x:hidden!important;overflow-y:visible!important;background:transparent!important;
+ width:100%!important;max-width:100%!important;min-width:0!important;
+ background:rgba(255,244,230,.035)!important;
 }
 #timetableView .timetable-panel .calendar{
- display:grid!important;grid-template-columns:46px repeat(7,minmax(0,1fr))!important;
- grid-auto-flow:row!important;grid-auto-rows:auto!important;
- width:100%!important;min-width:0!important;max-width:100%!important;
- box-sizing:border-box!important;background:transparent!important;
+ background:transparent!important;
 }
-#timetableView .timetable-panel .calendar>*{box-sizing:border-box!important;min-width:0!important;max-width:100%!important}
 #timetableView .timetable-panel .calendar .day{
- min-height:59px!important;padding:9px 1px!important;text-align:center!important;
- background:linear-gradient(145deg,rgba(255,249,240,.82),rgba(224,203,188,.64))!important;
- color:#583a43!important;border-color:rgba(255,247,236,.58)!important;
- box-shadow:inset 0 1px 0 rgba(255,255,255,.58)!important;font-size:clamp(9px,2.5vw,11px)!important;
+ background:linear-gradient(145deg,rgba(255,248,237,.36),rgba(230,207,188,.18))!important;
+ color:#fff4e8!important;border-color:rgba(255,248,237,.26)!important;
+ text-shadow:0 1px 6px rgba(38,16,23,.46)!important;
+ -webkit-backdrop-filter:blur(13px)!important;backdrop-filter:blur(13px)!important;
 }
-#timetableView .timetable-panel .calendar .day strong{display:block!important;color:#63263e!important;font-size:clamp(16px,4.5vw,21px)!important;line-height:1.1!important;margin-top:4px!important}
+#timetableView .timetable-panel .calendar .day strong{color:#fff0df!important;text-shadow:0 1px 8px rgba(38,13,22,.5)!important}
 #timetableView .timetable-panel .calendar .time{
- min-width:0!important;height:64px!important;padding:8px 1px 0!important;text-align:center!important;
- background:linear-gradient(145deg,rgba(113,78,78,.78),rgba(76,49,54,.72))!important;
- color:#fff5e9!important;border-color:rgba(255,244,231,.35)!important;
- text-shadow:0 1px 5px rgba(36,14,21,.42)!important;font-size:clamp(9px,2.5vw,11px)!important;
+ background:linear-gradient(145deg,rgba(90,61,61,.43),rgba(62,39,45,.34))!important;
+ color:#fff6eb!important;border-color:rgba(255,247,235,.22)!important;
+ text-shadow:0 1px 5px rgba(32,12,19,.58)!important;
 }
 #timetableView .timetable-panel .calendar .cell{
- position:relative!important;min-width:0!important;height:64px!important;overflow:visible!important;
- background:linear-gradient(145deg,rgba(255,247,236,.24),rgba(177,139,127,.18))!important;
- border-color:rgba(255,248,239,.40)!important;
- box-shadow:inset 0 1px 0 rgba(255,255,255,.18),inset 0 -1px 0 rgba(48,22,29,.08)!important;
+ background:linear-gradient(145deg,rgba(255,247,235,.09),rgba(236,215,198,.045))!important;
+ border-color:rgba(255,248,237,.24)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.09)!important;
+}
+#timetableView .timetable-panel .calendar .free-time{
+ background:linear-gradient(145deg,rgba(255,248,237,.10),rgba(237,218,201,.045))!important;
+ color:rgba(255,248,239,.88)!important;border-color:rgba(255,247,236,.18)!important;
 }
 #timetableView .timetable-panel .calendar .event{
- position:absolute!important;left:2px!important;right:2px!important;top:3px!important;
- box-sizing:border-box!important;max-width:calc(100% - 4px)!important;min-width:0!important;min-height:0!important;
- overflow:hidden!important;padding:5px 3px!important;border-radius:10px!important;
- border:1px solid rgba(255,249,239,.90)!important;
- box-shadow:inset 0 1px 0 rgba(255,255,255,.78),inset 0 -5px 12px rgba(61,34,38,.10),0 5px 12px rgba(39,15,25,.17)!important;
- backdrop-filter:blur(18px) saturate(1.32)!important;-webkit-backdrop-filter:blur(18px) saturate(1.32)!important;
+ overflow:hidden!important;border:1px solid rgba(255,249,239,.76)!important;border-radius:11px!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.62),inset 0 -4px 10px rgba(58,30,37,.08),0 5px 12px rgba(35,12,22,.16)!important;
+ -webkit-backdrop-filter:blur(13px) saturate(1.24)!important;backdrop-filter:blur(13px) saturate(1.24)!important;
 }
-#timetableView .timetable-panel .calendar .event.class-event{
- background:linear-gradient(145deg,rgba(226,237,218,.95),rgba(180,201,170,.90))!important;
- color:#354b3b!important;border-left:3px solid #91a98b!important;
+#timetableView .timetable-panel .calendar .event.class-event,
+#timetableView .timetable-panel .calendar .event:not(.occupied-event):not(.rental-event):not(.pink){
+ background:linear-gradient(145deg,rgba(224,237,215,.88),rgba(172,195,161,.78))!important;color:#34483a!important;border-left:3px solid #a8c19e!important;
 }
 #timetableView .timetable-panel .calendar .event.pink{
- background:linear-gradient(145deg,rgba(248,220,230,.97),rgba(220,164,184,.93))!important;
- color:#65283f!important;border-left:3px solid #bd7893!important;
+ background:linear-gradient(145deg,rgba(247,218,229,.89),rgba(214,157,178,.82))!important;color:#642940!important;border-left:3px solid #d49aaf!important;
 }
 #timetableView .timetable-panel .calendar .event.occupied-event{
- background:linear-gradient(145deg,rgba(128,49,73,.98),rgba(70,21,42,.98))!important;
- color:#fff5e9!important;border-left:3px solid #e7b5bd!important;
+ background:linear-gradient(145deg,rgba(123,47,71,.92),rgba(70,22,41,.92))!important;color:#fff5e9!important;border-left:3px solid #e4b1bb!important;
 }
 #timetableView .timetable-panel .calendar .event.rental-event{
- background:linear-gradient(145deg,rgba(255,244,220,.98),rgba(228,198,151,.96))!important;
- color:#583b28!important;border-left:3px solid #c39a5c!important;
+ background:linear-gradient(145deg,rgba(255,240,211,.91),rgba(221,186,131,.87))!important;color:#583a29!important;border-left:3px solid #d4b078!important;
 }
-#timetableView .timetable-panel .calendar .event b,
-#timetableView .timetable-panel .calendar .event span{display:block!important;max-width:100%!important;overflow-wrap:anywhere!important;word-break:normal!important;font-weight:650!important}
-#timetableView .timetable-panel .calendar .event b{font-size:clamp(6.5px,1.85vw,8px)!important;line-height:1.16!important}
-#timetableView .timetable-panel .calendar .event span{font-size:clamp(6px,1.7vw,7.4px)!important;line-height:1.17!important;margin-top:3px!important}
+#timetableView .timetable-panel .calendar .event b,#timetableView .timetable-panel .calendar .event span{font-weight:650!important}
 #timetableView .timetable-panel .calendar-help{
- background:linear-gradient(145deg,rgba(119,82,79,.82),rgba(64,41,47,.84))!important;
- border-top:1px solid rgba(255,244,229,.68)!important;color:#fff3e7!important;
- backdrop-filter:blur(26px) saturate(1.22)!important;-webkit-backdrop-filter:blur(26px) saturate(1.22)!important;
+ background:linear-gradient(135deg,rgba(255,246,232,.15),rgba(116,78,76,.24) 46%,rgba(55,31,39,.30))!important;
+ border-top:1px solid rgba(255,244,229,.42)!important;color:#fff5e9!important;
+ -webkit-backdrop-filter:blur(26px) saturate(1.35)!important;backdrop-filter:blur(26px) saturate(1.35)!important;
 }
-#timetableView .timetable-panel .timetable-legend,#timetableView .timetable-panel .calendar-help p{color:#fff4e8!important}
+#timetableView .timetable-panel .timetable-legend,#timetableView .timetable-panel .calendar-help p{
+ color:#fff5e9!important;text-shadow:0 1px 5px rgba(34,14,21,.42)!important;
+}
 #timetableView .timetable-panel .tt-legend-class,#timetableView .timetable-panel .tt-legend-free,#timetableView .timetable-panel .tt-legend-rental{
- border:1px solid rgba(255,249,239,.90)!important;
- box-shadow:0 3px 8px rgba(28,12,19,.22),inset 0 1px 0 rgba(255,255,255,.82)!important;
+ border:1px solid rgba(255,249,239,.86)!important;box-shadow:0 3px 8px rgba(28,12,19,.20),inset 0 1px 0 rgba(255,255,255,.75)!important;
 }
+/* Do not squash seven columns into a narrow phone screen: allow natural horizontal scrolling. */
 @media(max-width:760px){
  #timetableView.active{padding-top:4px!important}
  #timetableView .timetable-back{margin:0 auto 10px!important}
- #timetableView .timetable-heading{margin:0 0 15px!important;padding:19px 16px 16px!important}
- #timetableView .timetable-heading h2{font-size:clamp(29px,7.8vw,38px)!important;line-height:1.06!important}
+ #timetableView .timetable-heading{padding:20px 17px 18px!important;margin:0 0 16px!important;border-radius:24px!important}
+ #timetableView .timetable-heading h2{font-size:clamp(30px,8vw,39px)!important;line-height:1.06!important}
  #timetableView .timetable-panel{border-radius:23px!important}
- #timetableView .timetable-panel .cal-toolbar{padding:11px 9px!important;min-height:62px!important;gap:7px!important}
- #timetableView .timetable-panel .cal-toolbar button{flex-basis:34px!important;width:34px!important;height:36px!important;border-radius:12px!important}
- #timetableView .timetable-panel .cal-title{font-size:clamp(13px,3.65vw,17px)!important;line-height:1.2!important}
- #timetableView .timetable-panel .calendar{grid-template-columns:44px repeat(7,minmax(0,1fr))!important}
- #timetableView .timetable-panel .calendar .day{min-height:56px!important;padding:8px 0!important}
- #timetableView .timetable-panel .calendar .time,#timetableView .timetable-panel .calendar .cell{height:62px!important}
- #timetableView .timetable-panel .calendar .time{font-size:9px!important;padding-top:8px!important}
- #timetableView .timetable-panel .calendar .event{left:1px!important;right:1px!important;top:3px!important;max-width:calc(100% - 2px)!important;padding:5px 2px!important;border-radius:8px!important}
- #timetableView .timetable-panel .calendar .event b{font-size:clamp(6px,1.7vw,7.4px)!important;line-height:1.15!important}
- #timetableView .timetable-panel .calendar .event span{font-size:clamp(5.8px,1.55vw,7px)!important;line-height:1.14!important;margin-top:3px!important}
- #timetableView .timetable-panel .calendar-help{padding:15px 13px 17px!important}
+ #timetableView .timetable-panel .cal-toolbar{padding:12px 10px!important;min-height:64px!important}
+ #timetableView .timetable-panel .cal-toolbar button{flex-basis:36px!important;width:36px!important;height:36px!important;border-radius:13px!important}
+ #timetableView .timetable-panel .cal-title{font-size:clamp(14px,3.8vw,18px)!important}
+ #timetableView .timetable-panel .cal-scroll{
+  display:block!important;overflow-x:auto!important;overflow-y:hidden!important;
+  -webkit-overflow-scrolling:touch!important;touch-action:pan-x pan-y!important;
+  scrollbar-width:thin!important;scrollbar-color:rgba(255,235,216,.55) rgba(65,39,43,.18)!important;
+ }
+ #timetableView .timetable-panel .calendar{
+  width:max-content!important;min-width:760px!important;grid-template-columns:54px repeat(7,minmax(100px,1fr))!important;
+ }
+ #timetableView .timetable-panel .calendar .day{padding:9px 4px!important;font-size:11px!important}
+ #timetableView .timetable-panel .calendar .day strong{font-size:22px!important}
+ #timetableView .timetable-panel .calendar .time{font-size:11px!important;padding:8px 2px 0!important}
+ #timetableView .timetable-panel .calendar .cell{height:61px!important}
+ #timetableView .timetable-panel .calendar .event{left:3px!important;right:3px!important;top:3px!important;min-height:56px!important;padding:5px 5px!important;border-radius:10px!important}
+ #timetableView .timetable-panel .calendar .event b{font-size:10px!important;line-height:1.2!important;overflow-wrap:anywhere!important}
+ #timetableView .timetable-panel .calendar .event span{font-size:9px!important;line-height:1.25!important;margin-top:3px!important;overflow-wrap:anywhere!important}
+ #timetableView .timetable-panel .calendar-help{padding:15px 14px 17px!important}
  #timetableView .timetable-panel .timetable-legend{gap:10px 13px!important;font-size:11px!important}
  #timetableView .timetable-panel .calendar-help p{font-size:11px!important;line-height:1.6!important}
 }
 </style>
-
 <style id="lds-timetable-true-studio-glass-calendar-fix-20261017">
 /* True translucent glass over the existing La Dance Stone studio photograph.
    Restore the seven-day mobile grid to fit the viewport; visual-only, no JS/data changes. */
