@@ -18573,102 +18573,95 @@ html body #rentalView .availability-section .calendar-panel .calendar-help .lege
 
 
 <style id="lds-timetable-final-authoritative-20261018">
-<style id="lds-timetable-mobile-overflow-fix-20261018">
-/* Keep the page itself within the phone viewport; only the timetable grid may scroll sideways. */
-html body #timetableView{
-  width:100%!important;min-width:0!important;max-width:100%!important;
-  overflow-x:clip!important;box-sizing:border-box!important;
-}
-html body #timetableView *{box-sizing:border-box}
-html body #timetableView .timetable-back{
+<style id="lds-timetable-no-capsule-no-white-block-20261018">
+/* Final visual overrides for the timetable page: plain back link and no opaque white heading tile. */
+html body #timetableView button.timetable-back,
+html body #timetableView button.timetable-back:hover,
+html body #timetableView button.timetable-back:focus,
+html body #timetableView button.timetable-back:focus-visible,
+html body #timetableView button.timetable-back:active{
   display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;
-  width:max-content!important;max-width:100%!important;margin:4px auto 24px!important;padding:5px 0!important;
-  border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
-  color:#fff8f0!important;font:500 14px/1.4 Jost,Arial,sans-serif!important;letter-spacing:.01em!important;
-  text-transform:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  width:max-content!important;min-width:0!important;max-width:100%!important;height:auto!important;min-height:0!important;
+  margin:2px auto 22px!important;padding:0!important;
+  color:#fff8f0!important;font:500 15px/1.4 Jost,Arial,sans-serif!important;letter-spacing:0!important;
+  text-transform:none!important;text-decoration:none!important;
+  border:0!important;border-width:0!important;border-radius:0!important;
+  background:transparent!important;background-image:none!important;
+  box-shadow:none!important;outline-offset:4px!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  filter:none!important;transform:none!important;
 }
-html body #timetableView .timetable-back span{font-size:24px!important;line-height:1!important}
-html body #timetableView .timetable-back:hover{transform:none!important;opacity:.82!important}
+html body #timetableView button.timetable-back span,
+html body #timetableView button.timetable-back span::before,
+html body #timetableView button.timetable-back span::after{
+  display:inline!important;margin:0!important;padding:0!important;
+  color:#fff8f0!important;background:transparent!important;background-image:none!important;
+  border:0!important;border-radius:0!important;box-shadow:none!important;
+  font-size:25px!important;line-height:1!important;content:normal!important;
+}
+html body #timetableView button.timetable-back::before,
+html body #timetableView button.timetable-back::after{display:none!important;content:none!important;background:transparent!important;box-shadow:none!important}
 html body #timetableView .timetable-class-week-preview{
-  display:block!important;width:100%!important;min-width:0!important;max-width:100%!important;
-  margin:8px 0 28px!important;padding:22px!important;overflow:hidden!important;
-  border:1px solid rgba(255,248,239,.72)!important;border-radius:28px!important;
-  background:linear-gradient(145deg,rgba(255,244,231,.84),rgba(224,199,183,.78))!important;
-  box-shadow:0 18px 46px rgba(48,26,24,.15),inset 0 1px 0 rgba(255,255,255,.72)!important;
-  -webkit-backdrop-filter:blur(18px) saturate(1.08)!important;backdrop-filter:blur(18px) saturate(1.08)!important;
+  background:linear-gradient(145deg,rgba(255,245,234,.12),rgba(91,61,55,.17))!important;
+  border:1px solid rgba(255,245,232,.62)!important;
+  box-shadow:0 18px 42px rgba(30,14,19,.17),inset 0 1px 0 rgba(255,255,255,.22)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.12)!important;backdrop-filter:blur(18px) saturate(1.12)!important;
+}
+html body #timetableView .timetable-class-week-preview .class-week-heading,
+html body #timetableView .timetable-class-week-preview .class-week-heading>div,
+html body #timetableView .timetable-class-week-preview .class-week-heading>div:first-child{
+  background:transparent!important;background-color:transparent!important;background-image:none!important;
+  border:0!important;border-radius:0!important;box-shadow:none!important;outline:0!important;
+  padding-left:0!important;padding-right:0!important;
 }
 html body #timetableView .timetable-class-week-preview .class-week-heading{
-  display:flex!important;align-items:center!important;justify-content:space-between!important;gap:18px!important;
-  width:100%!important;min-width:0!important;margin:0 0 20px!important;padding:10px 8px 2px!important;
+  padding:8px 4px 2px!important;
 }
-html body #timetableView .timetable-class-week-preview .class-week-heading>div{min-width:0!important;max-width:100%!important}
 html body #timetableView .timetable-class-week-preview .class-week-heading .eyebrow{
-  color:#91664f!important;font:700 10px/1.5 Jost,Arial,sans-serif!important;letter-spacing:.2em!important;
+  margin:0 0 5px!important;color:#e5c7ad!important;font-size:10px!important;letter-spacing:.2em!important;
 }
 html body #timetableView .timetable-class-week-preview .class-week-heading h3{
-  margin:5px 0 8px!important;color:#4b2b2a!important;
-  font:700 clamp(32px,5vw,48px)/1.04 'Cormorant Garamond',Georgia,serif!important;letter-spacing:-.02em!important;
-  overflow-wrap:anywhere!important;
+  margin:4px 0 8px!important;color:#fff5eb!important;
+  font-size:clamp(32px,5vw,46px)!important;line-height:1.04!important;
+  text-shadow:0 2px 12px rgba(32,17,19,.24)!important;
 }
 html body #timetableView .timetable-class-week-preview .class-week-heading p{
-  margin:0!important;color:#6b4b43!important;font:400 14px/1.55 Jost,Arial,sans-serif!important;
+  margin:0!important;color:rgba(255,246,236,.9)!important;font-size:14px!important;line-height:1.6!important;
 }
 html body #timetableView .timetable-class-week-preview #timetableSyncStatus{
-  flex:0 1 auto!important;max-width:100%!important;min-width:0!important;padding:10px 16px!important;
-  border:1px solid rgba(255,255,255,.85)!important;border-radius:999px!important;
-  background:rgba(255,250,242,.88)!important;color:#603a39!important;
-  box-shadow:0 5px 0 rgba(102,67,56,.10)!important;font:500 12px/1.4 Jost,Arial,sans-serif!important;
-  white-space:normal!important;text-align:center!important;overflow-wrap:anywhere!important;
+  background:rgba(255,248,239,.13)!important;color:#fff7ef!important;
+  border:1px solid rgba(255,246,234,.42)!important;border-radius:14px!important;
+  box-shadow:none!important;
 }
 html body #timetableView .class-week-calendar-scroll{
-  display:block!important;width:100%!important;min-width:0!important;max-width:100%!important;
-  overflow-x:auto!important;overflow-y:hidden!important;overscroll-behavior-x:contain!important;
-  -webkit-overflow-scrolling:touch!important;border:1px solid rgba(255,255,255,.72)!important;
-  border-radius:20px!important;background:rgba(255,250,242,.28)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.52)!important;
-}
-html body #timetableView .class-calendar-grid{
-  width:max-content!important;min-width:952px!important;max-width:none!important;
-  gap:3px!important;padding:4px!important;background:transparent!important;
+  background:rgba(255,248,239,.035)!important;border-color:rgba(255,246,234,.38)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08)!important;
 }
 html body #timetableView .class-calendar-corner,
 html body #timetableView .class-calendar-dayhead{
-  border:1px solid rgba(255,255,255,.84)!important;border-radius:13px!important;
-  background:linear-gradient(145deg,rgba(218,174,181,.94),rgba(191,139,151,.94))!important;
-  color:#553238!important;font:700 10px/1.35 Jost,Arial,sans-serif!important;letter-spacing:.045em!important;
+  background:rgba(192,148,151,.30)!important;color:#fff5ec!important;
+  border:1px solid rgba(255,245,232,.32)!important;box-shadow:none!important;
 }
 html body #timetableView .class-calendar-time{
-  border:1px solid rgba(255,255,255,.8)!important;border-radius:13px!important;
-  background:rgba(221,177,184,.82)!important;color:#57363a!important;font:700 12px/1.3 Jost,Arial,sans-serif!important;
+  background:rgba(192,148,151,.23)!important;color:#fff5ec!important;
+  border:1px solid rgba(255,245,232,.25)!important;box-shadow:none!important;
 }
 html body #timetableView .class-calendar-slot{
-  min-width:0!important;border:1px solid rgba(255,255,255,.65)!important;border-radius:15px!important;
-  background:rgba(135,106,99,.32)!important;color:#4b302f!important;padding:10px 9px!important;gap:5px!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.22)!important;overflow-wrap:anywhere!important;
+  background:rgba(255,244,232,.09)!important;color:#fff5ec!important;
+  border:1px solid rgba(255,245,232,.28)!important;box-shadow:none!important;
 }
-html body #timetableView .class-calendar-slot strong{color:#743e4c!important;font-size:11px!important;line-height:1.35!important}
-html body #timetableView .class-calendar-slot span{color:#4b302f!important;font-size:12px!important;line-height:1.35!important}
-html body #timetableView .class-calendar-slot small{color:#6b4c45!important;font-size:10px!important;line-height:1.35!important}
-html body #timetableView .class-calendar-slot.booked{background:rgba(151,119,112,.42)!important;border-color:rgba(255,255,255,.68)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)!important}
-html body #timetableView .class-calendar-slot.free{background:rgba(255,248,239,.24)!important;border:1px dashed rgba(255,255,255,.72)!important;color:rgba(255,249,242,.92)!important}
-html body #timetableView .class-calendar-slot.occupied{background:rgba(102,48,58,.72)!important;border-color:rgba(241,197,193,.76)!important;color:#fff7f0!important}
-html body #timetableView .class-calendar-slot.occupied strong,
-html body #timetableView .class-calendar-slot.occupied span,
-html body #timetableView .class-calendar-slot.occupied small{color:#fff7f0!important}
+html body #timetableView .class-calendar-slot strong{color:#f0c9c7!important}
+html body #timetableView .class-calendar-slot span,
+html body #timetableView .class-calendar-slot small{color:rgba(255,246,237,.92)!important}
+html body #timetableView .class-calendar-slot.booked{background:rgba(255,244,232,.10)!important;border-color:rgba(255,245,232,.30)!important}
+html body #timetableView .class-calendar-slot.free{background:rgba(255,244,232,.025)!important;border:1px dashed rgba(255,245,232,.30)!important;color:rgba(255,246,237,.78)!important}
+html body #timetableView .class-calendar-slot.occupied{background:rgba(103,44,58,.68)!important;border-color:rgba(240,194,193,.55)!important}
 @media(max-width:760px){
- html body #timetableView{padding-left:0!important;padding-right:0!important}
- html body #timetableView .timetable-back{margin:2px auto 20px!important;font-size:13px!important}
- html body #timetableView .timetable-class-week-preview{
-   width:100%!important;max-width:100%!important;margin:6px 0 22px!important;padding:14px 10px!important;border-radius:23px!important;
- }
- html body #timetableView .timetable-class-week-preview .class-week-heading{
-   display:block!important;width:100%!important;padding:8px 4px 2px!important;margin-bottom:15px!important;
- }
- html body #timetableView .timetable-class-week-preview .class-week-heading h3{font-size:clamp(32px,9vw,42px)!important}
- html body #timetableView .timetable-class-week-preview .class-week-heading p{font-size:13px!important}
+ html body #timetableView button.timetable-back{margin:0 auto 18px!important;padding:0!important;font-size:14px!important}
+ html body #timetableView .timetable-class-week-preview{padding:17px 12px!important}
+ html body #timetableView .timetable-class-week-preview .class-week-heading{padding:4px 2px 2px!important}
+ html body #timetableView .timetable-class-week-preview .class-week-heading h3{font-size:clamp(31px,8.5vw,40px)!important}
  html body #timetableView .timetable-class-week-preview #timetableSyncStatus{display:inline-block!important;margin-top:13px!important}
- html body #timetableView .class-week-calendar-scroll{width:100%!important;max-width:100%!important}
- html body #timetableView .class-calendar-grid{width:max-content!important;min-width:952px!important}
 }
 </style>
 
