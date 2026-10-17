@@ -15265,4 +15265,49 @@ body::after{
 }
 </style>
 
+
+<style id="lds-remove-long-glass-bridge-between-registration-cards-20261017">
+/* The detail wrapper must not render as a continuous glass capsule behind separate cards. */
+#classesView #classOverview #classDetail,
+#classesView #classDetail.class-detail{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:22px!important;
+  padding:0!important;
+  margin:0!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  border-radius:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  overflow:visible!important;
+  isolation:auto!important;
+}
+#classesView #classOverview #classDetail::before,
+#classesView #classOverview #classDetail::after,
+#classesView #classDetail.class-detail::before,
+#classesView #classDetail.class-detail::after{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+#classesView #classDetail .class-detail-hero,
+#classesView #classDetail .class-registration-panel,
+#classesView #classDetail .class-detail-aside{
+  flex:0 0 auto!important;
+  margin-top:0!important;
+  margin-bottom:0!important;
+}
+@media(max-width:760px){
+  #classesView #classOverview #classDetail,
+  #classesView #classDetail.class-detail{gap:18px!important}
+}
+</style>
+
 </body></html>
