@@ -11952,53 +11952,30 @@ body:has(#homeView.active)::after{
 </style>
 
 <style id="lds-home-cards-real-photography-20261017">
-/* La Dance Stone: dance-led imagery, warm mirrors, burgundy glass. Keep the existing carousel behavior intact. */
-#homeView .choices .choice{
- position:relative!important;isolation:isolate!important;overflow:hidden!important;
- background-color:#35101f!important;
-}
-#homeView .choices .choice::before{
- content:""!important;position:absolute!important;inset:0!important;z-index:0!important;
- display:block!important;border:0!important;border-radius:inherit!important;
- background-repeat:no-repeat!important;background-size:cover!important;
- background-position:center!important;mix-blend-mode:normal!important;
- opacity:1!important;pointer-events:none!important;
-}
-/* Timetable: movement and rehearsal, not a computer calendar */
+/* Realistic photo choices for La Dance Stone. Preserve existing card carousel and click behavior. */
+#homeView .choices .choice{position:relative!important;isolation:isolate!important;overflow:hidden!important;background-color:#35101f!important}
+#homeView .choices .choice::before{content:""!important;position:absolute!important;inset:0!important;z-index:0!important;display:block!important;border:0!important;border-radius:inherit!important;background-repeat:no-repeat!important;background-size:cover!important;background-position:center!important;mix-blend-mode:normal!important;opacity:1!important;pointer-events:none!important}
+/* Timetable: tasteful calendar and planning still life */
 #homeView .choices .choice[data-view="timetable"]::before{
- background-image:linear-gradient(180deg,rgba(44,14,27,.16) 0%,rgba(54,15,31,.32) 40%,rgba(22,7,17,.84) 100%),url("https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1000&q=85")!important;
- background-position:center 44%!important;
+ background-image:linear-gradient(180deg,rgba(44,14,27,.20) 0%,rgba(54,15,31,.34) 42%,rgba(22,7,17,.82) 100%),url("https://images.unsplash.com/photo-1769596722510-b92780d03424?auto=format&fit=crop&w=1000&q=85")!important;
+ background-position:center 48%!important;
 }
-/* Rental: warm studio interior with mirrors and wooden floor */
+/* Rental: mirror and wood-floor studio interior */
 #homeView .choices .choice[data-view="rental"]::before{
- background-image:linear-gradient(180deg,rgba(50,18,29,.18) 0%,rgba(44,13,26,.32) 42%,rgba(20,7,16,.82) 100%),url("https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=1000&q=85")!important;
+ background-image:linear-gradient(180deg,rgba(50,18,29,.16) 0%,rgba(44,13,26,.30) 42%,rgba(20,7,16,.80) 100%),url("https://images.unsplash.com/photo-1721902018128-c8c829ea10b6?auto=format&fit=crop&w=1000&q=85")!important;
  background-position:center 50%!important;
 }
-/* Classes and registration: dancers, not a laptop keyboard */
+/* Lessons: contemporary dance movement */
 #homeView .choices .choice[data-view="classes"]::before{
- background-image:linear-gradient(180deg,rgba(49,14,30,.20) 0%,rgba(56,14,33,.40) 44%,rgba(21,6,17,.86) 100%),url("https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=1000&q=85")!important;
+ background-image:linear-gradient(180deg,rgba(49,14,30,.18) 0%,rgba(56,14,33,.34) 44%,rgba(21,6,17,.82) 100%),url("https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=1000&q=85")!important;
  background-position:center 45%!important;
 }
-#homeView .choices .choice::after{
- content:""!important;position:absolute!important;inset:0!important;z-index:1!important;
- border:1px solid rgba(255,226,190,.78)!important;border-radius:inherit!important;
- background:linear-gradient(115deg,rgba(255,245,224,.12),transparent 24% 70%,rgba(255,216,174,.06))!important;
- box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -34px 52px rgba(15,3,11,.28)!important;
- pointer-events:none!important;
-}
+#homeView .choices .choice::after{content:""!important;position:absolute!important;inset:0!important;z-index:1!important;border:1px solid rgba(255,226,190,.78)!important;border-radius:inherit!important;background:linear-gradient(115deg,rgba(255,245,224,.12),transparent 24% 70%,rgba(255,216,174,.06))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -34px 52px rgba(15,3,11,.28)!important;pointer-events:none!important}
 #homeView .choices .choice .home-icon{display:none!important}
-#homeView .choices .choice .num,
-#homeView .choices .choice h3,
-#homeView .choices .choice p,
-#homeView .choices .choice .arrow{position:relative!important;z-index:2!important}
-#homeView .choices .choice h3,
-#homeView .choices .choice p{ text-shadow:0 2px 12px rgba(15,3,10,.75)!important }
-#homeView .choices .choice.is-center{
- box-shadow:inset 0 1px 0 rgba(255,246,230,.72),inset 0 -48px 68px rgba(15,3,11,.40),0 28px 58px rgba(20,5,12,.48),0 0 32px rgba(151,48,79,.24)!important;
-}
+#homeView .choices .choice .num,#homeView .choices .choice h3,#homeView .choices .choice p,#homeView .choices .choice .arrow{position:relative!important;z-index:2!important}
+#homeView .choices .choice h3,#homeView .choices .choice p{text-shadow:0 2px 12px rgba(15,3,10,.75)!important}
+#homeView .choices .choice.is-center{box-shadow:inset 0 1px 0 rgba(255,246,230,.72),inset 0 -48px 68px rgba(15,3,11,.40),0 28px 58px rgba(20,5,12,.48),0 0 32px rgba(151,48,79,.24)!important}
 #homeView .choices .choice.is-side::before{filter:saturate(.78) brightness(.82)!important}
-@media(max-width:760px){
- #homeView .choices .choice::before{background-size:cover!important}
-}
+@media(max-width:760px){#homeView .choices .choice::before{background-size:cover!important}}
 </style>
 </body></html>
