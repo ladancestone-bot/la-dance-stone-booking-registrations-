@@ -4530,11 +4530,11 @@ $('prevWeek').onclick=()=>{week.setDate(week.getDate()-7);renderCalendar()};$('n
      const abs=Math.min(1,Math.abs(ratio));
      card.classList.toggle('is-center',Math.abs(delta)<cr.width*.34);
      card.classList.toggle('is-side',Math.abs(delta)>=cr.width*.34);
-     card.style.setProperty('--card-rotate',mobile?(-ratio*18)+'deg':'0deg');
-     card.style.setProperty('--card-scale',(1-abs*.34).toFixed(3));
+     card.style.setProperty('--card-rotate',mobile?(-ratio*6)+'deg':'0deg');
+     card.style.setProperty('--card-scale',(1-abs*.25).toFixed(3));
      card.style.setProperty('--card-lift',(Math.abs(delta)<cr.width*.34?18:20+abs*16)+'px');
      card.style.zIndex=String(20-Math.round(abs*8));
-     card.style.filter='brightness('+(1-abs*.07).toFixed(3)+')';
+     card.style.filter='brightness('+(1-abs*.045).toFixed(3)+')';
    });
  }
  function requestUpdate(){if(!queued){queued=true;window.requestAnimationFrame(update)}}
@@ -4542,7 +4542,7 @@ $('prevWeek').onclick=()=>{week.setDate(week.getDate()-7);renderCalendar()};$('n
    if(recentering||!groupWidth)return;
    const leftLimit=groupWidth*.45;
    const rightLimit=groupWidth*1.55;
-   if(rail.scrollLeft<leftLimit||rail.scrollLeft>groupWidth*2-rightLimit){
+   if(rail.scrollLeft<leftLimit||rail.scrollLeft>rightLimit){
      recentering=true;
      const delta=rail.scrollLeft<leftLimit?groupWidth:-groupWidth;
      rail.scrollLeft+=delta;
@@ -11599,6 +11599,18 @@ body:has(#homeView.active)::after{
  #homeView .choices{
   scroll-snap-type:x mandatory!important;
   scroll-behavior:auto!important;
+  overscroll-behavior-x:contain!important;
+ }
+ #homeView .choice{scroll-snap-align:center!important}
+}
+</style>
+
+<style id="lds-carousel-smooth-subtle-orbit-fix-20261017">
+@media(max-width:760px){
+ #homeView .choices{
+  scroll-snap-type:x proximity!important;
+  scroll-behavior:auto!important;
+  -webkit-overflow-scrolling:touch!important;
   overscroll-behavior-x:contain!important;
  }
  #homeView .choice{scroll-snap-align:center!important}
