@@ -17407,7 +17407,7 @@ html body #rentalView.view:not(#homeView) .availability-section .cal-scroll.is-s
    if(!isMobile()){cards().forEach(c=>{c.classList.remove('is-center','is-side');c.style.removeProperty('--card-rotate');c.style.removeProperty('--card-scale');c.style.removeProperty('--card-depth');c.style.removeProperty('--card-lift');c.style.zIndex=''});return}
    const rr=rail.getBoundingClientRect(),center=rr.left+rr.width/2;
    cards().forEach(card=>{
-    let layoutLeft=card.offsetLeft,layoutParent=card.offsetParent;while(layoutParent&&layoutParent!==rail){layoutLeft+=layoutParent.offsetLeft+layoutParent.clientLeft-layoutParent.scrollLeft;layoutParent=layoutParent.offsetParent;}const delta=(layoutLeft+card.offsetWidth/2)-(rail.scrollLeft+rail.clientLeft+rail.clientWidth/2);
+    const cr=card.getBoundingClientRect(),delta=cr.left+cr.width/2-center;
     const ratio=Math.max(-1.5,Math.min(1.5,delta/Math.max(1,cr.width))),abs=Math.min(1,Math.abs(ratio)),active=abs<.42;
     card.classList.toggle('is-center',active);card.classList.toggle('is-side',!active);
     card.style.setProperty('--card-rotate',(-ratio*28)+'deg');
@@ -18966,20 +18966,5 @@ html body #timetableView .class-calendar-slot span,
 html body #timetableView .class-calendar-slot small{
   color:#fff2e6!important;
   opacity:1!important;
-}
-</style>
-
-
-<style id="lds-carousel-smooth-center-motion-20261018">
-/* Smooth swipe motion: avoid feedback from transformed card bounds and width changes while snapping. */
-@media(max-width:760px){
-  #homeView .choices>.choice,
-  #homeView .choices>.choice.is-center,
-  #homeView .choices>.choice.is-side,
-  #homeView .choices>.choice[data-carousel-clone="1"].is-center{
-    width:min(34vw,158px)!important;
-    flex-basis:min(34vw,158px)!important;
-    transition:filter 150ms ease,opacity 150ms ease!important;
-  }
 }
 </style>
