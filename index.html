@@ -4571,86 +4571,7 @@ function renderCalendar(){
 function openClassEvent(el){const e=events[Number(el.dataset.classEvent)];if(!e||e.kind!=='class'||!groups[e.group])return;classReturnView='timetable';showView('classes');showClassDetail(e.group);$('classGroup').value=String(e.option);document.querySelector('input[name="classBookingType"][value="group"]').checked=true;$('classGroupLabel').style.display=e.group==='adult'?'none':'';$('classSingleNote').style.display='none';$('classPaymentNote').style.display='none';$('classToast').classList.remove('show');const back=$('classBack');back.innerHTML='<span>←</span>Grįžti į tvarkaraštį';$('classDetail').scrollIntoView({behavior:'smooth',block:'start'})}
 $('prevWeek').onclick=()=>{week.setDate(week.getDate()-7);renderCalendar()};$('nextWeek').onclick=()=>{week.setDate(week.getDate()+7);renderCalendar()};loadLiveTimetable();
 
-/* Stable infinite 3D carousel: calculate from layout coordinates, never transformed bounds. */
-(function(){
- const root=document.getElementById('homeView');
- if(!root)return;
- const rail=root.querySelector('.choices');
- if(!rail||rail.dataset.infiniteCarouselReady==='1')return;
- rail.dataset.infiniteCarouselReady='1';
- const originals=Array.from(rail.querySelectorAll('.choice'));
- if(originals.length<2)return;
- const count=originals.length;
- const cloneCard=card=>{
-   const clone=card.cloneNode(true);
-   clone.dataset.carouselClone='1';
-   clone.setAttribute('aria-hidden','true');
-   clone.inert=true;
-   clone.setAttribute('tabindex','-1');
-   clone.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
-   return clone;
- };
- const before=document.createDocumentFragment();
- originals.forEach(card=>before.appendChild(cloneCard(card)));
- rail.insertBefore(before,rail.firstChild);
- originals.forEach(card=>rail.appendChild(cloneCard(card)));
- const cards=Array.from(rail.querySelectorAll('.choice'));
- let groupWidth=0,queued=false,settleTimer=0,adjusting=false,lastWidth=0;
- const measure=()=>{
-   const base=cards[count];
-   const next=cards[count*2];
-   if(base&&next)groupWidth=next.offsetLeft-base.offsetLeft;
-   lastWidth=rail.clientWidth;
- };
- const positionToCenter=()=>{
-   measure();
-   if(groupWidth>0)rail.scrollLeft=cards[count].offsetLeft-(rail.clientWidth-cards[count].offsetWidth)/2;
-   update();
- };
- function update(){
-   queued=false;
-   if(!groupWidth)measure();
-   const center=rail.scrollLeft+rail.clientWidth/2;
-   cards.forEach(card=>{
-     /* offsetLeft/offsetWidth are untransformed layout coordinates: avoids transform feedback jitter. */
-     const cardCenter=card.offsetLeft+card.offsetWidth/2;
-     const delta=cardCenter-center;
-     const ratio=Math.max(-2,Math.min(2,delta/Math.max(1,card.offsetWidth)));
-     const abs=Math.min(1,Math.abs(ratio));
-     const active=abs<.38;
-     card.classList.toggle('is-center',active);
-     card.classList.toggle('is-side',!active);
-     card.style.setProperty('--card-rotate',window.matchMedia('(max-width:760px)').matches?(-ratio*27)+'deg':'0deg');
-     card.style.setProperty('--card-scale',(1-abs*.28).toFixed(3));
-     card.style.setProperty('--card-lift',(active?18:24+abs*10)+'px');
-     card.style.zIndex=String(30-Math.round(abs*10));
-   });
- }
- function requestUpdate(){if(!queued){queued=true;requestAnimationFrame(update)}}
- function recenterIfNeeded(){
-   if(adjusting||!groupWidth)return;
-   const x=rail.scrollLeft;
-   if(x<groupWidth*.35||x>groupWidth*1.65){
-     adjusting=true;
-     rail.scrollLeft=x<groupWidth*.35?x+groupWidth:x-groupWidth;
-     requestAnimationFrame(()=>{adjusting=false;requestUpdate()});
-   }
- }
- rail.addEventListener('scroll',()=>{
-   requestUpdate();
-   clearTimeout(settleTimer);
-   settleTimer=setTimeout(recenterIfNeeded,140);
- },{passive:true});
- rail.addEventListener('scrollend',recenterIfNeeded,{passive:true});
- window.addEventListener('resize',()=>{
-   const widthChanged=rail.clientWidth!==lastWidth;
-   measure();
-   if(widthChanged)positionToCenter();else requestUpdate();
- },{passive:true});
- if('ResizeObserver' in window)new ResizeObserver(()=>{measure();requestUpdate()}).observe(rail);
- requestAnimationFrame(positionToCenter);
-})();
-
+/* Carousel behavior is implemented by the single manual, native scroll-snap controller at the end of this file. */
 </script>
 
 <style id="lds-final-liquid-glass-correction">
@@ -16343,51 +16264,7 @@ body::after{
 </style>
 
 
-<script id="lds-home-arch-carousel-autoplay-20261017">
-/* Gentle continuous orbit for the existing homepage arch carousel.
-   Uses the existing infinite clones and scroll-driven 3D transforms; no markup or booking logic changes. */
-(function(){
-  const root=document.getElementById('homeView');
-  const rail=root&&root.querySelector('.choices');
-  if(!rail||rail.dataset.archAutoplayReady==='1')return;
-  rail.dataset.archAutoplayReady='1';
-  const cards=Array.from(rail.querySelectorAll('.choice'));
-  const originals=cards.filter(card=>card.dataset.carouselClone!=='1');
-  if(originals.length<2||cards.length<originals.length*3)return;
-  const count=originals.length;
-  let groupWidth=0,raf=0,lastTime=0,resumeAt=0,active=false;
-  const measure=()=>{
-    const all=Array.from(rail.querySelectorAll('.choice'));
-    const start=all[count],next=all[count*2];
-    if(start&&next)groupWidth=next.offsetLeft-start.offsetLeft;
-  };
-  const visible=()=>root.classList.contains('active')&&document.visibilityState==='visible';
-  const pauseBriefly=()=>{resumeAt=performance.now()+2400;};
-  function frame(now){
-    raf=0;
-    if(!visible()){lastTime=0;return;}
-    if(!lastTime)lastTime=now;
-    const dt=Math.min(40,now-lastTime);
-    lastTime=now;
-    if(now>=resumeAt&&!rail.matches(':hover')&&groupWidth>0){
-      /* About 18 px/second: a calm, continuous loop rather than a sudden jump. */
-      rail.scrollLeft+=dt*.018;
-      if(rail.scrollLeft<groupWidth*.35)rail.scrollLeft+=groupWidth;
-      else if(rail.scrollLeft>groupWidth*1.65)rail.scrollLeft-=groupWidth;
-    }
-    raf=requestAnimationFrame(frame);
-  }
-  function start(){measure();if(!raf){lastTime=0;raf=requestAnimationFrame(frame);}}
-  function stop(){if(raf)cancelAnimationFrame(raf);raf=0;lastTime=0;}
-  ['touchstart','pointerdown','wheel','keydown'].forEach(type=>rail.addEventListener(type,pauseBriefly,{passive:true}));
-  rail.addEventListener('pointerenter',pauseBriefly,{passive:true});
-  rail.addEventListener('pointerleave',()=>{resumeAt=performance.now()+500;},{passive:true});
-  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')start();else stop();});
-  window.addEventListener('resize',measure,{passive:true});
-  if('ResizeObserver' in window)new ResizeObserver(measure).observe(rail);
-  start();
-})();
-</script>
+<!-- Removed obsolete automatic carousel animation: homepage cards must move only by user swipe. -->
 
 
 <style id="lds-final-rental-card-photo-20261017">
@@ -16619,89 +16496,7 @@ body::after{
  #homeView .choices .choice .choice-action span{width:23px!important;height:23px!important;flex-basis:23px!important}
 }
 </style>
-<script id="lds-home-carousel-loop-20261017">
-/* Stable infinite carousel: cloned cards exist on BOTH ends, so the track never runs into empty space. */
-(function(){
- function init(){
-  const home=document.querySelector('#homeView'),track=home&&home.querySelector('.choices');
-  if(!track||track.dataset.ldsLoopReady==='1')return;
-  track.dataset.ldsLoopReady='1';
-  const mobile=()=>window.matchMedia('(max-width:760px)').matches;
-  let timer=null,pauseTimer=null,paused=false,frame=0,ready=false,resetting=false,scrollTimer=null;
-  const originals=()=>Array.from(track.querySelectorAll(':scope > .choice:not([data-loop-clone])'));
-  const all=()=>Array.from(track.querySelectorAll(':scope > .choice'));
-  function makeClone(card,index,side){
-   const clone=card.cloneNode(true);
-   clone.dataset.loopClone=side;clone.dataset.loopIndex=String(index);
-   clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;
-   clone.querySelectorAll('a,button,input,select,textarea,[tabindex]').forEach(el=>el.tabIndex=-1);
-   clone.addEventListener('click',()=>{if(side==='append'){const real=originals()[index];if(real)real.click()}});
-   return clone;
-  }
-  function setup(){
-   if(!mobile()||ready)return;
-   const base=originals();if(base.length<2)return;
-   const before=document.createDocumentFragment(),after=document.createDocumentFragment();
-   base.forEach((card,i)=>before.appendChild(makeClone(card,i,'prepend')));
-   base.forEach((card,i)=>after.appendChild(makeClone(card,i,'append')));
-   track.insertBefore(before,base[0]);track.appendChild(after);
-   ready=true;
-   requestAnimationFrame(()=>{const first=base[0];if(first){track.scrollLeft=first.offsetLeft-track.offsetLeft;update()}});
-  }
-  function nearest(){
-   const cards=all();if(!cards.length)return null;
-   const target=track.scrollLeft+track.clientWidth/2;
-   let result=cards[0],min=Infinity;
-   for(const card of cards){const d=Math.abs(card.offsetLeft+card.offsetWidth/2-target);if(d<min){min=d;result=card}}
-   return result;
-  }
-  function update(){
-   frame=0;const current=nearest();
-   all().forEach(card=>{card.classList.toggle('is-center',card===current);card.classList.toggle('is-side',card!==current)});
-  }
-  function schedule(){if(!frame)frame=requestAnimationFrame(update)}
-  function normalize(){
-   if(!ready||!mobile())return;
-   const card=nearest();if(!card)return;
-   if(card.dataset.loopClone){
-    const index=Number(card.dataset.loopIndex),base=originals()[index];if(!base)return;
-    resetting=true;
-    track.scrollLeft+=base.offsetLeft-card.offsetLeft;
-    resetting=false;
-   }
-   schedule();
-  }
-  function advance(){
-   if(!mobile()||!home.classList.contains('active')||document.hidden||paused)return;
-   setup();const current=nearest();if(!current)return;
-   const cards=all(),next=cards[(cards.indexOf(current)+1)%cards.length];
-   if(!next)return;
-   track.scrollTo({left:next.offsetLeft+next.offsetWidth/2-track.clientWidth/2,behavior:'smooth'});
-   clearTimeout(scrollTimer);scrollTimer=setTimeout(normalize,750);
-  }
-  function restart(){clearInterval(timer);timer=null;if(mobile()&&!document.hidden){setup();timer=setInterval(advance,4200)}}
-  function pause(){paused=true;clearInterval(timer);clearTimeout(pauseTimer);pauseTimer=setTimeout(()=>{paused=false;restart()},5000)}
-  track.addEventListener('pointerdown',pause,{passive:true});
-  track.addEventListener('touchstart',pause,{passive:true});
-  track.addEventListener('focusin',pause);
-  track.addEventListener('scroll',()=>{if(!resetting)schedule()},{passive:true});
-  track.addEventListener('scrollend',normalize);
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(timer);else restart()});
-  window.addEventListener('resize',()=>{
-   clearInterval(timer);
-   if(!mobile()&&ready){
-    all().filter(card=>card.dataset.loopClone).forEach(card=>card.remove());
-    ready=false;
-   }
-   if(mobile())setup();
-   schedule();restart();
-  },{passive:true});
-  if(mobile())setup();
-  schedule();restart();
- }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
-})();
-</script>
+<!-- Removed obsolete interval/clone carousel implementation; one manual scroll-snap carousel is defined below. -->
 
 <style id="lds-carousel-polish-20261017">
 /* Final responsive polish: clearer action rows and consistent premium glass on every arch. */
@@ -16831,3 +16626,111 @@ body::after{
  #homeView .choices>.choice{flex:0 0 min(72vw,300px)!important;width:min(72vw,300px)!important;scroll-snap-align:center!important;scroll-snap-stop:normal!important}
 }
 </style>
+
+
+<style id="lds-home-carousel-manual-snap-fix-20261017">
+/* Single source of truth for the homepage carousel.
+   Desktop retains the existing three-card grid. Mobile uses native touch scrolling and snap points.
+   No clones, timers, autoplay, synthetic advances, or scroll-position recentering. */
+@media(max-width:760px){
+  #homeView .choices{
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:stretch!important;
+    justify-content:flex-start!important;
+    gap:18px!important;
+    width:calc(100% + 34px)!important;
+    max-width:none!important;
+    margin-left:-17px!important;
+    padding:14px max(11vw, calc((100vw - min(78vw,330px))/2)) 22px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    box-sizing:border-box!important;
+    scroll-snap-type:x mandatory!important;
+    scroll-padding-inline:max(11vw, calc((100vw - min(78vw,330px))/2))!important;
+    scroll-behavior:smooth!important;
+    -webkit-overflow-scrolling:touch!important;
+    overscroll-behavior-x:contain!important;
+    touch-action:pan-x pan-y!important;
+    scrollbar-width:none!important;
+  }
+  #homeView .choices::-webkit-scrollbar{display:none!important}
+  #homeView .choices>.choice{
+    display:flex!important;
+    flex:0 0 min(78vw,330px)!important;
+    width:min(78vw,330px)!important;
+    min-width:0!important;
+    max-width:none!important;
+    scroll-snap-align:center!important;
+    scroll-snap-stop:always!important;
+    visibility:visible!important;
+    opacity:1!important;
+    transform:none!important;
+  }
+  #homeView .choices>.choice[data-carousel-clone="1"],
+  #homeView .choices>.choice[data-loop-clone]{
+    display:none!important;
+  }
+}
+@media(min-width:761px){
+  #homeView .choices{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    overflow:visible!important;
+    scroll-snap-type:none!important;
+  }
+  #homeView .choices>.choice[data-carousel-clone="1"],
+  #homeView .choices>.choice[data-loop-clone]{
+    display:none!important;
+  }
+}
+</style>
+<script id="lds-home-carousel-manual-snap-controller-20261017">
+/* Manual-only carousel controller: updates visual emphasis while the user scrolls.
+   Native scrolling owns movement and settling; this script never changes scrollLeft. */
+(function(){
+  function init(){
+    const home=document.getElementById('homeView');
+    const rail=home&&home.querySelector('.choices');
+    if(!rail||rail.dataset.manualSnapReady==='1')return;
+    rail.dataset.manualSnapReady='1';
+    const cards=Array.from(rail.querySelectorAll(':scope > .choice:not([data-carousel-clone="1"]):not([data-loop-clone])'));
+    let frame=0;
+    function update(){
+      frame=0;
+      if(!window.matchMedia('(max-width:760px)').matches){
+        cards.forEach(card=>{
+          card.classList.remove('is-center','is-side');
+          card.style.removeProperty('--card-rotate');
+          card.style.removeProperty('--card-scale');
+          card.style.removeProperty('--card-lift');
+          card.style.zIndex='';
+        });
+        return;
+      }
+      const railRect=rail.getBoundingClientRect();
+      const center=railRect.left+railRect.width/2;
+      cards.forEach(card=>{
+        const rect=card.getBoundingClientRect();
+        const delta=(rect.left+rect.width/2)-center;
+        const ratio=Math.max(-1.5,Math.min(1.5,delta/Math.max(1,rect.width)));
+        const abs=Math.min(1,Math.abs(ratio));
+        const active=abs<0.32;
+        card.classList.toggle('is-center',active);
+        card.classList.toggle('is-side',!active);
+        card.style.setProperty('--card-rotate',(-ratio*7)+'deg');
+        card.style.setProperty('--card-scale',(1-abs*.035).toFixed(3));
+        card.style.setProperty('--card-lift',(active?8:12)+'px');
+        card.style.zIndex=String(3-Math.round(abs));
+      });
+    }
+    function schedule(){if(!frame)frame=requestAnimationFrame(update)}
+    rail.addEventListener('scroll',schedule,{passive:true});
+    window.addEventListener('resize',schedule,{passive:true});
+    if('ResizeObserver' in window)new ResizeObserver(schedule).observe(rail);
+    schedule();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
+})();
+</script>
