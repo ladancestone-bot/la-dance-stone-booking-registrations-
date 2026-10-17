@@ -17258,3 +17258,19 @@ html body #rentalView.view:not(#homeView) .rental-intro .rental-amenities .renta
 }
 </style>
 
+<style id="lds-subtle-global-photo-blur-20261017">
+/* Very subtle blur on the full-page studio photo only. Text, cards and glass icons remain crisp. */
+html body::before{
+  filter:blur(1.2px) saturate(1.04) brightness(1.16) sepia(.08)!important;
+  -webkit-filter:blur(1.2px) saturate(1.04) brightness(1.16) sepia(.08)!important;
+  transform:scale(1.035)!important;
+}
+@media(max-width:760px){
+  html body::before{
+    filter:blur(1.2px) saturate(1.04) brightness(1.16) sepia(.08)!important;
+    -webkit-filter:blur(1.2px) saturate(1.04) brightness(1.16) sepia(.08)!important;
+    transform:scale(1.035)!important;
+  }
+}
+</style>
+
