@@ -4439,7 +4439,7 @@ function updateClassPricing(){
 function openClassCard(key){classReturnView='classes';showView('classes');showClassDetail(key)}
 function showClassDetail(key){
  const group=groups[key];if(!group)return;
- classCurrentGroupKey=key;classSelectedSessions=[];
+ classCurrentGroupKey=key;classSelectedSessions=[];$('classDetail').classList.toggle('class-detail-adult',key==='adult');
  $('classOverview').style.display='none';$('classDetail').hidden=false;$('classDetail').style.display='block';
  $('classTitle').textContent=key==='adult'?'Šiuolaikinis šokis suaugusiesiems':key==='kids57'?'Šiuolaikinis šokis vaikams · 5–7 m.':key==='kids712'?'Šiuolaikinis šokis vaikams · 7–12 m.':'Šiuolaikinis šokis paaugliams · 13–18 m.';
  $('classDescription').textContent=group.desc;
@@ -18567,6 +18567,24 @@ html body #rentalView .availability-section .calendar-panel .calendar-help .lege
 }
 </style>
 
+<style id="lds-adult-price-tiles-visibility-only-20261018">
+/* Presentation-only safeguard: show the existing 40/50/60 price tiles for the adult monthly plan. */
+html body #classesView #classDetail.class-detail-adult
+.class-option:has(input[name="classBookingType"][value="group"]:checked) #adultPriceTiers{
+  display:flex!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+html body #classesView #classDetail.class-detail-adult
+.class-option:has(input[name="classBookingType"][value="group"]:checked) #adultPriceTiers>span,
+html body #classesView #classDetail.class-detail-adult
+.class-option:has(input[name="classBookingType"][value="group"]:checked) #adultPriceTiers>span>small,
+html body #classesView #classDetail.class-detail-adult
+.class-option:has(input[name="classBookingType"][value="group"]:checked) #adultPriceTiers>span>strong{
+  visibility:visible!important;
+  opacity:1!important;
+}
+</style>
 </body>
 </html>
 
