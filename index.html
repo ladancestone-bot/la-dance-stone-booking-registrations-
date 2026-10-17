@@ -3921,7 +3921,7 @@ body::after{
 <div class="home-site-link-row"><a class="site-link" href="https://ladancestone.lt"><span aria-hidden="true">←</span> Grįžti į svetainės pradžią</a></div>
 <div class="hero">
   <h1>Šokio erdvė prasideda čia.</h1>
-  <p class="home-values">Pasirinkite, ką norite nuveikti – peržiūrėti tvarkaraštį, išsinuomoti studiją ar užsiregistruoti į pamokas.</p>
+  <p class="home-values">Pasirinkite, ką norite nuveikti: peržiūrėti tvarkaraštį, išsinuomoti studiją ar užsiregistruoti į pamokas.</p>
 </div>
 <div class="choices">
 <button class="choice" data-view="timetable"><span class="num">SAVAITĖS PLANAS</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="7" width="23" height="21" rx="2"/><path d="M10 4v6M22 4v6M5 13h22M11 13v14M19 13v14M5 20h22"/></svg></span><h3>Tvarkaraštis</h3><p>Užsiėmimų laikai</p><span class="arrow">→</span></button>
@@ -3945,7 +3945,7 @@ body::after{
       <p>Šiuolaikiška šokių studija, kurioje susitinka kūryba, judesio laisvė ir autentiška saviraiška.</p>
       <a href="mailto:info@ladancestone.lt">info@ladancestone.lt</a>
       <a href="tel:+37065567797">+370 655 67797</a>
-      <small>© 2026. All rights reserved.</small>
+      <a class="brand-footer-address" href="https://maps.google.com/?q=V.+Kr%C4%97v%C4%97s+pr.+57,+Kaunas">V. Krėvės pr. 57, Kaunas</a>
     </div>
     <div class="brand-footer-logo" aria-label="La Dance Stone šokių studija">
       <img class="brand-footer-logo-image" src="https://assets.zyrosite.com/mxBXMb8brLT3X2qV/lds-0827-YY3AE6z0CaVNCYEp.svg" alt="La Dance Stone šokių studija" loading="lazy">
@@ -11205,6 +11205,95 @@ body:has(#homeView.active)::after{
 }
 @media(prefers-reduced-motion:reduce){
  #homeView .choice{transition:none!important}
+}
+</style>
+
+<style id="lds-home-hero-arch-cards-and-contact-glass-20261017">
+/* Homepage editorial typography and slimmer luxury arch carousel. */
+#homeView .hero h1{
+ text-transform:uppercase!important;
+ letter-spacing:.035em!important;
+ max-width:760px!important;
+}
+#homeView .hero .home-values{
+ max-width:560px!important;
+ margin-left:auto!important;margin-right:auto!important;
+}
+#homeView .choice{
+ border-radius:46% 46% 11px 11px / 20% 20% 11px 11px!important;
+}
+#homeView .choice .home-icon{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ margin-left:auto!important;margin-right:auto!important;
+ flex:0 0 auto!important;
+}
+#homeView .choice .home-icon svg{
+ display:block!important;width:29px!important;height:29px!important;
+ margin:auto!important;flex:0 0 auto!important;
+}
+#homeView .choice .arrow{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ margin-left:auto!important;margin-right:auto!important;
+}
+#homeView .choice.is-center{
+ background:linear-gradient(145deg,rgba(139,23,52,.88),rgba(103,15,40,.91) 52%,rgba(52,17,29,.94))!important;
+}
+#homeView .brand-footer-address{
+ display:block!important;
+ margin-top:12px!important;
+ color:inherit!important;
+ text-decoration:none!important;
+ opacity:.92!important;
+}
+#homeView .brand-footer-copy small{display:none!important}
+@media(max-width:760px){
+ #homeView .hero{padding-top:22px!important;padding-bottom:6px!important;margin-bottom:0!important}
+ #homeView .hero h1{
+  font-size:clamp(31px,8.2vw,39px)!important;
+  line-height:1.02!important;
+  max-width:360px!important;
+  letter-spacing:.025em!important;
+ }
+ #homeView .hero .home-values{
+  font-size:14px!important;line-height:1.5!important;
+  max-width:340px!important;
+ }
+ #homeView .choices{
+  align-items:stretch!important;
+  padding:24px 19vw 38px!important;
+  gap:9px!important;
+  perspective:1200px!important;
+  perspective-origin:50% 42%!important;
+  scroll-padding-inline:19vw!important;
+ }
+ #homeView .choice{
+  flex:0 0 61vw!important;
+  width:61vw!important;max-width:248px!important;min-width:0!important;
+  min-height:330px!important;
+  padding:62px 14px 22px!important;
+  border-radius:46% 46% 10px 10px / 20% 20% 10px 10px!important;
+ }
+ #homeView .choice.is-center{
+  transform:perspective(1050px) rotateY(0deg) translateY(18px) scale(1.045)!important;
+ }
+ #homeView .choice.is-side{
+  transform:perspective(1050px) rotateY(var(--card-rotate,0deg)) translateY(28px) scale(.76)!important;
+ }
+ #homeView .choice .home-icon{
+  width:50px!important;height:50px!important;margin-bottom:14px!important;
+ }
+ #homeView .choice .home-icon svg{width:26px!important;height:26px!important}
+ #homeView .choice h3{font-size:clamp(20px,5.2vw,25px)!important;line-height:1.08!important}
+ #homeView .choice p{font-size:12px!important;line-height:1.4!important}
+ #homeView .choice .arrow{width:42px!important;height:42px!important}
+ #homeView .brand-footer-main{
+  grid-template-columns:minmax(0,1fr)!important;
+  text-align:left!important;
+ }
+}
+@media(max-width:380px){
+ #homeView .choices{padding-left:18vw!important;padding-right:18vw!important}
+ #homeView .choice{flex-basis:64vw!important;width:64vw!important}
 }
 </style>
 </body></html>
