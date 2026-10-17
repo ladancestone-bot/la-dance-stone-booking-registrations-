@@ -4165,7 +4165,7 @@ body::after{
 <button type="button" class="choice" data-class="adult" onclick="openClassCard('adult')"><span class="num">SUAUGUSIEMS</span><h3>Šiuolaikinis šokis suaugusiesiems</h3><p>Pasirinkite 1, 2 arba 3 treniruotes per savaitę.</p><span class="arrow" aria-hidden="true">→</span></button>
 </div>
 </div>
-<div id="classDetail" class="class-detail" style="display:none">
+<div id="classDetail" class="class-detail" hidden style="display:none">
 <button class="back class-detail-back" id="classBack"><span>←</span>Grįžti į pamokų pasirinkimą</button>
 <div class="class-detail-hero"><div><div class="eyebrow">Jūsų pasirinkimas</div><h2 id="classTitle"></h2><p id="classDescription"></p></div></div>
 <div class="class-detail-grid">
@@ -4318,7 +4318,7 @@ function openClassCard(key){classReturnView='classes';showView('classes');showCl
 function showClassDetail(key){
  const group=groups[key];if(!group)return;
  classCurrentGroupKey=key;classSelectedSessions=[];
- $('classOverview').style.display='none';$('classDetail').style.display='block';
+ $('classOverview').style.display='none';$('classDetail').hidden=false;$('classDetail').style.display='block';
  $('classTitle').textContent=key==='adult'?'Šiuolaikinis šokis suaugusiesiems':key==='kids57'?'Šiuolaikinis šokis vaikams · 5–7 m.':key==='kids712'?'Šiuolaikinis šokis vaikams · 7–12 m.':'Šiuolaikinis šokis paaugliams · 13–18 m.';
  $('classDescription').textContent=group.desc;
  $('classGroup').innerHTML=group.options.map((option,i)=>'<option value="'+i+'">'+escapeClassText(option)+'</option>').join('');
@@ -4337,7 +4337,7 @@ function showClassDetail(key){
  $('classDetail').scrollIntoView({behavior:'smooth',block:'start'});
 }
 document.querySelectorAll('[data-class]').forEach(card=>{card.addEventListener('click',()=>openClassCard(card.dataset.class));card.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();openClassCard(card.dataset.class)}})});
-$('classBack').addEventListener('click',()=>{$('classDetail').style.display='none';$('classOverview').style.display='block';$('classOverview').scrollIntoView({behavior:'smooth',block:'start'})});
+$('classBack').addEventListener('click',()=>{$('classDetail').hidden=true;$('classDetail').style.display='none';$('classOverview').style.display='block';showView('classes');$('classOverview').scrollIntoView({behavior:'smooth',block:'start'})});
 $('classGroup').addEventListener('change',()=>{updateClassPricing();renderClassDates()});
 $('adultFrequency').addEventListener('change',()=>{const max=Number($('adultFrequency').value);const checked=[...document.querySelectorAll('input[name="adultDay"]:checked')];checked.slice(max).forEach(cb=>cb.checked=false);document.querySelectorAll('input[name="adultDay"]').forEach(cb=>cb.disabled=!cb.checked&&[...document.querySelectorAll('input[name="adultDay"]:checked')].length>=max);updateClassPricing();renderClassDates()});
 document.querySelectorAll('input[name="classBookingType"]').forEach(r=>r.addEventListener('change',()=>{document.querySelectorAll('input[name="adultDay"]').forEach(cb=>{cb.checked=false;cb.disabled=false});updateClassPricing();renderClassDates();$('classToast').classList.remove('show')}));
@@ -4363,7 +4363,7 @@ $('classConfirmationDetails').innerHTML=
  (classCurrentGroupKey==='adult'&&type==='group'?'<div class="class-confirmation-row"><span>Lankymo dienos</span><strong>'+escapeClassText(adultDays.join(', '))+'</strong></div>':'')+
  priceDetails+
  '<p class="class-confirmation-payment-note">El. laiške rasite mokėjimo mygtuką ir informaciją, kaip pasiruošti pamokai.</p>';
-$('classRegistrationPanel').querySelectorAll(':scope > .eyebrow,:scope > h3,:scope > p,:scope > .class-option-cards,:scope > .fields,:scope > .class-single-note,:scope > .class-payment-note,:scope > .class-adult-offer,:scope > #classSubmit,:scope > #classToast').forEach(el=>el.style.display='none');$('classConfirmation').style.display='block';$('classToast').classList.remove('show');$('classConfirmation').scrollIntoView({behavior:'smooth',block:'start'})}catch(error){$('classToast').textContent=error?.message||'Nepavyko pateikti registracijos. Pabandykite dar kartą.';$('classToast').classList.add('show')}finally{button.disabled=false;button.textContent='Tęsti registraciją'}};function escapeClassText(v){return String(v).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}$('classBackToGroups').onclick=()=>{ $('classConfirmation').style.display='none';$('classRegistrationPanel').querySelectorAll(':scope > .eyebrow,:scope > h3,:scope > p,:scope > .class-option-cards,:scope > .fields,:scope > .class-single-note,:scope > .class-payment-note,:scope > #classSubmit').forEach(el=>el.style.display='');$('classRegistrationPanel').style.display='';$('classOverview').style.display='block';$('classDetail').style.display='none';$('classOverview').scrollIntoView({behavior:'smooth',block:'start'})};
+$('classRegistrationPanel').querySelectorAll(':scope > .eyebrow,:scope > h3,:scope > p,:scope > .class-option-cards,:scope > .fields,:scope > .class-single-note,:scope > .class-payment-note,:scope > .class-adult-offer,:scope > #classSubmit,:scope > #classToast').forEach(el=>el.style.display='none');$('classConfirmation').style.display='block';$('classToast').classList.remove('show');$('classConfirmation').scrollIntoView({behavior:'smooth',block:'start'})}catch(error){$('classToast').textContent=error?.message||'Nepavyko pateikti registracijos. Pabandykite dar kartą.';$('classToast').classList.add('show')}finally{button.disabled=false;button.textContent='Tęsti registraciją'}};function escapeClassText(v){return String(v).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}$('classBackToGroups').onclick=()=>{ $('classConfirmation').style.display='none';$('classRegistrationPanel').querySelectorAll(':scope > .eyebrow,:scope > h3,:scope > p,:scope > .class-option-cards,:scope > .fields,:scope > .class-single-note,:scope > .class-payment-note,:scope > #classSubmit').forEach(el=>el.style.display='');$('classRegistrationPanel').style.display='';$('classOverview').style.display='block';$('classDetail').hidden=true;$('classDetail').style.display='none';showView('classes');$('classOverview').scrollIntoView({behavior:'smooth',block:'start'})};
 let liveBusyRanges=[];let availabilityLoadedKey='';let availabilityErrorKey='';let availabilityRequestKey='';
 let rentWeek=new Date(2026,9,12);
 function localISO(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
@@ -15962,4 +15962,19 @@ body::after{
   color:#fffaf5!important;
 }
 
+</style>
+
+
+<style id="lds-class-detail-visibility-and-back-navigation-20261017">
+/* Registration detail must stay fully hidden until a class card is selected.
+   The previous glass layout rules used display:flex!important, overriding inline display:none. */
+#classesView #classDetail[hidden]{
+  display:none!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+#classesView #classDetail:not([hidden]){
+  visibility:visible;
+  pointer-events:auto;
+}
 </style>
