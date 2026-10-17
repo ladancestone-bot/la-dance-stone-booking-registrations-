@@ -16665,7 +16665,7 @@ body::after{
     scroll-snap-stop:always!important;
     visibility:visible!important;
     opacity:1!important;
-    transform:perspective(1100px) rotateY(var(--card-rotate,0deg)) scale(var(--card-scale,1))!important;
+    transform:perspective(900px) rotateY(var(--card-rotate,0deg)) scale(var(--card-scale,1)) translateZ(var(--card-depth,0px))!important;
     transform-origin:center center!important;
     transition:transform 180ms ease-out,filter 180ms ease-out,opacity 180ms ease-out!important;
     backface-visibility:hidden!important;
@@ -16716,6 +16716,7 @@ body::after{
           card.style.removeProperty('--card-rotate');
           card.style.removeProperty('--card-scale');
           card.style.removeProperty('--card-lift');
+          card.style.removeProperty('--card-depth');
           card.style.zIndex='';
         });
         return;
@@ -16730,8 +16731,10 @@ body::after{
         const active=abs<0.32;
         card.classList.toggle('is-center',active);
         card.classList.toggle('is-side',!active);
-        card.style.setProperty('--card-rotate',(-ratio*7)+'deg');
-        card.style.setProperty('--card-scale',(1-abs*.035).toFixed(3));
+        /* A strong center/side contrast creates the 3D product-carousel look. */
+        card.style.setProperty('--card-rotate',(-ratio*19)+'deg');
+        card.style.setProperty('--card-scale',(1-abs*.19).toFixed(3));
+        card.style.setProperty('--card-depth',(active?18:-18)+'px');
         card.style.setProperty('--card-lift',(active?8:12)+'px');
         card.style.zIndex=String(3-Math.round(abs));
       });
