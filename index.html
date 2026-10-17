@@ -11485,4 +11485,66 @@ body:has(#homeView.active)::after{
  }
 }
 </style>
+
+<style id="lds-home-centered-back-single-arch-burgundy-icon-polish-20261017">
+/* Center the minimal back link in the homepage header. */
+#homeView .home-site-link-row{
+ display:flex!important;justify-content:center!important;align-items:center!important;
+ text-align:center!important;width:100%!important;box-sizing:border-box!important;
+ padding:14px 20px 0!important;margin:0 auto 8px!important;
+}
+#homeView .home-site-link-row .site-link{
+ justify-content:center!important;text-align:center!important;
+}
+/* One clean arch outline: disable both nested pseudo-outline layers and use one border. */
+#homeView .choice,
+#homeView .choice.is-center,
+#homeView .choice.is-side{
+ border:1.5px solid rgba(255,224,190,.94)!important;
+ outline:0!important;
+ background-clip:padding-box!important;
+}
+#homeView .choice::before,
+#homeView .choice::after{
+ content:none!important;display:none!important;
+ border:0!important;outline:0!important;box-shadow:none!important;background:none!important;
+}
+/* Richer jewel-tone burgundy glass with directional highlights and depth. */
+#homeView .choice{
+ background:linear-gradient(145deg,rgba(147,24,57,.82) 0%,rgba(112,13,43,.90) 48%,rgba(55,13,31,.96) 100%)!important;
+ box-shadow:inset 0 1px 0 rgba(255,245,228,.55),inset 0 -34px 48px rgba(18,5,14,.28),0 22px 46px rgba(22,6,13,.36),0 0 26px rgba(193,73,104,.18)!important;
+}
+#homeView .choice.is-center{
+ background:linear-gradient(145deg,rgba(177,35,70,.96) 0%,rgba(133,16,51,.98) 48%,rgba(70,11,35,.99) 100%)!important;
+ box-shadow:inset 0 1px 0 rgba(255,246,231,.78),inset 0 -42px 55px rgba(22,4,13,.32),0 28px 54px rgba(22,5,13,.48),0 0 38px rgba(211,90,122,.34)!important;
+}
+#homeView .choice.is-side{
+ background:linear-gradient(145deg,rgba(132,72,76,.72),rgba(75,32,45,.84) 56%,rgba(39,17,29,.92))!important;
+ box-shadow:inset 0 1px 0 rgba(255,242,221,.48),inset 0 -25px 38px rgba(20,6,13,.28),0 16px 34px rgba(18,5,11,.3)!important;
+}
+#homeView .choice .home-icon{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ width:58px!important;height:58px!important;min-width:58px!important;
+ margin:0 auto 18px!important;padding:0!important;box-sizing:border-box!important;
+ border:1px solid rgba(255,232,203,.9)!important;border-radius:50%!important;
+ background:radial-gradient(circle at 32% 25%,rgba(255,247,230,.22),rgba(255,231,205,.04) 58%,rgba(35,9,21,.18))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 0 18px rgba(255,211,169,.14)!important;
+ color:#fff2df!important;
+}
+#homeView .choice .home-icon svg{
+ display:block!important;width:27px!important;height:27px!important;
+ margin:0 auto!important;flex:0 0 auto!important;
+}
+#homeView .choice .arrow{
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ border:1px solid rgba(255,230,202,.88)!important;border-radius:50%!important;
+ background:radial-gradient(circle at 32% 25%,rgba(255,247,230,.2),rgba(255,231,205,.025) 65%)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.34),0 0 16px rgba(255,205,158,.12)!important;
+}
+@media(max-width:760px){
+ #homeView .home-site-link-row{padding:14px 18px 0!important;margin-bottom:4px!important}
+ #homeView .choice{border-width:1.25px!important}
+ #homeView .choice .home-icon{width:54px!important;height:54px!important;min-width:54px!important}
+}
+</style>
 </body></html>
