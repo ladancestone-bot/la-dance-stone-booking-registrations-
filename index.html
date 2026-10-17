@@ -4049,13 +4049,13 @@ body::after{
 <div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div>
 <div class="class-calendar-time">19:00</div>
 <div class="class-calendar-slot booked"><strong>19:15–20:00</strong><span>Suaugusieji</span></div>
-<div class="class-calendar-slot occupied"><strong>19:00–21:00</strong><span>UŽIMTA</span></div>
+<div class="class-calendar-slot occupied"><strong>19:00–20:00</strong><span>UŽIMTA</span></div>
 <div class="class-calendar-slot booked"><strong>19:15–20:00</strong><span>Suaugusieji</span></div>
-<div class="class-calendar-slot occupied"><strong>19:00–21:00</strong><span>UŽIMTA</span></div>
+<div class="class-calendar-slot occupied"><strong>19:00–20:00</strong><span>UŽIMTA</span></div>
 <div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div>
 <div class="class-calendar-slot booked"><strong>19:00–19:45</strong><span>Suaugusieji</span></div>
 <div class="class-calendar-time">20:00</div>
-<div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot occupied"><strong>19:00–21:00</strong><span>UŽIMTA</span></div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot occupied"><strong>19:00–21:00</strong><span>UŽIMTA</span></div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div>
+<div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot occupied"><strong>20:00–21:00</strong><span>UŽIMTA</span></div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot occupied"><strong>19:00–21:00</strong><span>UŽIMTA</span></div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div>
 <div class="class-calendar-time">21:00</div>
 <div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div>
 </div></div>
@@ -14549,6 +14549,23 @@ body::after{
  #classOverview .class-week-heading p{font-size:12px!important;max-width:30ch!important}
  #classOverview .class-week-heading>.pill{font-size:10px!important;padding:9px 12px!important}
  #classOverview .class-week-calendar-scroll{margin-top:0!important}
+}
+</style>
+
+
+<style id="lds-weekly-occupied-hourly-and-clear-free-20261017">
+/* Free slots become truly transparent glass so the studio background shows through. */
+@media(max-width:760px){
+ #classOverview .class-calendar-slot.free{
+   background:rgba(226,204,182,.055)!important;
+   background-image:none!important;
+   border:1px dashed rgba(255,241,224,.58)!important;
+   box-shadow:inset 0 1px 0 rgba(255,255,255,.09)!important;
+   color:rgba(255,244,230,.92)!important;
+   -webkit-backdrop-filter:blur(2px)!important;backdrop-filter:blur(2px)!important;
+ }
+ #classOverview .class-calendar-slot.free,
+ #classOverview .class-calendar-slot.free *{color:rgba(255,244,230,.92)!important}
 }
 </style>
 
