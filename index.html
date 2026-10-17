@@ -13123,4 +13123,45 @@ body:has(#timetableView.active)::before{
 }
 </style>
 
+
+<style id="lds-timetable-clean-single-grid-lines-20261017">
+/* Clean, single-weight grid lines: avoid doubled borders and muddy cell fills. */
+#timetableView .timetable-panel .cal-scroll{
+ border:1px solid rgba(255,244,229,.48)!important;
+ border-radius:0 0 18px 18px!important;
+ overflow:auto!important;
+}
+#timetableView .timetable-panel #calendar,
+#timetableView .timetable-panel .calendar,
+#timetableView .timetable-panel .calendar .cell{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ box-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar .cell{
+ border:0!important;
+ border-right:1px solid rgba(255,245,232,.23)!important;
+ border-bottom:1px solid rgba(255,245,232,.23)!important;
+ outline:0!important;
+}
+#timetableView .timetable-panel .calendar .day{
+ background:rgba(77,48,45,.16)!important;
+ border:0!important;border-right:1px solid rgba(255,245,232,.20)!important;
+ border-bottom:1px solid rgba(255,245,232,.34)!important;
+ box-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar .time{
+ background:rgba(71,43,43,.25)!important;
+ border:0!important;border-right:1px solid rgba(255,245,232,.36)!important;
+ border-bottom:1px solid rgba(255,245,232,.23)!important;
+ box-shadow:none!important;
+}
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .day,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .time{
+ background:rgba(58,35,37,.82)!important;
+}
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .cell{
+ background:transparent!important;
+}
+</style>
+
 </body></html>
