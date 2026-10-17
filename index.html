@@ -16162,4 +16162,80 @@ body::after{
 #classesView #classDetail #classDateOptions .class-date-option:has(input:checked) small{
   color:#fffaf5!important;
 }
+
+/* Final polish: premium burgundy glass group cards; retain all existing click/navigation logic. */
+#classesView .class-choices .choice{
+  position:relative!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  border:1px solid rgba(255,239,226,.72)!important;
+  border-left:7px solid rgba(207,177,127,.96)!important;
+  border-radius:28px!important;
+  background:
+    radial-gradient(ellipse at 12% 8%,rgba(255,221,220,.24),transparent 42%),
+    linear-gradient(118deg,rgba(117,52,70,.96) 0%,rgba(76,20,39,.97) 55%,rgba(48,20,29,.97) 100%)!important;
+  color:#fff8f1!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.30),inset 0 -1px 0 rgba(29,9,18,.28),0 12px 28px rgba(34,14,19,.20)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(125%)!important;
+  backdrop-filter:blur(18px) saturate(125%)!important;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease!important;
+}
+#classesView .class-choices .choice::before{
+  content:""!important;
+  position:absolute!important;
+  inset:1px!important;
+  z-index:-1!important;
+  border-radius:inherit!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.11),transparent 34%,transparent 72%,rgba(255,228,210,.045))!important;
+  pointer-events:none!important;
+}
+#classesView .class-choices .choice .num,
+#classesView .class-choices .choice .choice-category,
+#classesView .class-choices .choice .choice-eyebrow{
+  color:#ead5a8!important;
+  letter-spacing:.19em!important;
+  font-weight:700!important;
+}
+#classesView .class-choices .choice h3{
+  color:#fff8f1!important;
+  text-shadow:0 2px 10px rgba(24,8,15,.18)!important;
+  line-height:1.08!important;
+  letter-spacing:-.015em!important;
+}
+#classesView .class-choices .choice p{
+  color:rgba(255,246,239,.91)!important;
+  line-height:1.55!important;
+}
+#classesView .class-choices .choice .arrow{
+  display:grid!important;
+  place-items:center!important;
+  width:44px!important;
+  height:44px!important;
+  border:1px solid rgba(255,246,234,.92)!important;
+  border-radius:50%!important;
+  background:linear-gradient(145deg,#fff9ef,#ead8c9)!important;
+  color:#572036!important;
+  box-shadow:inset 0 1px 0 #fff,0 4px 12px rgba(20,7,13,.22)!important;
+  font-size:25px!important;
+  line-height:1!important;
+}
+#classesView .class-choices .choice:hover{
+  transform:translateY(-3px)!important;
+  border-color:rgba(255,239,216,.98)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.38),0 16px 32px rgba(34,14,19,.27)!important;
+}
+#classesView .class-choices .choice:focus-visible{
+  outline:3px solid #e8cda0!important;
+  outline-offset:4px!important;
+}
+@media(max-width:760px){
+  #classesView .class-choices .choice{
+    border-radius:25px!important;
+    border-left-width:6px!important;
+    padding:22px 20px 22px 24px!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 9px 23px rgba(34,14,19,.20)!important;
+  }
+  #classesView .class-choices .choice h3{font-size:clamp(23px,6vw,29px)!important}
+  #classesView .class-choices .choice .arrow{width:40px!important;height:40px!important}
+}
 </style>
