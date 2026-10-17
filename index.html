@@ -16849,8 +16849,19 @@ body::after{
   const cards=()=>Array.from(rail.querySelectorAll(':scope > .choice'));
   function centerCard(card){
    if(!card)return;
-   const railRect=rail.getBoundingClientRect(),cardRect=card.getBoundingClientRect();
-   rail.scrollLeft+=(cardRect.left+cardRect.width/2)-(railRect.left+railRect.width/2);
+   /* Use untransformed layout coordinates. getBoundingClientRect() includes the 3D rotate/scale,
+      which can make the visual card appear off-center on iPhone Safari. */
+   let left=card.offsetLeft,ancestor=card.offsetParent;
+   while(ancestor&&ancestor!==rail){
+    left+=ancestor.offsetLeft+ancestor.clientLeft-ancestor.scrollLeft;
+    ancestor=ancestor.offsetParent;
+   }
+   if(ancestor!==rail){
+    const railRect=rail.getBoundingClientRect(),cardRect=card.getBoundingClientRect();
+    rail.scrollLeft+=(cardRect.left+cardRect.width/2)-(railRect.left+rail.clientWidth/2);
+    return;
+   }
+   rail.scrollLeft=left+card.offsetWidth/2-rail.clientWidth/2;
   }
   function update(){
    frame=0;
