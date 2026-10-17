@@ -11632,4 +11632,35 @@ body:has(#homeView.active)::after{
 }
 @media(prefers-reduced-motion:reduce){#homeView .choice{transition:none!important}}
 </style>
+
+<style id="lds-deep-burgundy-receding-carousel-20261017">
+/* Darker oxblood gradient and cards receding backward in 3D, not leaning sideways. */
+#homeView .choice{
+ transform-style:preserve-3d!important;
+ backface-visibility:hidden!important;
+ -webkit-backface-visibility:hidden!important;
+}
+#homeView .choice.is-center{
+ background:linear-gradient(155deg,#70444a 0%,#572330 34%,#3b1024 72%,#210b18 100%)!important;
+ border-color:rgba(255,225,190,.92)!important;
+ box-shadow:inset 0 1px 0 rgba(255,244,226,.62),inset 0 -48px 65px rgba(12,3,10,.45),0 28px 58px rgba(22,5,13,.5),0 0 30px rgba(115,35,58,.3)!important;
+}
+#homeView .choice.is-side{
+ background:linear-gradient(155deg,rgba(126,83,77,.78),rgba(78,42,47,.88) 52%,rgba(37,18,29,.96))!important;
+ border-color:rgba(255,225,190,.66)!important;
+}
+@media(max-width:760px){
+ #homeView .choices{perspective:1050px!important;perspective-origin:50% 45%!important}
+ #homeView .choice{
+  transform-origin:50% 50%!important;
+  transition:transform .12s linear,background .25s ease,box-shadow .25s ease!important;
+ }
+ #homeView .choice.is-center{
+  transform:perspective(1050px) translate3d(0,18px,55px) rotateY(0deg) scale(1.035)!important;
+ }
+ #homeView .choice.is-side{
+  transform:perspective(1050px) translate3d(0,28px,-90px) rotateY(0deg) scale(.72)!important;
+ }
+}
+</style>
 </body></html>
