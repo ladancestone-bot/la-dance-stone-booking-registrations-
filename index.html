@@ -14238,4 +14238,36 @@ body::after{
 #homeView .choices>.choice>*{pointer-events:none!important}
 </style>
 
+
+<style id="lds-registration-card-click-recovery-20261017">
+/* Make the registration card reliably tappable on mobile, above all visual effects. */
+#homeView .choices{position:relative!important;z-index:20!important;isolation:isolate!important}
+#homeView .choices>button.choice[data-view="classes"]{
+ position:relative!important;z-index:30!important;display:flex!important;
+ pointer-events:auto!important;touch-action:manipulation!important;cursor:pointer!important;
+}
+#homeView .choices>button.choice[data-view="classes"]::before,
+#homeView .choices>button.choice[data-view="classes"]::after{pointer-events:none!important}
+</style>
+<script id="lds-registration-card-click-recovery-js-20261017">
+(function(){
+  function wireRegistrationCard(){
+    const card=document.querySelector('#homeView .choices > button.choice[data-view="classes"]');
+    if(!card || card.dataset.ldsClickRecovery==='1') return;
+    card.dataset.ldsClickRecovery='1';
+    card.addEventListener('click',function(event){
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      const target=document.getElementById('classesView');
+      if(!target) return;
+      document.querySelectorAll('.view').forEach(function(view){view.classList.remove('active')});
+      target.classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    },true);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',wireRegistrationCard);
+  else wireRegistrationCard();
+})();
+</script>
+
 </body></html>
