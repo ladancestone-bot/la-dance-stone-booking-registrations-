@@ -17600,3 +17600,89 @@ html body #rentalView.view:not(#homeView) .availability-status-done{
 }
 </style>
 
+<style id="lds-availability-heading-centered-final-20261018">
+/* Center the rental availability introduction and make the small eyebrow readable. */
+html body #rentalView.view:not(#homeView) .availability-section .availability-heading{
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  text-align:center!important;width:100%!important;margin-left:auto!important;margin-right:auto!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section .availability-heading>div{
+  width:100%!important;max-width:760px!important;text-align:center!important;margin-left:auto!important;margin-right:auto!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section .availability-heading .eyebrow{
+  color:#f5d49c!important;font-size:clamp(13px,3.3vw,16px)!important;
+  font-weight:750!important;letter-spacing:.16em!important;line-height:1.5!important;
+  text-align:center!important;text-shadow:0 1px 8px rgba(32,15,12,.9)!important;
+  opacity:1!important;margin:0 auto 12px!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section .availability-heading h2{
+  width:100%!important;text-align:center!important;margin-left:auto!important;margin-right:auto!important;
+  text-wrap:balance!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section .availability-heading p{
+  max-width:680px!important;margin:15px auto 0!important;text-align:center!important;
+  font-size:clamp(15px,3.8vw,18px)!important;line-height:1.65!important;
+  color:#fffaf2!important;text-shadow:0 1px 8px rgba(28,13,11,.85)!important;
+}
+html body #rentalView.view:not(#homeView) .availability-heading>.availability-status-pill{
+  display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+  gap:10px!important;width:100%!important;max-width:100%!important;margin:24px auto 0!important;
+  padding:0!important;text-align:center!important;white-space:normal!important;
+  border:0!important;border-radius:0!important;background:transparent!important;
+  background-image:none!important;box-shadow:none!important;backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;overflow:visible!important;
+  color:#fffaf2!important;font-size:clamp(14px,3.8vw,17px)!important;
+  font-weight:600!important;line-height:1.5!important;text-shadow:0 1px 8px rgba(28,13,11,.9)!important;
+}
+html body #rentalView.view:not(#homeView) .availability-heading>.availability-status-pill::before,
+html body #rentalView.view:not(#homeView) .availability-heading>.availability-status-pill::after{
+  content:none!important;display:none!important;animation:none!important;
+}
+html body #rentalView.view:not(#homeView) .availability-status-icon{
+  width:72px!important;height:72px!important;flex:0 0 72px!important;
+  border:1px solid rgba(255,238,207,.8)!important;border-radius:50%!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  position:relative!important;color:#ffedcf!important;font-size:34px!important;
+  background:radial-gradient(circle,rgba(255,230,185,.13),rgba(61,29,27,.22))!important;
+  box-shadow:0 0 0 5px rgba(255,239,214,.08),inset 0 0 0 1px rgba(255,255,255,.18),0 0 22px rgba(255,201,128,.18)!important;
+}
+html body #rentalView.view:not(#homeView) .availability-status-refresh{
+  display:inline-block!important;animation:ldsStatusSpinOnce .9s cubic-bezier(.4,0,.2,1) 1 both!important;
+}
+html body #rentalView.view:not(#homeView) .availability-status-check{
+  position:absolute!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  color:#dcebc9!important;font-size:36px!important;font-weight:800!important;
+  opacity:0!important;transform:scale(.55)!important;animation:ldsStatusCheckStay .25s ease-out .9s 1 forwards!important;
+}
+html body #rentalView.view:not(#homeView) .availability-status-loading{
+  display:inline-block!important;animation:ldsStatusLoadingFade .25s ease-out 1.05s 1 forwards!important;
+}
+html body #rentalView.view:not(#homeView) .availability-status-done{
+  display:inline-block!important;opacity:0!important;max-width:0!important;overflow:hidden!important;
+  white-space:nowrap!important;animation:ldsStatusDoneStay .25s ease-out 1.05s 1 forwards!important;
+}
+@media(max-width:760px){
+ html body #rentalView.view:not(#homeView) .availability-section .availability-heading{
+  padding-left:4px!important;padding-right:4px!important;
+ }
+ html body #rentalView.view:not(#homeView) .availability-section .availability-heading .eyebrow{
+  font-size:13px!important;letter-spacing:.12em!important;margin-bottom:10px!important;
+ }
+ html body #rentalView.view:not(#homeView) .availability-section .availability-heading h2{
+  font-size:clamp(32px,8.8vw,42px)!important;line-height:1.06!important;
+ }
+ html body #rentalView.view:not(#homeView) .availability-section .availability-heading p{
+  font-size:15px!important;line-height:1.62!important;margin-top:13px!important;
+ }
+ html body #rentalView.view:not(#homeView) .availability-status-icon{
+  width:66px!important;height:66px!important;flex-basis:66px!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ html body #rentalView.view:not(#homeView) .availability-status-refresh{animation:none!important;opacity:0!important}
+ html body #rentalView.view:not(#homeView) .availability-status-check{animation:none!important;opacity:1!important;transform:none!important}
+ html body #rentalView.view:not(#homeView) .availability-status-loading{display:none!important}
+ html body #rentalView.view:not(#homeView) .availability-status-done{animation:none!important;opacity:1!important;max-width:240px!important}
+}
+</style>
+
