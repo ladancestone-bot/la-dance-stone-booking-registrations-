@@ -4230,7 +4230,43 @@ html body #rentalView.view:not(#homeView) .availability-section .cal-scroll.is-s
   </div>
 </div>
 </section>
-<section id="timetableView" class="view"><button class="back timetable-back" data-view="home"><span>←</span>Grįžti į pasirinkimą</button><div class="timetable-heading"><span class="timetable-eyebrow">LA DANCE STONE · SAVAITĖS PLANAS</span><h2>Šokiai. Tavo laikas.</h2><p>Peržiūrėkite savaitės užsiėmimus ir pasirinkite jums tinkamą pamoką. Palieskite spalvotą pamokos kortelę, jei norite registruotis.</p></div><div class="calendar-panel timetable-panel"><div class="cal-toolbar"><button id="prevWeek" aria-label="Ankstesnė savaitė">‹</button><div class="cal-title" id="calTitle">2026 m. spalio 12–18 d.</div><button id="nextWeek" aria-label="Kita savaitė">›</button></div><div class="cal-scroll"><div id="calendar" class="calendar"></div></div><div id="calendarAgenda" class="calendar-agenda"></div><div class="calendar-help"><div class="timetable-help-title">KAIP SKAITYTI TVARKARAŠTĮ</div><div class="timetable-legend"><span><i class="tt-legend-class"></i>Šokių pamoka · palieskite registracijai</span><span><i class="tt-legend-free"></i>Laisvas laikas</span><span><i class="tt-legend-rental"></i>Studijos nuoma</span></div><p class="timetable-sync-copy">Tvarkaraštis sinchronizuojamas su studijos užsiėmimų lentele. <span id="timetableSyncStatus" role="status">Gaunami naujausi duomenys…</span></p></div></div>
+<section id="timetableView" class="view"><button class="back timetable-back" data-view="home"><span>←</span>Grįžti į pasirinkimą</button><div class="timetable-heading"><span class="timetable-eyebrow">LA DANCE STONE · SAVAITĖS PLANAS</span><h2>Šokiai. Tavo laikas.</h2><p>Peržiūrėkite savaitės užsiėmimus ir pasirinkite jums tinkamą pamoką. Palieskite spalvotą pamokos kortelę, jei norite registruotis.</p></div><div class="class-week-preview timetable-class-week-preview">
+<div class="class-week-heading"><div><div class="eyebrow">Savaitės tvarkaraštis</div><h3>Pamokų laikai</h3><p>Trumpa savaitės apžvalga. Pasirinkite grupę žemiau.</p></div><span class="pill" id="timetableSyncStatus" role="status">Gaunami naujausi duomenys…</span></div>
+<div class="class-week-scroll class-week-calendar-scroll" aria-label="Savaitės tvarkaraštis. Slinkite lentelę į šoną, kad pamatytumėte visas savaitės dienas.">
+<div class="class-calendar-grid">
+<div class="class-calendar-corner">LAIKAS</div>
+<div class="class-calendar-dayhead">PIRMADIENIS</div><div class="class-calendar-dayhead">ANTRADIENIS</div><div class="class-calendar-dayhead">TREČIADIENIS</div><div class="class-calendar-dayhead">KETVIRTADIENIS</div><div class="class-calendar-dayhead">PENKTADIENIS</div><div class="class-calendar-dayhead">ŠEŠTADIENIS</div><div class="class-calendar-dayhead">SEKMADIENIS</div>
+<div class="class-calendar-time">16:00</div>
+<div class="class-calendar-slot booked"><strong>16:00–17:00</strong><span>Vaikai</span><small>7–12 m.</small></div>
+<div class="class-calendar-slot booked"><strong>16:00–17:00</strong><span>Vaikai</span><small>7–12 m.</small></div>
+<div class="class-calendar-slot booked"><strong>16:00–17:00</strong><span>Vaikai</span><small>7–12 m.</small></div>
+<div class="class-calendar-slot booked"><strong>16:00–17:00</strong><span>Vaikai</span><small>7–12 m.</small></div>
+<div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div>
+<div class="class-calendar-time">17:00</div>
+<div class="class-calendar-slot booked"><strong>17:00–18:00</strong><span>Paaugliai</span><small>13–18 m.</small></div>
+<div class="class-calendar-slot booked"><strong>17:00–18:00</strong><span>Paaugliai</span><small>13–18 m.</small></div>
+<div class="class-calendar-slot booked"><strong>17:00–18:00</strong><span>Paaugliai</span><small>13–18 m.</small></div>
+<div class="class-calendar-slot booked"><strong>17:00–18:00</strong><span>Paaugliai</span><small>13–18 m.</small></div>
+<div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div>
+<div class="class-calendar-time">18:00</div>
+<div class="class-calendar-slot free">Laisvas laikas</div>
+<div class="class-calendar-slot booked"><strong>18:00–18:45</strong><span>Vaikai</span><small>5–7 m.</small></div>
+<div class="class-calendar-slot free">Laisvas laikas</div>
+<div class="class-calendar-slot booked"><strong>18:00–18:45</strong><span>Vaikai</span><small>5–7 m.</small></div>
+<div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div>
+<div class="class-calendar-time">19:00</div>
+<div class="class-calendar-slot booked"><strong>19:15–20:00</strong><span>Suaugusieji</span></div>
+<div class="class-calendar-slot occupied"><strong>19:00–20:00</strong><span>UŽIMTA</span></div>
+<div class="class-calendar-slot booked"><strong>19:15–20:00</strong><span>Suaugusieji</span></div>
+<div class="class-calendar-slot occupied"><strong>19:00–20:00</strong><span>UŽIMTA</span></div>
+<div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div>
+<div class="class-calendar-slot booked"><strong>19:00–19:45</strong><span>Suaugusieji</span></div>
+<div class="class-calendar-time">20:00</div>
+<div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot occupied"><strong>20:00–21:00</strong><span>UŽIMTA</span></div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot occupied"><strong>19:00–21:00</strong><span>UŽIMTA</span></div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div>
+<div class="class-calendar-time">21:00</div>
+<div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div><div class="class-calendar-slot free">Laisvas laikas</div>
+</div></div><div class="timetable-sync-copy">Pamokų laikai atnaujinami pagal studijos tvarkaraščio duomenis.</div>
+</div>
 <div class="brand-footer">
   <div class="brand-footer-main">
     <div class="brand-footer-copy">
