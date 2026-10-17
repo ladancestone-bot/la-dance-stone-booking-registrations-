@@ -12509,6 +12509,67 @@ body:has(#timetableView.active)::before{
  }
 }
 
+
+/* Mobile timetable should remain a real weekly calendar grid, not a day-by-day agenda. */
+@media(max-width:760px){
+ #timetableView .timetable-panel .calendar-agenda{display:none!important}
+ #timetableView .timetable-panel .cal-scroll{
+  display:block!important;width:100%!important;max-width:100%!important;
+  height:auto!important;max-height:none!important;overflow-x:hidden!important;overflow-y:visible!important;
+  -webkit-overflow-scrolling:touch!important;
+ }
+ #timetableView .timetable-panel .calendar{
+  display:grid!important;width:100%!important;min-width:0!important;max-width:100%!important;
+  grid-template-columns:46px repeat(7,minmax(0,1fr))!important;
+  gap:0!important;box-sizing:border-box!important;
+  background:rgba(255,247,236,.025)!important;
+ }
+ #timetableView .timetable-panel .calendar .day{
+  position:sticky!important;top:0!important;z-index:4!important;
+  min-width:0!important;padding:7px 0 6px!important;text-align:center!important;
+  font-size:clamp(8px,2.25vw,10px)!important;line-height:1.15!important;
+  overflow:hidden!important;white-space:normal!important;
+ }
+ #timetableView .timetable-panel .calendar .day:first-child{
+  left:0!important;z-index:6!important;width:auto!important;
+ }
+ #timetableView .timetable-panel .calendar .day strong{
+  display:block!important;margin-top:4px!important;font-size:clamp(13px,3.8vw,17px)!important;line-height:1!important;
+ }
+ #timetableView .timetable-panel .calendar .time{
+  position:sticky!important;left:0!important;z-index:3!important;
+  width:auto!important;min-width:0!important;height:66px!important;box-sizing:border-box!important;
+  padding:6px 2px 0!important;text-align:center!important;white-space:normal!important;
+  font-size:clamp(7px,1.9vw,9px)!important;line-height:1.15!important;
+  background:rgba(84,56,57,.52)!important;color:#fff8ef!important;
+ }
+ #timetableView .timetable-panel .calendar .cell{
+  position:relative!important;min-width:0!important;width:auto!important;height:66px!important;
+  box-sizing:border-box!important;overflow:hidden!important;
+  background:rgba(255,248,239,.075)!important;border:1px solid rgba(255,249,240,.22)!important;
+ }
+ #timetableView .timetable-panel .calendar .event{
+  position:absolute!important;left:1px!important;right:1px!important;top:2px!important;
+  width:auto!important;max-width:calc(100% - 2px)!important;min-width:0!important;
+  min-height:0!important;height:calc(100% - 4px)!important;box-sizing:border-box!important;
+  overflow:hidden!important;padding:4px 2px!important;border-radius:6px!important;
+  white-space:normal!important;overflow-wrap:anywhere!important;word-break:normal!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.62),0 2px 5px rgba(35,14,22,.08)!important;
+ }
+ #timetableView .timetable-panel .calendar .event b{
+  display:block!important;font-size:clamp(5.5px,1.55vw,7px)!important;line-height:1.12!important;
+  overflow-wrap:anywhere!important;word-break:normal!important;
+ }
+ #timetableView .timetable-panel .calendar .event span{
+  display:block!important;margin-top:3px!important;font-size:clamp(5px,1.35vw,6.5px)!important;
+  line-height:1.1!important;overflow-wrap:anywhere!important;
+ }
+ #timetableView .timetable-panel .calendar-help{padding:13px 11px 15px!important}
+ #timetableView .timetable-panel .timetable-legend{gap:8px 10px!important;font-size:10px!important}
+ #timetableView .timetable-panel .calendar-help p{font-size:10px!important;line-height:1.5!important}
+}
+
 </style>
 
 </body></html>
