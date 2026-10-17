@@ -15878,4 +15878,88 @@ body::after{
 #classesView #classDetail #classDateOptions .class-date-option:has(input:checked) small{
   color:#fffaf5!important;
 }
+
+/* Registration form consistency: all age groups share the same glass treatment.
+   Keep the month label area transparent; the old white rectangle was the wrapper,
+   not the select itself. The selector stays soft rose glass with readable burgundy text. */
+#classesView #classDetail .class-date-picker,
+#classesView #classDetail .class-registration-panel,
+#classesView #classDetail .class-detail-aside{
+  background:linear-gradient(135deg,rgba(255,248,241,.075),rgba(255,248,241,.025) 56%,rgba(48,24,32,.07))!important;
+  background-color:rgba(255,248,241,.035)!important;
+  border-color:rgba(255,242,233,.48)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.20),0 8px 24px rgba(40,20,27,.055)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(118%)!important;
+  backdrop-filter:blur(26px) saturate(118%)!important;
+}
+#classesView #classDetail .class-date-toolbar{
+  display:grid!important;
+  gap:7px!important;
+  padding:0!important;
+  margin:0 0 12px!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+#classesView #classDetail .class-date-toolbar label{
+  display:block!important;
+  width:100%!important;
+  padding:0!important;
+  margin:0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  color:#fff4ec!important;
+  opacity:1!important;
+  text-shadow:0 1px 4px rgba(38,19,25,.30)!important;
+}
+#classesView #classDetail .class-date-toolbar select,
+#classesView #classDetail .class-date-toolbar input[type="month"]{
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:13px 15px!important;
+  border:1px solid rgba(255,242,235,.62)!important;
+  border-radius:14px!important;
+  background:linear-gradient(135deg,rgba(238,207,210,.25),rgba(204,157,170,.15))!important;
+  color:#fff8f1!important;
+  -webkit-text-fill-color:#fff8f1!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 4px 12px rgba(42,22,29,.05)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(115%)!important;
+  backdrop-filter:blur(22px) saturate(115%)!important;
+}
+#classesView #classDetail .class-date-toolbar select option{
+  background:#f3e5dc!important;
+  color:#482b32!important;
+}
+#classesView #classDetail #classDateOptions .class-date-option{
+  background:linear-gradient(135deg,rgba(255,248,241,.105),rgba(255,248,241,.035) 58%,rgba(55,29,37,.075))!important;
+  background-color:rgba(255,248,241,.045)!important;
+  border:1px solid rgba(255,248,241,.48)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.20),0 5px 16px rgba(40,20,27,.045)!important;
+  color:#fff8f1!important;
+  -webkit-backdrop-filter:blur(22px) saturate(118%)!important;
+  backdrop-filter:blur(22px) saturate(118%)!important;
+}
+#classesView #classDetail #classDateOptions .class-date-option strong,
+#classesView #classDetail #classDateOptions .class-date-option span,
+#classesView #classDetail #classDateOptions .class-date-option time,
+#classesView #classDetail #classDateOptions .class-date-option small{
+  color:#fff8f1!important;
+  opacity:1!important;
+  text-shadow:0 1px 5px rgba(38,19,25,.28)!important;
+}
+#classesView #classDetail #classDateOptions .class-date-option:has(input:checked){
+  background:linear-gradient(135deg,rgba(208,171,184,.19),rgba(118,67,85,.22))!important;
+  border-color:rgba(255,239,232,.78)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.27),0 0 0 1px rgba(205,158,174,.10)!important;
+}
+#classesView #classDetail #classDateOptions .class-date-option:has(input:checked) strong,
+#classesView #classDetail #classDateOptions .class-date-option:has(input:checked) span,
+#classesView #classDetail #classDateOptions .class-date-option:has(input:checked) time,
+#classesView #classDetail #classDateOptions .class-date-option:has(input:checked) small{
+  color:#fffaf5!important;
+}
+
 </style>
