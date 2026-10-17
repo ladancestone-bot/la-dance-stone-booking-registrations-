@@ -18781,3 +18781,54 @@ html body #classesView>button#classesBackToGroups.back.classes-back-to-groups>sp
  html body #classesView>button#classesBackToGroups.back.classes-back-to-groups{font-size:13px!important}
 }
 </style>
+
+<style id="lds-global-top-links-lower-and-adult-price-contrast-20261018">
+/* Lower the top navigation links slightly across views for consistent breathing room. */
+html body #rentalView .rental-back,
+html body #classesView>button#classesBackToGroups,
+html body #timetableView>button.timetable-back-link,
+html body #classesView #classDetail>button.class-detail-back{
+  margin-top:8px!important;
+}
+html body #homeView .home-site-link-row{padding-top:8px!important}
+html body #classesView>button#classesBackToGroups.back.classes-back-to-groups{
+  font-size:12px!important;font-weight:400!important;letter-spacing:.01em!important;
+}
+html body #classesView>button#classesBackToGroups.back.classes-back-to-groups>span{font-size:20px!important}
+@media(max-width:760px){
+ html body #classesView>button#classesBackToGroups.back.classes-back-to-groups{font-size:12px!important;margin-top:8px!important}
+ html body #classesView>button#classesBackToGroups.back.classes-back-to-groups>span{font-size:19px!important}
+}
+/* Adult subscription frequency tiles: use dark ink on their pale cream surfaces so 40/50/60 € remain readable. */
+html body #classesView #classDetail .class-option .adult-price-tiers{
+  display:flex!important;flex-wrap:wrap!important;gap:9px!important;margin-top:12px!important;
+}
+html body #classesView #classDetail .class-option .adult-price-tiers>span{
+  display:flex!important;flex-direction:column!important;justify-content:center!important;gap:5px!important;
+  min-width:88px!important;min-height:76px!important;box-sizing:border-box!important;padding:10px 12px!important;
+  border:1px solid rgba(255,246,233,.9)!important;border-radius:15px!important;
+  background:linear-gradient(145deg,#fff8ec,#ead9c8)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 3px 8px rgba(52,28,30,.08)!important;
+}
+html body #classesView #classDetail .class-option .adult-price-tiers>span>small{
+  color:#765047!important;font:600 11px/1.3 Montserrat,Arial,sans-serif!important;opacity:1!important;
+}
+html body #classesView #classDetail .class-option .adult-price-tiers>span>strong{
+  color:#59283a!important;font:700 21px/1.2 Montserrat,Arial,sans-serif!important;opacity:1!important;
+  text-shadow:none!important;
+}
+html body #classesView #classDetail .class-option:has(input:checked) .adult-price-tiers>span{
+  background:linear-gradient(145deg,#fff8ec,#ead9c8)!important;
+  border-color:rgba(255,246,233,.95)!important;
+}
+html body #classesView #classDetail .class-option:has(input:checked) .adult-price-tiers>span>small{color:#765047!important}
+html body #classesView #classDetail .class-option:has(input:checked) .adult-price-tiers>span>strong{color:#59283a!important}
+@media(max-width:760px){
+ html body #classesView #classDetail .class-option .adult-price-tiers{gap:7px!important}
+ html body #classesView #classDetail .class-option .adult-price-tiers>span{
+  min-width:0!important;min-height:70px!important;padding:9px 10px!important;flex:1 1 84px!important;
+ }
+ html body #classesView #classDetail .class-option .adult-price-tiers>span>small{font-size:10px!important}
+ html body #classesView #classDetail .class-option .adult-price-tiers>span>strong{font-size:19px!important}
+}
+</style>
