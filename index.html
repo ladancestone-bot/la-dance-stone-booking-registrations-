@@ -16629,23 +16629,23 @@ body::after{
 
 
 <style id="lds-home-carousel-manual-snap-fix-20261017">
-/* Compact arch cards with visible neighbors and a circular, swipe-only track. */
+/* Compact arch carousel: keep the active arch fully visible and preserve its proportions. */
 @media(max-width:760px){
   #homeView .choices{
     display:flex!important;flex-direction:row!important;align-items:stretch!important;justify-content:flex-start!important;
     gap:8px!important;width:calc(100% + 64px)!important;max-width:none!important;margin-left:-32px!important;
-    padding:24px calc((100vw - min(30vw,140px))/2) 28px!important;
-    overflow-x:auto!important;overflow-y:visible!important;box-sizing:border-box!important;
-    scroll-snap-type:x mandatory!important;scroll-padding-inline:calc((100vw - min(30vw,140px))/2)!important;
+    padding:90px calc((100vw - min(34vw,158px))/2) 44px!important;
+    overflow-x:auto!important;overflow-y:hidden!important;box-sizing:border-box!important;
+    scroll-snap-type:x mandatory!important;scroll-padding-inline:calc((100vw - min(34vw,158px))/2)!important;
     scroll-behavior:auto!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-x:contain!important;
-    touch-action:pan-x pan-y!important;scrollbar-width:none!important;perspective:1000px!important;transform-style:preserve-3d!important;
+    touch-action:pan-x pan-y!important;scrollbar-width:none!important;perspective:1200px!important;perspective-origin:50% 45%!important;transform-style:preserve-3d!important;
   }
   #homeView .choices::-webkit-scrollbar{display:none!important}
   #homeView .choices>.choice{
-    display:flex!important;flex:0 0 min(30vw,140px)!important;width:min(30vw,140px)!important;
+    display:flex!important;flex:0 0 min(34vw,158px)!important;width:min(34vw,158px)!important;
     min-width:0!important;max-width:none!important;scroll-snap-align:center!important;scroll-snap-stop:always!important;
     visibility:visible!important;opacity:1!important;
-    transform:perspective(620px) rotateY(var(--card-rotate,0deg)) scale(var(--card-scale,1)) translateZ(var(--card-depth,0px))!important;
+    transform:perspective(900px) rotateY(var(--card-rotate,0deg)) scale(var(--card-scale,1)) translateZ(var(--card-depth,0px))!important;
     transform-origin:center center!important;transition:transform 240ms ease,filter 240ms ease,opacity 240ms ease!important;
     backface-visibility:hidden!important;will-change:transform!important;
   }
@@ -16694,8 +16694,8 @@ body::after{
     const ratio=Math.max(-1.5,Math.min(1.5,delta/Math.max(1,cr.width))),abs=Math.min(1,Math.abs(ratio)),active=abs<.42;
     card.classList.toggle('is-center',active);card.classList.toggle('is-side',!active);
     card.style.setProperty('--card-rotate',(-ratio*28)+'deg');
-    card.style.setProperty('--card-scale',(active?1.1:Math.max(.72,1-abs*.28)).toFixed(3));
-    card.style.setProperty('--card-depth',(active?38:-34)+'px');
+    card.style.setProperty('--card-scale',(active?1:Math.max(.78,1-abs*.22)).toFixed(3));
+    card.style.setProperty('--card-depth',(active?0:-24)+'px');
     card.style.zIndex=String(6-Math.round(abs*3));
    });
   }
