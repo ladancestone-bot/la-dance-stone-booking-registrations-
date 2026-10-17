@@ -16656,6 +16656,14 @@ body::after{
   #homeView .choices{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;overflow:visible!important;scroll-snap-type:none!important}
   #homeView .choices>.choice[data-carousel-clone="1"]{display:none!important}
 }
+
+/* Keep all card content visually centered, including side cards. */
+@media(max-width:760px){
+ #homeView .choices>.choice,
+ #homeView .choices>.choice *{text-align:center!important;}
+ #homeView .choices>.choice{align-items:center!important;}
+ #homeView .choices>.choice .choice-action{justify-content:center!important;margin-inline:auto!important;}
+}
 </style>
 <style id="lds-approved-transparent-glass-arches-20261017">
 /* APPROVED VISUAL ONLY: transparent studio-visible liquid glass. No carousel or booking logic changes. */
