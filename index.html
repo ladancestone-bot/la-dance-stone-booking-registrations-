@@ -18136,3 +18136,21 @@ html body #rentalView.view:not(#homeView) .availability-section>.rental-reminder
 }
 </style>
 
+<style id="lds-last-reservation-time-no-wrap-20261018">
+/* Keep the full final-bookable time range together on one line on mobile and desktop. */
+html body #rentalView.view:not(#homeView) .availability-section > .rental-reminder-simple .notice-line .notice-time{
+  white-space:nowrap!important;
+  display:inline-block!important;
+  word-break:keep-all!important;
+  overflow-wrap:normal!important;
+  hyphens:none!important;
+  font-variant-numeric:tabular-nums!important;
+}
+@media(max-width:760px){
+  html body #rentalView.view:not(#homeView) .availability-section > .rental-reminder-simple .notice-line .notice-time{
+    font-size:.94em!important;
+    letter-spacing:-.025em!important;
+  }
+}
+</style>
+
