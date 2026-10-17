@@ -16389,4 +16389,27 @@ body::after{
 })();
 </script>
 
+
+<style id="lds-final-rental-card-photo-20261017">
+/* Use the user's uploaded real studio photo only on the existing rental arch card. */
+#homeView .choices .choice[data-view="rental"]::before{
+  background-image:
+    linear-gradient(180deg,rgba(36,17,24,.12) 0%,rgba(40,15,26,.22) 48%,rgba(17,7,16,.62) 100%),
+    url("https://raw.githubusercontent.com/ladancestone-bot/la-dance-stone-booking-registrations-/main/IMG_7125.jpeg")!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-position:center 54%!important;
+  opacity:.58!important;
+  mix-blend-mode:normal!important;
+}
+#homeView .choices .choice[data-view="rental"].is-center::before{
+  background-position:center 54%!important;
+  opacity:.66!important;
+}
+#homeView .choices .choice[data-view="rental"].is-side::before{
+  background-position:center 54%!important;
+  opacity:.48!important;
+}
+</style>
+
 </body></html>
