@@ -16258,6 +16258,88 @@ body::after{
   background-image:linear-gradient(135deg,rgba(236,208,216,.17),rgba(119,69,87,.12))!important;
   border-color:rgba(255,242,235,.76)!important;
 }
+
+
+/* FINAL OVERRIDE — true translucent glass for the four group-selection buttons.
+   Deliberately more specific than legacy .class-choices/.class-choices-four rules.
+   Only presentation changes; preserve existing button markup and openClassCard handlers. */
+#classesView .class-choices.class-choices-four > button.choice,
+#classesView .class-choices.class-choices-four > button.choice:nth-child(n){
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  background-color:rgba(69,24,39,.25)!important;
+  background-image:
+    linear-gradient(118deg,rgba(255,238,230,.25) 0%,rgba(170,104,123,.15) 32%,rgba(66,20,38,.22) 100%)!important;
+  color:#fff9f3!important;
+  border:1px solid rgba(255,242,231,.78)!important;
+  border-left:5px solid rgba(221,192,143,.94)!important;
+  border-radius:25px!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.48),
+    inset 0 -1px 0 rgba(255,255,255,.12),
+    0 12px 30px rgba(30,10,18,.20),
+    0 0 18px rgba(232,204,164,.10)!important;
+  -webkit-backdrop-filter:blur(28px) saturate(155%)!important;
+  backdrop-filter:blur(28px) saturate(155%)!important;
+}
+#classesView .class-choices.class-choices-four > button.choice::before{
+  content:""!important;
+  position:absolute!important;
+  inset:1px!important;
+  z-index:-1!important;
+  border-radius:inherit!important;
+  pointer-events:none!important;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.20),rgba(255,255,255,.045) 30%,transparent 58%,rgba(255,224,205,.07))!important;
+}
+#classesView .class-choices.class-choices-four > button.choice::after{
+  content:""!important;
+  position:absolute!important;
+  top:0!important;
+  left:10%!important;
+  right:10%!important;
+  height:1px!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,transparent,rgba(255,250,241,.88),transparent)!important;
+}
+#classesView .class-choices.class-choices-four > button.choice > .num{
+  color:#f3dcae!important;
+  text-shadow:0 1px 5px rgba(30,10,18,.36)!important;
+}
+#classesView .class-choices.class-choices-four > button.choice > h3{
+  color:#fffaf6!important;
+  text-shadow:0 2px 12px rgba(25,7,15,.30)!important;
+}
+#classesView .class-choices.class-choices-four > button.choice > p{
+  color:rgba(255,249,244,.98)!important;
+  text-shadow:0 1px 5px rgba(25,7,15,.30)!important;
+}
+#classesView .class-choices.class-choices-four > button.choice > .arrow{
+  background:linear-gradient(145deg,rgba(255,253,246,.97),rgba(236,220,199,.92))!important;
+  color:#542033!important;
+  border:1px solid rgba(255,255,255,.96)!important;
+  box-shadow:inset 0 1px 0 #fff,0 4px 14px rgba(20,7,13,.22)!important;
+}
+#classesView .class-choices.class-choices-four > button.choice:hover,
+#classesView .class-choices.class-choices-four > button.choice:focus-visible{
+  background-color:rgba(83,32,49,.31)!important;
+  background-image:linear-gradient(118deg,rgba(255,238,230,.30),rgba(170,104,123,.18) 32%,rgba(66,20,38,.27))!important;
+  border-color:rgba(255,248,237,.95)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.52),0 16px 34px rgba(30,10,18,.24),0 0 22px rgba(232,204,164,.15)!important;
+  transform:translateY(-2px)!important;
+}
+@media(max-width:760px){
+  #classesView .class-choices.class-choices-four > button.choice,
+  #classesView .class-choices.class-choices-four > button.choice:nth-child(n){
+    background-color:rgba(69,24,39,.25)!important;
+    background-image:linear-gradient(118deg,rgba(255,238,230,.25),rgba(170,104,123,.15) 32%,rgba(66,20,38,.22))!important;
+    -webkit-backdrop-filter:blur(28px) saturate(155%)!important;
+    backdrop-filter:blur(28px) saturate(155%)!important;
+    border-radius:23px!important;
+  }
+}
+
 </style>
 
 </body></html>
