@@ -13017,4 +13017,67 @@ body:has(#timetableView.active)::before{
 }
 </style>
 
+
+<style id="lds-timetable-lesson-contrast-final-20261017">
+/* Final visual correction from mobile review: keep the grid glass-clear, never blur lesson text. */
+#timetableView .timetable-panel .calendar .event{
+ -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+ filter:none!important;opacity:1!important;
+ text-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar .event .event-name,
+#timetableView .timetable-panel .calendar .event .event-audience{
+ display:block!important;visibility:visible!important;opacity:1!important;
+ font-weight:700!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event:not(.pink):not(.gold):not(.plum){
+ background:rgba(216,231,207,.94)!important;color:#29402e!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event:not(.pink):not(.gold):not(.plum) span,
+#timetableView .timetable-panel .calendar .event.class-event:not(.pink):not(.gold):not(.plum) b{
+ color:#29402e!important;-webkit-text-fill-color:#29402e!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event.pink{
+ background:rgba(242,199,216,.97)!important;color:#5b263c!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event.pink span,
+#timetableView .timetable-panel .calendar .event.class-event.pink b{
+ color:#5b263c!important;-webkit-text-fill-color:#5b263c!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event.gold{
+ background:rgba(244,219,174,.97)!important;color:#573b20!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event.gold span,
+#timetableView .timetable-panel .calendar .event.class-event.gold b{
+ color:#573b20!important;-webkit-text-fill-color:#573b20!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event.plum{
+ background:rgba(226,208,232,.97)!important;color:#49314f!important;
+}
+#timetableView .timetable-panel .calendar .event.class-event.plum span,
+#timetableView .timetable-panel .calendar .event.class-event.plum b{
+ color:#49314f!important;-webkit-text-fill-color:#49314f!important;
+}
+#timetableView .timetable-panel .calendar .event.occupied-event{
+ background:rgba(91,31,53,.98)!important;color:#fff8f1!important;
+ border:1px solid rgba(255,239,226,.82)!important;
+ border-left:3px solid #e5b5c0!important;
+}
+#timetableView .timetable-panel .calendar .event.occupied-event span,
+#timetableView .timetable-panel .calendar .event.occupied-event b{
+ color:#fff8f1!important;-webkit-text-fill-color:#fff8f1!important;
+}
+#timetableView .timetable-panel .calendar .event.rental-event{
+ background:rgba(244,222,184,.97)!important;color:#503822!important;
+}
+#timetableView .timetable-panel .calendar .event.rental-event span,
+#timetableView .timetable-panel .calendar .event.rental-event b{
+ color:#503822!important;-webkit-text-fill-color:#503822!important;
+}
+#timetableView .timetable-panel .calendar .cell{
+ background:transparent!important;background-image:none!important;
+ border-color:rgba(255,248,237,.13)!important;box-shadow:none!important;
+}
+</style>
+
 </body></html>
