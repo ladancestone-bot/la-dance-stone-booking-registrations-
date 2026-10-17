@@ -14183,4 +14183,35 @@ body::after{
 }
 </style>
 
+
+<style id="lds-registration-card-navigation-capture-fix-20261017-css">
+/* Keep the real registration card above visual carousel duplicates. */
+#homeView .choices>.choice:not([data-carousel-clone="1"]){position:relative;z-index:5;touch-action:manipulation}
+#homeView .choices>.choice[data-carousel-clone="1"]{pointer-events:none!important;visibility:hidden!important}
+</style>
+<script id="lds-registration-card-navigation-capture-fix-20261017-js">
+/* Capture the registration-card tap before carousel or other handlers can swallow it. */
+(function(){
+ function openRegistrationCard(event){
+   var card=event.target&&event.target.closest&&event.target.closest('#homeView .choices>.choice[data-view="classes"]');
+   if(!card||card.dataset.carouselClone==='1')return;
+   event.preventDefault();
+   event.stopPropagation();
+   if(typeof event.stopImmediatePropagation==='function')event.stopImmediatePropagation();
+   var home=document.getElementById('homeView');
+   var classes=document.getElementById('classesView');
+   if(!home||!classes)return;
+   document.querySelectorAll('.view').forEach(function(view){view.classList.remove('active');});
+   classes.classList.add('active');
+   window.scrollTo({top:0,behavior:'auto'});
+ }
+ document.addEventListener('click',openRegistrationCard,true);
+ document.addEventListener('pointerup',function(event){
+   var card=event.target&&event.target.closest&&event.target.closest('#homeView .choices>.choice[data-view="classes"]');
+   if(!card||card.dataset.carouselClone==='1')return;
+   /* Let the normal click event perform navigation; this listener is intentionally non-mutating. */
+ },true);
+})();
+</script>
+
 </body></html>
