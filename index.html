@@ -4285,7 +4285,7 @@ html body #rentalView.view:not(#homeView) .availability-section .cal-scroll.is-s
 </div>
 </section>
 <section id="timetableView" class="view"><button type="button" class="timetable-back-link" data-view="home" aria-label="Grįžti į pasirinkimą"><span aria-hidden="true">←</span><span class="timetable-back-label">Grįžti į pasirinkimą</span></button><div class="class-week-preview timetable-class-week-preview">
-<div class="class-week-heading"><div><div class="eyebrow">Savaitės tvarkaraštis</div><h3>Pamokų laikai</h3><p>Trumpa savaitės apžvalga. Pasirinkite grupę žemiau.</p></div><span class="pill" id="timetableSyncStatus" role="status">Gaunami naujausi duomenys…</span></div>
+<div class="class-week-heading"><div><div class="eyebrow">Savaitės tvarkaraštis</div><h3>Pamokų laikai</h3></div><span class="pill" id="timetableSyncStatus" role="status">Gaunami naujausi duomenys…</span></div>
 <div class="class-week-scroll class-week-calendar-scroll" aria-label="Savaitės tvarkaraštis. Slinkite lentelę į šoną, kad pamatytumėte visas savaitės dienas.">
 <div class="class-calendar-grid">
 <div class="class-calendar-corner">LAIKAS</div>
@@ -18747,5 +18747,37 @@ html body #timetableView button.timetable-back-link span::after{content:none!imp
  html body #timetableView button.timetable-back-link>span,
  html body #timetableView button.timetable-back-link .timetable-back-label{font-size:13px!important}
  html body #timetableView button.timetable-back-link>span:first-child{font-size:21px!important}
+}
+</style>
+
+<style id="lds-timetable-centered-heading-registration-back-font-20261018">
+/* Timetable: center the existing heading and remove only the explanatory sentence. */
+html body #timetableView .timetable-class-week-preview .class-week-heading{
+  display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+  gap:12px!important;text-align:center!important;
+}
+html body #timetableView .timetable-class-week-preview .class-week-heading>div{
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  width:100%!important;max-width:100%!important;text-align:center!important;
+}
+html body #timetableView .timetable-class-week-preview .class-week-heading .eyebrow,
+html body #timetableView .timetable-class-week-preview .class-week-heading h3{
+  width:100%!important;text-align:center!important;
+}
+html body #timetableView .timetable-class-week-preview .class-week-heading #timetableSyncStatus{
+  align-self:center!important;margin:0 auto!important;
+}
+/* Registration page's first/back button: match the light, thin text treatment used on rental. */
+html body #classesView>button#classesBackToGroups.back.classes-back-to-groups{
+  font-family:Montserrat,Arial,sans-serif!important;font-size:14px!important;font-weight:400!important;
+  letter-spacing:.01em!important;line-height:1.4!important;text-transform:none!important;
+  color:#fff0df!important;
+}
+html body #classesView>button#classesBackToGroups.back.classes-back-to-groups>span{
+  font-family:Montserrat,Arial,sans-serif!important;font-weight:300!important;
+}
+@media(max-width:760px){
+ html body #timetableView .timetable-class-week-preview .class-week-heading{gap:10px!important}
+ html body #classesView>button#classesBackToGroups.back.classes-back-to-groups{font-size:13px!important}
 }
 </style>
