@@ -16656,6 +16656,14 @@ body::after{
   #homeView .choices{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;overflow:visible!important;scroll-snap-type:none!important}
   #homeView .choices>.choice[data-carousel-clone="1"]{display:none!important}
 }
+
+/* Keep all card content visually centered, including side cards. */
+@media(max-width:760px){
+ #homeView .choices>.choice,
+ #homeView .choices>.choice *{text-align:center!important;}
+ #homeView .choices>.choice{align-items:center!important;}
+ #homeView .choices>.choice .choice-action{justify-content:center!important;margin-inline:auto!important;}
+}
 </style>
 <script id="lds-home-carousel-manual-snap-controller-20261017">
 /* Circular swipe-only carousel. Two edge cards on each side prevent the track ever looking empty. */
@@ -16694,7 +16702,7 @@ body::after{
     const ratio=Math.max(-1.5,Math.min(1.5,delta/Math.max(1,cr.width))),abs=Math.min(1,Math.abs(ratio)),active=abs<.42;
     card.classList.toggle('is-center',active);card.classList.toggle('is-side',!active);
     card.style.setProperty('--card-rotate',(-ratio*28)+'deg');
-    card.style.setProperty('--card-scale',(active?1:Math.max(.78,1-abs*.22)).toFixed(3));
+    card.style.setProperty('--card-scale',(active?1:Math.max(.66,1-abs*.34)).toFixed(3));
     card.style.setProperty('--card-depth',(active?0:-24)+'px');
     card.style.zIndex=String(6-Math.round(abs*3));
    });
