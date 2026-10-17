@@ -16620,78 +16620,84 @@ body::after{
 }
 </style>
 <script id="lds-home-carousel-loop-20261017">
-/* Lightweight mobile-only infinite carousel. Desktop keeps exactly the original three cards. */
+/* Stable infinite carousel: cloned cards exist on BOTH ends, so the track never runs into empty space. */
 (function(){
  function init(){
   const home=document.querySelector('#homeView'),track=home&&home.querySelector('.choices');
   if(!track||track.dataset.ldsLoopReady==='1')return;
   track.dataset.ldsLoopReady='1';
-  const isMobile=()=>window.matchMedia('(max-width:760px)').matches;
-  let timer=null,pauseTimer=null,paused=false,updateFrame=0,clonesReady=false;
-  const originals=()=>Array.from(track.querySelectorAll(':scope > .choice:not([data-loop-clone="1"])'));
-  const allCards=()=>Array.from(track.querySelectorAll(':scope > .choice'));
-  function setupClones(){
-   if(!isMobile()||clonesReady)return;
-   const base=originals();
-   base.forEach((card,index)=>{
-    const clone=card.cloneNode(true);
-    clone.dataset.loopClone='1';clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;
-    clone.querySelectorAll('a,button,input,select,textarea,[tabindex]').forEach(el=>el.tabIndex=-1);
-    clone.addEventListener('click',()=>{const real=base[index];if(real)real.click()});
-    track.appendChild(clone);
-   });
-   clonesReady=true;
-   requestAnimationFrame(()=>{const first=base[0];if(first)track.scrollLeft=first.offsetLeft-track.offsetLeft;updateState()});
+  const mobile=()=>window.matchMedia('(max-width:760px)').matches;
+  let timer=null,pauseTimer=null,paused=false,frame=0,ready=false,resetting=false,scrollTimer=null;
+  const originals=()=>Array.from(track.querySelectorAll(':scope > .choice:not([data-loop-clone])'));
+  const all=()=>Array.from(track.querySelectorAll(':scope > .choice'));
+  function makeClone(card,index,side){
+   const clone=card.cloneNode(true);
+   clone.dataset.loopClone=side;clone.dataset.loopIndex=String(index);
+   clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;
+   clone.querySelectorAll('a,button,input,select,textarea,[tabindex]').forEach(el=>el.tabIndex=-1);
+   clone.addEventListener('click',()=>{if(side==='append'){const real=originals()[index];if(real)real.click()}});
+   return clone;
   }
-  function updateState(){
-   updateFrame=0;
-   const cards=allCards();if(!cards.length)return;
+  function setup(){
+   if(!mobile()||ready)return;
+   const base=originals();if(base.length<2)return;
+   const before=document.createDocumentFragment(),after=document.createDocumentFragment();
+   base.forEach((card,i)=>before.appendChild(makeClone(card,i,'prepend')));
+   base.forEach((card,i)=>after.appendChild(makeClone(card,i,'append')));
+   track.insertBefore(before,base[0]);track.appendChild(after);
+   ready=true;
+   requestAnimationFrame(()=>{const first=base[0];if(first){track.scrollLeft=first.offsetLeft-track.offsetLeft;update()}});
+  }
+  function nearest(){
+   const cards=all();if(!cards.length)return null;
    const target=track.scrollLeft+track.clientWidth/2;
-   let current=cards[0],min=Infinity;
-   cards.forEach(card=>{const d=Math.abs(card.offsetLeft+card.offsetWidth/2-target);if(d<min){min=d;current=card}});
-   cards.forEach(card=>{card.classList.toggle('is-center',card===current);card.classList.toggle('is-side',card!==current)});
+   let result=cards[0],min=Infinity;
+   for(const card of cards){const d=Math.abs(card.offsetLeft+card.offsetWidth/2-target);if(d<min){min=d;result=card}}
+   return result;
   }
-  function scheduleUpdate(){if(!updateFrame)updateFrame=requestAnimationFrame(updateState)}
+  function update(){
+   frame=0;const current=nearest();
+   all().forEach(card=>{card.classList.toggle('is-center',card===current);card.classList.toggle('is-side',card!==current)});
+  }
+  function schedule(){if(!frame)frame=requestAnimationFrame(update)}
   function normalize(){
-   if(!isMobile()||!clonesReady)return;
-   const base=originals(),dupes=Array.from(track.querySelectorAll(':scope > .choice[data-loop-clone="1"]'));
-   const target=track.scrollLeft+track.clientWidth/2;
-   let current=null,min=Infinity;
-   allCards().forEach(card=>{const d=Math.abs(card.offsetLeft+card.offsetWidth/2-target);if(d<min){min=d;current=card}});
-   if(!current||current.dataset.loopClone!=='1')return;
-   const idx=dupes.indexOf(current),real=base[idx];if(!real)return;
-   track.scrollLeft += real.offsetLeft-current.offsetLeft;
-   scheduleUpdate();
+   if(!ready||!mobile())return;
+   const card=nearest();if(!card)return;
+   if(card.dataset.loopClone){
+    const index=Number(card.dataset.loopIndex),base=originals()[index];if(!base)return;
+    resetting=true;
+    track.scrollLeft+=base.offsetLeft-card.offsetLeft;
+    resetting=false;
+   }
+   schedule();
   }
   function advance(){
-   if(!isMobile()||!home.classList.contains('active')||document.hidden||paused)return;
-   setupClones();
-   const cards=allCards(),target=track.scrollLeft+track.clientWidth/2;
-   let current=cards[0],min=Infinity;
-   cards.forEach(card=>{const d=Math.abs(card.offsetLeft+card.offsetWidth/2-target);if(d<min){min=d;current=card}});
-   const next=cards[(cards.indexOf(current)+1)%cards.length];
+   if(!mobile()||!home.classList.contains('active')||document.hidden||paused)return;
+   setup();const current=nearest();if(!current)return;
+   const cards=all(),next=cards[(cards.indexOf(current)+1)%cards.length];
    if(!next)return;
    track.scrollTo({left:next.offsetLeft+next.offsetWidth/2-track.clientWidth/2,behavior:'smooth'});
-   setTimeout(normalize,650);
+   clearTimeout(scrollTimer);scrollTimer=setTimeout(normalize,750);
   }
-  function restart(){clearInterval(timer);timer=null;if(isMobile()&&!document.hidden){setupClones();timer=setInterval(advance,4200)}}
+  function restart(){clearInterval(timer);timer=null;if(mobile()&&!document.hidden){setup();timer=setInterval(advance,4200)}}
   function pause(){paused=true;clearInterval(timer);clearTimeout(pauseTimer);pauseTimer=setTimeout(()=>{paused=false;restart()},5000)}
   track.addEventListener('pointerdown',pause,{passive:true});
   track.addEventListener('touchstart',pause,{passive:true});
-  track.addEventListener('scroll',scheduleUpdate,{passive:true});
-  track.addEventListener('scrollend',normalize);
   track.addEventListener('focusin',pause);
+  track.addEventListener('scroll',()=>{if(!resetting)schedule()},{passive:true});
+  track.addEventListener('scrollend',normalize);
   document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(timer);else restart()});
   window.addEventListener('resize',()=>{
-   if(!isMobile()){
-    clearInterval(timer);
-    track.querySelectorAll(':scope > .choice[data-loop-clone="1"]').forEach(el=>el.remove());
-    clonesReady=false;
-   }else setupClones();
-   scheduleUpdate();restart();
+   clearInterval(timer);
+   if(!mobile()&&ready){
+    all().filter(card=>card.dataset.loopClone).forEach(card=>card.remove());
+    ready=false;
+   }
+   if(mobile())setup();
+   schedule();restart();
   },{passive:true});
-  if(isMobile())setupClones();
-  scheduleUpdate();restart();
+  if(mobile())setup();
+  schedule();restart();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
@@ -16816,5 +16822,12 @@ body::after{
 @media(max-width:760px){
  #homeView .choices{scroll-behavior:auto!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;overscroll-behavior-x:contain!important;touch-action:pan-x pan-y!important}
  #homeView .choices>.choice{flex:0 0 min(72vw,300px)!important;scroll-snap-align:center!important;scroll-snap-stop:normal!important}
+}
+</style>
+
+<style id="lds-carousel-stable-track-20261017">
+@media(max-width:760px){
+ #homeView .choices{scroll-behavior:auto!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;overscroll-behavior-x:contain!important}
+ #homeView .choices>.choice{flex:0 0 min(72vw,300px)!important;width:min(72vw,300px)!important;scroll-snap-align:center!important;scroll-snap-stop:normal!important}
 }
 </style>
