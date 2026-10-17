@@ -14411,4 +14411,35 @@ body::after{
 }
 </style>
 
+
+<style id="lds-weekly-no-sticky-overlap-final-20261017">
+/* Final iPhone fix: remove sticky positioning inside the horizontally scrolling CSS grid.
+   Sticky grid items were painting over adjacent columns in iOS Safari. All columns now scroll as one table. */
+@media(max-width:760px){
+  #classOverview .class-week-calendar-scroll{
+    position:relative!important;isolation:auto!important;contain:none!important;
+    overflow-x:auto!important;overflow-y:hidden!important;
+  }
+  #classOverview .class-calendar-grid{position:static!important;gap:3px!important}
+  #classOverview .class-calendar-corner,
+  #classOverview .class-calendar-dayhead,
+  #classOverview .class-calendar-time{
+    position:relative!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+    transform:none!important;z-index:1!important;opacity:1!important;filter:none!important;
+    -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  }
+  #classOverview .class-calendar-corner{
+    background:#4b3028!important;background-image:linear-gradient(145deg,#735244,#4b3028)!important;
+    box-shadow:none!important;
+  }
+  #classOverview .class-calendar-time{
+    background:#705044!important;background-image:linear-gradient(145deg,#846452,#624438)!important;
+    color:#fff7ec!important;box-shadow:none!important;
+  }
+  #classOverview .class-calendar-dayhead{
+    background:#6b4b3d!important;background-image:linear-gradient(145deg,#866553,#614336)!important;
+  }
+}
+</style>
+
 </body></html>
