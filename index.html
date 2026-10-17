@@ -17901,3 +17901,45 @@ html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .
 }
 </style>
 
+<style id="lds-calendar-legend-no-divider-tight-gap-20261018">
+/* Legend title and chips should sit together; remove the divider line between chips and hint. */
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help{
+  margin-top:0!important;
+  padding-top:14px!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help:before{
+  margin:0 0 8px!important;
+  padding:0!important;
+  line-height:1.35!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .availability-legend{
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-top:0!important;
+  border-bottom:0!important;
+  box-shadow:none!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .availability-legend::before,
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .availability-legend::after{
+  content:none!important;display:none!important;border:0!important;box-shadow:none!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .availability-legend>span{
+  margin:0!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help p#selectionHint{
+  margin-top:14px!important;
+}
+@media(max-width:760px){
+  html body #rentalView.view:not(#homeView) .availability-section>.calendar-help{
+    margin-top:0!important;padding-top:12px!important;
+  }
+  html body #rentalView.view:not(#homeView) .availability-section>.calendar-help:before{
+    margin-bottom:7px!important;
+  }
+  html body #rentalView.view:not(#homeView) .availability-section>.calendar-help p#selectionHint{
+    margin-top:12px!important;
+  }
+}
+</style>
+
