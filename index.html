@@ -4116,7 +4116,7 @@ body::after{
 </div>
 </section>
 <section id="classesView" class="view">
-<button class="back" data-view="home"><span>←</span>GRĮŽTI Į PASIRINKIMĄ</button>
+<button class="back classes-back-to-groups" id="classesBackToGroups" type="button"><span>←</span>GRĮŽTI Į PASIRINKIMĄ</button>
 <div id="classOverview">
 <div class="viewhead"><div><p>Peržiūrėkite savaitės tvarkaraštį ir žemiau pasirinkite savo grupę.</p></div><span class="pill">Vaikams · paaugliams · suaugusiesiems</span></div>
 <div class="class-week-preview">
@@ -4222,6 +4222,7 @@ body::after{
 const $=id=>document.getElementById(id);
 function showView(name){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));$(name+'View').classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
 let classReturnView="home";const classContextBack=$("classContextBack");if(classContextBack)classContextBack.addEventListener("click",()=>showView(classReturnView));
+const classesBackToGroups=$("classesBackToGroups");if(classesBackToGroups)classesBackToGroups.addEventListener("click",()=>{if($('classDetail')&&!$('classDetail').hidden){$('classDetail').hidden=true;$('classDetail').style.display='none';$('classOverview').style.display='block';showView('classes');$('classOverview').scrollIntoView({behavior:'smooth',block:'start'});}else{showView('home');}});
 document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
 const groups={
 kids57:{title:'Šiuolaikinis šokis · 5–7 m.',desc:'Vaikų grupė antradieniais ir ketvirtadieniais. Galite rinktis abonementą arba vienkartinę pamoką.',options:['5–7 m. · Antradieniais ir ketvirtadieniais · 18:00–18:45'],schedule:[['Vaikai · 5–7 m.','Antradieniais ir ketvirtadieniais','18:00–18:45']]},
