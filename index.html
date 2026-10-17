@@ -16629,23 +16629,23 @@ body::after{
 
 
 <style id="lds-home-carousel-manual-snap-fix-20261017">
-/* Mobile carousel: centered hero card, clearly visible side cards, strong 3D. */
+/* Compact arch cards with visible neighbors and a circular, swipe-only track. */
 @media(max-width:760px){
   #homeView .choices{
     display:flex!important;flex-direction:row!important;align-items:stretch!important;justify-content:flex-start!important;
-    gap:10px!important;width:calc(100% + 56px)!important;max-width:none!important;margin-left:-28px!important;
-    padding:24px calc((100vw - min(49vw,220px))/2) 28px!important;
+    gap:8px!important;width:calc(100% + 64px)!important;max-width:none!important;margin-left:-32px!important;
+    padding:24px calc((100vw - min(30vw,140px))/2) 28px!important;
     overflow-x:auto!important;overflow-y:visible!important;box-sizing:border-box!important;
-    scroll-snap-type:x mandatory!important;scroll-padding-inline:calc((100vw - min(49vw,220px))/2)!important;
+    scroll-snap-type:x mandatory!important;scroll-padding-inline:calc((100vw - min(30vw,140px))/2)!important;
     scroll-behavior:auto!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-x:contain!important;
     touch-action:pan-x pan-y!important;scrollbar-width:none!important;perspective:1000px!important;transform-style:preserve-3d!important;
   }
   #homeView .choices::-webkit-scrollbar{display:none!important}
   #homeView .choices>.choice{
-    display:flex!important;flex:0 0 min(49vw,220px)!important;width:min(49vw,220px)!important;
+    display:flex!important;flex:0 0 min(30vw,140px)!important;width:min(30vw,140px)!important;
     min-width:0!important;max-width:none!important;scroll-snap-align:center!important;scroll-snap-stop:always!important;
     visibility:visible!important;opacity:1!important;
-    transform:perspective(680px) rotateY(var(--card-rotate,0deg)) scale(var(--card-scale,1)) translateZ(var(--card-depth,0px))!important;
+    transform:perspective(620px) rotateY(var(--card-rotate,0deg)) scale(var(--card-scale,1)) translateZ(var(--card-depth,0px))!important;
     transform-origin:center center!important;transition:transform 240ms ease,filter 240ms ease,opacity 240ms ease!important;
     backface-visibility:hidden!important;will-change:transform!important;
   }
@@ -16658,7 +16658,7 @@ body::after{
 }
 </style>
 <script id="lds-home-carousel-manual-snap-controller-20261017">
-/* Swipe-only infinite carousel: center one card, then wrap clones instantly after settling. */
+/* Circular swipe-only carousel. Two edge cards on each side prevent the track ever looking empty. */
 (function(){
  function init(){
   const home=document.getElementById('homeView'),rail=home&&home.querySelector('.choices');
@@ -16675,14 +16675,15 @@ body::after{
    return clone;
   }
   if(!rail.querySelector(':scope > .choice[data-carousel-clone="1"]')){
-   rail.insertBefore(cloneCard(originals[originals.length-1],'before'),originals[0]);
-   rail.appendChild(cloneCard(originals[0],'after'));
+   const before=originals.slice(-2);
+   before.forEach(card=>rail.insertBefore(cloneCard(card,'before'),rail.querySelector(':scope > .choice:not([data-carousel-clone="1"])')));
+   originals.slice(0,2).forEach(card=>rail.appendChild(cloneCard(card,'after')));
   }
   const cards=()=>Array.from(rail.querySelectorAll(':scope > .choice'));
   function centerCard(card){
    if(!card)return;
    const rr=rail.getBoundingClientRect(),cr=card.getBoundingClientRect();
-   rail.scrollLeft += (cr.left+cr.width/2)-(rr.left+rr.width/2);
+   rail.scrollLeft+=(cr.left+cr.width/2)-(rr.left+rr.width/2);
   }
   function update(){
    frame=0;
@@ -16690,12 +16691,12 @@ body::after{
    const rr=rail.getBoundingClientRect(),center=rr.left+rr.width/2;
    cards().forEach(card=>{
     const cr=card.getBoundingClientRect(),delta=cr.left+cr.width/2-center;
-    const ratio=Math.max(-1.45,Math.min(1.45,delta/Math.max(1,cr.width))),abs=Math.min(1,Math.abs(ratio)),active=abs<.4;
+    const ratio=Math.max(-1.5,Math.min(1.5,delta/Math.max(1,cr.width))),abs=Math.min(1,Math.abs(ratio)),active=abs<.42;
     card.classList.toggle('is-center',active);card.classList.toggle('is-side',!active);
-    card.style.setProperty('--card-rotate',(-ratio*30)+'deg');
-    card.style.setProperty('--card-scale',(1-abs*.2).toFixed(3));
-    card.style.setProperty('--card-depth',(active?34:-32)+'px');
-    card.style.zIndex=String(5-Math.round(abs*3));
+    card.style.setProperty('--card-rotate',(-ratio*28)+'deg');
+    card.style.setProperty('--card-scale',(active?1.1:Math.max(.72,1-abs*.28)).toFixed(3));
+    card.style.setProperty('--card-depth',(active?38:-34)+'px');
+    card.style.zIndex=String(6-Math.round(abs*3));
    });
   }
   function schedule(){if(!frame)frame=requestAnimationFrame(update)}
@@ -16705,13 +16706,13 @@ body::after{
    const all=cards();let nearest=null,d=Infinity;
    all.forEach(c=>{const r=c.getBoundingClientRect(),dist=Math.abs(r.left+r.width/2-center);if(dist<d){d=dist;nearest=c}});
    if(nearest&&nearest.dataset.carouselClone==='1'){
-    const edge=nearest.dataset.carouselEdge;
-    const target=edge==='before'?originals[originals.length-1]:originals[0];
+    const target=originals.find(c=>c.dataset.view===nearest.dataset.view);
+    if(!target)return;
     wrapping=true;centerCard(target);schedule();
     requestAnimationFrame(()=>{wrapping=false;schedule()});
    }
   }
-  function onScroll(){schedule();clearTimeout(settleTimer);settleTimer=setTimeout(wrapIfNeeded,75)}
+  function onScroll(){schedule();clearTimeout(settleTimer);settleTimer=setTimeout(wrapIfNeeded,60)}
   rail.addEventListener('scroll',onScroll,{passive:true});
   rail.addEventListener('scrollend',wrapIfNeeded,{passive:true});
   window.addEventListener('resize',()=>{if(isMobile())centerCard(originals[1]);schedule()},{passive:true});
