@@ -13318,4 +13318,42 @@ body:has(#timetableView.active)::before{
 }
 </style>
 
+
+<style id="lds-timetable-separate-calendar-and-legend-cards-20261017">
+/* Separate the calendar module from the explanatory legend below; keep the intro card intact. */
+#timetableView .timetable-panel{
+ overflow:visible!important;
+ background:transparent!important;
+ border:0!important;
+ box-shadow:none!important;
+ -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+#timetableView .timetable-panel .cal-toolbar,
+#timetableView .timetable-panel .cal-scroll,
+#timetableView .timetable-panel .calendar-agenda{
+ border:1px solid rgba(255,242,226,.56)!important;
+ box-shadow:0 10px 28px rgba(34,17,19,.12),inset 0 1px 0 rgba(255,255,255,.20)!important;
+}
+#timetableView .timetable-panel .cal-toolbar{
+ border-radius:22px 22px 0 0!important;
+}
+#timetableView .timetable-panel .cal-scroll{
+ border-top:0!important;
+ border-radius:0 0 22px 22px!important;
+ overflow:auto!important;
+}
+#timetableView .timetable-panel .calendar-help{
+ margin-top:22px!important;
+ border:1px solid rgba(255,242,226,.56)!important;
+ border-radius:22px!important;
+ background:linear-gradient(135deg,rgba(255,247,236,.17),rgba(68,42,38,.22))!important;
+ box-shadow:0 12px 28px rgba(34,17,19,.14),inset 0 1px 0 rgba(255,255,255,.22)!important;
+}
+@media(max-width:760px){
+ #timetableView .timetable-panel .cal-toolbar{border-radius:20px 20px 0 0!important}
+ #timetableView .timetable-panel .cal-scroll{border-radius:0 0 20px 20px!important}
+ #timetableView .timetable-panel .calendar-help{margin-top:18px!important;border-radius:20px!important;padding:18px 15px 20px!important}
+}
+</style>
+
 </body></html>
