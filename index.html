@@ -17787,3 +17787,31 @@ html body #rentalView.view:not(#homeView) .availability-section>.calendar-help p
 }
 </style>
 
+<style id="lds-calendar-legend-heading-spacing-fix-20261018">
+/* Keep the separate legend heading below the calendar, never overlaid on its final row. */
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help{
+  clear:both!important;
+  margin-top:34px!important;
+  position:relative!important;
+  z-index:2!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help:before{
+  position:relative!important;
+  display:block!important;
+  margin:0 0 18px!important;
+  padding:0!important;
+  transform:none!important;
+  top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;
+  line-height:1.5!important;
+}
+@media(max-width:760px){
+  html body #rentalView.view:not(#homeView) .availability-section>.calendar-help{
+    margin-top:30px!important;
+  }
+  html body #rentalView.view:not(#homeView) .availability-section>.calendar-help:before{
+    margin-bottom:16px!important;
+    line-height:1.55!important;
+  }
+}
+</style>
+
