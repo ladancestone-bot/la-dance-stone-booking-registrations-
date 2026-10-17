@@ -16642,12 +16642,12 @@ body::after{
     width:calc(100% + 34px)!important;
     max-width:none!important;
     margin-left:-17px!important;
-    padding:14px max(11vw, calc((100vw - min(78vw,330px))/2)) 22px!important;
+    padding:14px max(11vw, calc((100vw - min(68vw,290px))/2)) 22px!important;
     overflow-x:auto!important;
     overflow-y:hidden!important;
     box-sizing:border-box!important;
     scroll-snap-type:x mandatory!important;
-    scroll-padding-inline:max(11vw, calc((100vw - min(78vw,330px))/2))!important;
+    scroll-padding-inline:max(16vw, calc((100vw - min(68vw,290px))/2))!important;
     scroll-behavior:smooth!important;
     -webkit-overflow-scrolling:touch!important;
     overscroll-behavior-x:contain!important;
@@ -16732,8 +16732,8 @@ body::after{
         card.classList.toggle('is-center',active);
         card.classList.toggle('is-side',!active);
         /* A strong center/side contrast creates the 3D product-carousel look. */
-        card.style.setProperty('--card-rotate',(-ratio*19)+'deg');
-        card.style.setProperty('--card-scale',(1-abs*.19).toFixed(3));
+        card.style.setProperty('--card-rotate',(-ratio*18)+'deg');
+        card.style.setProperty('--card-scale',(1-abs*.18).toFixed(3));
         card.style.setProperty('--card-depth',(active?18:-18)+'px');
         card.style.setProperty('--card-lift',(active?8:12)+'px');
         card.style.zIndex=String(3-Math.round(abs));
