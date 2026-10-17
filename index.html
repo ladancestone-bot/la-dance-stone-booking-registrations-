@@ -4126,7 +4126,7 @@ body::after{
 const $=id=>document.getElementById(id);
 function showView(name){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));$(name+'View').classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
 let classReturnView="home";const classContextBack=$("classContextBack");if(classContextBack)classContextBack.addEventListener("click",()=>showView(classReturnView));
-document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{const name=b.dataset.view;if(name==='home'&&classReturnView==='timetable')classReturnView='home';showView(name)}));
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
 const groups={
 kids57:{title:'Šiuolaikinis šokis · 5–7 m.',desc:'Vaikų grupė antradieniais ir ketvirtadieniais. Galite rinktis abonementą arba vienkartinę pamoką.',options:['5–7 m. · Antradieniais ir ketvirtadieniais · 18:00–18:45'],schedule:[['Vaikai · 5–7 m.','Antradieniais ir ketvirtadieniais','18:00–18:45']]},
 kids712:{title:'Šiuolaikinis šokis · 7–12 m.',desc:'Pasirinkite Jums tinkantį savaitės grafiką. Abonementas apima 2 treniruotes per savaitę.',options:['Pirmadieniais ir trečiadieniais · 16:00–17:00','Antradieniais ir ketvirtadieniais · 16:00–17:00'],schedule:[['Vaikai · 7–12 m.','Pirmadieniais ir trečiadieniais','16:00–17:00'],['Vaikai · 7–12 m.','Antradieniais ir ketvirtadieniais','16:00–17:00']]},
