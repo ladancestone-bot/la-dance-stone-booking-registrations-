@@ -16809,7 +16809,7 @@ body::after{
 }
 </style>
 <script id="lds-home-carousel-manual-snap-controller-20261017">
-/* Stability recovery: show all cards, keep 3D styling, circular manual swipe. No autoplay. */
+/* Infinite manual swipe carousel. Preserve existing cards, design and booking behavior. */
 (function(){
  function init(){
   const home=document.getElementById('homeView'),rail=home&&home.querySelector('.choices');
@@ -16817,15 +16817,16 @@ body::after{
   rail.dataset.manualSnapReady='1';
   const originals=Array.from(rail.querySelectorAll(':scope > .choice:not([data-carousel-clone="1"]):not([data-loop-clone])'));
   if(originals.length<3)return;
-  let frame=0,settleTimer=0,wrapping=false;
+  let frame=0,settleTimer=0,wrapping=false,wrapRelease=0;
   const isMobile=()=>window.matchMedia('(max-width:760px)').matches;
   function cloneCard(card,edge){
-   const clone=card.cloneNode(true);clone.dataset.carouselClone='1';clone.dataset.carouselEdge=edge;clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;
+   const clone=card.cloneNode(true);
+   clone.dataset.carouselClone='1';clone.dataset.carouselEdge=edge;
+   clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;
    clone.querySelectorAll('a,button,[tabindex]').forEach(el=>el.tabIndex=-1);
    clone.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const target=originals.find(c=>c.dataset.view===clone.dataset.view);if(target)target.click()});
    return clone;
   }
-  /* Remove any stale copies before creating exactly two on each edge. */
   rail.querySelectorAll(':scope > .choice[data-carousel-clone="1"]').forEach(c=>c.remove());
   const before=document.createDocumentFragment();
   originals.slice(-2).forEach(card=>before.appendChild(cloneCard(card,'before')));
@@ -16834,8 +16835,8 @@ body::after{
   const cards=()=>Array.from(rail.querySelectorAll(':scope > .choice'));
   function centerCard(card){
    if(!card)return;
-   const rr=rail.getBoundingClientRect(),cr=card.getBoundingClientRect();
-   rail.scrollLeft+=(cr.left+cr.width/2)-(rr.left+rr.width/2);
+   const railRect=rail.getBoundingClientRect(),cardRect=card.getBoundingClientRect();
+   rail.scrollLeft+=(cardRect.left+cardRect.width/2)-(railRect.left+railRect.width/2);
   }
   function update(){
    frame=0;
@@ -16858,12 +16859,26 @@ body::after{
    const rr=rail.getBoundingClientRect(),center=rr.left+rr.width/2;
    let nearest=null,d=Infinity;
    cards().forEach(c=>{const r=c.getBoundingClientRect(),dist=Math.abs(r.left+r.width/2-center);if(dist<d){d=dist;nearest=c}});
-   if(nearest&&nearest.dataset.carouselClone==='1'){
-    const target=originals.find(c=>c.dataset.view===nearest.dataset.view);
-    if(target){wrapping=true;centerCard(target);schedule();requestAnimationFrame(()=>{wrapping=false;schedule()})}
-   }
+   if(!nearest||nearest.dataset.carouselClone!=='1')return;
+   const target=originals.find(c=>c.dataset.view===nearest.dataset.view);
+   if(!target)return;
+   wrapping=true;
+   clearTimeout(wrapRelease);
+   /* Temporarily disable mandatory snapping so Safari cannot snap the teleport back to the clone. */
+   const oldSnap=rail.style.scrollSnapType;
+   rail.style.scrollSnapType='none';
+   rail.style.scrollBehavior='auto';
+   centerCard(target);
+   schedule();
+   requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+     rail.style.scrollSnapType=oldSnap||'x mandatory';
+     wrapping=false;
+     schedule();
+    });
+   });
   }
-  function onScroll(){schedule();clearTimeout(settleTimer);settleTimer=setTimeout(wrapIfNeeded,90)}
+  function onScroll(){schedule();clearTimeout(settleTimer);settleTimer=setTimeout(wrapIfNeeded,180)}
   rail.style.scrollSnapType='x mandatory';
   rail.addEventListener('scroll',onScroll,{passive:true});
   rail.addEventListener('scrollend',wrapIfNeeded,{passive:true});
