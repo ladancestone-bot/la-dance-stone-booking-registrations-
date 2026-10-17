@@ -12433,6 +12433,82 @@ body:has(#timetableView.active)::before{
  #timetableView .timetable-panel .timetable-legend{display:flex!important;flex-wrap:wrap!important;gap:9px 12px!important;font-size:10px!important}
  #timetableView .timetable-panel .calendar-help p{font-size:10px!important;line-height:1.55!important}
 }
+
+/* 2026-10-17 refinement: compact mobile agenda + visible studio-photo glass.
+   Visual-only overrides; keep the current calendar generation, event handlers and booking logic. */
+#timetableView:before{
+ background:
+  linear-gradient(145deg,rgba(44,20,25,.10),rgba(66,37,37,.06) 46%,rgba(39,18,28,.12)),
+  url("https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg") center center/cover no-repeat!important;
+ filter:none!important;
+}
+#timetableView .timetable-heading,
+#timetableView .timetable-panel{
+ background:rgba(255,239,224,.075)!important;
+ -webkit-backdrop-filter:blur(4px) saturate(1.16)!important;
+ backdrop-filter:blur(4px) saturate(1.16)!important;
+}
+#timetableView .timetable-heading{
+ background:linear-gradient(135deg,rgba(255,246,233,.12),rgba(231,202,183,.045) 42%,rgba(68,34,42,.12))!important;
+}
+#timetableView .timetable-panel .cal-toolbar{
+ background:linear-gradient(120deg,rgba(91,37,57,.78),rgba(58,25,42,.78) 60%,rgba(83,46,47,.76))!important;
+}
+#timetableView .timetable-panel .calendar-help{
+ background:linear-gradient(145deg,rgba(111,76,75,.22),rgba(49,30,39,.28))!important;
+ -webkit-backdrop-filter:blur(4px) saturate(1.15)!important;
+ backdrop-filter:blur(4px) saturate(1.15)!important;
+}
+@media(max-width:760px){
+ #timetableView .timetable-heading{margin:0 12px 12px!important}
+ #timetableView .timetable-panel{
+  width:calc(100% - 24px)!important;max-width:calc(100% - 24px)!important;
+  margin:0 12px!important;border-radius:22px!important;
+  background:rgba(255,239,224,.055)!important;
+  -webkit-backdrop-filter:blur(3px) saturate(1.12)!important;
+  backdrop-filter:blur(3px) saturate(1.12)!important;
+ }
+ #timetableView .timetable-panel .calendar-agenda{
+  padding:9px!important;
+  background:rgba(255,249,240,.035)!important;
+ }
+ #timetableView .timetable-panel .calendar-day-tabs{gap:4px!important;margin-bottom:9px!important}
+ #timetableView .timetable-panel .calendar-day-tab{
+  min-height:43px!important;padding:5px 0!important;border-radius:9px!important;
+  background:rgba(255,244,229,.075)!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+ }
+ #timetableView .timetable-panel .calendar-mobile-date{
+  margin-bottom:8px!important;padding:9px 11px!important;
+  background:rgba(80,43,49,.20)!important;
+  -webkit-backdrop-filter:blur(3px)!important;backdrop-filter:blur(3px)!important;
+ }
+ #timetableView .timetable-panel .calendar-mobile-table{
+  background:rgba(255,247,236,.035)!important;
+  border-color:rgba(255,244,229,.44)!important;
+ }
+ #timetableView .timetable-panel .calendar-mobile-table th{
+  padding:8px 7px!important;background:rgba(83,43,52,.28)!important;
+ }
+ #timetableView .timetable-panel .calendar-mobile-table th:first-child{width:82px!important}
+ #timetableView .timetable-panel .calendar-mobile-table td{padding:8px 6px!important}
+ #timetableView .timetable-panel .calendar-mobile-table .mobile-time{
+  width:82px!important;white-space:normal!important;font-size:10px!important;
+  line-height:1.25!important;color:#fffaf3!important;text-shadow:0 1px 4px rgba(45,20,26,.45)!important;
+ }
+ #timetableView .timetable-panel .calendar-mobile-table .mobile-event{
+  padding:9px 9px!important;border-radius:10px!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.60),0 3px 8px rgba(35,14,22,.08)!important;
+ }
+ #timetableView .timetable-panel .calendar-mobile-table .mobile-event strong{font-size:12px!important}
+ #timetableView .timetable-panel .calendar-mobile-table .mobile-event small{font-size:10px!important}
+ #timetableView .timetable-panel .calendar-help{
+  background:linear-gradient(145deg,rgba(111,76,75,.20),rgba(49,30,39,.24))!important;
+  -webkit-backdrop-filter:blur(3px)!important;backdrop-filter:blur(3px)!important;
+ }
+}
+
 </style>
 
 </body></html>
