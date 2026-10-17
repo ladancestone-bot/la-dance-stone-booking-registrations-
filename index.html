@@ -15209,4 +15209,60 @@ body::after{
 }
 </style>
 
+
+<style id="lds-registration-panels-separated-glass-20261017">
+/* Break the continuous glass strip into distinct, breathable modules on the registration detail view. */
+#classesView #classDetail{
+ display:flex!important;flex-direction:column!important;gap:22px!important;
+ background:transparent!important;border:0!important;box-shadow:none!important;
+}
+#classesView #classDetail::before,
+#classesView #classDetail::after{display:none!important;content:none!important}
+#classesView #classDetail .class-detail-hero,
+#classesView #classDetail .class-registration-panel,
+#classesView #classDetail .class-detail-aside,
+#classesView #classDetail .class-date-picker,
+#classesView #classDetail .class-adult-offer,
+#classesView #classDetail .class-registration-fee,
+#classesView #classDetail .adult-plan-fields{
+ position:relative!important;flex:0 0 auto!important;
+ border-radius:22px!important;
+}
+#classesView #classDetail .class-detail-hero{
+ margin:0 0 2px!important;
+}
+#classesView #classDetail .class-registration-panel,
+#classesView #classDetail .class-detail-aside{
+ margin:0!important;
+ border:1px solid rgba(255,241,230,.82)!important;
+ box-shadow:0 12px 28px rgba(48,25,28,.13),inset 0 1px 0 rgba(255,255,255,.48)!important;
+}
+#classesView #classDetail .class-date-picker{
+ margin:20px 0!important;
+ border:1px solid rgba(255,248,240,.98)!important;
+ box-shadow:0 8px 22px rgba(57,34,34,.1),inset 0 1px 0 rgba(255,255,255,.9)!important;
+}
+#classesView #classDetail .class-adult-offer,
+#classesView #classDetail .class-registration-fee,
+#classesView #classDetail .adult-plan-fields{
+ margin-top:16px!important;margin-bottom:16px!important;
+ border:1px solid rgba(255,241,230,.8)!important;
+ box-shadow:0 6px 16px rgba(55,31,33,.08)!important;
+}
+#classesView #classDetail .class-option{
+ margin:10px 0!important;
+ border-radius:16px!important;
+}
+#classesView #classDetail .class-date-option{
+ margin:9px 0!important;
+}
+@media(max-width:760px){
+ #classesView #classDetail{gap:18px!important}
+ #classesView #classDetail .class-detail-hero,
+ #classesView #classDetail .class-registration-panel,
+ #classesView #classDetail .class-detail-aside{border-radius:20px!important}
+ #classesView #classDetail .class-date-picker{margin:16px 0!important;border-radius:18px!important}
+}
+</style>
+
 </body></html>
