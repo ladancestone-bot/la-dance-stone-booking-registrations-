@@ -16657,6 +16657,114 @@ body::after{
   #homeView .choices>.choice[data-carousel-clone="1"]{display:none!important}
 }
 </style>
+<style id="lds-approved-transparent-glass-arches-20261017">
+/* APPROVED VISUAL ONLY: transparent studio-visible liquid glass. No carousel or booking logic changes. */
+#homeView .choices>.choice,
+#homeView .choices>.choice.is-center,
+#homeView .choices>.choice.is-side,
+#homeView .choices>.choice[data-view="timetable"],
+#homeView .choices>.choice[data-view="rental"],
+#homeView .choices>.choice[data-view="classes"],
+#homeView .choices>.choice[data-carousel-clone="1"]{
+  background:linear-gradient(145deg,
+    rgba(255,248,237,.22) 0%,
+    rgba(219,184,161,.12) 28%,
+    rgba(111,65,66,.18) 58%,
+    rgba(39,22,31,.30) 100%)!important;
+  border:1px solid rgba(255,244,226,.76)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(145%) contrast(1.04)!important;
+  backdrop-filter:blur(18px) saturate(145%) contrast(1.04)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.62),
+    inset 1px 0 0 rgba(255,255,255,.20),
+    inset -1px 0 0 rgba(255,255,255,.12),
+    inset 0 -24px 34px rgba(42,20,25,.13),
+    0 12px 30px rgba(23,11,15,.17),
+    0 0 18px rgba(255,224,187,.08)!important;
+}
+#homeView .choices>.choice::before{
+  background:linear-gradient(135deg,
+    rgba(255,255,255,.23) 0%,
+    rgba(255,244,230,.08) 24%,
+    rgba(255,255,255,0) 48%,
+    rgba(42,19,28,.10) 100%)!important;
+  opacity:1!important;
+  pointer-events:none!important;
+}
+#homeView .choices>.choice.is-center{
+  background:linear-gradient(145deg,
+    rgba(255,248,237,.27) 0%,
+    rgba(220,184,160,.15) 28%,
+    rgba(106,59,64,.21) 58%,
+    rgba(35,19,28,.34) 100%)!important;
+  border-color:rgba(255,247,232,.88)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.72),
+    inset 1px 0 0 rgba(255,255,255,.24),
+    inset 0 -28px 40px rgba(42,20,25,.15),
+    0 18px 36px rgba(23,11,15,.22),
+    0 0 22px rgba(255,224,187,.12)!important;
+}
+#homeView .choices>.choice.is-side{
+  background:linear-gradient(145deg,
+    rgba(255,248,237,.18) 0%,
+    rgba(219,184,161,.10) 35%,
+    rgba(79,47,49,.19) 68%,
+    rgba(34,20,28,.27) 100%)!important;
+  border-color:rgba(255,242,224,.65)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.55),
+    inset 1px 0 0 rgba(255,255,255,.15),
+    inset 0 -20px 30px rgba(42,20,25,.10),
+    0 10px 24px rgba(23,11,15,.14)!important;
+}
+#homeView .choices>.choice h3,
+#homeView .choices>.choice p,
+#homeView .choices>.choice .choice-action{
+  text-align:center!important;
+  text-wrap:balance!important;
+}
+#homeView .choices>.choice h3{
+  width:100%!important;
+  margin-top:clamp(24px,5vh,42px)!important;
+  margin-bottom:10px!important;
+}
+#homeView .choices>.choice p{
+  width:100%!important;
+  margin-inline:auto!important;
+}
+#homeView .choices>.choice .choice-action{
+  justify-content:center!important;
+  align-items:center!important;
+  width:100%!important;
+  margin:clamp(16px,3vh,26px) auto 0!important;
+  gap:8px!important;
+}
+#homeView .choices>.choice .choice-action>span{
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  padding:0!important;
+  width:auto!important;
+  height:auto!important;
+  min-width:0!important;
+  min-height:0!important;
+}
+#homeView .choices>.choice .choice-action>span[aria-hidden="true"]{
+  font-size:1.35em!important;
+  line-height:1!important;
+  font-weight:300!important;
+  opacity:.95!important;
+}
+@media(max-width:760px){
+  #homeView .choices>.choice h3{margin-top:clamp(24px,4vh,36px)!important}
+  #homeView .choices>.choice .choice-action{margin-top:clamp(14px,2.5vh,22px)!important}
+}
+@media(prefers-reduced-transparency:reduce){
+  #homeView .choices>.choice{background:rgba(75,43,45,.68)!important}
+}
+</style>
 <script id="lds-home-carousel-manual-snap-controller-20261017">
 /* Stability recovery: show all cards, keep 3D styling, circular manual swipe. No autoplay. */
 (function(){
