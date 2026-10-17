@@ -13536,4 +13536,73 @@ body:has(#timetableView.active)::before{
 }
 </style>
 
+
+<style id="lds-timetable-match-rental-calendar-visuals-20261017">
+/* Match rental availability calendar's crisp typography and restrained glass treatment.
+   Brighter real studio photo; timetable empty cells remain transparent. */
+body::before{
+ filter:blur(.25px) saturate(1.12) brightness(1.28) sepia(.035)!important;
+ transform:scale(1.025)!important;
+}
+body::after{
+ background:
+  radial-gradient(ellipse at 50% 12%,rgba(255,230,196,.035),transparent 60%),
+  linear-gradient(145deg,rgba(64,38,29,.015),rgba(75,45,34,.005) 48%,rgba(42,24,23,.045))!important;
+}
+#timetableView .timetable-panel,
+#timetableView .timetable-panel .cal-scroll,
+#timetableView .timetable-panel #calendar,
+#timetableView .timetable-panel .calendar{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+#timetableView .timetable-panel .calendar .cell,
+#timetableView .timetable-panel .calendar .day,
+#timetableView .timetable-panel .calendar .time{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ box-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar .cell{
+ border:0!important;border-right:1px solid rgba(255,248,239,.14)!important;
+ border-bottom:1px solid rgba(255,248,239,.14)!important;
+ color:#fffaf4!important;
+}
+#timetableView .timetable-panel .calendar .day{
+ border:0!important;border-bottom:1px solid rgba(255,248,239,.28)!important;
+ color:#fff8f0!important;text-shadow:0 1px 3px rgba(36,19,19,.42)!important;
+}
+#timetableView .timetable-panel .calendar .time{
+ border:0!important;border-right:1px solid rgba(255,248,239,.28)!important;
+ color:#fff8f0!important;text-shadow:0 1px 3px rgba(36,19,19,.45)!important;
+}
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .cell,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .day,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .time{
+ background:transparent!important;background-color:transparent!important;
+}
+#timetableView .timetable-panel .cal-toolbar{
+ background:rgba(75,35,49,.90)!important;
+ border:1px solid rgba(255,247,236,.54)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.16)!important;
+ color:#fff8ef!important;
+}
+#timetableView .timetable-panel .cal-title{
+ color:#fff8ef!important;text-shadow:0 1px 3px rgba(30,14,18,.25)!important;
+}
+#timetableView .timetable-panel .calendar .event{
+ filter:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+ box-shadow:0 3px 10px rgba(30,14,18,.14),inset 0 1px 0 rgba(255,255,255,.42)!important;
+}
+#timetableView .timetable-panel .calendar-help{
+ background:rgba(255,246,233,.08)!important;
+ border:1px solid rgba(255,248,239,.42)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.15)!important;
+ -webkit-backdrop-filter:blur(2px) saturate(1.04)!important;backdrop-filter:blur(2px) saturate(1.04)!important;
+}
+@media(max-width:760px){
+ body::before{filter:blur(.25px) saturate(1.13) brightness(1.30) sepia(.03)!important}
+ #timetableView .timetable-panel .calendar .cell{border-right-color:rgba(255,248,239,.13)!important;border-bottom-color:rgba(255,248,239,.13)!important}
+}
+</style>
+
 </body></html>
