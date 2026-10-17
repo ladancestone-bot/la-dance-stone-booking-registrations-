@@ -1978,6 +1978,60 @@ html,body{margin:0 !important;padding:0 !important;width:100% !important;max-wid
  #homeView .brand-footer-logo-image{width:min(220px,76vw)!important}
 }
 
+
+/* Timetable page: warm glass design based on the approved second mockup. Scoped so other pages keep their existing layout. */
+#timetableView .timetable-back{
+ display:inline-flex;align-items:center;gap:12px;margin:4px 0 28px;padding:8px 0;
+ border:0!important;border-radius:0!important;background:transparent!important;
+ box-shadow:none!important;color:#f6e8d9!important;font-size:15px;font-weight:500;
+ text-decoration:none;cursor:pointer;transition:opacity .2s ease,transform .2s ease;
+}
+#timetableView .timetable-back:hover{opacity:.82;transform:translateX(-2px)}
+#timetableView .timetable-back span{font-size:25px;line-height:1;font-weight:300}
+#timetableView .timetable-heading{padding:8px 0 34px}
+#timetableView .timetable-eyebrow{display:block;color:#e2c39a;font-size:11px;font-weight:700;letter-spacing:.24em;line-height:1.7;margin-bottom:12px}
+#timetableView .timetable-heading h2{color:#fff3e7;font-size:clamp(36px,6vw,64px);line-height:1.02;letter-spacing:-.035em;text-shadow:0 2px 18px rgba(35,17,12,.22)}
+#timetableView .timetable-heading p{max-width:680px;margin-top:16px;color:rgba(255,245,235,.9);font-size:15px;line-height:1.75}
+#timetableView .timetable-class-week-preview{
+ margin:0 0 36px;padding:clamp(18px,3vw,30px);
+ border:1px solid rgba(255,239,224,.58);border-radius:30px;
+ background:linear-gradient(135deg,rgba(255,239,224,.20),rgba(82,48,35,.30));
+ box-shadow:0 22px 60px rgba(27,13,9,.20),inset 0 1px 0 rgba(255,255,255,.24);
+ backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+}
+#timetableView .timetable-class-week-preview .class-week-heading{align-items:flex-start;margin-bottom:22px}
+#timetableView .timetable-class-week-preview .class-week-heading .eyebrow{color:#e6c49c;font-size:10px;letter-spacing:.2em;font-weight:700}
+#timetableView .timetable-class-week-preview .class-week-heading h3{color:#fff2e5;font-size:clamp(30px,4vw,42px);margin:7px 0}
+#timetableView .timetable-class-week-preview .class-week-heading p{color:rgba(255,242,229,.78);font-size:13px}
+#timetableView .timetable-class-week-preview #timetableSyncStatus{max-width:100%;white-space:normal;text-align:center;color:#542a30;background:rgba(255,242,229,.88);border:1px solid rgba(255,255,255,.75);border-radius:999px;padding:10px 16px;font-size:11px;line-height:1.45;box-shadow:0 5px 18px rgba(28,13,9,.12)}
+#timetableView .class-week-calendar-scroll{overflow-x:auto;border:1px solid rgba(255,239,224,.44);border-radius:20px;background:rgba(63,39,29,.22);box-shadow:inset 0 1px 12px rgba(255,255,255,.06)}
+#timetableView .class-calendar-grid{grid-template-columns:68px repeat(7,minmax(132px,1fr));grid-template-rows:56px repeat(6,minmax(88px,auto));min-width:1030px;background:transparent;gap:1px;padding:1px}
+#timetableView .class-calendar-corner,#timetableView .class-calendar-dayhead{position:sticky;top:0;background:rgba(239,215,201,.90);color:#532c30;border:1px solid rgba(255,247,238,.42);font-size:10px;letter-spacing:.07em;padding:10px 8px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+#timetableView .class-calendar-corner{left:0;z-index:4;color:#532c30}
+#timetableView .class-calendar-time{background:rgba(238,214,201,.82);color:#512a30;border:1px solid rgba(255,247,238,.34);align-items:center;justify-content:center;padding:10px 4px;font-size:12px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+#timetableView .class-calendar-slot{margin:0;border:1px solid rgba(255,241,226,.22);border-radius:12px;background:rgba(246,226,210,.10);color:#fff1e5;padding:12px 10px;gap:6px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+#timetableView .class-calendar-slot strong{color:#f3c9bd;font-size:11px}
+#timetableView .class-calendar-slot span{color:#fff0e5;font-size:12px;font-weight:600}
+#timetableView .class-calendar-slot small{color:rgba(255,239,224,.75);font-size:10px}
+#timetableView .class-calendar-slot.booked{background:linear-gradient(145deg,rgba(111,37,53,.82),rgba(77,25,38,.76));border:1px solid rgba(232,174,176,.64);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 5px 15px rgba(38,13,17,.13)}
+#timetableView .class-calendar-slot.free{background:rgba(255,239,224,.045);color:rgba(255,239,224,.76);font-weight:400;font-style:italic}
+#timetableView .class-calendar-slot.occupied{background:rgba(91,39,43,.62);border:1px solid rgba(226,163,153,.65);color:#fff0e5}
+#timetableView .class-calendar-slot.occupied span{color:#ffe0d3}
+@media(max-width:760px){
+ #timetableView .timetable-back{margin-bottom:22px;font-size:14px}
+ #timetableView .timetable-heading{padding-bottom:26px}
+ #timetableView .timetable-heading h2{font-size:clamp(36px,10vw,48px)}
+ #timetableView .timetable-heading p{font-size:14px}
+ #timetableView .timetable-class-week-preview{padding:16px 12px;border-radius:24px}
+ #timetableView .timetable-class-week-preview .class-week-heading{display:block}
+ #timetableView .timetable-class-week-preview #timetableSyncStatus{display:inline-block;margin-top:14px;border-radius:18px;text-align:left}
+ #timetableView .class-calendar-grid{grid-template-columns:56px repeat(7,minmax(126px,1fr));grid-template-rows:54px repeat(6,minmax(82px,auto));min-width:952px}
+ #timetableView .class-calendar-dayhead{font-size:9px;letter-spacing:.025em;padding:8px 5px}
+ #timetableView .class-calendar-slot{padding:9px 7px;border-radius:10px}
+ #timetableView .class-calendar-slot strong{font-size:10px}
+ #timetableView .class-calendar-slot span{font-size:11px}
+}
+
 </style>
 
 <style>
@@ -4230,7 +4284,7 @@ html body #rentalView.view:not(#homeView) .availability-section .cal-scroll.is-s
   </div>
 </div>
 </section>
-<section id="timetableView" class="view"><button class="back timetable-back" data-view="home"><span>←</span>Grįžti į pasirinkimą</button><div class="timetable-heading"><span class="timetable-eyebrow">LA DANCE STONE · SAVAITĖS PLANAS</span><h2>Šokiai. Tavo laikas.</h2><p>Peržiūrėkite savaitės užsiėmimus ir pasirinkite jums tinkamą pamoką. Palieskite spalvotą pamokos kortelę, jei norite registruotis.</p></div><div class="class-week-preview timetable-class-week-preview">
+<section id="timetableView" class="view"><button class="back timetable-back" data-view="home"><span>←</span>Grįžti į pasirinkimą</button><div class="timetable-heading"><span class="timetable-eyebrow">LA DANCE STONE · SAVAITĖS TVARKARAŠTIS</span><h2>Pamokų tvarkaraštis.</h2><p>Peržiūrėkite savaitės pamokų laikus ir pasirinkite jums tinkamiausią grupę.</p></div><div class="class-week-preview timetable-class-week-preview">
 <div class="class-week-heading"><div><div class="eyebrow">Savaitės tvarkaraštis</div><h3>Pamokų laikai</h3><p>Trumpa savaitės apžvalga. Pasirinkite grupę žemiau.</p></div><span class="pill" id="timetableSyncStatus" role="status">Gaunami naujausi duomenys…</span></div>
 <div class="class-week-scroll class-week-calendar-scroll" aria-label="Savaitės tvarkaraštis. Slinkite lentelę į šoną, kad pamatytumėte visas savaitės dienas.">
 <div class="class-calendar-grid">
@@ -4507,8 +4561,8 @@ function timetableOption(group,day){
  return 0;
 }
 function renderPublicClassPreview(schedule,occupied){
- const grid=document.querySelector('.class-calendar-grid');
- if(!grid)return;
+ const grids=document.querySelectorAll('.class-calendar-grid');
+ if(!grids.length)return;
  const dayLabels=['PIRMADIENIS','ANTRADIENIS','TREČIADIENIS','KETVIRTADIENIS','PENKTADIENIS','ŠEŠTADIENIS','SEKMADIENIS'];
  const hours=[16,17,18,19,20,21];
  const timeMinutes=value=>{
@@ -4545,9 +4599,11 @@ function renderPublicClassPreview(schedule,occupied){
    }
   }
  });
- grid.innerHTML=html;
- const label=document.querySelector('.class-week-heading .pill');
+ grids.forEach(grid=>{grid.innerHTML=html;});
+ const label=document.querySelector('#classOverview .class-week-heading .pill');
  if(label)label.textContent='Atnaujinama iš studijos tvarkaraščio';
+ const timetableLabel=document.querySelector('#timetableView .class-week-heading .pill');
+ if(timetableLabel)timetableLabel.textContent='Atnaujinama iš studijos tvarkaraščio';
 }
 function showTimetableStatus(message,isError){
  const note=document.getElementById('timetableSyncStatus');
