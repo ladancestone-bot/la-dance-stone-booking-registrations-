@@ -14366,4 +14366,49 @@ body::after{
 }
 </style>
 
+
+<style id="lds-weekly-sticky-safari-overlap-fix-20261017">
+/* iOS Safari correction: sticky row labels must be opaque; translucent sticky cells reveal scrolling cells beneath. */
+@media(max-width:760px){
+  #classOverview .class-week-calendar-scroll{isolation:isolate!important;contain:paint!important}
+  #classOverview .class-calendar-grid{position:relative!important;gap:3px!important}
+  #classOverview .class-calendar-corner{
+    position:sticky!important;left:0!important;top:0!important;z-index:20!important;
+    background:#5b3b30!important;background-image:linear-gradient(145deg,#735244,#4b3028)!important;
+    opacity:1!important;filter:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+    box-shadow:2px 0 0 rgba(72,45,36,.28)!important;
+  }
+  #classOverview .class-calendar-time{
+    position:sticky!important;left:0!important;z-index:12!important;
+    background:#705044!important;background-image:linear-gradient(145deg,#846452,#624438)!important;
+    color:#fff7ec!important;opacity:1!important;filter:none!important;
+    -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+    box-shadow:2px 0 0 rgba(72,45,36,.25)!important;
+  }
+  #classOverview .class-calendar-dayhead{
+    position:relative!important;z-index:2!important;
+    background:#6b4b3d!important;background-image:linear-gradient(145deg,#866553,#614336)!important;
+    opacity:1!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  }
+  #classOverview .class-calendar-slot{
+    position:relative!important;z-index:1!important;opacity:1!important;
+    -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  }
+  #classOverview .class-calendar-slot.free{
+    background:#75594b!important;color:#fff0df!important;
+    border:1px dashed #d8bda5!important;
+  }
+  #classOverview .class-calendar-slot.free,
+  #classOverview .class-calendar-slot.free *{color:#fff0df!important}
+  #classOverview .class-calendar-slot.booked{
+    background:#f0dfcd!important;background-image:linear-gradient(145deg,#f7eadb,#e8d2bb)!important;
+  }
+  #classOverview .class-calendar-slot.occupied{
+    background:#652633!important;background-image:linear-gradient(145deg,#7b3341,#4b1d28)!important;
+  }
+  #classOverview .class-calendar-slot.occupied *,
+  #classOverview .class-calendar-slot.booked *{opacity:1!important}
+}
+</style>
+
 </body></html>
