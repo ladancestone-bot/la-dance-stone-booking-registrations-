@@ -16342,4 +16342,51 @@ body::after{
 
 </style>
 
+
+<script id="lds-home-arch-carousel-autoplay-20261017">
+/* Gentle continuous orbit for the existing homepage arch carousel.
+   Uses the existing infinite clones and scroll-driven 3D transforms; no markup or booking logic changes. */
+(function(){
+  const root=document.getElementById('homeView');
+  const rail=root&&root.querySelector('.choices');
+  if(!rail||rail.dataset.archAutoplayReady==='1')return;
+  rail.dataset.archAutoplayReady='1';
+  const cards=Array.from(rail.querySelectorAll('.choice'));
+  const originals=cards.filter(card=>card.dataset.carouselClone!=='1');
+  if(originals.length<2||cards.length<originals.length*3)return;
+  const count=originals.length;
+  let groupWidth=0,raf=0,lastTime=0,resumeAt=0,active=false;
+  const measure=()=>{
+    const all=Array.from(rail.querySelectorAll('.choice'));
+    const start=all[count],next=all[count*2];
+    if(start&&next)groupWidth=next.offsetLeft-start.offsetLeft;
+  };
+  const visible=()=>root.classList.contains('active')&&document.visibilityState==='visible';
+  const pauseBriefly=()=>{resumeAt=performance.now()+2400;};
+  function frame(now){
+    raf=0;
+    if(!visible()){lastTime=0;return;}
+    if(!lastTime)lastTime=now;
+    const dt=Math.min(40,now-lastTime);
+    lastTime=now;
+    if(now>=resumeAt&&!rail.matches(':hover')&&groupWidth>0){
+      /* About 18 px/second: a calm, continuous loop rather than a sudden jump. */
+      rail.scrollLeft+=dt*.018;
+      if(rail.scrollLeft<groupWidth*.35)rail.scrollLeft+=groupWidth;
+      else if(rail.scrollLeft>groupWidth*1.65)rail.scrollLeft-=groupWidth;
+    }
+    raf=requestAnimationFrame(frame);
+  }
+  function start(){measure();if(!raf){lastTime=0;raf=requestAnimationFrame(frame);}}
+  function stop(){if(raf)cancelAnimationFrame(raf);raf=0;lastTime=0;}
+  ['touchstart','pointerdown','wheel','keydown'].forEach(type=>rail.addEventListener(type,pauseBriefly,{passive:true}));
+  rail.addEventListener('pointerenter',pauseBriefly,{passive:true});
+  rail.addEventListener('pointerleave',()=>{resumeAt=performance.now()+500;},{passive:true});
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')start();else stop();});
+  window.addEventListener('resize',measure,{passive:true});
+  if('ResizeObserver' in window)new ResizeObserver(measure).observe(rail);
+  start();
+})();
+</script>
+
 </body></html>
