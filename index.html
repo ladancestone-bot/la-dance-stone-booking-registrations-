@@ -16353,6 +16353,45 @@ body::after{
 }
 </style>
 
+
+<style id="lds-rental-calendar-sticky-weekday-fix-20261018">
+/* Keep the weekday/date row pinned inside the existing rental calendar scroll area.
+   The header remains part of the original grid so its columns stay aligned. */
+html body #rentalView .availability-section .cal-scroll{
+  overflow-x:auto!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain!important;
+  -webkit-overflow-scrolling:touch!important;
+}
+html body #rentalView .availability-section #rentalCalendar > .rent-day{
+  position:sticky!important;
+  top:0!important;
+  align-self:start!important;
+  z-index:70!important;
+  isolation:isolate!important;
+  background:rgba(65,42,40,.96)!important;
+  background-color:rgba(65,42,40,.96)!important;
+  -webkit-backdrop-filter:blur(10px)!important;
+  backdrop-filter:blur(10px)!important;
+  box-shadow:inset 0 -1px rgba(255,244,230,.28),0 2px 5px rgba(28,12,16,.12)!important;
+}
+html body #rentalView .availability-section #rentalCalendar > .rent-day.selected-day{
+  background:rgba(105,34,61,.98)!important;
+  background-color:rgba(105,34,61,.98)!important;
+}
+@media(max-width:760px){
+  html body #rentalView .availability-section .cal-scroll{
+    max-height:340px!important;
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    -webkit-overflow-scrolling:touch!important;
+  }
+  html body #rentalView .availability-section #rentalCalendar > .rent-day{
+    top:0!important;
+  }
+}
+</style>
+
 </body></html>
 
 
