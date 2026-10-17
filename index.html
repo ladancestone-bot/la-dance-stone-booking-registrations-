@@ -17405,10 +17405,18 @@ html body #rentalView.view:not(#homeView) .availability-section .cal-scroll.is-s
   function update(){
    frame=0;
    if(!isMobile()){cards().forEach(c=>{c.classList.remove('is-center','is-side');c.style.removeProperty('--card-rotate');c.style.removeProperty('--card-scale');c.style.removeProperty('--card-depth');c.style.removeProperty('--card-lift');c.style.zIndex=''});return}
-   const rr=rail.getBoundingClientRect(),center=rr.left+rr.width/2;
+   const center=rail.scrollLeft+rail.clientLeft+rail.clientWidth/2;
    cards().forEach(card=>{
-    const cr=card.getBoundingClientRect(),delta=cr.left+cr.width/2-center;
-    const ratio=Math.max(-1.5,Math.min(1.5,delta/Math.max(1,cr.width))),abs=Math.min(1,Math.abs(ratio)),active=abs<.42;
+    /* Base the active-card calculation on layout coordinates, not the transformed visual bounds.
+       This prevents the card's own changing 3D transform from feeding back into its next position. */
+    let layoutLeft=card.offsetLeft,layoutParent=card.offsetParent;
+    while(layoutParent&&layoutParent!==rail){
+     layoutLeft+=layoutParent.offsetLeft+layoutParent.clientLeft-layoutParent.scrollLeft;
+     layoutParent=layoutParent.offsetParent;
+    }
+    const cardWidth=Math.max(1,card.offsetWidth);
+    const delta=layoutLeft+cardWidth/2-center;
+    const ratio=Math.max(-1.5,Math.min(1.5,delta/cardWidth)),abs=Math.min(1,Math.abs(ratio)),active=abs<.42;
     card.classList.toggle('is-center',active);card.classList.toggle('is-side',!active);
     card.style.setProperty('--card-rotate',(-ratio*28)+'deg');
     card.style.setProperty('--card-scale',(active?1:Math.max(.66,1-abs*.34)).toFixed(3));
