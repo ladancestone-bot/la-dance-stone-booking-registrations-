@@ -17993,3 +17993,52 @@ html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .
 }
 </style>
 
+<style id="lds-calendar-legend-heading-bubbles-no-gap-20261018">
+/* Keep legend heading and chips together; preserve three centered full-width bubbles. */
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  justify-content:flex-start!important;
+  gap:0!important;
+  margin-top:0!important;
+  padding-top:12px!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help:before{
+  display:block!important;
+  position:static!important;
+  flex:0 0 auto!important;
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  margin:0 0 10px!important;
+  padding:0!important;
+  transform:none!important;
+  line-height:1.4!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .availability-legend{
+  display:grid!important;
+  flex:0 0 auto!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  gap:8px!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help p#selectionHint{
+  margin:14px 0 0!important;
+}
+@media(max-width:760px){
+  html body #rentalView.view:not(#homeView) .availability-section>.calendar-help{
+    padding-top:10px!important;
+  }
+  html body #rentalView.view:not(#homeView) .availability-section>.calendar-help:before{
+    margin-bottom:8px!important;
+  }
+  html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .availability-legend{
+    gap:7px!important;
+  }
+}
+</style>
+
