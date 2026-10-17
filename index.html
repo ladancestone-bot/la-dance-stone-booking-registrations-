@@ -16444,6 +16444,30 @@ html body #rentalView.view:not(#homeView) .availability-section > .calendar-pane
 }
 </style>
 
+
+<style id="lds-rental-calendar-light-at-rest-dark-on-scroll-20261018">
+/* Light translucent weekday/date row at rest; darker glass while scrolling. Preserve sticky positioning. */
+html body #rentalView.view:not(#homeView) .availability-section .cal-scroll > #rentalCalendar > .rent-day{
+  position:-webkit-sticky!important;position:sticky!important;top:0!important;z-index:180!important;
+  background:rgba(91,61,55,.22)!important;background-color:rgba(91,61,55,.22)!important;background-image:none!important;
+  box-shadow:inset 0 -1px rgba(255,244,230,.22)!important;
+  -webkit-backdrop-filter:blur(9px)!important;backdrop-filter:blur(9px)!important;
+  transition:background-color .35s ease,box-shadow .35s ease!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section .cal-scroll > #rentalCalendar > .rent-day.selected-day{
+  background:rgba(105,34,61,.66)!important;background-color:rgba(105,34,61,.66)!important;
+  box-shadow:inset 0 -2px rgba(232,201,142,.9)!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section .cal-scroll.is-scrolling > #rentalCalendar > .rent-day{
+  background:rgba(69,44,41,.88)!important;background-color:rgba(69,44,41,.88)!important;
+  box-shadow:inset 0 -1px rgba(255,244,230,.32)!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section .cal-scroll.is-scrolling > #rentalCalendar > .rent-day.selected-day{
+  background:rgba(105,34,61,.96)!important;background-color:rgba(105,34,61,.96)!important;
+  box-shadow:inset 0 -2px #e8c98e!important;
+}
+</style>
+
 </body></html>
 
 
