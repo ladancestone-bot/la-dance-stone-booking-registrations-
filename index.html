@@ -13618,22 +13618,19 @@ body::after{
 
 
 <style id="lds-timetable-glass-transparency-correction-20261017">
-/* Authoritative final timetable correction: transparent grid at rest and while scrolling.
-   Keep the intro/legend glass cards and preserve all actual lesson/booking cards. */
+/* Final correction: remove the white calendar sheet; light at rest, dark sticky headers only while scrolling. */
 
-/* Back link: arrow + text only, never a pill/card in any interaction state. */
+/* Back link is text + arrow only. */
 #timetableView button.timetable-back,
 #timetableView button.timetable-back:hover,
 #timetableView button.timetable-back:focus,
 #timetableView button.timetable-back:focus-visible,
 #timetableView button.timetable-back:active {
   display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;
-  width:max-content!important;max-width:100%!important;
-  margin:24px auto 28px!important;padding:4px 0!important;
-  color:#fff8ef!important;font-size:15px!important;font-weight:400!important;letter-spacing:0!important;
+  width:max-content!important;max-width:100%!important;margin:24px auto 28px!important;padding:4px 0!important;
+  color:#fff8ef!important;font-size:15px!important;font-weight:400!important;
   background:transparent!important;background-color:transparent!important;background-image:none!important;
-  border:0!important;border-radius:0!important;outline:0!important;
-  box-shadow:none!important;filter:none!important;
+  border:0!important;border-radius:0!important;outline:0!important;box-shadow:none!important;filter:none!important;
   -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
   text-shadow:0 1px 5px rgba(36,18,18,.55)!important;
 }
@@ -13642,88 +13639,107 @@ body::after{
   content:none!important;display:none!important;background:none!important;box-shadow:none!important;
 }
 #timetableView button.timetable-back span {
-  display:inline!important;padding:0!important;margin:0!important;
-  background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;
-  font-size:23px!important;line-height:1!important;
+  display:inline!important;padding:0!important;margin:0!important;background:transparent!important;
+  border:0!important;border-radius:0!important;box-shadow:none!important;font-size:23px!important;line-height:1!important;
 }
 
-/* No filled panel behind the calendar; the intro and legend remain separate glass cards. */
+/* Strip the opaque white sheet from the calendar containers and their decorative layers. */
 #timetableView .timetable-panel,
 #timetableView .timetable-panel::before,
 #timetableView .timetable-panel::after,
 #timetableView .timetable-panel .cal-scroll,
+#timetableView .timetable-panel .cal-scroll::before,
+#timetableView .timetable-panel .cal-scroll::after,
 #timetableView .timetable-panel #calendar,
+#timetableView .timetable-panel #calendar::before,
+#timetableView .timetable-panel #calendar::after,
 #timetableView .timetable-panel .calendar,
-#timetableView .timetable-panel .calendar-agenda {
-  background:transparent!important;background-color:transparent!important;background-image:none!important;
-  box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
-}
-
-/* Empty desktop grid: clear photo through every cell; only fine separators remain. */
-#timetableView .timetable-panel .calendar .cell,
-#timetableView .timetable-panel .calendar .day,
-#timetableView .timetable-panel .calendar .time,
-#timetableView .timetable-panel .calendar .cell:empty,
-#timetableView .timetable-panel .calendar .cell::before,
-#timetableView .timetable-panel .calendar .cell::after,
-#timetableView .timetable-panel .calendar .day::before,
-#timetableView .timetable-panel .calendar .day::after,
-#timetableView .timetable-panel .calendar .time::before,
-#timetableView .timetable-panel .calendar .time::after {
-  background:transparent!important;background-color:transparent!important;background-image:none!important;
-  box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
-}
-#timetableView .timetable-panel .calendar .cell {
-  border:0!important;border-right:1px solid rgba(255,248,239,.17)!important;
-  border-bottom:1px solid rgba(255,248,239,.17)!important;outline:0!important;
-}
-#timetableView .timetable-panel .calendar .day {
-  border:0!important;border-bottom:1px solid rgba(255,248,239,.30)!important;
-  color:#fffaf4!important;text-shadow:0 1px 4px rgba(36,19,19,.68)!important;
-}
-#timetableView .timetable-panel .calendar .time {
-  border:0!important;border-right:1px solid rgba(255,248,239,.30)!important;
-  color:#fffaf4!important;text-shadow:0 1px 4px rgba(36,19,19,.72)!important;font-weight:600!important;
-}
-
-/* Higher-specificity overrides are intentional: earlier scroll-state rules used darker fills. */
-#timetableView .timetable-panel .cal-scroll.is-scrolling,
-#timetableView .timetable-panel .cal-scroll.is-scrolling #calendar,
-#timetableView .timetable-panel .cal-scroll.is-scrolling #calendar .cell,
-#timetableView .timetable-panel .cal-scroll.is-scrolling #calendar .day,
-#timetableView .timetable-panel .cal-scroll.is-scrolling #calendar .time,
-#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .cell,
-#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .day,
-#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .time {
-  background:transparent!important;background-color:transparent!important;background-image:none!important;
-  box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
-}
-
-/* Mobile agenda/table stays transparent too; coloured event cards are deliberately excluded. */
+#timetableView .timetable-panel .calendar::before,
+#timetableView .timetable-panel .calendar::after,
+#timetableView .timetable-panel .calendar-agenda,
+#timetableView .timetable-panel .calendar-agenda::before,
+#timetableView .timetable-panel .calendar-agenda::after,
 #timetableView .timetable-panel .calendar-mobile-table,
 #timetableView .timetable-panel .calendar-mobile-table thead,
 #timetableView .timetable-panel .calendar-mobile-table tbody,
 #timetableView .timetable-panel .calendar-mobile-table tr,
-#timetableView .timetable-panel .calendar-mobile-table th,
 #timetableView .timetable-panel .calendar-mobile-table td {
   background:transparent!important;background-color:transparent!important;background-image:none!important;
   box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
 }
-#timetableView .timetable-panel .calendar-mobile-table th {
-  color:#fff8ef!important;border-bottom:1px solid rgba(255,248,239,.28)!important;
-}
+
+/* Calendar cells remain fully clear at rest AND during scrolling. Keep only delicate separators. */
+#timetableView .timetable-panel .calendar .cell,
+#timetableView .timetable-panel .calendar .cell:empty,
+#timetableView .timetable-panel .calendar .cell::before,
+#timetableView .timetable-panel .calendar .cell::after,
 #timetableView .timetable-panel .calendar-mobile-table td {
-  color:#fffaf4!important;border-right:1px solid rgba(255,248,239,.15)!important;
-  border-bottom:1px solid rgba(255,248,239,.15)!important;
+  background:transparent!important;background-color:transparent!important;background-image:none!important;
+  box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  border-right:1px solid rgba(255,248,239,.16)!important;
+  border-bottom:1px solid rgba(255,248,239,.16)!important;
+}
+#timetableView .timetable-panel .calendar .cell {border-top:0!important;border-left:0!important;outline:0!important}
+
+/* Headers are LIGHT/airy while idle. */
+#timetableView .timetable-panel .calendar .day,
+#timetableView .timetable-panel .calendar .time {
+  background:rgba(255,248,239,.055)!important;background-color:rgba(255,248,239,.055)!important;
+  background-image:none!important;box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  color:#fffaf4!important;text-shadow:0 1px 4px rgba(36,19,19,.68)!important;
+  border:0!important;border-bottom:1px solid rgba(255,248,239,.28)!important;
+  transition:background-color .18s ease!important;
+}
+#timetableView .timetable-panel .calendar .time {
+  border-right:1px solid rgba(255,248,239,.28)!important;font-weight:600!important;
+}
+
+/* REVERSED scroll behavior: darken only sticky day/date/time headings as the calendar scrolls.
+   Never tint the empty cells or the background photo. */
+#timetableView .timetable-panel .cal-scroll.is-scrolling #calendar .day,
+#timetableView .timetable-panel .cal-scroll.is-scrolling #calendar .time,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .day,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .time {
+  background:rgba(55,27,35,.82)!important;background-color:rgba(55,27,35,.82)!important;
+  background-image:none!important;box-shadow:inset 0 1px 0 rgba(255,248,239,.10)!important;
+  -webkit-backdrop-filter:blur(7px) saturate(1.08)!important;backdrop-filter:blur(7px) saturate(1.08)!important;
+  color:#fff8ef!important;
+}
+#timetableView .timetable-panel .cal-scroll.is-scrolling #calendar .cell,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .cell,
+#timetableView .timetable-panel .cal-scroll.is-scrolling #calendar,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar {
+  background:transparent!important;background-color:transparent!important;background-image:none!important;
+  box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+
+/* Mobile date tabs must not create another pale/white sheet; selected tab stays burgundy. */
+#timetableView .timetable-panel .calendar-day-tabs {
+  background:transparent!important;background-color:transparent!important;background-image:none!important;box-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar-day-tab {
+  background:rgba(255,248,239,.045)!important;background-color:rgba(255,248,239,.045)!important;
+  background-image:none!important;border:1px solid rgba(255,244,229,.30)!important;
+  box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  color:#fff8ef!important;
+}
+#timetableView .timetable-panel .calendar-day-tab.active {
+  background:linear-gradient(145deg,rgba(91,35,53,.90),rgba(54,20,31,.92))!important;
+  background-color:rgba(65,29,40,.90)!important;border-color:rgba(255,244,229,.58)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18)!important;color:#fff8ef!important;
+}
+#timetableView .timetable-panel .calendar-mobile-table th {
+  background:rgba(255,248,239,.055)!important;background-color:rgba(255,248,239,.055)!important;
+  color:#fff8ef!important;border-bottom:1px solid rgba(255,248,239,.28)!important;
 }
 #timetableView .timetable-panel .calendar-mobile-table .mobile-event,
 #timetableView .timetable-panel .calendar .event {
-  opacity:1!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;filter:none!important;
+  opacity:1!important;filter:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
 }
 @media(max-width:760px){
   #timetableView button.timetable-back{margin:22px auto 25px!important;padding:3px 0!important;font-size:14px!important}
   #timetableView button.timetable-back span{font-size:22px!important}
-  #timetableView .timetable-panel .calendar .cell{border-right-color:rgba(255,248,239,.14)!important;border-bottom-color:rgba(255,248,239,.14)!important}
 }
 </style>
 
