@@ -12570,6 +12570,65 @@ body:has(#timetableView.active)::before{
  #timetableView .timetable-panel .calendar-help p{font-size:10px!important;line-height:1.5!important}
 }
 
+
+/* Keep the calendar grid compact within the page; scroll vertically inside its glass viewport. */
+@media(max-width:760px){
+ #timetableView .timetable-panel .cal-scroll{
+  display:block!important;width:100%!important;max-width:100%!important;
+  height:clamp(440px,58vh,560px)!important;max-height:58vh!important;
+  overflow-x:hidden!important;overflow-y:auto!important;
+  overscroll-behavior:contain!important;-webkit-overflow-scrolling:touch!important;
+  border-radius:0 0 18px 18px!important;
+  scrollbar-width:thin!important;scrollbar-color:rgba(255,241,225,.48) rgba(76,43,49,.16)!important;
+  background:rgba(255,247,236,.035)!important;
+ }
+ #timetableView .timetable-panel .calendar{
+  background:rgba(255,247,236,.035)!important;
+ }
+ #timetableView .timetable-panel .calendar .cell{
+  height:52px!important;
+  background:rgba(255,248,239,.045)!important;
+  border-color:rgba(255,249,240,.24)!important;
+ }
+ #timetableView .timetable-panel .calendar .time{height:52px!important}
+ #timetableView .timetable-panel .calendar .day{
+  background:linear-gradient(145deg,rgba(255,248,239,.28),rgba(226,204,187,.15))!important;
+  -webkit-backdrop-filter:blur(2px) saturate(1.08)!important;
+  backdrop-filter:blur(2px) saturate(1.08)!important;
+ }
+ #timetableView .timetable-panel .calendar .event{
+  background:linear-gradient(145deg,rgba(222,235,214,.79),rgba(172,197,164,.67))!important;
+  border:1px solid rgba(249,255,241,.75)!important;
+  border-left:2px solid rgba(124,157,119,.9)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.66),0 2px 5px rgba(35,14,22,.08)!important;
+ }
+ #timetableView .timetable-panel .calendar .event.pink,
+ #timetableView .timetable-panel .calendar .event.class-event.pink{
+  background:linear-gradient(145deg,rgba(246,218,229,.82),rgba(217,157,180,.72))!important;
+  border-left-color:rgba(177,105,132,.94)!important;
+ }
+ #timetableView .timetable-panel .calendar .event.occupied-event{
+  background:linear-gradient(145deg,rgba(120,47,70,.87),rgba(65,20,39,.90))!important;
+  border-left-color:rgba(232,177,187,.94)!important;
+ }
+ #timetableView .timetable-panel .calendar .event.rental-event{
+  background:linear-gradient(145deg,rgba(255,237,210,.84),rgba(226,190,153,.76))!important;
+  border-left-color:rgba(181,135,98,.94)!important;
+ }
+ #timetableView .timetable-panel .cal-toolbar{flex-shrink:0!important}
+ #timetableView .timetable-panel .calendar-help{
+  background:linear-gradient(145deg,rgba(111,76,75,.17),rgba(49,30,39,.21))!important;
+  -webkit-backdrop-filter:blur(3px) saturate(1.12)!important;
+  backdrop-filter:blur(3px) saturate(1.12)!important;
+ }
+ #timetableView:before{
+  background:
+   linear-gradient(145deg,rgba(44,20,25,.035),rgba(66,37,37,.025) 46%,rgba(39,18,28,.055)),
+   url("https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg") center center/cover no-repeat!important;
+  filter:none!important;
+ }
+}
+
 </style>
 
 </body></html>
