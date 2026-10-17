@@ -15131,4 +15131,82 @@ body::after{
 }
 </style>
 
+
+<style id="lds-class-registration-contrast-fix-20261017">
+/* Registration form readability: enforce contrast inside the month/session picker and all data-entry fields. */
+#classesView #classDetail .class-date-picker,
+#classesView #classDetail .class-date-picker *{
+  text-shadow:none!important;
+}
+#classesView #classDetail .class-date-picker h4,
+#classesView #classDetail .class-date-picker p,
+#classesView #classDetail .class-date-picker label,
+#classesView #classDetail .class-date-picker legend,
+#classesView #classDetail .class-date-picker .class-date-toolbar label{
+  color:#4b2932!important;opacity:1!important;
+}
+#classesView #classDetail #classDateOptions,
+#classesView #classDetail #classDateOptions *{
+  opacity:1!important;text-shadow:none!important;
+}
+#classesView #classDetail #classDateOptions .class-date-option{
+  color:#4a2b30!important;
+  background:linear-gradient(135deg,rgba(250,239,229,.98),rgba(230,207,197,.96))!important;
+  border:1px solid rgba(255,250,244,.98)!important;
+  box-shadow:0 3px 10px rgba(65,36,38,.08)!important;
+}
+#classesView #classDetail #classDateOptions .class-date-option strong,
+#classesView #classDetail #classDateOptions .class-date-option span,
+#classesView #classDetail #classDateOptions .class-date-option>small{
+  color:#512638!important;opacity:1!important;
+}
+#classesView #classDetail #classDateOptions .class-date-option small{
+  color:#71534d!important;opacity:1!important;
+}
+#classesView #classDetail #classDateOptions .class-date-option:has(input:checked){
+  background:linear-gradient(135deg,#e8cbd0,#d7b0ba)!important;border-color:#ad7888!important;
+}
+#classesView #classDetail #classDateOptions .class-date-option:has(input:checked) *{
+  color:#482331!important;opacity:1!important;
+}
+#classesView #classDetail .class-date-empty{
+  color:#4b2932!important;background:rgba(235,211,201,.98)!important;opacity:1!important;
+}
+#classesView #classDetail .class-registration-panel,
+#classesView #classDetail .class-registration-panel *{
+  text-shadow:none!important;
+}
+#classesView #classDetail .class-registration-panel h3,
+#classesView #classDetail .class-registration-panel h4,
+#classesView #classDetail .class-registration-panel>p,
+#classesView #classDetail .class-registration-panel label,
+#classesView #classDetail .class-registration-panel legend,
+#classesView #classDetail .class-registration-panel .adult-plan-label,
+#classesView #classDetail .class-registration-panel .class-option-copy strong,
+#classesView #classDetail .class-registration-panel .class-option-copy small{
+  opacity:1!important;
+}
+#classesView #classDetail .class-registration-panel>p,
+#classesView #classDetail .class-registration-panel label,
+#classesView #classDetail .class-registration-panel legend,
+#classesView #classDetail .class-registration-panel .adult-plan-label{
+  color:#56383b!important;
+}
+#classesView #classDetail .class-registration-panel input:not([type=radio]):not([type=checkbox]),
+#classesView #classDetail .class-registration-panel select,
+#classesView #classDetail .class-registration-panel textarea{
+  color:#40282b!important;background:#fff8f0!important;border:1px solid #d9bfb2!important;
+}
+#classesView #classDetail .class-registration-panel input::placeholder,
+#classesView #classDetail .class-registration-panel textarea::placeholder{
+  color:#80675f!important;opacity:1!important;
+}
+@media(max-width:760px){
+  #classesView #classDetail .class-date-picker{padding:17px!important}
+  #classesView #classDetail #classDateOptions .class-date-option{min-height:72px!important;padding:14px!important}
+  #classesView #classDetail #classDateOptions .class-date-option strong{font-size:14px!important;line-height:1.4!important}
+  #classesView #classDetail #classDateOptions .class-date-option small{font-size:13px!important;line-height:1.4!important}
+}
+</style>
+
 </body></html>
