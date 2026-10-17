@@ -11009,4 +11009,63 @@ main.wrap{width:100%!important;max-width:100%!important;min-width:0!important;bo
   }
 }
 </style>
+
+<style id="lds-footer-flow-and-divider-root-fix-20261017">
+/* Root fix: the footer stays in normal document flow over the shared studio photo.
+   Remove the separator above the logo and do not paint an artificial block below the footer. */
+.brand-footer .brand-footer-logo,
+.brand-footer-logo{
+  border:0!important;
+  border-top:0!important;
+  border-block-start:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  padding-top:0!important;
+}
+.brand-footer .brand-footer-logo::before,
+.brand-footer .brand-footer-logo::after,
+.brand-footer-logo::before,
+.brand-footer-logo::after{
+  content:none!important;display:none!important;
+}
+.brand-footer,
+.view>.brand-footer,
+.view.active>.brand-footer{
+  position:relative!important;
+  inset:auto!important;
+  transform:none!important;
+  border:0!important;
+  border-top:0!important;
+  box-shadow:none!important;
+  margin-bottom:0!important;
+}
+@media(max-width:760px){
+  #homeView.active,#rentalView.active,#timetableView.active,#classesView.active{
+    min-height:100svh!important;
+    overflow:visible!important;
+  }
+  #homeView.active>.brand-footer,
+  #rentalView.active>.brand-footer,
+  #timetableView.active>.brand-footer,
+  #classesView.active>.brand-footer,
+  .view.active>.brand-footer{
+    position:relative!important;
+    top:auto!important;bottom:auto!important;
+    flex:0 0 auto!important;
+    margin-bottom:0!important;
+    box-shadow:none!important;
+    overflow:visible!important;
+  }
+  #homeView.active>.brand-footer::after,
+  #rentalView.active>.brand-footer::after,
+  #timetableView.active>.brand-footer::after,
+  #classesView.active>.brand-footer::after,
+  .view.active>.brand-footer::after{
+    content:none!important;display:none!important;
+  }
+  .brand-footer-main{
+    padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))!important;
+  }
+}
+</style>
 </body></html>
