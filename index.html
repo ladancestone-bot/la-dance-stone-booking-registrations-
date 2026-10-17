@@ -17190,3 +17190,23 @@ body::after{
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
 </script>
+
+<style id="lds-rental-hero-no-card-20261017">
+/* Studio rental hero: remove the outer intro card only.
+   Keep the title, description, five amenity bubbles, address, gallery and booking flow intact. */
+#rentalView .rental-intro{
+  display:flex!important;flex-direction:column!important;
+  padding:8px 0 0!important;margin:0 auto!important;
+  border:0!important;border-radius:0!important;
+  background:transparent!important;background-image:none!important;
+  box-shadow:none!important;backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;outline:0!important;
+}
+@media(max-width:760px){
+  #rentalView .rental-intro{
+    padding:8px 0 0!important;border:0!important;border-radius:0!important;
+    background:transparent!important;box-shadow:none!important;
+  }
+}
+</style>
+
