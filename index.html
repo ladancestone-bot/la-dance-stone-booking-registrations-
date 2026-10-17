@@ -14029,4 +14029,78 @@ body::after{
  pointer-events:none!important;
 }
 </style>
+
+<style id="lds-weekly-mobile-agenda-20261017">
+/* Phone-only redesign: compact two-column day cards. Desktop timetable remains unchanged. */
+@media(max-width:760px){
+  #classOverview .class-week-preview{box-sizing:border-box!important;width:100%!important;max-width:100%!important;margin:18px 0 24px!important;padding:17px 14px!important;border:1px solid rgba(255,248,239,.72)!important;border-radius:24px!important;background:linear-gradient(145deg,rgba(248,239,226,.9),rgba(111,75,59,.82))!important;box-shadow:0 14px 34px rgba(48,29,21,.16),inset 0 1px 0 rgba(255,255,255,.75)!important;backdrop-filter:blur(18px) saturate(125%)!important;-webkit-backdrop-filter:blur(18px) saturate(125%)!important;overflow:hidden!important}
+  #classOverview .class-week-heading{display:block!important;margin:0 0 15px!important}
+  #classOverview .class-week-heading .eyebrow{font-size:10px!important;letter-spacing:.19em!important;color:#805b43!important}
+  #classOverview .class-week-heading h3{font-size:clamp(27px,8vw,34px)!important;line-height:1.04!important;margin:7px 0 6px!important;color:#fff9f1!important}
+  #classOverview .class-week-heading p{font-size:12px!important;line-height:1.5!important;margin:0!important;color:#fffaf4!important;max-width:34ch!important}
+  #classOverview .class-week-heading>.pill{display:inline-flex!important;margin-top:12px!important;padding:7px 11px!important;font-size:10px!important;background:rgba(255,250,243,.65)!important;color:#704832!important;border:1px solid rgba(255,255,255,.75)!important}
+  #classOverview .class-week-calendar-scroll{display:none!important}
+  #classOverview .lds-weekly-mobile-agenda{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;width:100%!important;min-width:0!important}
+  #classOverview .lds-mobile-day{min-width:0!important;box-sizing:border-box!important;padding:11px 10px!important;border:1px solid rgba(255,255,255,.72)!important;border-radius:15px!important;background:linear-gradient(145deg,rgba(255,251,245,.96),rgba(237,221,204,.9))!important;box-shadow:0 5px 14px rgba(55,34,24,.09),inset 0 1px 0 #fff!important;color:#4d352b!important;overflow-wrap:anywhere!important}
+  #classOverview .lds-mobile-day-head{display:flex!important;align-items:center!important;gap:7px!important;padding-bottom:8px!important;margin-bottom:8px!important;border-bottom:1px solid rgba(119,80,58,.18)!important}
+  #classOverview .lds-mobile-day-number{display:grid!important;place-items:center!important;flex:0 0 27px!important;width:27px!important;height:27px!important;border-radius:50%!important;background:#6d303b!important;color:#fff7ef!important;font-size:12px!important;font-weight:700!important}
+  #classOverview .lds-mobile-day-name{font-size:9px!important;line-height:1.2!important;font-weight:800!important;letter-spacing:.035em!important;color:#6d303b!important}
+  #classOverview .lds-mobile-event{padding:7px 0!important;border-bottom:1px solid rgba(119,80,58,.12)!important}
+  #classOverview .lds-mobile-event:last-child{border-bottom:0!important;padding-bottom:0!important}
+  #classOverview .lds-mobile-event time{display:block!important;font-size:10px!important;font-weight:800!important;line-height:1.35!important;color:#7b3340!important;white-space:normal!important}
+  #classOverview .lds-mobile-event strong{display:block!important;font-size:11px!important;line-height:1.3!important;margin-top:2px!important;color:#4b342a!important}
+  #classOverview .lds-mobile-event small{display:block!important;font-size:10px!important;line-height:1.35!important;margin-top:2px!important;color:#806c5e!important}
+  #classOverview .lds-mobile-empty{font-size:10px!important;line-height:1.45!important;color:#8b796b!important;font-style:italic!important}
+  #classOverview .lds-weekly-mobile-note{grid-column:1/-1!important;padding:9px 11px!important;border:1px solid rgba(255,255,255,.6)!important;border-radius:12px!important;background:rgba(255,250,243,.32)!important;color:#fff8f0!important;font-size:10px!important;line-height:1.45!important}
+}
+@media(max-width:360px){#classOverview .class-week-preview{padding:14px 10px!important}#classOverview .lds-weekly-mobile-agenda{gap:7px!important}#classOverview .lds-mobile-day{padding:9px 8px!important}#classOverview .lds-mobile-day-name{font-size:8px!important}}
+@media(min-width:761px){#classOverview .lds-weekly-mobile-agenda{display:none!important}}
+</style>
+<script id="lds-weekly-mobile-agenda-script-20261017">
+(function(){
+ function buildMobileWeeklyAgenda(){
+  var overview=document.getElementById('classOverview');
+  var grid=overview&&overview.querySelector('.class-calendar-grid');
+  if(!grid||grid.dataset.mobileAgendaBuilt==='1')return;
+  var cells=Array.from(grid.children);
+  if(cells.length<16)return;
+  var dayNames=cells.slice(1,8).map(function(el){return el.textContent.trim();});
+  var dayEvents=Array.from({length:7},function(){return[];});
+  for(var i=8;i+7<cells.length;i+=8){
+   var timeLabel=cells[i].textContent.trim();
+   for(var d=0;d<7;d++){
+    var slot=cells[i+1+d];
+    if(!slot||slot.classList.contains('free'))continue;
+    var title=slot.querySelector('span');
+    var age=slot.querySelector('small');
+    var time=slot.querySelector('strong');
+    if(title||time)dayEvents[d].push({time:time?time.textContent.trim():timeLabel,title:title?title.textContent.trim():slot.textContent.trim(),age:age?age.textContent.trim():''});
+   }
+  }
+  var wrap=document.createElement('div');wrap.className='lds-weekly-mobile-agenda';wrap.setAttribute('aria-label','Visos savaitės dienos ir šokių pamokos');
+  dayNames.forEach(function(name,index){
+   var card=document.createElement('section');card.className='lds-mobile-day';
+   var head=document.createElement('div');head.className='lds-mobile-day-head';
+   var number=document.createElement('span');number.className='lds-mobile-day-number';number.textContent=String(index+1);
+   var label=document.createElement('span');label.className='lds-mobile-day-name';label.textContent=name;
+   head.append(number,label);card.appendChild(head);
+   if(!dayEvents[index].length){var empty=document.createElement('div');empty.className='lds-mobile-empty';empty.textContent='Šokių pamokų nenumatyta';card.appendChild(empty);}
+   dayEvents[index].forEach(function(event){
+    var row=document.createElement('div');row.className='lds-mobile-event';
+    var time=document.createElement('time');time.textContent=event.time;row.appendChild(time);
+    var title=document.createElement('strong');title.textContent=event.title;row.appendChild(title);
+    if(event.age){var small=document.createElement('small');small.textContent=event.age;row.appendChild(small);}
+    card.appendChild(row);
+   });
+   wrap.appendChild(card);
+  });
+  var note=document.createElement('div');note.className='lds-weekly-mobile-note';note.textContent='Tai savaitės grupių apžvalga. Registracijai pasirinkite norimą grupę žemiau.';wrap.appendChild(note);
+  var scroll=grid.closest('.class-week-calendar-scroll');
+  if(scroll&&scroll.parentNode){scroll.parentNode.insertBefore(wrap,scroll.nextSibling);grid.dataset.mobileAgendaBuilt='1';}
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',buildMobileWeeklyAgenda);else buildMobileWeeklyAgenda();
+ setTimeout(buildMobileWeeklyAgenda,500);
+})();
+</script>
+
 </body></html>
