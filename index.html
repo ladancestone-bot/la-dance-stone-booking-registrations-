@@ -17323,3 +17323,33 @@ html body #rentalView.view:not(#homeView) .rental-gallery .gallery-card .gallery
 }
 </style>
 
+<style id="lds-rental-caption-true-transparent-20261017">
+/* Rental gallery captions: remove the white/milky panel entirely.
+   Keep caption text white and readable; only the panel background becomes transparent glass. */
+html body #rentalView.view:not(#homeView) .rental-gallery .gallery-card .gallery-caption{
+  background:rgba(67,43,36,.10)!important;
+  background-color:rgba(67,43,36,.10)!important;
+  background-image:none!important;
+  border-top:1px solid rgba(255,250,242,.24)!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:blur(5px)!important;
+  backdrop-filter:blur(5px)!important;
+}
+html body #rentalView.view:not(#homeView) .rental-gallery .gallery-card .gallery-caption strong,
+html body #rentalView.view:not(#homeView) .rental-gallery .gallery-card .gallery-caption span{
+  color:#fffaf2!important;
+  text-shadow:0 1px 7px rgba(36,19,17,.72)!important;
+}
+@media(max-width:760px){
+  html body #rentalView.view:not(#homeView) .rental-gallery .gallery-card .gallery-caption{
+    background:rgba(67,43,36,.08)!important;
+    background-color:rgba(67,43,36,.08)!important;
+    background-image:none!important;
+    border-top:1px solid rgba(255,250,242,.22)!important;
+    box-shadow:none!important;
+    -webkit-backdrop-filter:blur(5px)!important;
+    backdrop-filter:blur(5px)!important;
+  }
+}
+</style>
+
