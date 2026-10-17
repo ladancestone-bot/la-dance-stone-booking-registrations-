@@ -12692,6 +12692,89 @@ body:has(#timetableView.active)::before{
 }
 #timetableView .timetable-panel .calendar .cell{background:rgba(255,248,239,.025)!important}
 
+
+/* Match the timetable page to the rental page's visible studio-photo backdrop and glass surfaces. */
+#timetableView:before{
+ background:
+  linear-gradient(145deg,rgba(48,25,24,.08),rgba(64,37,31,.035) 48%,rgba(42,20,25,.10)),
+  url("https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg") center center/cover no-repeat!important;
+ filter:none!important;transform:none!important;
+}
+#timetableView .timetable-heading,
+#timetableView .timetable-panel{
+ background:rgba(92,62,51,.16)!important;
+ border:1px solid rgba(255,242,224,.68)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.30),0 12px 32px rgba(36,18,18,.12)!important;
+ -webkit-backdrop-filter:blur(5px) saturate(1.10)!important;
+ backdrop-filter:blur(5px) saturate(1.10)!important;
+}
+#timetableView .timetable-panel .cal-toolbar{
+ background:linear-gradient(115deg,rgba(88,34,53,.92),rgba(69,27,44,.91))!important;
+ border-bottom:1px solid rgba(255,244,229,.42)!important;
+}
+#timetableView .timetable-panel .cal-scroll{
+ background:rgba(255,246,232,.025)!important;
+}
+#timetableView .timetable-panel .calendar{
+ background:transparent!important;
+}
+#timetableView .timetable-panel .calendar .day{
+ background:rgba(255,245,231,.12)!important;
+ color:#fff4e7!important;
+ border-color:rgba(255,247,235,.30)!important;
+ text-shadow:0 1px 5px rgba(35,17,18,.30)!important;
+}
+#timetableView .timetable-panel .calendar .time{
+ background:rgba(66,38,39,.42)!important;
+ color:#fff7ed!important;
+ border-color:rgba(255,245,230,.25)!important;
+}
+#timetableView .timetable-panel .calendar .cell{
+ background:rgba(255,248,238,.055)!important;
+ border:1px solid rgba(255,248,238,.23)!important;
+}
+#timetableView .timetable-panel .calendar .event{
+ background:rgba(218,232,208,.92)!important;
+ color:#263d2d!important;border:1px solid rgba(255,255,255,.80)!important;
+ border-left:3px solid #78936d!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 3px 8px rgba(28,12,18,.12)!important;
+}
+#timetableView .timetable-panel .calendar .event b,
+#timetableView .timetable-panel .calendar .event span{color:#263d2d!important}
+#timetableView .timetable-panel .calendar .event.pink{
+ background:rgba(242,205,220,.94)!important;color:#59263c!important;border-left-color:#a64f75!important;
+}
+#timetableView .timetable-panel .calendar .event.pink b,
+#timetableView .timetable-panel .calendar .event.pink span{color:#59263c!important}
+#timetableView .timetable-panel .calendar .event.occupied-event{
+ background:rgba(83,31,51,.96)!important;color:#fff8f1!important;
+ border:1px solid rgba(255,235,225,.84)!important;border-left:3px solid #e5b5c0!important;
+}
+#timetableView .timetable-panel .calendar .event.occupied-event b,
+#timetableView .timetable-panel .calendar .event.occupied-event span{color:#fff8f1!important}
+#timetableView .timetable-panel .calendar .event.rental-event{
+ background:rgba(244,222,184,.95)!important;color:#503822!important;border-left-color:#b98a49!important;
+}
+#timetableView .timetable-panel .calendar .event.rental-event b,
+#timetableView .timetable-panel .calendar .event.rental-event span{color:#503822!important}
+#timetableView .timetable-panel .calendar-help{
+ background:rgba(91,59,49,.22)!important;
+ border-top:1px solid rgba(255,242,224,.52)!important;
+ -webkit-backdrop-filter:blur(4px) saturate(1.08)!important;
+ backdrop-filter:blur(4px) saturate(1.08)!important;
+}
+@media(max-width:760px){
+ #timetableView:before{
+  background:
+   linear-gradient(145deg,rgba(48,25,24,.045),rgba(64,37,31,.02) 48%,rgba(42,20,25,.055)),
+   url("https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg") center center/cover no-repeat!important;
+  filter:none!important;
+ }
+ #timetableView .timetable-panel{background:rgba(92,62,51,.12)!important;-webkit-backdrop-filter:blur(3px) saturate(1.08)!important;backdrop-filter:blur(3px) saturate(1.08)!important}
+ #timetableView .timetable-panel .calendar .cell{background:rgba(255,248,238,.035)!important}
+ #timetableView .timetable-panel .calendar .day{background:rgba(255,245,231,.10)!important}
+}
+
 </style>
 
 </body></html>
