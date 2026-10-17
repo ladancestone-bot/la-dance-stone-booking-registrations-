@@ -10902,4 +10902,38 @@ main.wrap{width:100%!important;max-width:100%!important;min-width:0!important;bo
  }
 }
 </style>
+
+<style id="lds-mobile-home-carousel-footer-refinement-20261017">
+/* Mobile refinement: preserve the existing arch-card carousel and studio-photo backdrop,
+   while reducing excess space and letting the footer meet both viewport edges. */
+@media (max-width:760px){
+  #homeView.view.active{padding-bottom:12px!important;overflow:visible!important}
+  #homeView .choices{
+    padding-top:12px!important;padding-bottom:10px!important;margin-bottom:8px!important;
+    scroll-padding-inline:15vw!important;gap:12px!important;box-sizing:border-box!important;
+  }
+  #homeView .choice{
+    flex:0 0 70vw!important;width:70vw!important;max-width:290px!important;
+    min-width:0!important;box-sizing:border-box!important;
+  }
+  #homeView.active>.brand-footer{
+    position:relative!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;
+    width:100vw!important;min-width:100vw!important;max-width:100vw!important;
+    margin:12px 0 0!important;padding:0!important;box-sizing:border-box!important;
+    overflow:hidden!important;border-radius:0!important;
+  }
+  #homeView.active>.brand-footer>.brand-footer-main{
+    width:100%!important;max-width:100%!important;margin:0!important;
+    padding:24px 22px calc(28px + env(safe-area-inset-bottom,0px))!important;
+    box-sizing:border-box!important;grid-template-columns:minmax(0,1fr)!important;gap:16px!important;
+  }
+  #homeView.active>.brand-footer .brand-footer-copy,
+  #homeView.active>.brand-footer .brand-footer-logo{
+    min-width:0!important;max-width:100%!important;box-sizing:border-box!important;
+  }
+  #homeView.active>.brand-footer .brand-footer-logo-image{
+    width:min(220px,100%)!important;height:auto!important;object-fit:contain!important;
+  }
+}
+</style>
 </body></html>
