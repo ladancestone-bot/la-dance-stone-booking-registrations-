@@ -16658,7 +16658,7 @@ body::after{
 }
 </style>
 <script id="lds-home-carousel-manual-snap-controller-20261017">
-/* Continuous, seamless mobile carousel. Uses clone-to-original cycle width, not end-of-track thresholds. */
+/* Stability recovery: show all cards, keep 3D styling, circular manual swipe. No autoplay. */
 (function(){
  function init(){
   const home=document.getElementById('homeView'),rail=home&&home.querySelector('.choices');
@@ -16666,21 +16666,20 @@ body::after{
   rail.dataset.manualSnapReady='1';
   const originals=Array.from(rail.querySelectorAll(':scope > .choice:not([data-carousel-clone="1"]):not([data-loop-clone])'));
   if(originals.length<3)return;
-  let styleFrame=0,autoFrame=0,lastTime=0,userInteracting=false,resumeTimer=0;
+  let frame=0,settleTimer=0,wrapping=false;
   const isMobile=()=>window.matchMedia('(max-width:760px)').matches;
-  const speed=12;
   function cloneCard(card,edge){
    const clone=card.cloneNode(true);clone.dataset.carouselClone='1';clone.dataset.carouselEdge=edge;clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;
    clone.querySelectorAll('a,button,[tabindex]').forEach(el=>el.tabIndex=-1);
    clone.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const target=originals.find(c=>c.dataset.view===clone.dataset.view);if(target)target.click()});
    return clone;
   }
-  if(!rail.querySelector(':scope > .choice[data-carousel-clone="1"]')){
-   const before=document.createDocumentFragment();
-   originals.slice(-2).forEach(card=>before.appendChild(cloneCard(card,'before')));
-   rail.insertBefore(before,originals[0]);
-   originals.slice(0,2).forEach(card=>rail.appendChild(cloneCard(card,'after')));
-  }
+  /* Remove any stale copies before creating exactly two on each edge. */
+  rail.querySelectorAll(':scope > .choice[data-carousel-clone="1"]').forEach(c=>c.remove());
+  const before=document.createDocumentFragment();
+  originals.slice(-2).forEach(card=>before.appendChild(cloneCard(card,'before')));
+  rail.insertBefore(before,originals[0]);
+  originals.slice(0,2).forEach(card=>rail.appendChild(cloneCard(card,'after')));
   const cards=()=>Array.from(rail.querySelectorAll(':scope > .choice'));
   function centerCard(card){
    if(!card)return;
@@ -16688,7 +16687,7 @@ body::after{
    rail.scrollLeft+=(cr.left+cr.width/2)-(rr.left+rr.width/2);
   }
   function update(){
-   styleFrame=0;
+   frame=0;
    if(!isMobile()){cards().forEach(c=>{c.classList.remove('is-center','is-side');c.style.removeProperty('--card-rotate');c.style.removeProperty('--card-scale');c.style.removeProperty('--card-depth');c.style.zIndex=''});return}
    const rr=rail.getBoundingClientRect(),center=rr.left+rr.width/2;
    cards().forEach(card=>{
@@ -16701,55 +16700,24 @@ body::after{
     card.style.zIndex=String(6-Math.round(abs*3));
    });
   }
-  function scheduleStyle(){if(!styleFrame)styleFrame=requestAnimationFrame(update)}
-  function cycleMetrics(){
-   const first=originals[0];
-   const after=cards().find(c=>c.dataset.carouselClone==='1'&&c.dataset.carouselEdge==='after'&&c.dataset.view===first.dataset.view);
-   const last=originals[originals.length-1];
-   if(!first||!after||!last)return null;
-   const width=after.offsetLeft-first.offsetLeft;
-   return width>0?{first:first.offsetLeft,last:last.offsetLeft,after:after.offsetLeft,width}:null;
-  }
-  function loop(time){
-   autoFrame=0;
-   if(!isMobile()||userInteracting){lastTime=0;return}
-   if(!lastTime)lastTime=time;
-   const dt=Math.min(40,time-lastTime);lastTime=time;
-   rail.scrollLeft+=speed*dt/1000;
-   const m=cycleMetrics();
-   if(m){
-    if(rail.scrollLeft>=m.after)rail.scrollLeft-=m.width;
-    else if(rail.scrollLeft<m.first)rail.scrollLeft+=m.width;
+  function schedule(){if(!frame)frame=requestAnimationFrame(update)}
+  function wrapIfNeeded(){
+   if(!isMobile()||wrapping)return;
+   const rr=rail.getBoundingClientRect(),center=rr.left+rr.width/2;
+   let nearest=null,d=Infinity;
+   cards().forEach(c=>{const r=c.getBoundingClientRect(),dist=Math.abs(r.left+r.width/2-center);if(dist<d){d=dist;nearest=c}});
+   if(nearest&&nearest.dataset.carouselClone==='1'){
+    const target=originals.find(c=>c.dataset.view===nearest.dataset.view);
+    if(target){wrapping=true;centerCard(target);schedule();requestAnimationFrame(()=>{wrapping=false;schedule()})}
    }
-   scheduleStyle();
-   autoFrame=requestAnimationFrame(loop);
   }
-  function startLoop(){if(isMobile()&&!userInteracting&&!autoFrame){lastTime=0;autoFrame=requestAnimationFrame(loop)}}
-  function stopForTouch(){
-   userInteracting=true;lastTime=0;
-   if(autoFrame){cancelAnimationFrame(autoFrame);autoFrame=0}
-   clearTimeout(resumeTimer);
-  }
-  function resumeAfterTouch(){
-   clearTimeout(resumeTimer);
-   resumeTimer=setTimeout(()=>{userInteracting=false;startLoop()},700);
-  }
-  rail.style.scrollSnapType='none';
-  rail.addEventListener('pointerdown',stopForTouch,{passive:true});
-  rail.addEventListener('pointerup',resumeAfterTouch,{passive:true});
-  rail.addEventListener('pointercancel',resumeAfterTouch,{passive:true});
-  rail.addEventListener('touchstart',stopForTouch,{passive:true});
-  rail.addEventListener('touchend',resumeAfterTouch,{passive:true});
-  rail.addEventListener('scroll',scheduleStyle,{passive:true});
-  window.addEventListener('resize',()=>{
-   if(isMobile()){rail.style.scrollSnapType='none';scheduleStyle();startLoop()}
-   else{if(autoFrame)cancelAnimationFrame(autoFrame);autoFrame=0;rail.style.scrollSnapType='';scheduleStyle()}
-  },{passive:true});
-  if('ResizeObserver'in window)new ResizeObserver(scheduleStyle).observe(rail);
-  requestAnimationFrame(()=>{
-   if(isMobile()){centerCard(originals[1]);scheduleStyle();startLoop()}
-   else scheduleStyle();
-  });
+  function onScroll(){schedule();clearTimeout(settleTimer);settleTimer=setTimeout(wrapIfNeeded,90)}
+  rail.style.scrollSnapType='x mandatory';
+  rail.addEventListener('scroll',onScroll,{passive:true});
+  rail.addEventListener('scrollend',wrapIfNeeded,{passive:true});
+  window.addEventListener('resize',()=>{if(isMobile())centerCard(originals[1]);schedule()},{passive:true});
+  if('ResizeObserver'in window)new ResizeObserver(schedule).observe(rail);
+  requestAnimationFrame(()=>{if(isMobile())centerCard(originals[1]);schedule()});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
