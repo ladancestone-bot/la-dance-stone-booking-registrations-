@@ -4521,7 +4521,7 @@ $('prevWeek').onclick=()=>{week.setDate(week.getDate()-7);renderCalendar()};$('n
      const active=abs<.38;
      card.classList.toggle('is-center',active);
      card.classList.toggle('is-side',!active);
-     card.style.setProperty('--card-rotate',window.matchMedia('(max-width:760px)').matches?(-ratio*8)+'deg':'0deg');
+     card.style.setProperty('--card-rotate',window.matchMedia('(max-width:760px)').matches?(-ratio*27)+'deg':'0deg');
      card.style.setProperty('--card-scale',(1-abs*.28).toFixed(3));
      card.style.setProperty('--card-lift',(active?18:24+abs*10)+'px');
      card.style.zIndex=String(30-Math.round(abs*10));
@@ -11661,6 +11661,32 @@ body:has(#homeView.active)::after{
  #homeView .choice.is-side{
   transform:perspective(1050px) translate3d(0,28px,-90px) rotateY(0deg) scale(.72)!important;
  }
+}
+</style>
+
+<style id="lds-carousel-visible-receding-orbit-20261017">
+/* Make the side arches visibly travel backward in depth and wrap around the hero card. */
+#homeView .choices{
+ perspective:1100px!important;
+ perspective-origin:50% 46%!important;
+ transform-style:preserve-3d!important;
+}
+#homeView .choice{
+ transform-style:preserve-3d!important;
+ backface-visibility:hidden!important;
+ -webkit-backface-visibility:hidden!important;
+}
+@media(max-width:760px){
+ #homeView .choice.is-center{
+  transform:perspective(1100px) translate3d(0,18px,48px) rotateY(0deg) scale(1.035)!important;
+  z-index:30!important;
+ }
+ #homeView .choice.is-side{
+  transform:perspective(1100px) translate3d(0,30px,-135px) rotateY(var(--card-rotate,0deg)) scale(var(--card-scale,.72))!important;
+  transform-origin:50% 50%!important;
+  filter:brightness(.82) saturate(.86)!important;
+ }
+ #homeView .choice.is-side::before{opacity:.48!important}
 }
 </style>
 </body></html>
