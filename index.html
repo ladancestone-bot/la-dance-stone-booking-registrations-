@@ -16986,6 +16986,59 @@ body::after{
   #timetableView .timetable-panel .cal-toolbar{border-radius:18px 18px 0 0!important;padding:14px 13px!important}
 }
 </style>
+<style id="lds-timetable-glass-specificity-fix-20261017">
+/* Correct the previous override: legacy calendar rules target .calendar .day/.time/.cell,
+   so these final rules deliberately match their specificity. Timetable data and behavior unchanged. */
+#timetableView .timetable-panel .calendar .day,
+#timetableView .timetable-panel .calendar .day:first-child{
+  background:rgba(65,35,43,.58)!important;
+  background-image:none!important;
+  color:rgba(255,248,239,.94)!important;
+  border-color:rgba(255,244,229,.28)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16)!important;
+  -webkit-backdrop-filter:blur(5px) saturate(1.12)!important;
+  backdrop-filter:blur(5px) saturate(1.12)!important;
+}
+#timetableView .timetable-panel .calendar .day strong{
+  color:#fff5e9!important;
+}
+#timetableView .timetable-panel .calendar .time,
+#timetableView .timetable-panel .calendar .time:first-child{
+  background:rgba(65,35,43,.48)!important;
+  background-image:none!important;
+  color:rgba(255,248,239,.94)!important;
+  border-color:rgba(255,244,229,.24)!important;
+  box-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar .cell{
+  background:rgba(255,248,239,.055)!important;
+  background-image:none!important;
+  border-color:rgba(255,244,229,.23)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10)!important;
+}
+#timetableView .timetable-panel .cal-scroll{
+  background:rgba(255,247,236,.025)!important;
+  background-image:none!important;
+}
+#timetableView .timetable-panel .calendar{
+  background:transparent!important;
+  background-image:none!important;
+}
+#timetableView .timetable-panel{
+  background:rgba(255,247,236,.055)!important;
+  background-image:none!important;
+}
+#timetableView button.timetable-back,
+#timetableView button.timetable-back:hover,
+#timetableView button.timetable-back:focus,
+#timetableView button.timetable-back:focus-visible,
+#timetableView button.timetable-back:active{
+  appearance:none!important;-webkit-appearance:none!important;
+  background:transparent!important;background-color:transparent!important;background-image:none!important;
+  border:0!important;border-radius:0!important;box-shadow:none!important;outline:0!important;
+  padding:4px 0!important;
+}
+</style>
 <script id="lds-home-carousel-manual-snap-controller-20261017">
 /* Infinite manual swipe carousel. Preserve existing cards, design and booking behavior. */
 (function(){
