@@ -13164,4 +13164,49 @@ body:has(#timetableView.active)::before{
 }
 </style>
 
+
+<style id="lds-timetable-pure-glass-minimal-lines-20261017">
+/* Pure glass timetable: no decorative white blocks, only data, restrained lines and lesson cards. */
+#timetableView .timetable-panel{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ border:1px solid rgba(255,245,230,.38)!important;box-shadow:none!important;
+ -webkit-backdrop-filter:blur(1px)!important;backdrop-filter:blur(1px)!important;
+}
+#timetableView .timetable-panel .cal-scroll,
+#timetableView .timetable-panel #calendar,
+#timetableView .timetable-panel .calendar{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ border:0!important;box-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar .cell{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ border:0!important;border-right:1px solid rgba(255,245,232,.17)!important;
+ border-bottom:1px solid rgba(255,245,232,.17)!important;
+ outline:0!important;box-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar .day{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ border:0!important;border-bottom:1px solid rgba(255,245,232,.30)!important;
+ box-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar .time{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ border:0!important;border-right:1px solid rgba(255,245,232,.30)!important;
+ box-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar .day:first-child{
+ border-right:1px solid rgba(255,245,232,.30)!important;
+}
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .day,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .time{
+ background:rgba(58,35,37,.78)!important;
+}
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .cell{
+ background:transparent!important;
+}
+#timetableView .timetable-panel .calendar .event{
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 2px 5px rgba(20,10,12,.10)!important;
+}
+</style>
+
 </body></html>
