@@ -12629,6 +12629,69 @@ body:has(#timetableView.active)::before{
  }
 }
 
+
+/* Legibility and clear glass finish for the mobile weekly calendar. */
+@media(max-width:760px){
+ #timetableView .timetable-panel .calendar .cell{
+  background:rgba(255,248,239,.025)!important;
+  border:1px solid rgba(255,255,255,.20)!important;
+ }
+ #timetableView .timetable-panel .calendar .time{
+  background:rgba(70,43,47,.68)!important;color:#fffaf4!important;
+  font-size:clamp(7px,1.9vw,9px)!important;text-shadow:0 1px 3px rgba(20,8,12,.25)!important;
+ }
+ #timetableView .timetable-panel .calendar .day{
+  background:rgba(255,245,233,.16)!important;color:#573943!important;
+  border-color:rgba(255,255,255,.25)!important;
+ }
+ #timetableView .timetable-panel .calendar .event{
+  background:rgba(218,232,208,.88)!important;color:#263d2d!important;
+  border:1px solid rgba(255,255,255,.72)!important;
+  border-left:3px solid rgba(106,142,101,.96)!important;
+  box-shadow:0 2px 6px rgba(30,13,20,.10),inset 0 1px 0 rgba(255,255,255,.7)!important;
+ }
+ #timetableView .timetable-panel .calendar .event b{
+  font-size:clamp(6px,1.65vw,7.5px)!important;line-height:1.15!important;color:#263d2d!important;
+ }
+ #timetableView .timetable-panel .calendar .event span{
+  font-size:clamp(5.7px,1.5vw,7px)!important;line-height:1.15!important;color:#304436!important;
+ }
+ #timetableView .timetable-panel .calendar .event.pink,
+ #timetableView .timetable-panel .calendar .event.class-event.pink{
+  background:rgba(242,205,220,.91)!important;color:#59263c!important;
+  border-left-color:#a64f75!important;
+ }
+ #timetableView .timetable-panel .calendar .event.pink b,
+ #timetableView .timetable-panel .calendar .event.pink span{color:#59263c!important}
+ #timetableView .timetable-panel .calendar .event.occupied-event{
+  background:rgba(83,31,51,.94)!important;color:#fff8f1!important;
+  border:1px solid rgba(255,235,225,.82)!important;border-left:3px solid #e5b5c0!important;
+ }
+ #timetableView .timetable-panel .calendar .event.occupied-event b,
+ #timetableView .timetable-panel .calendar .event.occupied-event span{color:#fff8f1!important}
+ #timetableView .timetable-panel .calendar .event.rental-event{
+  background:rgba(244,222,184,.92)!important;color:#503822!important;
+  border-left-color:#b98a49!important;
+ }
+ #timetableView .timetable-panel .calendar .event.rental-event b,
+ #timetableView .timetable-panel .calendar .event.rental-event span{color:#503822!important}
+ #timetableView .timetable-panel .calendar .event.plum{
+  background:rgba(226,210,231,.92)!important;color:#49324f!important;border-left-color:#96729f!important;
+ }
+ #timetableView .timetable-panel .calendar .event.plum b,
+ #timetableView .timetable-panel .calendar .event.plum span{color:#49324f!important}
+ #timetableView .timetable-panel .cal-scroll{
+  background:rgba(255,247,236,.018)!important;
+ }
+ #timetableView:before{
+  background:
+   linear-gradient(145deg,rgba(44,20,25,.015),rgba(66,37,37,.01) 46%,rgba(39,18,28,.025)),
+   url("https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg") center center/cover no-repeat!important;
+  filter:none!important;
+ }
+}
+#timetableView .timetable-panel .calendar .cell{background:rgba(255,248,239,.025)!important}
+
 </style>
 
 </body></html>
