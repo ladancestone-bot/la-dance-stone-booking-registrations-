@@ -16658,7 +16658,7 @@ body::after{
 }
 </style>
 <script id="lds-home-carousel-manual-snap-controller-20261017">
-/* Circular swipe-only carousel. Two edge cards on each side prevent the track ever looking empty. */
+/* Seamless continuous carousel: slow automatic drift, touch remains available, no end pause. */
 (function(){
  function init(){
   const home=document.getElementById('homeView'),rail=home&&home.querySelector('.choices');
@@ -16666,8 +16666,9 @@ body::after{
   rail.dataset.manualSnapReady='1';
   const originals=Array.from(rail.querySelectorAll(':scope > .choice:not([data-carousel-clone="1"]):not([data-loop-clone])'));
   if(originals.length<3)return;
-  let frame=0,settleTimer=0,wrapping=false;
+  let styleFrame=0,autoFrame=0,lastTime=0,wrapping=false,userInteracting=false,resumeTimer=0;
   const isMobile=()=>window.matchMedia('(max-width:760px)').matches;
+  const speed=14; // pixels per second: slow, premium motion
   function cloneCard(card,edge){
    const clone=card.cloneNode(true);clone.dataset.carouselClone='1';clone.dataset.carouselEdge=edge;clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;
    clone.querySelectorAll('a,button,[tabindex]').forEach(el=>el.tabIndex=-1);
@@ -16675,8 +16676,7 @@ body::after{
    return clone;
   }
   if(!rail.querySelector(':scope > .choice[data-carousel-clone="1"]')){
-   const before=originals.slice(-2);
-   before.forEach(card=>rail.insertBefore(cloneCard(card,'before'),rail.querySelector(':scope > .choice:not([data-carousel-clone="1"])')));
+   originals.slice(-2).forEach(card=>rail.insertBefore(cloneCard(card,'before'),rail.querySelector(':scope > .choice:not([data-carousel-clone="1"])')));
    originals.slice(0,2).forEach(card=>rail.appendChild(cloneCard(card,'after')));
   }
   const cards=()=>Array.from(rail.querySelectorAll(':scope > .choice'));
@@ -16686,7 +16686,7 @@ body::after{
    rail.scrollLeft+=(cr.left+cr.width/2)-(rr.left+rr.width/2);
   }
   function update(){
-   frame=0;
+   styleFrame=0;
    if(!isMobile()){cards().forEach(c=>{c.classList.remove('is-center','is-side');c.style.removeProperty('--card-rotate');c.style.removeProperty('--card-scale');c.style.removeProperty('--card-depth');c.style.zIndex=''});return}
    const rr=rail.getBoundingClientRect(),center=rr.left+rr.width/2;
    cards().forEach(card=>{
@@ -16699,25 +16699,57 @@ body::after{
     card.style.zIndex=String(6-Math.round(abs*3));
    });
   }
-  function schedule(){if(!frame)frame=requestAnimationFrame(update)}
-  function wrapIfNeeded(){
-   if(!isMobile()||wrapping)return;
-   const rr=rail.getBoundingClientRect(),center=rr.left+rr.width/2;
-   const all=cards();let nearest=null,d=Infinity;
-   all.forEach(c=>{const r=c.getBoundingClientRect(),dist=Math.abs(r.left+r.width/2-center);if(dist<d){d=dist;nearest=c}});
-   if(nearest&&nearest.dataset.carouselClone==='1'){
-    const target=originals.find(c=>c.dataset.view===nearest.dataset.view);
-    if(!target)return;
-    wrapping=true;centerCard(target);schedule();
-    requestAnimationFrame(()=>{wrapping=false;schedule()});
+  function scheduleStyle(){if(!styleFrame)styleFrame=requestAnimationFrame(update)}
+  function loop(time){
+   autoFrame=0;
+   if(!isMobile()||userInteracting){lastTime=0;return}
+   if(!lastTime)lastTime=time;
+   const dt=Math.min(40,time-lastTime);lastTime=time;
+   const all=cards(),firstOriginal=originals[0],lastOriginal=originals[originals.length-1];
+   const beforeClones=all.filter(c=>c.dataset.carouselClone==='1'&&c.dataset.carouselEdge==='before');
+   const afterClones=all.filter(c=>c.dataset.carouselClone==='1'&&c.dataset.carouselEdge==='after');
+   // Move continuously, without CSS snap fighting the animation.
+   rail.scrollLeft+=speed*dt/1000;
+   const rightEdge=lastOriginal.offsetLeft+lastOriginal.offsetWidth;
+   if(rail.scrollLeft>=rightEdge){
+    const cycleWidth=lastOriginal.offsetLeft-firstOriginal.offsetLeft;
+    if(cycleWidth>0)rail.scrollLeft-=cycleWidth;
    }
+   // If a user swipes across either edge, recover by a whole cycle without a visible pause.
+   const leftLimit=firstOriginal.offsetLeft;
+   if(rail.scrollLeft<leftLimit){
+    const cycleWidth=lastOriginal.offsetLeft-firstOriginal.offsetLeft;
+    if(cycleWidth>0)rail.scrollLeft+=cycleWidth;
+   }
+   scheduleStyle();
+   autoFrame=requestAnimationFrame(loop);
   }
-  function onScroll(){schedule();clearTimeout(settleTimer);settleTimer=setTimeout(wrapIfNeeded,60)}
-  rail.addEventListener('scroll',onScroll,{passive:true});
-  rail.addEventListener('scrollend',wrapIfNeeded,{passive:true});
-  window.addEventListener('resize',()=>{if(isMobile())centerCard(originals[1]);schedule()},{passive:true});
-  if('ResizeObserver'in window)new ResizeObserver(schedule).observe(rail);
-  requestAnimationFrame(()=>{if(isMobile())centerCard(originals[1]);schedule()});
+  function startLoop(){if(isMobile()&&!userInteracting&&!autoFrame){lastTime=0;autoFrame=requestAnimationFrame(loop)}}
+  function stopForTouch(){
+   userInteracting=true;lastTime=0;
+   if(autoFrame){cancelAnimationFrame(autoFrame);autoFrame=0}
+   clearTimeout(resumeTimer);
+  }
+  function resumeAfterTouch(){
+   clearTimeout(resumeTimer);
+   resumeTimer=setTimeout(()=>{userInteracting=false;startLoop()},700);
+  }
+  rail.style.scrollSnapType='none';
+  rail.addEventListener('pointerdown',stopForTouch,{passive:true});
+  rail.addEventListener('pointerup',resumeAfterTouch,{passive:true});
+  rail.addEventListener('pointercancel',resumeAfterTouch,{passive:true});
+  rail.addEventListener('touchstart',stopForTouch,{passive:true});
+  rail.addEventListener('touchend',resumeAfterTouch,{passive:true});
+  rail.addEventListener('scroll',scheduleStyle,{passive:true});
+  window.addEventListener('resize',()=>{
+   if(isMobile()){rail.style.scrollSnapType='none';scheduleStyle();startLoop()}
+   else{if(autoFrame)cancelAnimationFrame(autoFrame);autoFrame=0;rail.style.scrollSnapType='';scheduleStyle()}
+  },{passive:true});
+  if('ResizeObserver'in window)new ResizeObserver(scheduleStyle).observe(rail);
+  requestAnimationFrame(()=>{
+   if(isMobile()){centerCard(originals[1]);scheduleStyle();startLoop()}
+   else scheduleStyle();
+  });
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
