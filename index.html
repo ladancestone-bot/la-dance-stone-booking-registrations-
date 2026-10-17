@@ -16497,7 +16497,7 @@ html body #rentalView.view:not(#homeView) .availability-section .cal-scroll.is-s
 }
 </style>
 
-</body></html>
+
 
 
 <style id="lds-registration-arch-photo-fix-20261017">
@@ -18341,3 +18341,49 @@ html body #rentalView .availability-section .cal-scroll.is-scrolling #rentalCale
 }
 </style>
 
+
+<style id="lds-rental-calendar-visible-final-20261018">
+/* Final live fix: both rental calendar header bands are light at rest and dark while scrolling.
+   Keep this block last so older accumulated overrides cannot replace these states. */
+html body #rentalView .availability-section .cal-scroll #rentalCalendar > .rent-day,
+html body #rentalView .availability-section .cal-scroll #rentalCalendar > .rent-time{
+  background:rgba(255,244,230,.54)!important;
+  background-color:rgba(255,244,230,.54)!important;
+  background-image:none!important;
+  -webkit-backdrop-filter:blur(9px) saturate(1.05)!important;
+  backdrop-filter:blur(9px) saturate(1.05)!important;
+  transition:background-color .25s ease,box-shadow .25s ease!important;
+}
+html body #rentalView .availability-section .cal-scroll #rentalCalendar > .rent-day{
+  position:-webkit-sticky!important;position:sticky!important;top:0!important;z-index:180!important;
+  box-shadow:inset 0 -1px rgba(255,255,255,.42)!important;
+}
+html body #rentalView .availability-section .cal-scroll #rentalCalendar > .rent-time{
+  position:sticky!important;left:0!important;z-index:12!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+  text-shadow:0 1px 3px rgba(46,25,26,.6)!important;
+}
+html body #rentalView .availability-section .cal-scroll #rentalCalendar > .rent-time:first-child{
+  position:sticky!important;top:0!important;left:0!important;z-index:190!important;
+  background:rgba(255,244,230,.54)!important;background-color:rgba(255,244,230,.54)!important;
+}
+html body #rentalView .availability-section .cal-scroll #rentalCalendar > .rent-day.selected-day{
+  background:rgba(105,34,61,.62)!important;background-color:rgba(105,34,61,.62)!important;
+  box-shadow:inset 0 -2px rgba(232,201,142,.95)!important;
+}
+html body #rentalView .availability-section .cal-scroll.is-scrolling #rentalCalendar > .rent-day,
+html body #rentalView .availability-section .cal-scroll.is-scrolling #rentalCalendar > .rent-time{
+  background:rgba(61,39,37,.90)!important;background-color:rgba(61,39,37,.90)!important;
+  box-shadow:inset 0 -1px rgba(255,244,230,.28)!important;
+}
+html body #rentalView .availability-section .cal-scroll.is-scrolling #rentalCalendar > .rent-time:first-child{
+  background:rgba(61,39,37,.94)!important;background-color:rgba(61,39,37,.94)!important;
+}
+html body #rentalView .availability-section .cal-scroll.is-scrolling #rentalCalendar > .rent-day.selected-day{
+  background:rgba(105,34,61,.98)!important;background-color:rgba(105,34,61,.98)!important;
+  box-shadow:inset 0 -2px #e8c98e!important;
+}
+</style>
+
+</body>
+</html>
