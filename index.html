@@ -16665,7 +16665,19 @@ body::after{
     scroll-snap-stop:always!important;
     visibility:visible!important;
     opacity:1!important;
-    transform:none!important;
+    transform:perspective(1100px) rotateY(var(--card-rotate,0deg)) scale(var(--card-scale,1))!important;
+    transform-origin:center center!important;
+    transition:transform 180ms ease-out,filter 180ms ease-out,opacity 180ms ease-out!important;
+    backface-visibility:hidden!important;
+    will-change:transform!important;
+  }
+  #homeView .choices>.choice.is-center{
+    filter:none!important;
+    opacity:1!important;
+  }
+  #homeView .choices>.choice.is-side{
+    filter:brightness(.82) saturate(.88)!important;
+    opacity:.94!important;
   }
   #homeView .choices>.choice[data-carousel-clone="1"],
   #homeView .choices>.choice[data-loop-clone]{
