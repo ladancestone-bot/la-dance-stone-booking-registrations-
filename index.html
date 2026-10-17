@@ -14495,4 +14495,61 @@ body::after{
 }
 </style>
 
+
+<style id="lds-weekly-heading-card-separated-centered-20261017">
+/* Separate the timetable introduction as its own centered glass card; never visually merge it with the calendar. */
+#classOverview .class-week-preview{display:flex!important;flex-direction:column!important;gap:20px!important}
+#classOverview .class-week-heading{
+  position:relative!important;isolation:isolate!important;box-sizing:border-box!important;
+  display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+  width:100%!important;min-width:0!important;margin:0!important;padding:clamp(22px,4vw,34px) clamp(16px,4vw,30px)!important;
+  text-align:center!important;gap:10px!important;
+  border:1px solid rgba(255,245,232,.72)!important;border-radius:25px!important;
+  background:linear-gradient(145deg,rgba(255,247,235,.91),rgba(219,194,170,.82))!important;
+  box-shadow:0 12px 26px rgba(38,22,16,.16),inset 0 1px 0 rgba(255,255,255,.88)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(125%)!important;backdrop-filter:blur(22px) saturate(125%)!important;
+}
+#classOverview .class-week-heading:after{
+  content:""!important;display:block!important;position:absolute!important;left:12%!important;right:12%!important;bottom:-11px!important;
+  height:20px!important;z-index:-1!important;border-radius:0 0 18px 18px!important;
+  background:rgba(73,45,34,.32)!important;filter:blur(8px)!important;pointer-events:none!important;
+}
+#classOverview .class-week-heading .eyebrow{
+  display:block!important;width:100%!important;text-align:center!important;
+  color:#8c5b49!important;font-size:10px!important;font-weight:800!important;letter-spacing:.22em!important;line-height:1.4!important;
+}
+#classOverview .class-week-heading h3{
+  width:100%!important;text-align:center!important;color:#4b3029!important;
+  font-size:clamp(31px,7vw,43px)!important;line-height:1.04!important;margin:0!important;
+  text-shadow:none!important;
+}
+#classOverview .class-week-heading p{
+  width:100%!important;max-width:38ch!important;text-align:center!important;
+  color:#60483c!important;font-size:13px!important;line-height:1.6!important;margin:0 auto!important;
+}
+#classOverview .class-week-heading>.pill{
+  align-self:center!important;justify-content:center!important;text-align:center!important;
+  max-width:100%!important;white-space:normal!important;margin:5px auto 0!important;
+  padding:10px 16px!important;border-radius:999px!important;
+  background:rgba(255,250,242,.91)!important;color:#59382d!important;
+  border:1px solid rgba(255,255,255,.92)!important;box-shadow:0 5px 0 rgba(96,66,49,.15)!important;
+  line-height:1.35!important;font-size:12px!important;
+}
+#classOverview .class-week-calendar-scroll{
+  position:relative!important;isolation:isolate!important;flex:none!important;
+  margin-top:0!important;border-radius:23px!important;
+  border:1px solid rgba(255,245,232,.7)!important;
+  box-shadow:0 12px 28px rgba(31,18,13,.2),inset 0 1px 0 rgba(255,255,255,.4)!important;
+}
+@media(max-width:760px){
+ #classOverview .class-week-preview{gap:22px!important;padding:13px 10px 15px!important}
+ #classOverview .class-week-heading{padding:24px 14px!important;border-radius:22px!important}
+ #classOverview .class-week-heading .eyebrow{font-size:9px!important;letter-spacing:.18em!important}
+ #classOverview .class-week-heading h3{font-size:clamp(29px,8vw,36px)!important}
+ #classOverview .class-week-heading p{font-size:12px!important;max-width:30ch!important}
+ #classOverview .class-week-heading>.pill{font-size:10px!important;padding:9px 12px!important}
+ #classOverview .class-week-calendar-scroll{margin-top:0!important}
+}
+</style>
+
 </body></html>
