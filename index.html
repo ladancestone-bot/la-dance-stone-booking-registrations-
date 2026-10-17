@@ -4488,6 +4488,8 @@ $('prevWeek').onclick=()=>{week.setDate(week.getDate()-7);renderCalendar()};$('n
    const clone=card.cloneNode(true);
    clone.dataset.carouselClone='1';
    clone.setAttribute('aria-hidden','true');
+   clone.inert=true;
+   clone.setAttribute('tabindex','-1');
    clone.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
    return clone;
  };
@@ -14019,4 +14021,12 @@ body::after{
 }
 </style>
 
+
+<style id="lds-carousel-clones-never-intercept-navigation-20261017">
+/* The infinite carousel duplicates are visual only. Never let them intercept
+   taps intended for the original navigation card underneath. */
+#homeView .choices>.choice[data-carousel-clone="1"]{
+ pointer-events:none!important;
+}
+</style>
 </body></html>
