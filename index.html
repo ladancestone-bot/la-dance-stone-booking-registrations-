@@ -10753,4 +10753,44 @@ main.wrap{width:100%!important;max-width:100%!important;min-width:0!important;bo
 }
 /* The shared blurred studio photo layer is intentionally left unchanged. */
 </style>
+<style id="lds-footer-mobile-geometry-cleanup-20261017">
+/* Mobile footer geometry: bleed through the existing .wrap gutters without changing the page/photo backdrop. */
+@media(max-width:760px){
+ main.wrap{
+  width:100%!important;max-width:100%!important;
+  padding-left:17px!important;padding-right:17px!important;
+  box-sizing:border-box!important;
+ }
+ #homeView>.brand-footer,#rentalView>.brand-footer,
+ #timetableView>.brand-footer,#classesView>.brand-footer{
+  position:relative!important;left:auto!important;right:auto!important;transform:none!important;
+  display:block!important;float:none!important;
+  width:calc(100% + 34px)!important;min-width:0!important;max-width:none!important;
+  margin-left:-17px!important;margin-right:-17px!important;
+  margin-top:32px!important;margin-bottom:0!important;
+  padding:0!important;box-sizing:border-box!important;
+  overflow:hidden!important;
+  background:#5b473a!important;background-color:#5b473a!important;background-image:none!important;
+  border:0!important;border-radius:0!important;box-shadow:none!important;filter:none!important;
+ }
+ #rentalView>.brand-footer{margin-top:0!important}
+ #homeView>.brand-footer::before,#homeView>.brand-footer::after,
+ #rentalView>.brand-footer::before,#rentalView>.brand-footer::after,
+ #timetableView>.brand-footer::before,#timetableView>.brand-footer::after,
+ #classesView>.brand-footer::before,#classesView>.brand-footer::after{
+  content:none!important;display:none!important;background:none!important;background-image:none!important;
+ }
+ .brand-footer-main{
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+  width:100%!important;max-width:none!important;min-width:0!important;
+  margin:0!important;padding:26px 24px calc(28px + env(safe-area-inset-bottom,0px))!important;
+  gap:18px!important;box-sizing:border-box!important;
+  background:#5b473a!important;background-color:#5b473a!important;background-image:none!important;
+ }
+ .brand-footer-copy,.brand-footer-logo{min-width:0!important;max-width:100%!important}
+ .brand-footer-copy p,.brand-footer-copy a,.brand-footer-copy small{
+  max-width:100%!important;overflow-wrap:anywhere!important;word-break:normal!important;
+ }
+}
+</style>
 </body></html>
