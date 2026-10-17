@@ -18832,3 +18832,70 @@ html body #classesView #classDetail .class-option:has(input:checked) .adult-pric
  html body #classesView #classDetail .class-option .adult-price-tiers>span>strong{font-size:19px!important}
 }
 </style>
+
+<style id="lds-calendar-text-contrast-and-compact-adult-prices-20261018">
+/* Registration page embedded weekly timetable: improve readability of times, group names and age ranges. */
+html body #classesView #classOverview .class-calendar-corner,
+html body #classesView #classOverview .class-calendar-dayhead{
+  color:#4e2d32!important;font-weight:700!important;text-shadow:none!important;opacity:1!important;
+  background:linear-gradient(145deg,rgba(239,220,220,.97),rgba(205,166,172,.96))!important;
+  border-color:rgba(255,247,239,.82)!important;
+}
+html body #classesView #classOverview .class-calendar-time{
+  color:#4d3031!important;font-weight:700!important;text-shadow:none!important;opacity:1!important;
+  background:linear-gradient(145deg,rgba(245,230,222,.98),rgba(213,183,174,.96))!important;
+}
+html body #classesView #classOverview .class-calendar-slot{
+  color:#4b302f!important;text-shadow:none!important;opacity:1!important;
+  background:rgba(247,231,219,.50)!important;border-color:rgba(255,246,236,.68)!important;
+}
+html body #classesView #classOverview .class-calendar-slot strong{
+  display:block!important;color:#713448!important;font-weight:700!important;opacity:1!important;text-shadow:none!important;
+}
+html body #classesView #classOverview .class-calendar-slot span{
+  display:block!important;color:#422b2a!important;font-weight:600!important;opacity:1!important;text-shadow:none!important;
+}
+html body #classesView #classOverview .class-calendar-slot small{
+  display:block!important;color:#60463e!important;font-weight:500!important;opacity:1!important;text-shadow:none!important;
+}
+html body #classesView #classOverview .class-calendar-slot.free,
+html body #classesView #classOverview .class-calendar-slot.free *{
+  color:#fff4e9!important;opacity:1!important;text-shadow:0 1px 3px rgba(45,24,26,.35)!important;
+}
+html body #classesView #classOverview .class-calendar-slot.occupied,
+html body #classesView #classOverview .class-calendar-slot.occupied *{
+  color:#fff7ef!important;opacity:1!important;text-shadow:none!important;
+}
+/* Adult subscription choices: keep 40 €, 50 €, 60 € as three compact tiles on one row. */
+html body #classesView #classDetail .class-option .adult-price-tiers{
+  display:flex!important;flex-wrap:nowrap!important;align-items:stretch!important;gap:7px!important;
+  width:100%!important;max-width:100%!important;min-width:0!important;overflow:visible!important;
+}
+html body #classesView #classDetail .class-option .adult-price-tiers>span{
+  display:flex!important;flex:1 1 0!important;flex-direction:column!important;justify-content:center!important;
+  width:0!important;min-width:0!important;max-width:none!important;min-height:58px!important;
+  padding:7px 8px!important;gap:4px!important;box-sizing:border-box!important;
+  border:1px solid rgba(255,246,233,.86)!important;border-radius:12px!important;
+  background:linear-gradient(145deg,#fff8ec,#ead9c8)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9)!important;
+}
+html body #classesView #classDetail .class-option .adult-price-tiers>span>small{
+  color:#765047!important;font:600 10px/1.25 Montserrat,Arial,sans-serif!important;
+  white-space:nowrap!important;opacity:1!important;
+}
+html body #classesView #classDetail .class-option .adult-price-tiers>span>strong{
+  color:#59283a!important;font:700 clamp(16px,4.3vw,20px)/1.15 Montserrat,Arial,sans-serif!important;
+  white-space:nowrap!important;opacity:1!important;text-shadow:none!important;
+}
+html body #classesView #classDetail .class-option:has(input:checked) .adult-price-tiers>span{
+  background:linear-gradient(145deg,#fff8ec,#ead9c8)!important;border-color:rgba(255,246,233,.95)!important;
+}
+html body #classesView #classDetail .class-option:has(input:checked) .adult-price-tiers>span>small{color:#765047!important}
+html body #classesView #classDetail .class-option:has(input:checked) .adult-price-tiers>span>strong{color:#59283a!important}
+@media(max-width:760px){
+ html body #classesView #classDetail .class-option .adult-price-tiers{gap:6px!important}
+ html body #classesView #classDetail .class-option .adult-price-tiers>span{min-height:54px!important;padding:6px 7px!important;border-radius:11px!important}
+ html body #classesView #classDetail .class-option .adult-price-tiers>span>small{font-size:9px!important}
+ html body #classesView #classDetail .class-option .adult-price-tiers>span>strong{font-size:clamp(15px,4.1vw,18px)!important}
+}
+</style>
