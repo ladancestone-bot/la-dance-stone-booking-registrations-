@@ -4284,7 +4284,7 @@ html body #rentalView.view:not(#homeView) .availability-section .cal-scroll.is-s
   </div>
 </div>
 </section>
-<section id="timetableView" class="view"><button class="back timetable-back" data-view="home"><span>←</span>Grįžti į pasirinkimą</button><div class="class-week-preview timetable-class-week-preview">
+<section id="timetableView" class="view"><button type="button" class="timetable-back-link" data-view="home" aria-label="Grįžti į pasirinkimą"><span aria-hidden="true">←</span><span class="timetable-back-label">Grįžti į pasirinkimą</span></button><div class="class-week-preview timetable-class-week-preview">
 <div class="class-week-heading"><div><div class="eyebrow">Savaitės tvarkaraštis</div><h3>Pamokų laikai</h3><p>Trumpa savaitės apžvalga. Pasirinkite grupę žemiau.</p></div><span class="pill" id="timetableSyncStatus" role="status">Gaunami naujausi duomenys…</span></div>
 <div class="class-week-scroll class-week-calendar-scroll" aria-label="Savaitės tvarkaraštis. Slinkite lentelę į šoną, kad pamatytumėte visas savaitės dienas.">
 <div class="class-calendar-grid">
@@ -18665,3 +18665,42 @@ html body #timetableView .class-calendar-slot.occupied{background:rgba(103,44,58
 }
 </style>
 
+
+<style id="lds-timetable-back-link-real-markup-fix-20261018">
+/* Use a separate class so legacy .back button styles cannot turn this link into a capsule. */
+html body #timetableView button.timetable-back-link,
+html body #timetableView button.timetable-back-link:hover,
+html body #timetableView button.timetable-back-link:focus,
+html body #timetableView button.timetable-back-link:focus-visible,
+html body #timetableView button.timetable-back-link:active{
+  appearance:none!important;-webkit-appearance:none!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;
+  width:max-content!important;max-width:100%!important;min-width:0!important;height:auto!important;min-height:0!important;
+  margin:0 auto 22px!important;padding:0!important;
+  color:#fff8f0!important;font-family:Jost,Arial,sans-serif!important;font-size:15px!important;font-weight:500!important;
+  line-height:1.4!important;letter-spacing:0!important;text-transform:none!important;text-decoration:none!important;
+  background:none!important;background-color:transparent!important;background-image:none!important;
+  border:0!important;border-radius:0!important;outline-offset:5px!important;
+  box-shadow:none!important;filter:none!important;transform:none!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+html body #timetableView button.timetable-back-link span,
+html body #timetableView button.timetable-back-link .timetable-back-label{
+  display:inline!important;margin:0!important;padding:0!important;min-width:0!important;
+  color:#fff8f0!important;background:none!important;background-color:transparent!important;background-image:none!important;
+  border:0!important;border-radius:0!important;box-shadow:none!important;
+  font-family:Jost,Arial,sans-serif!important;font-size:15px!important;font-weight:500!important;line-height:1.4!important;
+  text-transform:none!important;letter-spacing:0!important;
+}
+html body #timetableView button.timetable-back-link>span:first-child{font-size:26px!important;font-weight:300!important;line-height:1!important}
+html body #timetableView button.timetable-back-link::before,
+html body #timetableView button.timetable-back-link::after,
+html body #timetableView button.timetable-back-link span::before,
+html body #timetableView button.timetable-back-link span::after{content:none!important;display:none!important}
+@media(max-width:760px){
+ html body #timetableView button.timetable-back-link{margin:0 auto 18px!important;font-size:14px!important}
+ html body #timetableView button.timetable-back-link span,
+ html body #timetableView button.timetable-back-link .timetable-back-label{font-size:14px!important}
+ html body #timetableView button.timetable-back-link>span:first-child{font-size:24px!important}
+}
+</style>
