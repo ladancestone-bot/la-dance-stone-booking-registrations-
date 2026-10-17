@@ -17879,3 +17879,25 @@ html body #rentalView.view:not(#homeView) .availability-section>.calendar-help p
 }
 </style>
 
+<style id="lds-calendar-legend-reduce-top-gap-20261018">
+/* Tighten the space between the calendar and its separate legend card. */
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help{
+  margin-top:12px!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help:before{
+  margin-top:0!important;
+  margin-bottom:12px!important;
+}
+html body #rentalView.view:not(#homeView) .availability-section>.calendar-help .availability-legend{
+  margin-top:0!important;
+}
+@media(max-width:760px){
+  html body #rentalView.view:not(#homeView) .availability-section>.calendar-help{
+    margin-top:10px!important;
+  }
+  html body #rentalView.view:not(#homeView) .availability-section>.calendar-help:before{
+    margin-bottom:10px!important;
+  }
+}
+</style>
+
