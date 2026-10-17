@@ -16808,6 +16808,48 @@ body::after{
   border-color:rgba(255,248,235,.30)!important;
 }
 </style>
+<style id="lds-carousel-text-centering-and-smooth-wrap-fix-20261017">
+/* Keep text optically centered inside the arched cards on mobile. */
+#homeView .choices>.choice,
+#homeView .choices>.choice[data-carousel-clone="1"]{
+  box-sizing:border-box!important;
+}
+#homeView .choices>.choice h3,
+#homeView .choices>.choice p,
+#homeView .choices>.choice .choice-action{
+  display:block!important;
+  position:relative!important;
+  left:auto!important;
+  right:auto!important;
+  transform:none!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  box-sizing:border-box!important;
+  text-align:center!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+  word-break:normal!important;
+  text-wrap:balance!important;
+}
+#homeView .choices>.choice .choice-action{
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+}
+#homeView .choices>.choice .choice-action>span[aria-hidden="true"]{
+  display:inline-block!important;
+  width:auto!important;
+  flex:0 0 auto!important;
+}
+@media(max-width:760px){
+  #homeView .choices>.choice h3{padding-inline:8px!important}
+  #homeView .choices>.choice p{padding-inline:8px!important}
+  #homeView .choices>.choice .choice-action{padding-inline:6px!important}
+}
+</style>
 <script id="lds-home-carousel-manual-snap-controller-20261017">
 /* Infinite manual swipe carousel. Preserve existing cards, design and booking behavior. */
 (function(){
@@ -16890,14 +16932,19 @@ body::after{
    wrapping=true;
    clearTimeout(wrapRelease);
    /* Temporarily disable mandatory snapping so Safari cannot snap the teleport back to the clone. */
-   const oldSnap=rail.style.scrollSnapType;
-   rail.style.scrollSnapType='none';
-   rail.style.scrollBehavior='auto';
+   const oldSnap=rail.style.getPropertyValue('scroll-snap-type');
+   const oldSnapPriority=rail.style.getPropertyPriority('scroll-snap-type');
+   const oldBehavior=rail.style.getPropertyValue('scroll-behavior');
+   const oldBehaviorPriority=rail.style.getPropertyPriority('scroll-behavior');
+   /* CSS declares smooth scrolling with !important; override it for the invisible wrap jump. */
+   rail.style.setProperty('scroll-snap-type','none','important');
+   rail.style.setProperty('scroll-behavior','auto','important');
    centerCard(target);
    schedule();
    requestAnimationFrame(()=>{
     requestAnimationFrame(()=>{
-     rail.style.scrollSnapType=oldSnap||'x mandatory';
+     if(oldSnap)rail.style.setProperty('scroll-snap-type',oldSnap,oldSnapPriority);else rail.style.removeProperty('scroll-snap-type');
+     if(oldBehavior)rail.style.setProperty('scroll-behavior',oldBehavior,oldBehaviorPriority);else rail.style.removeProperty('scroll-behavior');
      wrapping=false;
      schedule();
     });
