@@ -4105,7 +4105,7 @@ body::after{
   </div>
 </div>
 </section>
-<section id="timetableView" class="view"><button class="back timetable-back" data-view="home"><span>←</span>Grįžti į pasirinkimą</button><div class="timetable-heading"><h2>Užsiėmimų tvarkaraštis</h2><p>Paspauskite šokių pamokos laiką, jei norite registruotis.</p></div><div class="calendar-panel timetable-panel"><div class="cal-toolbar"><button id="prevWeek" aria-label="Ankstesnė savaitė">‹</button><div class="cal-title" id="calTitle">2026 m. spalio 12–18 d.</div><button id="nextWeek" aria-label="Kita savaitė">›</button></div><div class="cal-scroll"><div id="calendar" class="calendar"></div></div><div id="calendarAgenda" class="calendar-agenda"></div><div class="calendar-help"><div class="timetable-legend"><span><i class="tt-legend-class"></i>Šokių pamoka · paspauskite registracijai</span><span><i class="tt-legend-free"></i>Laisvas laikas</span><span><i class="tt-legend-rental"></i>Studijos nuoma</span></div><p>Tvarkaraštis sinchronizuojamas su studijos tvarkaraščio lentele.<span id="timetableSyncStatus" role="status">Gaunami naujausi duomenys…</span></p></div></div>
+<section id="timetableView" class="view"><button class="back timetable-back" data-view="home"><span>←</span>Grįžti į pasirinkimą</button><div class="timetable-heading"><span class="timetable-eyebrow">LA DANCE STONE · SAVAITĖS PLANAS</span><h2>Šokiai. Tavo laikas.</h2><p>Peržiūrėkite savaitės užsiėmimus ir pasirinkite jums tinkamą pamoką. Palieskite spalvotą pamokos kortelę, jei norite registruotis.</p></div><div class="calendar-panel timetable-panel"><div class="cal-toolbar"><button id="prevWeek" aria-label="Ankstesnė savaitė">‹</button><div class="cal-title" id="calTitle">2026 m. spalio 12–18 d.</div><button id="nextWeek" aria-label="Kita savaitė">›</button></div><div class="cal-scroll"><div id="calendar" class="calendar"></div></div><div id="calendarAgenda" class="calendar-agenda"></div><div class="calendar-help"><div class="timetable-help-title">KAIP SKAITYTI TVARKARAŠTĮ</div><div class="timetable-legend"><span><i class="tt-legend-class"></i>Šokių pamoka · palieskite registracijai</span><span><i class="tt-legend-free"></i>Laisvas laikas</span><span><i class="tt-legend-rental"></i>Studijos nuoma</span></div><p class="timetable-sync-copy">Tvarkaraštis sinchronizuojamas su studijos užsiėmimų lentele. <span id="timetableSyncStatus" role="status">Gaunami naujausi duomenys…</span></p></div></div>
 <div class="brand-footer">
   <div class="brand-footer-main">
     <div class="brand-footer-copy">
@@ -13206,6 +13206,57 @@ body:has(#timetableView.active)::before{
 }
 #timetableView .timetable-panel .calendar .event{
  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 2px 5px rgba(20,10,12,.10)!important;
+}
+</style>
+
+
+<style id="lds-timetable-intro-footer-polish-20261017">
+#timetableView .timetable-back{
+ display:flex!important;width:max-content!important;max-width:100%!important;
+ align-items:center!important;justify-content:center!important;gap:10px!important;
+ margin:22px auto 28px!important;padding:12px 20px!important;
+ border:1px solid rgba(255,242,226,.52)!important;border-radius:999px!important;
+ background:rgba(255,246,233,.12)!important;color:#fff5e9!important;
+ box-shadow:0 6px 22px rgba(31,15,17,.10),inset 0 1px 0 rgba(255,255,255,.25)!important;
+ -webkit-backdrop-filter:blur(8px) saturate(1.1)!important;backdrop-filter:blur(8px) saturate(1.1)!important;
+ font-size:12px!important;letter-spacing:.025em!important;
+}
+#timetableView .timetable-back span{font-size:19px!important;line-height:1!important}
+#timetableView .timetable-heading{
+ max-width:860px!important;margin:0 auto 22px!important;padding:26px 28px 24px!important;
+ border:1px solid rgba(255,242,226,.48)!important;border-radius:24px!important;
+ background:linear-gradient(130deg,rgba(255,246,233,.17),rgba(92,62,51,.09))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.22)!important;
+ -webkit-backdrop-filter:blur(5px) saturate(1.08)!important;backdrop-filter:blur(5px) saturate(1.08)!important;
+}
+#timetableView .timetable-eyebrow{
+ display:block;margin-bottom:10px;color:#f1d4a7;font-size:10px;font-weight:700;
+ letter-spacing:.22em;text-transform:uppercase;
+}
+#timetableView .timetable-heading h2{color:#fff5e9!important;font-size:clamp(30px,5vw,44px)!important;line-height:1.05!important}
+#timetableView .timetable-heading p{max-width:640px;margin:12px 0 0!important;color:rgba(255,248,239,.92)!important;font-size:14px!important;line-height:1.65!important}
+#timetableView .timetable-panel .calendar-help{
+ margin-top:0!important;padding:22px 22px 24px!important;
+ border-top:1px solid rgba(255,244,230,.55)!important;
+ border-radius:0 0 22px 22px!important;
+ background:linear-gradient(135deg,rgba(255,247,236,.16),rgba(68,42,38,.20))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.15)!important;
+ -webkit-backdrop-filter:blur(5px) saturate(1.08)!important;backdrop-filter:blur(5px) saturate(1.08)!important;
+}
+#timetableView .timetable-help-title{margin-bottom:14px;color:#f4d8ad;font-size:10px;font-weight:700;letter-spacing:.19em}
+#timetableView .timetable-legend{display:flex;gap:10px 18px!important;margin-bottom:15px!important}
+#timetableView .timetable-legend span{display:flex;align-items:center;gap:9px;color:#fff7ef!important;font-size:12px!important;font-weight:600;line-height:1.45}
+#timetableView .timetable-legend i{flex:0 0 12px;width:12px!important;height:12px!important;border-radius:50%!important;box-shadow:0 0 0 2px rgba(255,255,255,.18)!important}
+#timetableView .timetable-sync-copy{margin:0!important;padding-top:13px;border-top:1px solid rgba(255,244,230,.22);color:rgba(255,247,238,.84)!important;font-size:11px!important;line-height:1.65!important}
+@media(max-width:760px){
+ #timetableView .timetable-back{margin:26px auto 24px!important;padding:11px 18px!important}
+ #timetableView .timetable-heading{padding:20px 18px 19px!important;margin-bottom:17px!important;border-radius:20px!important}
+ #timetableView .timetable-heading h2{font-size:32px!important}
+ #timetableView .timetable-heading p{font-size:13px!important;line-height:1.55!important}
+ #timetableView .timetable-eyebrow{font-size:9px!important;letter-spacing:.16em!important}
+ #timetableView .timetable-panel .calendar-help{padding:18px 15px 20px!important}
+ #timetableView .timetable-legend{gap:10px 14px!important}
+ #timetableView .timetable-legend span{font-size:11px!important}
 }
 </style>
 
