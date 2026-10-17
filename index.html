@@ -16620,30 +16620,103 @@ body::after{
 }
 </style>
 <script id="lds-home-carousel-loop-20261017">
-/* Loop the existing homepage card carousel without changing card click behavior. */
+/* Responsive, pause-aware circular carousel for the existing homepage cards. */
 (function(){
  const init=()=>{
   const home=document.querySelector('#homeView');
   const track=home&&home.querySelector('.choices');
   if(!track||track.dataset.ldsLoopReady==='1')return;
   track.dataset.ldsLoopReady='1';
-  let timer=null;
-  const cards=()=>Array.from(track.querySelectorAll('.choice'));
+  let timer=null, userInteracting=false, interactionTimer=null;
+  const cards=()=>Array.from(track.querySelectorAll(':scope > .choice'));
   const isMobile=()=>window.matchMedia('(max-width:760px)').matches;
-  const advance=()=>{
-   if(!isMobile()||!home.classList.contains('active'))return;
-   const items=cards();if(items.length<2)return;
-   const current=items.reduce((best,el)=>Math.abs(el.getBoundingClientRect().left+el.getBoundingClientRect().width/2-window.innerWidth/2)<Math.abs(best.getBoundingClientRect().left+best.getBoundingClientRect().width/2-window.innerWidth/2)?el:best,items[0]);
-   const next=current.nextElementSibling;
-   if(next){next.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}
-   else{track.scrollTo({left:0,behavior:'smooth'});}
+  const centerCard=()=>{
+   const items=cards();if(!items.length)return null;
+   return items.reduce((best,el)=>{
+    const dist=el.getBoundingClientRect().left+el.getBoundingClientRect().width/2-window.innerWidth/2;
+    const bestDist=best.getBoundingClientRect().left+best.getBoundingClientRect().width/2-window.innerWidth/2;
+    return Math.abs(dist)<Math.abs(bestDist)?el:best;
+   },items[0]);
   };
-  const start=()=>{if(timer)clearInterval(timer);timer=setInterval(advance,4800)};
-  track.addEventListener('pointerdown',()=>{if(timer)clearInterval(timer);timer=setInterval(advance,6500)},{passive:true});
+  const updateState=()=>{
+   const items=cards(),center=centerCard();
+   items.forEach(el=>{
+    el.classList.toggle('is-center',el===center);
+    el.classList.toggle('is-side',el!==center);
+   });
+  };
+  const advance=()=>{
+   if(!isMobile()||!home.classList.contains('active')||document.hidden||userInteracting)return;
+   const items=cards();if(items.length<2)return;
+   const current=centerCard();if(!current)return;
+   const index=items.indexOf(current),next=items[(index+1)%items.length];
+   if(index===items.length-1){
+    /* Move to the start smoothly after the last card, keeping the carousel circular. */
+    track.scrollTo({left:0,behavior:'smooth'});
+   }else{
+    next.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+   }
+   window.setTimeout(updateState,260);
+  };
+  const start=()=>{
+   if(timer)clearInterval(timer);
+   timer=null;
+   if(isMobile()&&!document.hidden)timer=setInterval(advance,4600);
+  };
+  const pauseForInteraction=()=>{
+   userInteracting=true;
+   if(timer)clearInterval(timer);
+   timer=null;
+   if(interactionTimer)clearTimeout(interactionTimer);
+   interactionTimer=setTimeout(()=>{userInteracting=false;start()},7000);
+  };
+  track.addEventListener('pointerdown',pauseForInteraction,{passive:true});
+  track.addEventListener('touchstart',pauseForInteraction,{passive:true});
+  track.addEventListener('scroll',()=>{window.requestAnimationFrame(updateState)},{passive:true});
+  track.addEventListener('focusin',pauseForInteraction);
+  track.addEventListener('focusout',()=>{if(interactionTimer)clearTimeout(interactionTimer);interactionTimer=setTimeout(()=>{userInteracting=false;start()},2500)});
   document.addEventListener('visibilitychange',()=>{if(document.hidden){if(timer)clearInterval(timer);timer=null}else start()});
-  window.addEventListener('resize',start,{passive:true});
-  start();
+  window.addEventListener('resize',()=>{updateState();start()},{passive:true});
+  updateState();start();
  };
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
+
+<style id="lds-carousel-polish-20261017">
+/* Final responsive polish: clearer action rows and consistent premium glass on every arch. */
+#homeView .choices .choice{
+ position:relative!important;overflow:hidden!important;
+ isolation:isolate!important;
+}
+#homeView .choices .choice .choice-action{
+ position:relative!important;z-index:2!important;
+ min-height:30px!important;
+}
+#homeView .choices .choice .choice-action span{
+ transition:transform .22s ease,background .22s ease,box-shadow .22s ease!important;
+}
+#homeView .choices .choice:hover .choice-action span,
+#homeView .choices .choice:focus-visible .choice-action span{
+ transform:translateX(3px)!important;
+ background:rgba(255,245,229,.12)!important;
+ box-shadow:0 0 16px rgba(255,218,171,.22)!important;
+}
+#homeView .choices .choice[data-view="rental"],
+#homeView .choices .choice[data-view="timetable"],
+#homeView .choices .choice[data-view="classes"]{
+ background:linear-gradient(145deg,rgba(255,246,238,.25) 0%,rgba(126,72,83,.24) 38%,rgba(48,22,34,.46) 100%)!important;
+ border-color:rgba(255,239,220,.72)!important;
+ -webkit-backdrop-filter:blur(24px) saturate(145%)!important;
+ backdrop-filter:blur(24px) saturate(145%)!important;
+}
+@media(max-width:760px){
+ #homeView .choices{scroll-behavior:smooth!important;scrollbar-width:none!important;overscroll-behavior-x:contain!important}
+ #homeView .choices .choice{scroll-snap-stop:always!important}
+ #homeView .choices .choice .choice-action{flex-wrap:wrap!important}
+}
+@media(prefers-reduced-motion:reduce){
+ #homeView .choices .choice .choice-action span{transition:none!important}
+ #homeView .choices{scroll-behavior:auto!important}
+}
+</style>
