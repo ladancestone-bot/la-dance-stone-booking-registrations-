@@ -13467,4 +13467,73 @@ body:has(#timetableView.active)::before{
 }
 </style>
 
+
+<style id="lds-timetable-true-transparent-glass-lines-20261017">
+/* True transparent timetable glass: remove painted grid tiles and the outer panel slab.
+   Keep only subtle structural lines, date/time labels, toolbar and actual lesson/booking events. */
+#timetableView .timetable-panel,
+#timetableView .timetable-panel::before,
+#timetableView .timetable-panel::after{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ border:0!important;outline:0!important;box-shadow:none!important;
+ -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+#timetableView .timetable-panel .cal-scroll,
+#timetableView .timetable-panel #calendar,
+#timetableView .timetable-panel .calendar,
+#timetableView .timetable-panel .calendar-agenda,
+#timetableView .timetable-panel .calendar-mobile-table{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ box-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar .cell,
+#timetableView .timetable-panel .calendar .day,
+#timetableView .timetable-panel .calendar .time,
+#timetableView .timetable-panel .calendar-mobile-table td,
+#timetableView .timetable-panel .calendar-mobile-table th{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ box-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar .cell{
+ border:0!important;border-right:1px solid rgba(255,247,235,.18)!important;
+ border-bottom:1px solid rgba(255,247,235,.18)!important;
+}
+#timetableView .timetable-panel .calendar .day{
+ border:0!important;border-bottom:1px solid rgba(255,247,235,.30)!important;
+}
+#timetableView .timetable-panel .calendar .time{
+ border:0!important;border-right:1px solid rgba(255,247,235,.30)!important;
+}
+#timetableView .timetable-panel .calendar-mobile-table td{
+ border-right:1px solid rgba(255,247,235,.16)!important;
+ border-bottom:1px solid rgba(255,247,235,.16)!important;
+}
+#timetableView .timetable-panel .calendar-mobile-table th{
+ border-bottom:1px solid rgba(255,247,235,.28)!important;
+}
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .cell,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .day,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .time{
+ background:transparent!important;background-color:transparent!important;
+}
+#timetableView .timetable-panel .cal-toolbar{
+ background:rgba(74,35,48,.82)!important;
+ border:1px solid rgba(255,244,229,.55)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.20)!important;
+}
+#timetableView .timetable-panel .cal-scroll{
+ border:1px solid rgba(255,245,230,.36)!important;
+ border-top:0!important;border-radius:0 0 20px 20px!important;
+ overflow:auto!important;
+}
+#timetableView .timetable-panel .calendar .event,
+#timetableView .timetable-panel .mobile-event{
+ /* Preserve visible lesson/booking chips only; the empty timetable remains transparent. */
+ opacity:1!important;
+}
+@media(max-width:760px){
+ #timetableView .timetable-panel .cal-scroll{border-radius:0 0 18px 18px!important}
+}
+</style>
+
 </body></html>
