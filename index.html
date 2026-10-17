@@ -13080,4 +13080,47 @@ body:has(#timetableView.active)::before{
 }
 </style>
 
+
+<style id="lds-timetable-lines-only-transparent-20261017">
+/* Timetable panel should be a transparent glass outline, not a filled card. */
+#timetableView .timetable-panel{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+ box-shadow:none!important;
+ border:1px solid rgba(255,246,231,.58)!important;
+}
+#timetableView .timetable-panel .cal-scroll,
+#timetableView .timetable-panel #calendar,
+#timetableView .timetable-panel .calendar{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ box-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar .cell{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ border:1px solid rgba(255,247,235,.25)!important;
+ box-shadow:none!important;
+}
+#timetableView .timetable-panel .calendar .day{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ border:0!important;border-bottom:1px solid rgba(255,247,235,.34)!important;
+ box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+#timetableView .timetable-panel .calendar .time{
+ background:transparent!important;background-color:transparent!important;background-image:none!important;
+ border:0!important;border-right:1px solid rgba(255,247,235,.34)!important;
+ box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .cell{
+ background:rgba(49,31,31,.045)!important;
+}
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .day,
+#timetableView .timetable-panel .cal-scroll.is-scrolling .calendar .time{
+ background:rgba(59,37,37,.76)!important;
+}
+#timetableView .timetable-panel .calendar .event{
+ -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+ filter:none!important;opacity:1!important;
+}
+</style>
+
 </body></html>
