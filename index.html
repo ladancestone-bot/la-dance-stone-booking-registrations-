@@ -16620,59 +16620,64 @@ body::after{
 }
 </style>
 <script id="lds-home-carousel-loop-20261017">
-/* Seamless looping carousel: append visual clones, then silently reset to the real first card. */
+/* Infinite mobile carousel. Clone cards after the originals and reset clones to their matching originals
+   using the measured card-position difference, so there is no empty gap at the end. */
 (function(){
  const init=()=>{
   const home=document.querySelector('#homeView'),track=home&&home.querySelector('.choices');
   if(!track||track.dataset.ldsLoopReady==='1')return;
   track.dataset.ldsLoopReady='1';
-  let timer=null,interactionTimer=null,userInteracting=false,resetting=false;
+  let timer=null,interactionTimer=null,userInteracting=false,resetting=false,scrollEndTimer=null;
   const originals=()=>Array.from(track.querySelectorAll(':scope > .choice:not([data-loop-clone="1"])'));
   const cards=()=>Array.from(track.querySelectorAll(':scope > .choice'));
   const mobile=()=>window.matchMedia('(max-width:760px)').matches;
-  originals().forEach((card,i)=>{
+  const centerX=el=>{const r=el.getBoundingClientRect();return r.left+r.width/2};
+  originals().forEach(card=>{
    const clone=card.cloneNode(true);
-   clone.dataset.loopClone='1';
-   clone.setAttribute('aria-hidden','true');
-   clone.tabIndex=-1;
+   clone.dataset.loopClone='1';clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;
    clone.querySelectorAll('a,button,input,select,textarea,[tabindex]').forEach(el=>el.tabIndex=-1);
    track.appendChild(clone);
   });
-  const centerCard=()=>{
+  const centered=()=>{
    const list=cards();if(!list.length)return null;
-   return list.reduce((best,el)=>{
-    const d=Math.abs(el.getBoundingClientRect().left+el.getBoundingClientRect().width/2-window.innerWidth/2);
-    const bd=Math.abs(best.getBoundingClientRect().left+best.getBoundingClientRect().width/2-window.innerWidth/2);
-    return d<bd?el:best;
-   },list[0]);
+   return list.reduce((best,el)=>Math.abs(centerX(el)- (track.getBoundingClientRect().left+track.clientWidth/2))<
+    Math.abs(centerX(best)-(track.getBoundingClientRect().left+track.clientWidth/2))?el:best,list[0]);
   };
   const state=()=>{
-   const current=centerCard();
+   const current=centered();
    cards().forEach(el=>{el.classList.toggle('is-center',el===current);el.classList.toggle('is-side',el!==current)});
+  };
+  const normalizeClone=clone=>{
+   if(!clone||clone.dataset.loopClone!=='1')return;
+   const list=originals(),idx=cards().filter(el=>el.dataset.loopClone!=='1').indexOf(clone);
+   const cloneIndex=Array.from(track.querySelectorAll(':scope > .choice[data-loop-clone="1"]')).indexOf(clone);
+   const original=list[Math.max(0,cloneIndex)];
+   if(!original)return;
+   resetting=true;
+   track.scrollLeft += centerX(original)-centerX(clone);
+   resetting=false;
+   state();
   };
   const advance=()=>{
    if(!mobile()||!home.classList.contains('active')||document.hidden||userInteracting)return;
-   const list=cards(),current=centerCard();if(!current)return;
-   const idx=list.indexOf(current),next=list[(idx+1)%list.length];
-   next.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
-   window.setTimeout(()=>{
-    if(next.dataset.loopClone==='1'){
-     const original=originals()[0];
-     if(original){resetting=true;track.scrollTo({left:original.offsetLeft-track.offsetLeft,behavior:'auto'});resetting=false;}
-    }
-    state();
-   },520);
+   const current=centered();if(!current)return;
+   const list=cards(),idx=list.indexOf(current),next=list[(idx+1)%list.length];
+   const delta=centerX(next)-(track.getBoundingClientRect().left+track.clientWidth/2);
+   track.scrollTo({left:track.scrollLeft+delta,behavior:'smooth'});
+   if(scrollEndTimer)clearTimeout(scrollEndTimer);
+   scrollEndTimer=setTimeout(()=>{normalizeClone(centered());state()},850);
   };
-  const start=()=>{if(timer)clearInterval(timer);timer=null;if(mobile()&&!document.hidden)timer=setInterval(advance,4300)};
+  const start=()=>{if(timer)clearInterval(timer);timer=null;if(mobile()&&!document.hidden)timer=setInterval(advance,3900)};
   const pause=()=>{
    userInteracting=true;if(timer)clearInterval(timer);timer=null;
    if(interactionTimer)clearTimeout(interactionTimer);
-   interactionTimer=setTimeout(()=>{userInteracting=false;start()},6500);
+   interactionTimer=setTimeout(()=>{userInteracting=false;start()},5500);
   };
   track.addEventListener('pointerdown',pause,{passive:true});
   track.addEventListener('touchstart',pause,{passive:true});
   track.addEventListener('focusin',pause);
   track.addEventListener('scroll',()=>{if(!resetting)window.requestAnimationFrame(state)},{passive:true});
+  if('onscrollend' in track)track.addEventListener('scrollend',()=>{normalizeClone(centered());state()});
   document.addEventListener('visibilitychange',()=>{if(document.hidden){if(timer)clearInterval(timer);timer=null}else start()});
   window.addEventListener('resize',()=>{state();start()},{passive:true});
   state();start();
@@ -16772,5 +16777,12 @@ body::after{
 @media(max-width:760px){
  #homeView .choices{scroll-snap-type:x mandatory!important;scroll-behavior:smooth!important}
  #homeView .choices .choice{scroll-snap-stop:normal!important}
+}
+</style>
+
+<style id="lds-infinite-carousel-no-gap-20261017">
+@media(max-width:760px){
+ #homeView .choices{overflow-x:auto!important;overflow-y:visible!important;scroll-snap-type:x mandatory!important;scroll-padding-inline:calc((100vw - min(72vw,300px))/2)!important;overscroll-behavior-x:contain!important}
+ #homeView .choices>.choice{scroll-snap-align:center!important;scroll-snap-stop:normal!important}
 }
 </style>
