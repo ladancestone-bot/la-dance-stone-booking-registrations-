@@ -16443,3 +16443,27 @@ body::after{
 </style>
 
 </body></html>
+
+
+<style id="lds-registration-arch-photo-fix-20261017">
+/* Replace only the photo on the existing class-registration homepage arch.
+   Keep its current layout, glass styling, carousel and booking behavior intact. */
+#homeView .choices .choice[data-view="classes"]::before{
+  background-image:
+    linear-gradient(180deg,rgba(36,17,24,.10) 0%,rgba(40,15,26,.20) 48%,rgba(17,7,16,.58) 100%),
+    url("https://raw.githubusercontent.com/ladancestone-bot/la-dance-stone-booking-registrations-/main/IMG_7204.jpeg")!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-position:center 48%!important;
+  opacity:.72!important;
+  mix-blend-mode:normal!important;
+}
+#homeView .choices .choice[data-view="classes"].is-center::before{
+  background-position:center 48%!important;
+  opacity:.76!important;
+}
+#homeView .choices .choice[data-view="classes"].is-side::before{
+  background-position:center 48%!important;
+  opacity:.56!important;
+}
+</style>
