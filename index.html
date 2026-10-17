@@ -11442,4 +11442,47 @@ body:has(#homeView.active)::after{
  }
 }
 </style>
+
+<style id="lds-subtle-text-arrow-navigation-20261017">
+/* Minimal text-and-arrow back navigation; remove pill/card appearance on all views. */
+#homeView .home-site-link-row{
+ display:flex!important;justify-content:flex-start!important;align-items:center!important;
+ margin:0 auto 8px!important;padding:16px 22px 0!important;
+ background:transparent!important;border:0!important;box-shadow:none!important;
+}
+.site-link,
+#homeView .site-link,
+.view .back,
+.view .rental-back,
+.view .timetable-back,
+.view .classes-back{
+ display:inline-flex!important;align-items:center!important;gap:9px!important;
+ padding:5px 0!important;margin:0!important;
+ border:0!important;border-radius:0!important;
+ background:transparent!important;background-color:transparent!important;
+ box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+ color:rgba(255,247,236,.86)!important;-webkit-text-fill-color:rgba(255,247,236,.86)!important;
+ text-decoration:none!important;
+ font-size:13px!important;font-weight:400!important;letter-spacing:.025em!important;
+ opacity:.9!important;min-height:0!important;
+}
+.site-link span[aria-hidden="true"],
+.view .back span,
+.view .rental-back span,
+.view .timetable-back span,
+.view .classes-back span{
+ color:rgba(232,202,162,.95)!important;font-size:18px!important;font-weight:300!important;
+ transition:transform .22s ease,opacity .22s ease!important;opacity:.85!important;
+}
+.site-link:hover,
+.view .back:hover{background:transparent!important;box-shadow:none!important;opacity:1!important}
+.site-link:hover span[aria-hidden="true"],
+.view .back:hover span{transform:translateX(-3px)!important;opacity:1!important}
+@media(max-width:760px){
+ #homeView .home-site-link-row{padding:13px 20px 0!important;margin-bottom:4px!important}
+ .site-link,.view .back,.view .rental-back,.view .timetable-back,.view .classes-back{
+  font-size:12px!important;gap:8px!important;padding:4px 0!important;
+ }
+}
+</style>
 </body></html>
