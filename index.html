@@ -18721,9 +18721,15 @@ function translateTextNode(node,lang){
 }
 function translateTree(root,lang){
  var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT), nodes=[];
- while(walker.nextNode()) nodes.push(walker.currentNode);
+ while(walker.nextNode()){
+  var node=walker.currentNode;
+  // Never translate language controls or executable/style source text.
+  if(node.parentElement && node.parentElement.closest('#ldsLanguageSwitch,script,style,noscript')) continue;
+  nodes.push(node);
+ }
  nodes.forEach(function(n){translateTextNode(n,lang);});
  root.querySelectorAll&&root.querySelectorAll('input[placeholder],textarea[placeholder],button[aria-label],img[alt]').forEach(function(el){
+  if(el.closest('#ldsLanguageSwitch')) return;
   ['placeholder','aria-label','alt'].forEach(function(a){if(el.hasAttribute(a)){var v=el.getAttribute(a),map=lang==='en'?toEn:toLt; if(map.has(v))el.setAttribute(a,map.get(v));}});
  });
 }
@@ -18731,9 +18737,17 @@ function setLanguage(lang){
  current=lang==='en'?'en':'lt';
  document.documentElement.lang=current;
  try{localStorage.setItem('lds-site-language',current)}catch(e){}
- document.querySelectorAll('#ldsLanguageSwitch [data-lds-lang]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.ldsLang===current));});
- // Translate the full document, including content inserted outside body by layout scripts.
- translateTree(document.documentElement,current);
+ var switchEl=document.getElementById('ldsLanguageSwitch');
+ if(switchEl){
+  // Keep both language controls visible and clickable after every language change.
+  switchEl.style.setProperty('display','flex','important');
+  switchEl.style.setProperty('visibility','visible','important');
+  switchEl.style.setProperty('opacity','1','important');
+  switchEl.style.setProperty('z-index','2147483647','important');
+  switchEl.querySelectorAll('[data-lds-lang]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.ldsLang===current));});
+ }
+ // Translate page content without changing the language controls or script/style source.
+ translateTree(document.body||document.documentElement,current);
  var date=document.getElementById('rentDate'); if(date)date.lang=current;
  window.__ldsLanguage=current;
  window.dispatchEvent(new CustomEvent('lds-language-change',{detail:{language:current}}));
@@ -18785,7 +18799,9 @@ new MutationObserver(function(mutations){
  if(scheduled)return; scheduled=true;
  requestAnimationFrame(function(){scheduled=false;translateTree(document.body,current);});
 }).observe(document.body,{subtree:true,childList:true,characterData:true});
-var initial='lt';try{initial=localStorage.getItem('lds-site-language')||'lt'}catch(e){}
+// Lithuanian is always the default when the page opens; English is opt-in.
+var initial='lt';
+try{localStorage.setItem('lds-site-language','lt')}catch(e){}
 setLanguage(initial);
 })();
 </script>
