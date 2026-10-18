@@ -18732,9 +18732,11 @@ function setLanguage(lang){
  document.documentElement.lang=current;
  try{localStorage.setItem('lds-site-language',current)}catch(e){}
  document.querySelectorAll('#ldsLanguageSwitch [data-lds-lang]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.ldsLang===current));});
- translateTree(document.body,current);
+ // Translate the full document, including content inserted outside body by layout scripts.
+ translateTree(document.documentElement,current);
  var date=document.getElementById('rentDate'); if(date)date.lang=current;
  window.__ldsLanguage=current;
+ window.dispatchEvent(new CustomEvent('lds-language-change',{detail:{language:current}}));
 }
 // Move the switch outside transformed/stacked page sections so no page overlay can cover it.
 // Keep the language controls in their original position and bind clicks directly,
