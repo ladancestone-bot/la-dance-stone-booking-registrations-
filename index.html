@@ -18625,11 +18625,11 @@ html body #classesView #classDetail.class-detail-adult
 </style>
 
 <style id="lds-language-switch-style">
-html > #ldsLanguageSwitch{position:fixed!important;z-index:2147483647!important;right:16px!important;top:calc(env(safe-area-inset-top, 0px) + 12px)!important;display:flex!important;align-items:center;gap:4px;padding:5px;border:1px solid rgba(255,241,220,.78);border-radius:999px;background:rgba(255,248,239,.24);box-shadow:0 8px 28px rgba(38,20,18,.2),inset 0 1px 0 rgba(255,255,255,.48);backdrop-filter:blur(22px) saturate(145%);-webkit-backdrop-filter:blur(22px) saturate(145%);font:600 11px/1 Jost,Arial,sans-serif;pointer-events:auto!important;isolation:isolate}
-html > #ldsLanguageSwitch button{position:relative;z-index:2147483647!important;display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:999px;padding:10px 12px;background:rgba(255,255,255,.12);color:#fff8ef;min-width:36px;min-height:34px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;pointer-events:auto!important;transition:background .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease}
-html > #ldsLanguageSwitch button[aria-pressed="true"]{background:rgba(76,22,39,.82);border-color:rgba(255,240,220,.66);color:#fffaf3;box-shadow:0 3px 12px rgba(43,15,26,.22),inset 0 1px 0 rgba(255,255,255,.18)}
-html > #ldsLanguageSwitch button:focus-visible{outline:2px solid #f4d7a2;outline-offset:2px}
-@media(max-width:600px){html > #ldsLanguageSwitch{top:calc(env(safe-area-inset-top, 0px) + 10px)!important;right:10px!important;padding:4px}html > #ldsLanguageSwitch button{padding:9px 10px;min-width:34px;min-height:34px}}
+body #ldsLanguageSwitch{position:fixed!important;z-index:2147483647!important;right:16px!important;top:calc(env(safe-area-inset-top, 0px) + 12px)!important;display:flex!important;align-items:center;gap:4px;padding:5px;border:1px solid rgba(255,241,220,.78);border-radius:999px;background:rgba(255,248,239,.24);box-shadow:0 8px 28px rgba(38,20,18,.2),inset 0 1px 0 rgba(255,255,255,.48);backdrop-filter:blur(22px) saturate(145%);-webkit-backdrop-filter:blur(22px) saturate(145%);font:600 11px/1 Jost,Arial,sans-serif;pointer-events:auto!important;isolation:isolate}
+body #ldsLanguageSwitch button{position:relative;z-index:2147483647!important;display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:999px;padding:10px 12px;background:rgba(255,255,255,.12);color:#fff8ef;min-width:36px;min-height:34px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;pointer-events:auto!important;transition:background .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease}
+body #ldsLanguageSwitch button[aria-pressed="true"]{background:rgba(76,22,39,.82);border-color:rgba(255,240,220,.66);color:#fffaf3;box-shadow:0 3px 12px rgba(43,15,26,.22),inset 0 1px 0 rgba(255,255,255,.18)}
+body #ldsLanguageSwitch button:focus-visible{outline:2px solid #f4d7a2;outline-offset:2px}
+@media(max-width:600px){body #ldsLanguageSwitch{top:calc(env(safe-area-inset-top, 0px) + 10px)!important;right:10px!important;padding:4px}body #ldsLanguageSwitch button{padding:9px 10px;min-width:34px;min-height:34px}}
 </style>
 <div id="ldsLanguageSwitch" role="group" aria-label="Language / Kalba">
 <button type="button" data-lds-lang="lt" aria-pressed="true" onclick="window.__ldsSetLanguage &amp;&amp; window.__ldsSetLanguage('lt')">LT</button>
@@ -18729,9 +18729,9 @@ function setLanguage(lang){
 }
 // Move the switch outside transformed/stacked page sections so no page overlay can cover it.
 var languageSwitch=document.getElementById('ldsLanguageSwitch');
-if(languageSwitch && document.documentElement && languageSwitch.parentNode!==document.documentElement){
- // Put the switch outside the page's body stacking contexts.
- document.documentElement.appendChild(languageSwitch);
+if(languageSwitch && document.body && languageSwitch.parentNode!==document.body){
+ // Keep the language buttons visible as the last interactive element in the page.
+ document.body.appendChild(languageSwitch);
 }
 if(languageSwitch){
  languageSwitch.style.setProperty('position','fixed','important');
