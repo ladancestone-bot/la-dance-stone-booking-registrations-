@@ -18625,10 +18625,11 @@ html body #classesView #classDetail.class-detail-adult
 </style>
 
 <style id="lds-language-switch-style">
-#ldsLanguageSwitch{position:fixed;z-index:99999;right:18px;top:14px;display:flex;align-items:center;gap:3px;padding:4px;border:1px solid rgba(181,150,85,.65);border-radius:999px;background:rgba(255,253,250,.96);box-shadow:0 5px 20px rgba(56,40,33,.12);backdrop-filter:blur(12px);font:600 11px/1 Jost,Arial,sans-serif}
-#ldsLanguageSwitch button{border:0;border-radius:999px;padding:9px 10px;background:transparent;color:#481824;min-width:34px}
-#ldsLanguageSwitch button[aria-pressed="true"]{background:#481824;color:#fffdfa}
-@media(max-width:600px){#ldsLanguageSwitch{top:10px;right:10px;padding:3px}#ldsLanguageSwitch button{padding:8px;min-width:30px}}
+#ldsLanguageSwitch{position:fixed!important;z-index:2147483647!important;right:16px!important;top:calc(env(safe-area-inset-top, 0px) + 12px)!important;display:flex!important;align-items:center;gap:4px;padding:5px;border:1px solid rgba(255,241,220,.78);border-radius:999px;background:rgba(255,248,239,.24);box-shadow:0 8px 28px rgba(38,20,18,.2),inset 0 1px 0 rgba(255,255,255,.48);backdrop-filter:blur(22px) saturate(145%);-webkit-backdrop-filter:blur(22px) saturate(145%);font:600 11px/1 Jost,Arial,sans-serif;pointer-events:auto!important;isolation:isolate}
+#ldsLanguageSwitch button{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:999px;padding:10px 12px;background:rgba(255,255,255,.12);color:#fff8ef;min-width:36px;min-height:34px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;pointer-events:auto!important;transition:background .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease}
+#ldsLanguageSwitch button[aria-pressed="true"]{background:rgba(76,22,39,.82);border-color:rgba(255,240,220,.66);color:#fffaf3;box-shadow:0 3px 12px rgba(43,15,26,.22),inset 0 1px 0 rgba(255,255,255,.18)}
+#ldsLanguageSwitch button:focus-visible{outline:2px solid #f4d7a2;outline-offset:2px}
+@media(max-width:600px){#ldsLanguageSwitch{top:calc(env(safe-area-inset-top, 0px) + 10px)!important;right:10px!important;padding:4px}#ldsLanguageSwitch button{padding:9px 10px;min-width:34px;min-height:34px}}
 </style>
 <div id="ldsLanguageSwitch" role="group" aria-label="Language / Kalba">
 <button type="button" data-lds-lang="lt" aria-pressed="true">LT</button>
@@ -18726,7 +18727,20 @@ function setLanguage(lang){
  var date=document.getElementById('rentDate'); if(date)date.lang=current;
  window.__ldsLanguage=current;
 }
-document.querySelectorAll('#ldsLanguageSwitch [data-lds-lang]').forEach(function(b){b.addEventListener('click',function(){setLanguage(b.dataset.ldsLang);});});
+// Capture the tap before page-level handlers; keep the glass language control interactive above all sections.
+document.addEventListener('click',function(e){
+ var target=e.target&&e.target.closest?e.target.closest('#ldsLanguageSwitch [data-lds-lang]'):null;
+ if(!target)return;
+ e.preventDefault();e.stopPropagation();
+ if(e.stopImmediatePropagation)e.stopImmediatePropagation();
+ setLanguage(target.getAttribute('data-lds-lang'));
+},true);
+document.addEventListener('touchend',function(e){
+ var target=e.target&&e.target.closest?e.target.closest('#ldsLanguageSwitch [data-lds-lang]'):null;
+ if(!target)return;
+ e.preventDefault();e.stopPropagation();
+ setLanguage(target.getAttribute('data-lds-lang'));
+},{capture:true,passive:false});
 document.addEventListener('click',function(e){
  var b=e.target.closest('button,[role="button"]');
  if(b && /rentSubmit|rentalCashChoice/.test(b.id||'')) setTimeout(function(){translateTree(document.body,current);},0);
