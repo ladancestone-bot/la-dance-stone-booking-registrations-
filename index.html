@@ -4535,7 +4535,7 @@ $('durationMinus').onclick=()=>{const n=Math.max(1,duration()-1);$('rentLength')
 $('durationPlus').onclick=()=>{const max=maxAllowedDuration((rentSelectedDate().getDay()+6)%7,startHour());const n=Math.min(6,max,duration()+1);if(n>=1){$('rentLength').value=String(n);updateBookingSummary()}};
 $('prevRentWeek').onclick=()=>{const d=rentSelectedDate();d.setDate(d.getDate()-7);$('rentDate').value=localISO(d);rentWeek=mondayOf(d);updateBookingSummary();loadRentalAvailability(true)};
 $('nextRentWeek').onclick=()=>{const d=rentSelectedDate();d.setDate(d.getDate()+7);$('rentDate').value=localISO(d);rentWeek=mondayOf(d);updateBookingSummary();loadRentalAvailability(true)};
-$('rentSubmit').onclick=async()=>{const button=$('rentSubmit');const requiredFields=[$('rentFirstName'),$('rentLastName'),$('rentPhone'),$('rentEmail')];for(const field of requiredFields){if(!field.checkValidity()){field.reportValidity();field.focus();return}}const len=duration(),start=startHour(),end=start+len,date=$('rentDate').value;if(hasConflict((rentSelectedDate().getDay()+6)%7,start,len)){ $('rentToast').textContent=start===21?'Paskutinis 21:00–21:45 laikas užimtas. Pasirinkite kitą laiką.':'Rezervacija turi baigtis iki 21:00 val. Paskutinis galimas laikas – 21:00–21:45.';$('rentToast').classList.add('show');return}if(!date){$('rentToast').textContent='Pasirinkite rezervacijos datą.';$('rentToast').classList.add('show');return}button.disabled=true;button.setAttribute('aria-busy','true');button.textContent='Pateikiama rezervacija…';$('rentToast').textContent='Tikriname užimtumą ir išsaugome rezervaciją…';$('rentToast').classList.add('show');try{const first=$('rentFirstName').value.trim(),last=$('rentLastName').value.trim(),phone=$('rentPhone').value.trim(),email=$('rentEmail').value.trim(),total=Math.min(len,3)*20+Math.max(0,len-3)*15;const response=await fetch('https://tqzabmlrtbrylibafjfh.supabase.co/functions/v1/public-rental-booking',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_nLHN6DiC2vh_bTXW3uTc7w_I7aT5Za-'},body:JSON.stringify({firstName:first,lastName:last,phone,email,date,startHour:start,duration:len})});const result=await response.json().catch(()=>({error:'Serveris grąžino neteisingą atsakymą.'}));if(!response.ok||!result.ok){$('rentToast').textContent=result.error||'Nepavyko pateikti rezervacijos. Pabandykite dar kartą.';return}const dateObj=new Date(date+'T12:00:00');const dateLabel=dateObj.toLocaleDateString('lt-LT',{weekday:'long',year:'numeric',month:'long',day:'numeric'});const fmt=n=>String(n).padStart(2,'0')+':00';window.__lastRentalBookingId=result.bookingId;const details=[['Vardas, pavardė',first+' '+last],['Rezervacijos data',dateLabel],['Laikas',fmt(start)+'–'+(start===21?'21:45':fmt(end))],['Trukmė',start===21?'45 min. (apmokestinama kaip 1 val.)':len+(len===1?' valanda':' valandos')],['Rezervacijos kaina',total+' €'],['El. paštas',email],['Telefono numeris',phone]];const host=$('rentalConfirmationDetails');host.replaceChildren();details.forEach(([label,value])=>{const row=document.createElement('div');row.className='rc-row'+(label==='Rezervacijos kaina'?' rc-total-price':'');const left=document.createElement('span');left.textContent=label==='Rezervacijos kaina'?'Bendra rezervacijos kaina':label;const right=document.createElement('strong');right.textContent=value;row.append(left,right);host.appendChild(row)});$('rentalConfirmationIntro').textContent='Ačiū, '+first+'! Jūsų studijos nuomos rezervacijos informacija išsaugota.';const cashChoice=$('rentalCashChoice');cashChoice.style.display='block';cashChoice.disabled=false;cashChoice.textContent='Mokėsiu grynais';$('rentalConfirmationNote').textContent=result.emailSent?'Rezervacija išsaugota. Apmokėjimo mygtuką rasite el. laiške, kurį išsiuntėme adresu '+email+'. Jei laiško nematote, patikrinkite šlamšto (Spam) aplanką. Jei nepavyksta atlikti apmokėjimo, susisiekite info@ladancestone.lt.':(result.paymentLinkCreated?'Rezervacija išsaugota ir apmokėjimo nuoroda paruošta. Jei nepavyksta atlikti apmokėjimo, susisiekite info@ladancestone.lt.':'Rezervacija išsaugota, tačiau mokėjimo nuorodos paruošti nepavyko. Susisiekite info@ladancestone.lt.');$('rentalBooking').classList.remove('booking-open');$('rentalConfirmation').style.display='block';$('rentToast').classList.remove('show');button.textContent='Rezervacija pateikta';button.disabled=true;$('rentalConfirmation').scrollIntoView({behavior:'smooth',block:'start'});return}catch(error){console.error('Nuomos rezervacijos klaida:',error);$('rentToast').textContent='Nepavyko prisijungti prie rezervacijų sistemos. Patikrinkite interneto ryšį ir bandykite dar kartą.'}finally{button.removeAttribute('aria-busy');if(!button.textContent.includes('pateikta')){button.disabled=false;button.textContent='Tęsti rezervaciją'}}};
+$('rentSubmit').onclick=async()=>{const button=$('rentSubmit');const requiredFields=[$('rentFirstName'),$('rentLastName'),$('rentPhone'),$('rentEmail')];for(const field of requiredFields){if(!field.checkValidity()){field.reportValidity();field.focus();return}}const len=duration(),start=startHour(),end=start+len,date=$('rentDate').value;if(hasConflict((rentSelectedDate().getDay()+6)%7,start,len)){ $('rentToast').textContent=start===21?'Paskutinis 21:00–21:45 laikas užimtas. Pasirinkite kitą laiką.':'Rezervacija turi baigtis iki 21:00 val. Paskutinis galimas laikas – 21:00–21:45.';$('rentToast').classList.add('show');return}if(!date){$('rentToast').textContent='Pasirinkite rezervacijos datą.';$('rentToast').classList.add('show');return}button.disabled=true;button.setAttribute('aria-busy','true');button.textContent='Pateikiama rezervacija…';$('rentToast').textContent='Tikriname užimtumą ir išsaugome rezervaciją…';$('rentToast').classList.add('show');try{const first=$('rentFirstName').value.trim(),last=$('rentLastName').value.trim(),phone=$('rentPhone').value.trim(),email=$('rentEmail').value.trim(),total=Math.min(len,3)*20+Math.max(0,len-3)*15;const response=await fetch('https://tqzabmlrtbrylibafjfh.supabase.co/functions/v1/public-rental-booking',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_nLHN6DiC2vh_bTXW3uTc7w_I7aT5Za-'},body:JSON.stringify({firstName:first,lastName:last,phone,email,date,startHour:start,duration:len,language:window.__ldsLanguage||document.documentElement.lang||'lt'})});const result=await response.json().catch(()=>({error:'Serveris grąžino neteisingą atsakymą.'}));if(!response.ok||!result.ok){$('rentToast').textContent=result.error||'Nepavyko pateikti rezervacijos. Pabandykite dar kartą.';return}const dateObj=new Date(date+'T12:00:00');const dateLabel=dateObj.toLocaleDateString('lt-LT',{weekday:'long',year:'numeric',month:'long',day:'numeric'});const fmt=n=>String(n).padStart(2,'0')+':00';window.__lastRentalBookingId=result.bookingId;const details=[['Vardas, pavardė',first+' '+last],['Rezervacijos data',dateLabel],['Laikas',fmt(start)+'–'+(start===21?'21:45':fmt(end))],['Trukmė',start===21?'45 min. (apmokestinama kaip 1 val.)':len+(len===1?' valanda':' valandos')],['Rezervacijos kaina',total+' €'],['El. paštas',email],['Telefono numeris',phone]];const host=$('rentalConfirmationDetails');host.replaceChildren();details.forEach(([label,value])=>{const row=document.createElement('div');row.className='rc-row'+(label==='Rezervacijos kaina'?' rc-total-price':'');const left=document.createElement('span');left.textContent=label==='Rezervacijos kaina'?'Bendra rezervacijos kaina':label;const right=document.createElement('strong');right.textContent=value;row.append(left,right);host.appendChild(row)});$('rentalConfirmationIntro').textContent='Ačiū, '+first+'! Jūsų studijos nuomos rezervacijos informacija išsaugota.';const cashChoice=$('rentalCashChoice');cashChoice.style.display='block';cashChoice.disabled=false;cashChoice.textContent='Mokėsiu grynais';$('rentalConfirmationNote').textContent=result.emailSent?'Rezervacija išsaugota. Apmokėjimo mygtuką rasite el. laiške, kurį išsiuntėme adresu '+email+'. Jei laiško nematote, patikrinkite šlamšto (Spam) aplanką. Jei nepavyksta atlikti apmokėjimo, susisiekite info@ladancestone.lt.':(result.paymentLinkCreated?'Rezervacija išsaugota ir apmokėjimo nuoroda paruošta. Jei nepavyksta atlikti apmokėjimo, susisiekite info@ladancestone.lt.':'Rezervacija išsaugota, tačiau mokėjimo nuorodos paruošti nepavyko. Susisiekite info@ladancestone.lt.');$('rentalBooking').classList.remove('booking-open');$('rentalConfirmation').style.display='block';$('rentToast').classList.remove('show');button.textContent='Rezervacija pateikta';button.disabled=true;$('rentalConfirmation').scrollIntoView({behavior:'smooth',block:'start'});return}catch(error){console.error('Nuomos rezervacijos klaida:',error);$('rentToast').textContent='Nepavyko prisijungti prie rezervacijų sistemos. Patikrinkite interneto ryšį ir bandykite dar kartą.'}finally{button.removeAttribute('aria-busy');if(!button.textContent.includes('pateikta')){button.disabled=false;button.textContent='Tęsti rezervaciją'}}};
 $('rentalCashChoice').onclick=async()=>{const cashButton=$('rentalCashChoice');cashButton.disabled=true;cashButton.textContent='Išsaugomas pasirinkimas…';try{const response=await fetch('https://tqzabmlrtbrylibafjfh.supabase.co/functions/v1/public-rental-cash-confirm',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_nLHN6DiC2vh_bTXW3uTc7w_I7aT5Za-'},body:JSON.stringify({bookingId:window.__lastRentalBookingId,email:window.__rentalCashEmail||$('rentEmail').value.trim()})});const result=await response.json().catch(()=>({error:'Nepavyko perskaityti serverio atsakymo.'}));if(!response.ok||!result.ok){cashButton.disabled=false;cashButton.textContent='Patvirtinti atsiskaitymą grynaisiais';$('rentalCashConfirmNote').textContent=result.error||'Nepavyko išsaugoti pasirinkimo. Susisiekite info@ladancestone.lt.';return}cashButton.style.display='none';const cashCard=$('rentalCashConfirm');cashCard.classList.add('is-confirmed');$('rentalCashConfirmTitle').textContent=result.alreadyPaid?'Rezervacija jau apmokėta':'Rezervacija patvirtinta';$('rentalCashConfirm').querySelector('.rc-intro').textContent=result.alreadyPaid?'Ši rezervacija jau apmokėta internetu.':'Jūsų studijos nuomos rezervacija patvirtinta. Už nuomą galėsite atsiskaityti grynaisiais atvykę į studiją.';$('rentalCashConfirmNote').innerHTML=result.alreadyPaid?'Ši rezervacija jau apmokėta internetu. Jei turite klausimų, susisiekite <a href="mailto:info@ladancestone.lt">info@ladancestone.lt</a>.':'Visa informacija apie atvykimą ir naudojimąsi studija bus išsiųsta el. paštu. Patikrinkite gautuosius ir, jei laiško nematote, šlamšto (Spam) aplanką.<br><br>'+(result.emailSent?'Patvirtinimą taip pat išsiuntėme el. paštu.':'Jei reikia pagalbos, susisiekite <a href="mailto:info@ladancestone.lt">info@ladancestone.lt</a>.')}catch(error){cashButton.disabled=false;cashButton.textContent='Patvirtinti atsiskaitymą grynaisiais';$('rentalCashConfirmNote').textContent='Nepavyko prisijungti prie sistemos. Bandykite dar kartą arba susisiekite info@ladancestone.lt.'}};
 
 $('rentalConfirmationBack').onclick=()=>{ $('rentalConfirmation').style.display='none';$('rentalBooking').classList.add('booking-open');$('rentalBooking').scrollIntoView({behavior:'smooth',block:'start'});};
@@ -18623,6 +18623,96 @@ html body #classesView #classDetail.class-detail-adult
   opacity:1!important;
 }
 </style>
+
+<style id="lds-language-switch-style">
+#ldsLanguageSwitch{position:fixed;z-index:99999;right:18px;top:14px;display:flex;align-items:center;gap:3px;padding:4px;border:1px solid rgba(181,150,85,.65);border-radius:999px;background:rgba(255,253,250,.96);box-shadow:0 5px 20px rgba(56,40,33,.12);backdrop-filter:blur(12px);font:600 11px/1 Jost,Arial,sans-serif}
+#ldsLanguageSwitch button{border:0;border-radius:999px;padding:9px 10px;background:transparent;color:#481824;min-width:34px}
+#ldsLanguageSwitch button[aria-pressed="true"]{background:#481824;color:#fffdfa}
+@media(max-width:600px){#ldsLanguageSwitch{top:10px;right:10px;padding:3px}#ldsLanguageSwitch button{padding:8px;min-width:30px}}
+</style>
+<div id="ldsLanguageSwitch" role="group" aria-label="Language / Kalba">
+<button type="button" data-lds-lang="lt" aria-pressed="true">LT</button>
+<button type="button" data-lds-lang="en" aria-pressed="false">EN</button>
+</div>
+<script id="lds-language-switch-script">
+(function(){
+'use strict';
+var pairs = [
+["Grįžti į svetainės pradžią","Back to home"],["Šokio erdvė prasideda čia.","Your space to move starts here."],
+["SAVAITĖS PLANAS","WEEKLY PLAN"],["Tvarkaraštis","Timetable"],["Užsiėmimų laikai","Class times"],["Peržiūrėti tvarkaraštį","View timetable"],
+["STUDIJOS ERDVĖ","STUDIO SPACE"],["Rezervuoti studiją","Book the studio"],["ŠOKIŲ PAMOKOS","DANCE CLASSES"],["Registracija į pamokas","Class registration"],
+["Grupės ir registracija","Groups and registration"],["Registruotis į pamokas","Register for classes"],["Šiuolaikiška šokių studija, kurioje susitinka kūryba, judesio laisvė ir autentiška saviraiška.","A contemporary dance studio bringing together creativity, freedom of movement and authentic self-expression."],
+["V. Krėvės pr. 57, Kaunas","V. Krėvės Ave. 57, Kaunas"],["Grįžti į pasirinkimą","Back to selection"],["Studijos nuoma","Studio rental"],
+["Daugiafunkcinė, jauki ir estetiška","A versatile, welcoming and elegant"],["šokių studija","dance studio"],["Tinka repeticijoms, individualioms treniruotėms, šokių pamokoms, kūrybiniams susitikimams ir dirbtuvėms.","Ideal for rehearsals, private training, dance classes, creative meetings and workshops."],
+["Dideli","Large"],["veidrodžiai","mirrors"],["Kondicionierius","Air conditioning"],["Audio","Audio"],["sistema","system"],["Rūbinė","Changing room"],["Parkavimas","Parking"],["iki 3 val. nemokamai","free for up to 3 hours"],
+["Mūsų studija","Our studio"],["Tikra studijos erdvė, veidrodžiai ir jauki atmosfera","A real studio space with mirrors and a welcoming atmosphere"],
+["Patogiai pasirinkite norimą datą ir laiką internetu","Choose your preferred date and time online"],
+["Užsiregistruojate ir pasirenkate laiką","Register and choose a time"],["Atliekate mokėjimą","Complete payment"],["Gaunate atvykimo informaciją","Receive arrival information"],["Atvykstate į studiją","Arrive at the studio"],
+["Interaktyvus užimtumo vaizdas","Interactive availability"],["Laisvų valandų","Available hours"],["Malonus priminimas prieš rezervuojant","A friendly reminder before booking"],
+["Pastatas automatiškai užrakinamas","The building locks automatically"],["Užimta","Unavailable"],["Jūsų pasirinkimas","Your selection"],["Pasirinkite laiką","Choose a time"],["Rezervuokite visą savo laiką vienu kartu.","Book your entire time slot in one reservation."],
+["Pradžios laikas","Start time"],["Pasirinkite rezervacijos datą.","Please select a reservation date."],["Pavardė *","Last name *"],["El. paštas rezervacijos informacijai *","Email for reservation details *"],
+["Jūsų erdvė,","Your space,"],["jūsų idėjos.","your ideas."],["Tęsti rezervaciją","Continue booking"],["Rezervacija sėkminga!","Reservation successful!"],
+["Ačiū! Jūsų studijos nuomos rezervacija išsaugota.","Thank you! Your studio rental reservation has been saved."],
+["Rezervacija laukia apmokėjimo. Patikrinkite el. paštą dėl tolesnės informacijos.","Your reservation is awaiting payment. Please check your email for further information."],
+["Grįžti į studijos nuomą","Back to studio rental"],["GRĮŽTI Į PASIRINKIMĄ","BACK TO SELECTION"],
+["Peržiūrėkite savaitės tvarkaraštį ir žemiau pasirinkite savo grupę.","View the weekly timetable and select your group below."],
+["Savaitės tvarkaraštis","Weekly timetable"],["Pamokų laikai","Class times"],["Trumpa savaitės apžvalga. Pasirinkite grupę žemiau.","A quick weekly overview. Select a group below."],
+["Studijos tvarkaraštis","Studio timetable"],["TREČIADIENIS","WEDNESDAY"],["ŠEŠTADIENIS","SATURDAY"],["UŽIMTA","BOOKED"],
+["Pasirinkite savo grupę","Choose your group"],["Pasirinkite amžiaus grupę — atsidarys registracijos forma ir kainos.","Choose an age group to open the registration form and prices."],
+["Šiuolaikinis šokis vaikams","Contemporary dance for children"],["5–7 metų vaikams","For ages 5–7"],["7–12 metų vaikams","For ages 7–12"],["Šiuolaikinis šokis paaugliams","Contemporary dance for teens"],["13–18 metų paaugliams","For ages 13–18"],
+["Šiuolaikinis šokis suaugusiesiems","Contemporary dance for adults"],["Pasirinkite 1, 2 arba 3 treniruotes per savaitę.","Choose 1, 2 or 3 classes per week."],
+["Grįžti į pamokų pasirinkimą","Back to class selection"],["Mėnesio abonementas","Monthly membership"],["Reguliarios treniruotės pasirinktoje grupėje.","Regular classes in your chosen group."],
+["Vienkartinė pamoka","Single class"],["Vienas apsilankymas · 10 € už pamoką.","One visit · €10 per class."],["/ mėn.","/ month"],["Kiek kartų per savaitę?","How many times per week?"],
+["1 kartas per savaitę · 40 €","Once a week · €40"],["2 kartai per savaitę · 50 €","Twice a week · €50"],["3 kartai per savaitę · 60 €","Three times a week · €60"],
+["Pasirinkite 2 dienas per savaitę.","Choose 2 days per week."],["Pasirinkite grupę / treniruočių dienas","Choose a group / class days"],["Kada norėtumėte šokti?","When would you like to dance?"],["Pasirinkite mėnesį","Choose a month"],
+["Pavardė","Last name"],["El. paštas registracijai","Email for registration"],["Kalba","Language"],
+["Vardas, pavardė","Full name"],["Rezervacijos data","Reservation date"],["Laikas","Time"],["Trukmė","Duration"],["Rezervacijos kaina","Reservation price"],["Bendra rezervacijos kaina","Total reservation price"],["Telefono numeris","Phone number"],
+["Mokėsiu grynais","I will pay in cash"],["Atsiskaitymas grynaisiais","Cash payment"],["Patvirtinti atsiskaitymą grynaisiais","Confirm cash payment"],
+["Patvirtinkite, kad norite už rezervaciją atsiskaityti grynaisiais atvykę į studiją.","Please confirm that you want to pay for the reservation in cash when you arrive at the studio."],
+["Pasirinkimas bus išsaugotas tik jums paspaudus patvirtinimo mygtuką.","Your choice will only be saved after you click the confirmation button."],
+["Pateikiama rezervacija…","Submitting reservation…"],["Tikriname užimtumą ir išsaugome rezervaciją…","Checking availability and saving your reservation…"],
+["Nepavyko pateikti rezervacijos. Pabandykite dar kartą.","Could not submit the reservation. Please try again."],
+["Rezervuoti galima tik būsimą laiką.","Only future time slots can be booked."],
+["Šis laikas pagal studijos tvarkaraštį yra užimtas. Pasirinkite kitą laiką.","This time slot is occupied according to the studio timetable. Please choose another time."],
+["Jei laiško nematote, patikrinkite šlamšto (Spam) aplanką.","If you cannot see the email, check your Spam folder."]
+];
+var toEn=new Map(pairs), toLt=new Map(pairs.map(function(p){return [p[1],p[0]];}));
+var current='lt', scheduled=false;
+function translateTextNode(node,lang){
+ var raw=node.nodeValue,trim=raw.trim(); if(!trim)return;
+ var map=lang==='en'?toEn:toLt, translated=map.get(trim);
+ if(translated!==undefined) node.nodeValue=raw.replace(trim,translated);
+}
+function translateTree(root,lang){
+ var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT), nodes=[];
+ while(walker.nextNode()) nodes.push(walker.currentNode);
+ nodes.forEach(function(n){translateTextNode(n,lang);});
+ root.querySelectorAll&&root.querySelectorAll('input[placeholder],textarea[placeholder],button[aria-label],img[alt]').forEach(function(el){
+  ['placeholder','aria-label','alt'].forEach(function(a){if(el.hasAttribute(a)){var v=el.getAttribute(a),map=lang==='en'?toEn:toLt; if(map.has(v))el.setAttribute(a,map.get(v));}});
+ });
+}
+function setLanguage(lang){
+ current=lang==='en'?'en':'lt';
+ document.documentElement.lang=current;
+ try{localStorage.setItem('lds-site-language',current)}catch(e){}
+ document.querySelectorAll('#ldsLanguageSwitch [data-lds-lang]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.ldsLang===current));});
+ translateTree(document.body,current);
+ var date=document.getElementById('rentDate'); if(date)date.lang=current;
+ window.__ldsLanguage=current;
+}
+document.querySelectorAll('#ldsLanguageSwitch [data-lds-lang]').forEach(function(b){b.addEventListener('click',function(){setLanguage(b.dataset.ldsLang);});});
+document.addEventListener('click',function(e){
+ var b=e.target.closest('button,[role="button"]');
+ if(b && /rentSubmit|rentalCashChoice/.test(b.id||'')) setTimeout(function(){translateTree(document.body,current);},0);
+});
+new MutationObserver(function(mutations){
+ if(scheduled)return; scheduled=true;
+ requestAnimationFrame(function(){scheduled=false;translateTree(document.body,current);});
+}).observe(document.body,{subtree:true,childList:true,characterData:true});
+var initial='lt';try{initial=localStorage.getItem('lds-site-language')||'lt'}catch(e){}
+setLanguage(initial);
+})();
+</script>
 </body>
 </html>
 
