@@ -18818,12 +18818,23 @@ document.addEventListener('click',function(e){
  if(b && /rentSubmit|rentalCashChoice/.test(b.id||'')) setTimeout(function(){translateTree(document.body,current);},0);
 });
 new MutationObserver(function(mutations){
- // Only re-translate when elements are inserted/removed. Observing characterData too
- // makes our own text translations retrigger a full-document pass, which can cause
- // repeated layout recalculation and visible jitter on mobile Safari.
- if(scheduled)return;
+ // Translate only newly inserted nodes. Re-translating the entire page whenever the
+ // calendar re-renders repeatedly touches the availability heading and can cause
+ // visible text/layout jitter on mobile Safari.
+ var added=[];
+ mutations.forEach(function(m){
+  if(m.addedNodes) m.addedNodes.forEach(function(node){
+   if(node.nodeType===Node.ELEMENT_NODE || node.nodeType===Node.TEXT_NODE) added.push(node);
+  });
+ });
+ if(!added.length || scheduled)return;
  scheduled=true;
- requestAnimationFrame(function(){scheduled=false;translateTree(document.body,current);});
+ requestAnimationFrame(function(){
+  scheduled=false;
+  added.forEach(function(node){
+   if(node.isConnected && node.parentElement && !node.parentElement.closest('script,style,noscript,#ldsLanguageSwitch')) translateTree(node,current);
+  });
+ });
 }).observe(document.body,{subtree:true,childList:true});
 // Lithuanian is always the default when the page opens; English is opt-in.
 var initial='lt';
@@ -19621,5 +19632,50 @@ html body #rentalCashConfirm .rc-note a{
     overflow-wrap: anywhere !important;
     word-break: normal !important;
   }
+}
+</style>
+
+
+<style id="lds-rental-availability-copy-final-stability-20261018">
+@media (max-width: 600px) {
+ html body #rentalView .availability-section .availability-heading,
+ html body #rentalView .availability-section .availability-heading > div,
+ html body #rentalView .availability-section .availability-heading p {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  position: static !important;
+  float: none !important;
+  flex: none !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+ }
+ html body #rentalView .availability-section .availability-heading {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 auto 14px !important;
+  padding: 0 18px !important;
+  text-align: center !important;
+ }
+ html body #rentalView .availability-section .availability-heading > div {
+  display: block !important;
+  width: 100% !important;
+  max-width: 680px !important;
+  margin: 0 auto !important;
+ }
+ html body #rentalView .availability-section .availability-heading p {
+  display: block !important;
+  width: 100% !important;
+  max-width: 560px !important;
+  margin: 14px auto 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0 !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+ }
 }
 </style>
