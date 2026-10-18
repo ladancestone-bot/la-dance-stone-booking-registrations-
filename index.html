@@ -18729,9 +18729,9 @@ function setLanguage(lang){
 }
 // Move the switch outside transformed/stacked page sections so no page overlay can cover it.
 var languageSwitch=document.getElementById('ldsLanguageSwitch');
-if(languageSwitch && document.body && languageSwitch.parentNode!==document.body){
- // Keep the controls as the final body child so later page layers cannot sit above them.
- document.body.appendChild(languageSwitch);
+if(languageSwitch && document.documentElement && languageSwitch.parentNode!==document.documentElement){
+ // Put the switch outside the page's body stacking contexts.
+ document.documentElement.appendChild(languageSwitch);
 }
 if(languageSwitch){
  languageSwitch.style.setProperty('position','fixed','important');
@@ -18767,6 +18767,24 @@ document.addEventListener('pointerup',function(e){
  if(!target)return;
  setLanguage(target.getAttribute('data-lds-lang'));
 },true);
+// Fallback for iOS Safari when an invisible page layer intercepts the actual tap target.
+// Resolve the intended LT/EN control from the touch coordinates, independent of event.target.
+document.addEventListener('touchstart',function(e){
+ var touch=e.changedTouches&&e.changedTouches[0];
+ if(!touch||!languageSwitch)return;
+ var x=touch.clientX,y=touch.clientY,rect=languageSwitch.getBoundingClientRect();
+ if(x<rect.left||x>rect.right||y<rect.top||y>rect.bottom)return;
+ var buttons=languageSwitch.querySelectorAll('button[data-lds-lang]');
+ for(var i=0;i<buttons.length;i++){
+  var br=buttons[i].getBoundingClientRect();
+  if(x>=br.left&&x<=br.right&&y>=br.top&&y<=br.bottom){
+   e.preventDefault();
+   e.stopImmediatePropagation();
+   setLanguage(buttons[i].getAttribute('data-lds-lang'));
+   return;
+  }
+ }
+},{capture:true,passive:false});
 document.addEventListener('click',function(e){
  var b=e.target.closest('button,[role="button"]');
  if(b && /rentSubmit|rentalCashChoice/.test(b.id||'')) setTimeout(function(){translateTree(document.body,current);},0);
