@@ -18770,6 +18770,43 @@ function setLanguage(lang){
  }
  // Translate page content without changing the language controls or script/style source.
  translateTree(document.body||document.documentElement,current);
+ // Explicitly set rental availability copy: this paragraph has remained Lithuanian
+ // on some mobile renders despite the general dictionary translation.
+ var availabilityCopy=document.querySelector('#rentalView .availability-heading p');
+ if(availabilityCopy) availabilityCopy.textContent=current==='en'
+  ? 'Tap a day or an available time. The selected time slot will be highlighted as one continuous period — there is no need to book each hour separately.'
+  : 'Paspauskite ant dienos arba laisvos valandos. Pasirinktas laikotarpis bus pažymėtas vientisai – nereikia rezervuoti kiekvienos valandos atskirai.';
+ var availabilityEyebrow=document.querySelector('#rentalView .availability-heading .eyebrow');
+ if(availabilityEyebrow) availabilityEyebrow.textContent=current==='en'?'INTERACTIVE AVAILABILITY':'INTERAKTYVUS UŽIMTUMO VAIZDAS';
+ var availabilityTitle=document.querySelector('#rentalView .availability-heading h2');
+ if(availabilityTitle) availabilityTitle.innerHTML=current==='en'
+  ? 'Available hours <span class="availability-heading-accent">calendar.</span>'
+  : 'Laisvų valandų <span class="availability-heading-accent">kalendorius.</span>';
+ var reminderTitle=document.querySelector('#rentalView .rental-reminder-simple strong');
+ if(reminderTitle) reminderTitle.textContent=current==='en'?'A friendly reminder before booking':'Malonus priminimas prieš rezervuojant';
+ var reminderLines=document.querySelectorAll('#rentalView .rental-reminder-simple .notice-line');
+ if(reminderLines.length>=4){
+  var reminderEn=[
+   'The building locks automatically ',
+   'The last available booking slot is ',
+   'This 45-minute time slot costs the same as one hour.',
+   'Please allow enough time to tidy up and leave the building by '
+  ];
+  var reminderLt=[
+   'Pastatas automatiškai užrakinamas ',
+   'Paskutinis rezervuojamas laikotarpis – ',
+   'Šis 45 minučių laikotarpis kainuoja tiek pat, kiek viena valanda.',
+   'Prašome pasilikti pakankamai laiko susitvarkyti ir išeiti iš pastato iki '
+  ];
+  reminderLines.forEach(function(line,i){
+   var value=(current==='en'?reminderEn:reminderLt)[i];
+   if(i===0||i===1||i===3){
+    var time=line.querySelector('.notice-time');
+    line.textContent=value;
+    if(time){time.textContent=current==='en'?(i===1?'9:00–9:45 PM':'10:00 PM'):(i===1?'21.00–21.45 val.':'22.00 val.');line.appendChild(time);}
+   }else line.textContent=value;
+  });
+ }
  var date=document.getElementById('rentDate'); if(date)date.lang=current;
  window.__ldsLanguage=current;
  window.dispatchEvent(new CustomEvent('lds-language-change',{detail:{language:current}}));
