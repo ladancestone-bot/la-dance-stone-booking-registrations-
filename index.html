@@ -4598,7 +4598,7 @@ try{
 }catch(error){console.error('Cash confirmation route error:',error)}
 
 try{updateBookingSummary();loadRentalAvailability(true)}catch(error){console.error('Nuomos kalendoriaus inicializavimo klaida:',error)}
-const days=window.__ldsLanguage==='en'?['Mon','Tue','Wed','Thu','Fri','Sat','Sun']:['Pr','An','Tr','Kt','Pn','Št','Sk'];let week=new Date(2026,9,12);let mobileDay=0;
+let days=['Pr','An','Tr','Kt','Pn','Št','Sk'];let week=new Date(2026,9,12);let mobileDay=0;
 const events=[];
 const TIMETABLE_API_URL='https://script.google.com/macros/s/AKfycbzcuGPMyDEsTK8sUTx9QdksaEJqd1xmKQ-9foUkIqH9UdM3b-kkmPxI27EpumBdI_Ey/exec';
 
@@ -4735,6 +4735,7 @@ function loadLiveTimetable(){
  document.head.appendChild(script);
 }
 function renderCalendar(){
+ days=window.__ldsLanguage==='en'?['Mon','Tue','Wed','Thu','Fri','Sat','Sun']:['Pr','An','Tr','Kt','Pn','Št','Sk'];
  let end=new Date(week);end.setDate(end.getDate()+6);
  $('calTitle').textContent=window.__ldsLanguage==='en'?week.getDate()+'–'+end.getDate()+' '+week.toLocaleDateString('en-GB',{month:'long'})+' '+week.getFullYear():week.getFullYear()+' m. '+week.toLocaleDateString('lt-LT',{month:'long'})+' '+week.getDate()+'–'+end.getDate()+' d.';
  let html='<div></div>';
@@ -18678,6 +18679,18 @@ html body #classesView #classDetail.class-detail-adult
 (function(){
 'use strict';
 var pairs = [
+ ["PIRMADIENIS","MONDAY"],
+ ["ANTRADIENIS","TUESDAY"],
+ ["TREČIADIENIS","WEDNESDAY"],
+ ["KETVIRTADIENIS","THURSDAY"],
+ ["PENKTADIENIS","FRIDAY"],
+ ["ŠEŠTADIENIS","SATURDAY"],
+ ["SEKMADIENIS","SUNDAY"],
+ ["LAIKAS","TIME"],
+ ["UŽIMTA","BOOKED"],
+ ["LAISVAS LAIKAS","FREE TIME"],
+ ["UŽSIĖMIMAS","CLASS"],
+
  ["Šiuolaikinis šokis · 5–7 m.","Contemporary dance · ages 5–7"],
  ["Šiuolaikinis šokis · 7–12 m.","Contemporary dance · ages 7–12"],
  ["Šiuolaikinis šokis · 13–18 m.","Contemporary dance · ages 13–18"],
