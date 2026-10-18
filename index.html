@@ -18674,14 +18674,33 @@ var pairs = [
 ["Nepavyko pateikti rezervacijos. Pabandykite dar kartą.","Could not submit the reservation. Please try again."],
 ["Rezervuoti galima tik būsimą laiką.","Only future time slots can be booked."],
 ["Šis laikas pagal studijos tvarkaraštį yra užimtas. Pasirinkite kitą laiką.","This time slot is occupied according to the studio timetable. Please choose another time."],
-["Jei laiško nematote, patikrinkite šlamšto (Spam) aplanką.","If you cannot see the email, check your Spam folder."]
+["Jei laiško nematote, patikrinkite šlamšto (Spam) aplanką.","If you cannot see the email, check your Spam folder."],
+["Pasirinkite, ką norite nuveikti: peržiūrėti tvarkaraštį, išsinuomoti studiją ar užsiregistruoti į pamokas.","Choose what you would like to do: view the timetable, rent the studio or register for classes."],
+["Laisvi laikai ir rezervacija","Available times and booking"],["Laisvi laikai","Available times"],["INTERACTIVE AVAILABILITY","INTERACTIVE AVAILABILITY"],["kalendorius.","calendar."],
+["Paspauskite ant dienos arba laisvos valandos.","Tap a day or an available time."],
+["Pasirinktas laikotarpis bus pažymėtas vientisai – nereikia rezervuoti kiekvienos valandos atskirai.","The selected time slot will be marked as one continuous period — you do not need to book each hour separately."],
+["Pastatas automatiškai užrakinamas 22.00 val.","The building locks automatically at 10:00 PM."],
+["Paskutinis rezervuojamas laikotarpis – 21.00–21.45 val.","The last available booking slot is 9:00–9:45 PM."],
+["Šis 45 minučių laikotarpis kainuoja tiek pat, kiek viena valanda.","This 45-minute time slot costs the same as one hour."],
+["Prašome pasilikti pakankamai laiko susitvarkyti ir išeiti iš pastato iki 22.00 val.","Please allow enough time to tidy up and leave the building by 10:00 PM."],
+["Kiek laiko norite rezervuoti?","How long would you like to book?"],
+["Norite rezervuoti ilgiau nei 6 val.? Susisiekite el. paštu","Want to book for more than 6 hours? Contact us by email"],
+["Vieno užsakymo kaina","Price per booking"],["Pasirinktas laikas","Selected time"],["1 valanda","1 hour"],["val.","hr"],["Vardas *","First name *"],["Jūsų vardas","Your first name"],["Jūsų pavardė","Your last name"],["Jūsų el. paštas","Your email address"],
+["Užsakymo informacija","Booking details"],["Rezervacijos informacija","Reservation details"],["Mokėjimas kortele","Card payment"],["Mokėti kortele","Pay by card"],["Apmokėti dabar","Pay now"],["Per 24 valandas","Within 24 hours"],["Atlikite mokėjimą per 24 valandas.","Please complete payment within 24 hours."],
+["Pasirinkite datą","Choose a date"],["Pasirinkite laisvą valandą","Choose an available hour"],["Laisva","Available"],["Pasirinkta","Selected"],["Nepasiekiama","Unavailable"],["Grįžti į pradžią","Back to home"],["Toliau","Continue"],["Atgal","Back"],["Uždaryti","Close"],["Siųsti","Submit"],["Patvirtinti rezervaciją","Confirm booking"],["Rezervuoti","Book now"],["Rezervacijos patvirtinimas","Booking confirmation"],["Apmokėjimo būsena","Payment status"],["Laukiama apmokėjimo","Awaiting payment"],["Apmokėta","Paid"],["Atšaukti","Cancel"],["Minimali rezervacija","Minimum booking"],["Maksimali rezervacija","Maximum booking"],["Pasirinkite trukmę","Choose duration"],["Bendra suma","Total"],["Iš viso","Total"],["Nemokama","Free"],["Pirmyn","Next"],["Pirmadienis","Monday"],["Antradienis","Tuesday"],["Trečiadienis","Wednesday"],["Ketvirtadienis","Thursday"],["Penktadienis","Friday"],["Šeštadienis","Saturday"],["Sekmadienis","Sunday"],["Sausis","January"],["Vasaris","February"],["Kovas","March"],["Balandis","April"],["Gegužė","May"],["Birželis","June"],["Liepa","July"],["Rugpjūtis","August"],["Rugsėjis","September"],["Spalis","October"],["Lapkritis","November"],["Gruodis","December"]
 ];
 var toEn=new Map(pairs), toLt=new Map(pairs.map(function(p){return [p[1],p[0]];}));
 var current='lt', scheduled=false;
 function translateTextNode(node,lang){
  var raw=node.nodeValue,trim=raw.trim(); if(!trim)return;
  var map=lang==='en'?toEn:toLt, translated=map.get(trim);
- if(translated!==undefined) node.nodeValue=raw.replace(trim,translated);
+ if(translated!==undefined){node.nodeValue=raw.replace(trim,translated);return;}
+ // Translate phrases inside text nodes too, including smaller labels and mixed-format content.
+ var out=raw;
+ Array.from(map.entries()).sort(function(a,b){return b[0].length-a[0].length;}).forEach(function(pair){
+  if(pair[0] && out.indexOf(pair[0])!==-1) out=out.split(pair[0]).join(pair[1]);
+ });
+ if(out!==raw) node.nodeValue=out;
 }
 function translateTree(root,lang){
  var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT), nodes=[];
