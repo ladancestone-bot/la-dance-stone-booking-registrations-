@@ -18818,9 +18818,13 @@ document.addEventListener('click',function(e){
  if(b && /rentSubmit|rentalCashChoice/.test(b.id||'')) setTimeout(function(){translateTree(document.body,current);},0);
 });
 new MutationObserver(function(mutations){
- if(scheduled)return; scheduled=true;
+ // Only re-translate when elements are inserted/removed. Observing characterData too
+ // makes our own text translations retrigger a full-document pass, which can cause
+ // repeated layout recalculation and visible jitter on mobile Safari.
+ if(scheduled)return;
+ scheduled=true;
  requestAnimationFrame(function(){scheduled=false;translateTree(document.body,current);});
-}).observe(document.body,{subtree:true,childList:true,characterData:true});
+}).observe(document.body,{subtree:true,childList:true});
 // Lithuanian is always the default when the page opens; English is opt-in.
 var initial='lt';
 try{localStorage.setItem('lds-site-language','lt')}catch(e){}
