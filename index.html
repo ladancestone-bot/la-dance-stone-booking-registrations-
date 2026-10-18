@@ -4435,7 +4435,7 @@ function renderClassDates(){
   help.textContent='Šį mėnesį tinkamų pamokų nebeliko arba jų nėra. Pasirinkite kitą būsimą mėnesį.';
   help.style.display='block';classSelectedSessions=[];return;
  }
- const dateLabel=s=>new Date(s.date+'T12:00:00').toLocaleDateString('lt-LT',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+ const dateLabel=s=>new Date(s.date+'T12:00:00').toLocaleDateString(window.__ldsLanguage==='en'?'en-GB':'lt-LT',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
  if(type==='group'){
   host.innerHTML=sessions.map(s=>'<div class="class-date-option"><span><strong>'+dateLabel(s)+'</strong><small>'+s.start+'–'+s.end+'</small></span><small>Įtraukta</small></div>').join('');
   return;
@@ -4499,7 +4499,7 @@ $('classGroup').addEventListener('change',renderClassDates);
 document.querySelectorAll('input[name="adultDay"]').forEach(cb=>cb.addEventListener('change',()=>{const max=Number($('adultFrequency').value),checked=[...document.querySelectorAll('input[name="adultDay"]:checked')];if(checked.length>max)cb.checked=false;document.querySelectorAll('input[name="adultDay"]').forEach(day=>day.disabled=!day.checked&&[...document.querySelectorAll('input[name="adultDay"]:checked')].length>=max);}));
 document.querySelectorAll('input[name="adultDay"]').forEach(cb=>cb.addEventListener('change',renderClassDates));
 document.querySelectorAll('input[name="classBookingType"]').forEach(r=>r.addEventListener('change',()=>{document.querySelectorAll('input[name="adultDay"]').forEach(cb=>{cb.checked=false;cb.disabled=false});updateClassPricing();renderClassDates();$('classToast').classList.remove('show')}));
-$('classSubmit').onclick=async()=>{const button=$('classSubmit');if(button.disabled)return;const first=$('classFirstName').value.trim(),last=$('classLastName').value.trim(),birth=$('classBirthDate').value,email=$('classEmail').value.trim(),phone=$('classPhone').value.trim(),group=({adult:'Šiuolaikinis šokis suaugusiesiems',kids57:'Šiuolaikinis šokis vaikams · 5–7 m.',kids712:'Šiuolaikinis šokis vaikams · 7–12 m.',teens:'Šiuolaikinis šokis paaugliams · 13–18 m.'})[classCurrentGroupKey]||groups[classCurrentGroupKey]?.title||'',type=document.querySelector('input[name="classBookingType"]:checked').value,adultDays=[...document.querySelectorAll('input[name="adultDay"]:checked')].map(cb=>cb.value),adultFrequency=Number($('adultFrequency').value);const required=[['Vardas',first],['Pavardė',last],['Gimimo data',birth],['El. paštas',email],['Telefono numeris',phone],['Grupė',group]];const missing=required.find(x=>!x[1]);if(missing){$('classToast').textContent='Prašome užpildyti lauką „'+missing[0]+'“.​';$('classToast').classList.add('show');return}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){$('classToast').textContent='Patikrinkite el. pašto adresą.';$('classToast').classList.add('show');return}if(classCurrentGroupKey==='adult'&&type==='group'&&adultDays.length!==adultFrequency){$('classToast').textContent='Pasirinkite tiksliai '+adultFrequency+' '+(adultFrequency===1?'dieną':'dienas')+' per savaitę.';$('classToast').classList.add('show');return}if(!classSelectedSessions.length){renderClassDates();$('classToast').textContent=type==='single'?'Pasirinkite konkrečią pamokos datą.':'Pasirinkite galiojančią pamokų savaitę ir dienas.';$('classToast').classList.add('show');return}button.disabled=true;button.textContent='Siunčiama registracija…';$('classToast').classList.remove('show');try{const response=await fetch('https://tqzabmlrtbrylibafjfh.supabase.co/functions/v1/public-class-registration',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_nLHN6DiC2vh_bTXW3uTc7w_I7aT5Za-'},body:JSON.stringify({firstName:first,lastName:last,birthDate:birth,email,phone,group,bookingType:type,groupKey:classCurrentGroupKey,adultDays,adultFrequency,groupIndex:Number($('classGroup').value||0),selectedSessions:classSelectedSessions})});const result=await response.json().catch(()=>({error:'Serveris grąžino neteisingą atsakymą.'}));if(!response.ok||!result.ok)throw new Error(result.error||'Nepavyko pateikti registracijos.');const adultPrice=({1:40,2:50,3:60})[adultFrequency];
+$('classSubmit').onclick=async()=>{const button=$('classSubmit');if(button.disabled)return;const first=$('classFirstName').value.trim(),last=$('classLastName').value.trim(),birth=$('classBirthDate').value,email=$('classEmail').value.trim(),phone=$('classPhone').value.trim(),group=({adult:'Šiuolaikinis šokis suaugusiesiems',kids57:'Šiuolaikinis šokis vaikams · 5–7 m.',kids712:'Šiuolaikinis šokis vaikams · 7–12 m.',teens:'Šiuolaikinis šokis paaugliams · 13–18 m.'})[classCurrentGroupKey]||groups[classCurrentGroupKey]?.title||'',type=document.querySelector('input[name="classBookingType"]:checked').value,adultDays=[...document.querySelectorAll('input[name="adultDay"]:checked')].map(cb=>cb.value),adultFrequency=Number($('adultFrequency').value);const required=[['Vardas',first],['Pavardė',last],['Gimimo data',birth],['El. paštas',email],['Telefono numeris',phone],['Grupė',group]];const missing=required.find(x=>!x[1]);if(missing){$('classToast').textContent='Prašome užpildyti lauką „'+missing[0]+'“.​';$('classToast').classList.add('show');return}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){$('classToast').textContent='Patikrinkite el. pašto adresą.';$('classToast').classList.add('show');return}if(classCurrentGroupKey==='adult'&&type==='group'&&adultDays.length!==adultFrequency){$('classToast').textContent='Pasirinkite tiksliai '+adultFrequency+' '+(adultFrequency===1?'dieną':'dienas')+' per savaitę.';$('classToast').classList.add('show');return}if(!classSelectedSessions.length){renderClassDates();$('classToast').textContent=type==='single'?'Pasirinkite konkrečią pamokos datą.':'Pasirinkite galiojančią pamokų savaitę ir dienas.';$('classToast').classList.add('show');return}button.disabled=true;button.textContent='Siunčiama registracija…';$('classToast').classList.remove('show');try{const response=await fetch('https://tqzabmlrtbrylibafjfh.supabase.co/functions/v1/public-class-registration',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_nLHN6DiC2vh_bTXW3uTc7w_I7aT5Za-'},body:JSON.stringify({firstName:first,lastName:last,birthDate:birth,email,phone,group,bookingType:type,groupKey:classCurrentGroupKey,adultDays,adultFrequency,groupIndex:Number($('classGroup').value||0),selectedSessions:classSelectedSessions,language:window.__ldsLanguage||document.documentElement.lang||'lt'})});const result=await response.json().catch(()=>({error:'Serveris grąžino neteisingą atsakymą.'}));if(!response.ok||!result.ok)throw new Error(result.error||'Nepavyko pateikti registracijos.');const adultPrice=({1:40,2:50,3:60})[adultFrequency];
 const typeLabel=type==='single'?'Vienkartinė pamoka · 10 €':(classCurrentGroupKey==='adult'?'Abonementas · '+adultFrequency+' k./sav. · '+adultPrice+' € / mėn.':'Abonementas · 50 € / mėn.');
 $('classConfirmationIntro').textContent='Ačiū, '+first+'! Registracijos patvirtinimas išsiųstas el. paštu '+email+'.';
 const selectedSessionRows=classSelectedSessions.map(s=>escapeClassText(s.day+', '+s.date+' · '+s.start+'–'+s.end)).join('<br>');
@@ -4598,7 +4598,7 @@ try{
 }catch(error){console.error('Cash confirmation route error:',error)}
 
 try{updateBookingSummary();loadRentalAvailability(true)}catch(error){console.error('Nuomos kalendoriaus inicializavimo klaida:',error)}
-const days=['Pr','An','Tr','Kt','Pn','Št','Sk'];let week=new Date(2026,9,12);let mobileDay=0;
+const days=window.__ldsLanguage==='en'?['Mon','Tue','Wed','Thu','Fri','Sat','Sun']:['Pr','An','Tr','Kt','Pn','Št','Sk'];let week=new Date(2026,9,12);let mobileDay=0;
 const events=[];
 const TIMETABLE_API_URL='https://script.google.com/macros/s/AKfycbzcuGPMyDEsTK8sUTx9QdksaEJqd1xmKQ-9foUkIqH9UdM3b-kkmPxI27EpumBdI_Ey/exec';
 
@@ -4632,7 +4632,7 @@ function timetableOption(group,day){
 function renderPublicClassPreview(schedule,occupied){
  const grids=document.querySelectorAll('.class-calendar-grid');
  if(!grids.length)return;
- const dayLabels=['PIRMADIENIS','ANTRADIENIS','TREČIADIENIS','KETVIRTADIENIS','PENKTADIENIS','ŠEŠTADIENIS','SEKMADIENIS'];
+ const dayLabels=window.__ldsLanguage==='en'?['MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY','SUNDAY']:['PIRMADIENIS','ANTRADIENIS','TREČIADIENIS','KETVIRTADIENIS','PENKTADIENIS','ŠEŠTADIENIS','SEKMADIENIS'];
  const hours=[16,17,18,19,20,21];
  const timeMinutes=value=>{
   const match=String(value||'').trim().match(/^(\d{1,2}):(\d{2})$/);
@@ -4661,22 +4661,22 @@ function renderPublicClassPreview(schedule,occupied){
    if(lesson){
     const start=String(lesson.start||''),end=String(lesson.end||'');
     const age=String(lesson.ageGroup||'');
-    const label=age.includes('13–18')||age.includes('13-18')?'Paaugliai':(age.includes('Suaug')?'Suaugusieji':'Vaikai');
+    const label=age.includes('13–18')||age.includes('13-18')?(window.__ldsLanguage==='en'?'Teens':'Paaugliai'):(age.includes('Suaug')?(window.__ldsLanguage==='en'?'Adults':'Suaugusieji'):(window.__ldsLanguage==='en'?'Children':'Vaikai'));
     html+='<div class="class-calendar-slot booked"><strong>'+start+'–'+end+'</strong><span>'+label+'</span><small>'+age+'</small></div>';
    }else{
-    html+='<div class="class-calendar-slot free">Laisvas laikas</div>';
+    html+='<div class="class-calendar-slot free">'+(window.__ldsLanguage==='en'?'Available':'Laisvas laikas')+'</div>';
    }
   }
  });
  grids.forEach(grid=>{grid.innerHTML=html;});
  const label=document.querySelector('#classOverview .class-week-heading .pill');
- if(label)label.textContent='Atnaujinama iš studijos tvarkaraščio';
+ if(label)label.textContent=window.__ldsLanguage==='en'?'Updating from the studio timetable':'Atnaujinama iš studijos tvarkaraščio';
  const timetableLabel=document.querySelector('#timetableView .class-week-heading .pill');
- if(timetableLabel)timetableLabel.textContent='Atnaujinama iš studijos tvarkaraščio';
+ if(timetableLabel)timetableLabel.textContent=window.__ldsLanguage==='en'?'Updating from the studio timetable':'Atnaujinama iš studijos tvarkaraščio';
 }
 function showTimetableStatus(message,isError){
  const note=document.getElementById('timetableSyncStatus');
- if(note){note.textContent=message;note.style.color=isError?'#9a2e3d':'';}
+ if(note){const en=window.__ldsLanguage==='en';const translations={'Tvarkaraštis atnaujintas pagal studijos tvarkaraščio lentelę.':'Timetable updated from the studio schedule.','Nepavyko prisijungti prie tvarkaraščio duomenų šaltinio.':'Could not connect to the timetable data source.','Nepavyko gauti naujausio tvarkaraščio. Patikrinkite duomenų ryšį.':'Could not load the latest timetable. Check the data connection.','Nepavyko patikrinti užimtumo. Atnaujinkite puslapį.':'Could not check availability. Please refresh the page.'};note.textContent=en?(translations[message]||message):message;note.style.color=isError?'#9a2e3d':'';}
 }
 function loadLiveTimetable(){
  let finished=false;
@@ -4736,23 +4736,23 @@ function loadLiveTimetable(){
 }
 function renderCalendar(){
  let end=new Date(week);end.setDate(end.getDate()+6);
- $('calTitle').textContent=week.getFullYear()+' m. '+week.toLocaleDateString('lt-LT',{month:'long'})+' '+week.getDate()+'–'+end.getDate()+' d.';
+ $('calTitle').textContent=window.__ldsLanguage==='en'?week.getDate()+'–'+end.getDate()+' '+week.toLocaleDateString('en-GB',{month:'long'})+' '+week.getFullYear():week.getFullYear()+' m. '+week.toLocaleDateString('lt-LT',{month:'long'})+' '+week.getDate()+'–'+end.getDate()+' d.';
  let html='<div></div>';
  for(let d=0;d<7;d++){let dt=new Date(week);dt.setDate(dt.getDate()+d);html+='<div class="day">'+days[d]+'<strong>'+dt.getDate()+'</strong></div>'}
- for(let h=8;h<=21;h++){html+='<div class="time">'+String(h).padStart(2,'0')+':00</div>';for(let d=0;d<7;d++){let e=events.find(x=>x.d===d&&Math.floor(x.h)===h);let inner='';if(e){const startTime=String(Math.floor(e.h)).padStart(2,'0')+':'+String(Math.round((e.h%1)*60)).padStart(2,'0');const endHour=e.h+e.len;const finish=String(Math.floor(endHour)).padStart(2,'0')+':'+String(Math.round((endHour%1)*60)).padStart(2,'0');const cls=e.kind==='occupied'?'event occupied-event':(e.kind==='rental'?'event rental-event':'event class-event '+(e.c||''));const audience=e.kind==='class'?e.s.replace(' · ',' '):(e.kind==='occupied'?'Studija užimta':'Studijos nuoma');inner='<div class="'+cls+'" '+(e.kind==='class'?'role="button" tabindex="0" aria-label="'+startTime+'–'+finish+' · '+e.n+' · '+e.s+' · Paspauskite registracijai" data-class-event="'+events.indexOf(e)+'"':'')+'>'+(e.kind==='rental'||e.kind==='occupied'?'<b>'+startTime+'–'+finish+'</b>':'')+'<span class="event-name">'+(e.kind==='rental'?'Studijos nuoma':(e.kind==='occupied'?'UŽIMTA':'Šiuolaikinis šokis'))+'</span><span class="event-audience">'+audience+'</span></div>'}html+='<div class="cell">'+inner+'</div>'}}
+ for(let h=8;h<=21;h++){html+='<div class="time">'+String(h).padStart(2,'0')+':00</div>';for(let d=0;d<7;d++){let e=events.find(x=>x.d===d&&Math.floor(x.h)===h);let inner='';if(e){const startTime=String(Math.floor(e.h)).padStart(2,'0')+':'+String(Math.round((e.h%1)*60)).padStart(2,'0');const endHour=e.h+e.len;const finish=String(Math.floor(endHour)).padStart(2,'0')+':'+String(Math.round((endHour%1)*60)).padStart(2,'0');const cls=e.kind==='occupied'?'event occupied-event':(e.kind==='rental'?'event rental-event':'event class-event '+(e.c||''));const audience=e.kind==='class'?e.s.replace(' · ',' '):(e.kind==='occupied'?(window.__ldsLanguage==='en'?'Studio booked':'Studija užimta'):(window.__ldsLanguage==='en'?'Studio rental':'Studijos nuoma'));inner='<div class="'+cls+'" '+(e.kind==='class'?'role="button" tabindex="0" aria-label="'+startTime+'–'+finish+' · '+e.n+' · '+e.s+' · Paspauskite registracijai" data-class-event="'+events.indexOf(e)+'"':'')+'>'+(e.kind==='rental'||e.kind==='occupied'?'<b>'+startTime+'–'+finish+'</b>':'')+'<span class="event-name">'+(e.kind==='rental'?(window.__ldsLanguage==='en'?'Studio rental':'Studijos nuoma'):(e.kind==='occupied'?(window.__ldsLanguage==='en'?'BOOKED':'UŽIMTA'):(window.__ldsLanguage==='en'?'Contemporary dance':'Šiuolaikinis šokis')))+'</span><span class="event-audience">'+audience+'</span></div>'}html+='<div class="cell">'+inner+'</div>'}}
  $('calendar').innerHTML=html;
  $('calendar').querySelectorAll('[data-class-event]').forEach(el=>{el.addEventListener('click',()=>openClassEvent(el));el.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();openClassEvent(el)}})});
  let agenda='<div class="calendar-day-tabs" role="group" aria-label="Pasirinkite savaitės dieną">';
- const shortDays=['Pr','An','Tr','Kt','Pn','Št','Sk'];
- const fullDays=['Pirmadienis','Antradienis','Trečiadienis','Ketvirtadienis','Penktadienis','Šeštadienis','Sekmadienis'];
+ const shortDays=window.__ldsLanguage==='en'?['Mon','Tue','Wed','Thu','Fri','Sat','Sun']:['Pr','An','Tr','Kt','Pn','Št','Sk'];
+ const fullDays=window.__ldsLanguage==='en'?['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']:['Pirmadienis','Antradienis','Trečiadienis','Ketvirtadienis','Penktadienis','Šeštadienis','Sekmadienis'];
  for(let d=0;d<7;d++){const dayDate=new Date(week);dayDate.setDate(dayDate.getDate()+d);agenda+='<button type="button" class="calendar-day-tab '+(d===mobileDay?'active':'')+'" data-mobile-day="'+d+'" aria-pressed="'+(d===mobileDay?'true':'false')+'">'+shortDays[d]+'<strong>'+dayDate.getDate()+'</strong></button>'}
  agenda+='</div>';
  const dayDate=new Date(week);dayDate.setDate(dayDate.getDate()+mobileDay);
  const dayEvents=events.filter(e=>e.d===mobileDay).sort((a,b)=>a.h-b.h);
- agenda+='<div class="calendar-mobile-date"><strong>'+fullDays[mobileDay]+'</strong><span>'+dayDate.getDate()+' '+dayDate.toLocaleDateString('lt-LT',{month:'long'})+'</span></div>';
+ agenda+='<div class="calendar-mobile-date"><strong>'+fullDays[mobileDay]+'</strong><span>'+dayDate.getDate()+' '+dayDate.toLocaleDateString(window.__ldsLanguage==='en'?'en-GB':'lt-LT',{month:'long'})+'</span></div>';
  if(!dayEvents.length){agenda+='<div class="calendar-mobile-empty">Šią dieną suplanuotų pamokų nėra.<br><strong>Laisvas laikas</strong></div>'}
- else{agenda+='<table class="calendar-mobile-table"><thead><tr><th>Laikas</th><th>Užsiėmimas</th></tr></thead><tbody>';
- dayEvents.forEach(e=>{const st=String(Math.floor(e.h)).padStart(2,'0')+':'+String(Math.round((e.h%1)*60)).padStart(2,'0');const eh=e.h+e.len;const fin=String(Math.floor(eh)).padStart(2,'0')+':'+String(Math.round((eh%1)*60)).padStart(2,'0');const type=e.kind==='rental'?'rental':(e.c==='pink'?'pink':(e.group==='kids'&&e.option===2?'gold':(e.group==='kids'&&e.option===3?'plum':'')));const eventBody='<strong>'+e.n+'</strong><small>'+e.s+(e.kind==='class'?' · Paspauskite registracijai':' · Studijos nuoma')+'</small>';const action=e.kind==='class'?'<button class="mobile-event '+type+'" type="button" data-class-event="'+events.indexOf(e)+'">'+eventBody+'</button>':'<div class="mobile-event '+type+'">'+eventBody+'</div>';agenda+='<tr><td class="mobile-time">'+st+'–'+fin+'</td><td>'+action+'</td></tr>'});
+ else{agenda+='<table class="calendar-mobile-table"><thead><tr><th>'+(window.__ldsLanguage==='en'?'Time':'Laikas')+'</th><th>'+(window.__ldsLanguage==='en'?'Class':'Užsiėmimas')+'</th></tr></thead><tbody>';
+ dayEvents.forEach(e=>{const st=String(Math.floor(e.h)).padStart(2,'0')+':'+String(Math.round((e.h%1)*60)).padStart(2,'0');const eh=e.h+e.len;const fin=String(Math.floor(eh)).padStart(2,'0')+':'+String(Math.round((eh%1)*60)).padStart(2,'0');const type=e.kind==='rental'?'rental':(e.c==='pink'?'pink':(e.group==='kids'&&e.option===2?'gold':(e.group==='kids'&&e.option===3?'plum':'')));const eventBody='<strong>'+e.n+'</strong><small>'+e.s+(e.kind==='class'?(window.__ldsLanguage==='en'?' · Click to register':' · Paspauskite registracijai'):(window.__ldsLanguage==='en'?' · Studio rental':' · Studijos nuoma'))+'</small>';const action=e.kind==='class'?'<button class="mobile-event '+type+'" type="button" data-class-event="'+events.indexOf(e)+'">'+eventBody+'</button>':'<div class="mobile-event '+type+'">'+eventBody+'</div>';agenda+='<tr><td class="mobile-time">'+st+'–'+fin+'</td><td>'+action+'</td></tr>'});
  agenda+='</tbody></table>';}
  $('calendarAgenda').innerHTML=agenda;
  const timetableScroll=document.querySelector('.timetable-panel .cal-scroll');
@@ -18678,6 +18678,68 @@ html body #classesView #classDetail.class-detail-adult
 (function(){
 'use strict';
 var pairs = [
+ ["Šiuolaikinis šokis · 5–7 m.","Contemporary dance · ages 5–7"],
+ ["Šiuolaikinis šokis · 7–12 m.","Contemporary dance · ages 7–12"],
+ ["Šiuolaikinis šokis · 13–18 m.","Contemporary dance · ages 13–18"],
+ ["Šiuolaikinis šokis suaugusiesiems","Contemporary dance for adults"],
+ ["Šiuolaikinis šokis vaikams · 5–7 m.","Contemporary dance for children · ages 5–7"],
+ ["Šiuolaikinis šokis vaikams · 7–12 m.","Contemporary dance for children · ages 7–12"],
+ ["Šiuolaikinis šokis paaugliams · 13–18 m.","Contemporary dance for teens · ages 13–18"],
+ ["Vaikai · 5–7 m.","Children · ages 5–7"],
+ ["Vaikai · 7–12 m.","Children · ages 7–12"],
+ ["Paaugliai · 13–18 m.","Teens · ages 13–18"],
+ ["Suaugusiųjų grupė","Adult group"],
+ ["Studija užimta","Studio booked"],
+ ["Studijos nuoma","Studio rental"],
+ ["Šiuolaikinis šokis","Contemporary dance"],
+ ["Studijos tvarkaraštis","Studio timetable"],
+ ["Pamokos informacija","Class information"],
+ ["Paspauskite registracijai","Click to register"],
+ ["Įtraukta","Included"],
+ ["Lankymo dienos","Attendance days"],
+ ["Dalyvis","Participant"],
+ ["Telefonas","Phone"],
+ ["Pamokos data ir laikas","Class date and time"],
+ ["Registracijos mokestis","Registration fee"],
+ ["Registruojantis pirmą kartą","For first-time registration"],
+ ["Mėnesio abonementas","Monthly membership"],
+ ["Vienkartinė pamoka","Single class"],
+ ["Pasirinktos pamokos:","Selected classes:"],
+ ["Jūsų grupės tvarkaraštis","Your group timetable"],
+ ["Grupės pamokų tvarkaraštis","Group class timetable"],
+ ["SVARBU APIE ABONEMENTĄ","IMPORTANT MEMBERSHIP INFORMATION"],
+ ["Lankymo dienos:","Attendance days:"],
+ ["Abonementas · ","Membership · "],
+ ["k. per savaitę","classes per week"],
+ ["Pagal pasirinktos grupės tvarkaraštį","According to the selected group's timetable"],
+ ["Apmokėjimas","Payment"],
+ ["Apmokėti 10 € internetu","Pay €10 online"],
+ ["Apmokėti 5 € registracijos mokestį","Pay €5 registration fee"],
+ ["Kur atvykti?","Where to go"],
+ ["Adresas:","Address:"],
+ ["Įėjimas per IKI parduotuvę, tuomet laiptais į 2 aukštą.","Enter through the IKI store, then take the stairs to the second floor."],
+ ["Ką pasiimti?","What to bring"],
+ ["Patogią sportinę aprangą.","Comfortable sportswear."],
+ ["Speciali avalynė nereikalinga – šokti galite basomis arba su kojinėmis.","Special footwear is not required — you can dance barefoot or in socks."],
+ ["Nepamirškite vandens atsigerti.","Remember to bring water."],
+ ["Iki greito!","See you soon!"],
+ ["LA DANCE STONE KOMANDA","THE LA DANCE STONE TEAM"],
+ ["Šis laiškas išsiųstas automatiškai po registracijos.","This email was sent automatically after registration."],
+ ["Jūsų registracija gauta","Your registration has been received"],
+ ["Džiaugiamės, kad prisijungiate prie „La Dance Stone“ šokių studijos.","We are delighted that you are joining La Dance Stone dance studio."],
+ ["sausis","January"],
+ ["vasaris","February"],
+ ["kovas","March"],
+ ["balandis","April"],
+ ["gegužė","May"],
+ ["birželis","June"],
+ ["liepa","July"],
+ ["rugpjūtis","August"],
+ ["rugsėjis","September"],
+ ["spalis","October"],
+ ["lapkritis","November"],
+ ["gruodis","December"],
+
 ["Pasirinkite, ką norite nuveikti: peržiūrėti tvarkaraštį, išsinuomoti studiją ar užsiregistruoti į pamokas.","Choose what you would like to do: view the timetable, rent the studio, or register for classes."],
 ["Laisvi laikai ir rezervacija","Available times and booking"],
 ["Rezervuoti studiją","Book the studio"],
@@ -18958,7 +19020,7 @@ new MutationObserver(function(mutations){
 }).observe(document.body,{subtree:true,childList:true});
 // Lithuanian is always the default when the page opens; English is opt-in.
 var initial='lt';
-try{localStorage.setItem('lds-site-language','lt')}catch(e){}
+try{var savedLanguage=localStorage.getItem('lds-site-language');if(savedLanguage==='en'||savedLanguage==='lt')initial=savedLanguage;}catch(e){}
 setLanguage(initial);
 })();
 </script>
