@@ -18727,6 +18727,21 @@ function setLanguage(lang){
  var date=document.getElementById('rentDate'); if(date)date.lang=current;
  window.__ldsLanguage=current;
 }
+// Move the switch outside transformed/stacked page sections so no page overlay can cover it.
+var languageSwitch=document.getElementById('ldsLanguageSwitch');
+if(languageSwitch && document.documentElement && languageSwitch.parentNode!==document.documentElement){
+ document.documentElement.appendChild(languageSwitch);
+}
+if(languageSwitch){
+ languageSwitch.style.setProperty('position','fixed','important');
+ languageSwitch.style.setProperty('z-index','2147483647','important');
+ languageSwitch.style.setProperty('pointer-events','auto','important');
+ languageSwitch.querySelectorAll('button').forEach(function(button){
+  button.style.setProperty('pointer-events','auto','important');
+  button.style.setProperty('position','relative','important');
+  button.style.setProperty('z-index','2147483647','important');
+ });
+}
 // Direct handler for mobile Safari, even if another page listener intercepts taps.
 window.__ldsSetLanguage=function(lang){setLanguage(lang);};
 document.addEventListener('click',function(e){
