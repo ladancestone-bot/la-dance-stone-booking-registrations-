@@ -19737,3 +19737,28 @@ html body #rentalCashConfirm .rc-note a{
   #rentalView .rent-slot strong {font-size:9px!important;letter-spacing:.01em!important}
 }
 </style>
+
+
+<style id="lds-rental-slot-label-fit-override-20261018">
+/* Highest-specificity override for long status words in the narrow rental calendar cells. */
+html body #rentalView .availability-section .rent-slot > strong {
+  display:block!important;
+  flex:0 0 auto!important;
+  width:max-content!important;
+  max-width:none!important;
+  min-width:0!important;
+  font-size:6px!important;
+  font-weight:800!important;
+  line-height:1!important;
+  letter-spacing:-.045em!important;
+  white-space:nowrap!important;
+  overflow-wrap:normal!important;
+  word-break:keep-all!important;
+  hyphens:none!important;
+  text-align:center!important;
+  transform:none!important;
+}
+@media (min-width: 390px) {
+ html body #rentalView .availability-section .rent-slot > strong {font-size:6.5px!important}
+}
+</style>
