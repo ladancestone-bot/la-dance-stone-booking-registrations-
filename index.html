@@ -18825,6 +18825,22 @@ function setLanguage(lang){
    }else line.textContent=value;
   });
  }
+ // Explicit translations for rental duration help and the price card. These labels
+ // contain nested spans/line breaks, so dictionary-only text-node replacement can miss them.
+ var durationLabel=document.querySelector('#rentalView .duration-label');
+ if(durationLabel) durationLabel.textContent=current==='en'?'How long would you like to book?':'Kiek laiko norite rezervuoti?';
+ var durationNote=document.querySelector('#rentalView .duration-contact-note');
+ if(durationNote) durationNote.innerHTML=current==='en'
+  ? 'Want to book for more than 6 hours? <span>Contact us by email</span> <a href="mailto:info@ladancestone.lt">info@ladancestone.lt</a>.'
+  : 'Norite rezervuoti ilgiau nei 6 val.? <span>Susisiekite el. paštu</span> <a href="mailto:info@ladancestone.lt">info@ladancestone.lt</a>.';
+ var priceEyebrow=document.querySelector('#rentalView .price-card .eyebrow');
+ if(priceEyebrow) priceEyebrow.textContent=current==='en'?'STUDIO RENTAL':'STUDIJOS NUOMA';
+ var priceHeading=document.querySelector('#rentalView .price-card h3');
+ if(priceHeading) priceHeading.innerHTML=current==='en'?'Your space,<br>your ideas.':'Jūsų erdvė,<br>jūsų idėjos.';
+ var priceExplanation=document.querySelector('#rentalView #priceExplanation');
+ if(priceExplanation) priceExplanation.textContent=current==='en'?'One hour per booking.':'1 valanda vienoje rezervacijoje.';
+ var priceRule=document.querySelector('#rentalView .price-card .rule');
+ if(priceRule) priceRule.innerHTML=current==='en'?'First 3 hours – €20/hour.<br>Each additional hour – €15.':'Pirmos 3 val. – 20 €/val.<br>Kiekviena papildoma valanda – 15 €.';
  var date=document.getElementById('rentDate'); if(date)date.lang=current;
  window.__ldsLanguage=current;
  window.dispatchEvent(new CustomEvent('lds-language-change',{detail:{language:current}}));
