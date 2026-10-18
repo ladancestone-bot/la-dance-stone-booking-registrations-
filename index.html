@@ -4762,7 +4762,8 @@ function renderCalendar(){
  $('calendarAgenda').querySelectorAll('[data-class-event]').forEach(el=>{const open=()=>openClassEvent(el);el.addEventListener('click',open);el.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();open()}})});
 }
 function openClassEvent(el){const e=events[Number(el.dataset.classEvent)];if(!e||e.kind!=='class'||!groups[e.group])return;classReturnView='timetable';showView('classes');showClassDetail(e.group);$('classGroup').value=String(e.option);document.querySelector('input[name="classBookingType"][value="group"]').checked=true;$('classGroupLabel').style.display=e.group==='adult'?'none':'';$('classSingleNote').style.display='none';$('classPaymentNote').style.display='none';$('classToast').classList.remove('show');const back=$('classBack');back.innerHTML='<span>←</span>Grįžti į tvarkaraštį';$('classDetail').scrollIntoView({behavior:'smooth',block:'start'})}
-$('prevWeek').onclick=()=>{week.setDate(week.getDate()-7);renderCalendar()};$('nextWeek').onclick=()=>{week.setDate(week.getDate()+7);renderCalendar()};loadLiveTimetable();
+window.addEventListener('lds-language-change',()=>{try{renderClassDates();updateClassPricing();}catch(e){}});
+ $('prevWeek').onclick=()=>{week.setDate(week.getDate()-7);renderCalendar()};$('nextWeek').onclick=()=>{week.setDate(week.getDate()+7);renderCalendar()};loadLiveTimetable();
 
 /* Carousel behavior is implemented by the single manual, native scroll-snap controller at the end of this file. */
 </script>
@@ -18679,6 +18680,13 @@ html body #classesView #classDetail.class-detail-adult
 (function(){
 'use strict';
 var pairs = [
+ ["Vaikai","Children"],
+ ["Paaugliai","Teens"],
+ ["Suaugusieji","Adults"],
+ ["5–7 m.","ages 5–7"],
+ ["7–12 m.","ages 7–12"],
+ ["13–18 m.","ages 13–18"],
+
  ["PIRMADIENIS","MONDAY"],
  ["ANTRADIENIS","TUESDAY"],
  ["TREČIADIENIS","WEDNESDAY"],
