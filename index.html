@@ -18632,8 +18632,8 @@ html body #classesView #classDetail.class-detail-adult
 @media(max-width:600px){#ldsLanguageSwitch{top:calc(env(safe-area-inset-top, 0px) + 10px)!important;right:10px!important;padding:4px}#ldsLanguageSwitch button{padding:9px 10px;min-width:34px;min-height:34px}}
 </style>
 <div id="ldsLanguageSwitch" role="group" aria-label="Language / Kalba">
-<button type="button" data-lds-lang="lt" aria-pressed="true">LT</button>
-<button type="button" data-lds-lang="en" aria-pressed="false">EN</button>
+<button type="button" data-lds-lang="lt" aria-pressed="true" onclick="window.__ldsSetLanguage &amp;&amp; window.__ldsSetLanguage('lt')">LT</button>
+<button type="button" data-lds-lang="en" aria-pressed="false" onclick="window.__ldsSetLanguage &amp;&amp; window.__ldsSetLanguage('en')">EN</button>
 </div>
 <script id="lds-language-switch-script">
 (function(){
@@ -18727,20 +18727,19 @@ function setLanguage(lang){
  var date=document.getElementById('rentDate'); if(date)date.lang=current;
  window.__ldsLanguage=current;
 }
-// Capture the tap before page-level handlers; keep the glass language control interactive above all sections.
+// Direct handler for mobile Safari, even if another page listener intercepts taps.
+window.__ldsSetLanguage=function(lang){setLanguage(lang);};
 document.addEventListener('click',function(e){
  var target=e.target&&e.target.closest?e.target.closest('#ldsLanguageSwitch [data-lds-lang]'):null;
  if(!target)return;
- e.preventDefault();e.stopPropagation();
- if(e.stopImmediatePropagation)e.stopImmediatePropagation();
+ e.stopPropagation();
  setLanguage(target.getAttribute('data-lds-lang'));
 },true);
-document.addEventListener('touchend',function(e){
+document.addEventListener('pointerup',function(e){
  var target=e.target&&e.target.closest?e.target.closest('#ldsLanguageSwitch [data-lds-lang]'):null;
  if(!target)return;
- e.preventDefault();e.stopPropagation();
  setLanguage(target.getAttribute('data-lds-lang'));
-},{capture:true,passive:false});
+},true);
 document.addEventListener('click',function(e){
  var b=e.target.closest('button,[role="button"]');
  if(b && /rentSubmit|rentalCashChoice/.test(b.id||'')) setTimeout(function(){translateTree(document.body,current);},0);
