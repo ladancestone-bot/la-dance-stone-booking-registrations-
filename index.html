@@ -5303,8 +5303,8 @@ function updateBookingSummary(){
  $('durationMinus').disabled=len<=1;
  const total=Math.min(len,3)*20+Math.max(0,len-3)*15;
  const fmt=n=>String(n).padStart(2,'0')+':00';
- const includesFinalSlot=false;
- const displayEnd=fmt(end);
+ const includesFinalSlot=start+len===22;
+ const displayEnd=includesFinalSlot?'21:45':fmt(end);
  const finalSlotNotice=$('finalSlotNotice');if(finalSlotNotice)finalSlotNotice.hidden=!includesFinalSlot;
  $('durationValue').textContent=len===1&&start===21?'45 min.':len+(en?(len===1?' hour':' hours'):(len===1?' val.':' val.'));
  let durationNote;
@@ -5324,8 +5324,8 @@ function updateBookingSummary(){
    ?(len===1?(en?'45 min. · same price as 1 hour.':'45 min. · kaina kaip už 1 valandą.'):(len-1)+(en?' h 45 min. · charged as '+len+' hour'+(len===1?'':'s')+'.':' val. 45 min. · apmokestinama kaip '+len+' val.'))
    :len+' '+(en?(len===1?'hour':'hours')+' per booking.':(len===1?'valanda':'valandos')+' vienoje rezervacijoje.');
  const issue=hasConflict(weekday,start,len)
-   ?(start===21?(en?'The 21:00–22:00 slot is already booked. Please choose another time.':'21.00–22.00 val. laikas jau užimtas. Pasirinkite kitą laiką.')
-     :(en?'The selected period overlaps a booked time or ends too late. Bookings are available until 22:00.':'Pasirinktas intervalas susikerta su užimtu laiku arba baigiasi per vėlai. Galima rezervuoti iki 22.00 val.'))
+   ?(start===21?(en?'The final 45-minute slot is already booked. Please choose another time.':'Paskutinis 45 min. laikas jau užimtas. Pasirinkite kitą laiką.')
+     :(en?'The selected period overlaps a booked time or ends too late. Bookings are available until 21:45.':'Pasirinktas intervalas susikerta su užimtu laiku arba baigiasi per vėlai. Galima rezervuoti iki 21:45 val.'))
    :'';
  $('selectionHint').textContent=issue||(en
    ?'Selected as one continuous '+(includesFinalSlot?(len===1?'45-minute period, charged as 1 hour':(len-1)+' h 45 min. period, charged as '+len+' hours'):len+'-hour period')+' — this is one booking, not separate bookings.'
@@ -24677,9 +24677,6 @@ html body #studio2View #studio2FinalSlotNotice {
   display:none!important;
 }
 html body #rentalView .rental-reminder-simple {
-  display:block!important;
-}
-html body #rentalView #finalSlotNotice {
   display:block!important;
 }
 </style>
