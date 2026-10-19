@@ -21203,4 +21203,80 @@ html body:has(#homeView.active) #homeView .choices,
 html body:has(#homeView.active) #homeView .hero{
  background:transparent!important;background-color:transparent!important;background-image:none!important;
 }
+
+<style id="lds-homepage-match-inner-pages-20261019">
+/* Make the homepage use the same warm taupe background visible on the inner pages. */
+:root{
+ --lds-site-background:#8C7A6B!important;
+ --lds-page-background:#8C7A6B!important;
+ --wine:#6B1730!important;
+ --wine2:#841F3D!important;
+ --lds-burgundy:#6B1730!important;
+ --lds-burgundy-strong:#8A1F3E!important;
+ --lds-burgundy-deep:#4D1023!important;
+ --gold:#6B1730!important;
+}
+html,body,
+html body:has(#homeView.active),
+html body:has(#homeView.active) main.wrap,
+html body:has(#homeView.active) #homeView,
+html body:has(#homeView.active) #homeView.active,
+html body:has(#homeView.active) #homeView::before,
+html body:has(#homeView.active) #homeView::after,
+html body:has(#homeView.active) main.wrap::before,
+html body:has(#homeView.active) main.wrap::after{
+ background:#8C7A6B!important;
+ background-color:#8C7A6B!important;
+ background-image:none!important;
+}
+html body:has(#homeView.active) #homeView .hero,
+html body:has(#homeView.active) #homeView .choices,
+html body:has(#homeView.active) #homeView .brand-footer,
+html body:has(#homeView.active) #homeView .brand-footer-main{
+ background:transparent!important;
+ background-color:transparent!important;
+ background-image:none!important;
+}
+/* Stronger, richer burgundy for the registration capsule and all active/pressed controls. */
+html body #homeView .choices>.choice[data-view="classes"]{
+ background:#6B1730!important;
+ background-color:#6B1730!important;
+ border-color:#F0E4D8!important;
+ color:#FFF8F0!important;
+}
+html body #homeView .choices>.choice[data-view="classes"] h3,
+html body #homeView .choices>.choice[data-view="classes"] p,
+html body #homeView .choices>.choice[data-view="classes"] .arrow{
+ color:#FFF8F0!important;
+ -webkit-text-fill-color:#FFF8F0!important;
+}
+html body #homeView .choices>.choice:active,
+html body #homeView .choices>.choice:focus-visible,
+html body button:not(.mini-status):active,
+html body .action:active,
+html body .back:active,
+html body .cal-toolbar button:active,
+html body .mini-status:active,
+html body input[type="submit"]:active,
+html body input[type="button"]:active{
+ background:#8A1F3E!important;
+ background-color:#8A1F3E!important;
+ border-color:#F0E4D8!important;
+ color:#FFF8F0!important;
+ -webkit-text-fill-color:#FFF8F0!important;
+ box-shadow:0 0 0 2px #8A1F3E38,0 7px 20px #2A101B24!important;
+}
+html body #homeView .hero h1::after,
+html body #homeView .hero .home-values::before{
+ background:#6B1730!important;
+ background-color:#6B1730!important;
+ border-color:#6B1730!important;
+}
+html body .action,
+html body .price-card,
+html body .mini-status.selected{
+ background:#6B1730!important;
+ background-color:#6B1730!important;
+ color:#FFF8F0!important;
+}
 </style>
