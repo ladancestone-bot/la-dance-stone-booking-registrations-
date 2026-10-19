@@ -24755,4 +24755,29 @@ html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #stud
 html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .class-calendar-dayhead,
 html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .class-calendar-time {color:#fff1e3!important}
 html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-cell {border-color:rgba(125,91,71,.32)!important}
+
+/* TIKSLUS pataisymas: tuščias kampas generuojamas kaip pirmasis .rent-time, todėl reikia aiškesnio :first-child selektoriaus. */
+html body #studio2View .studio2-live-availability .cal-scroll #studio2RentalCalendar > .rent-time:first-child {
+  background:rgba(74,43,32,.30)!important;
+  background-color:rgba(74,43,32,.30)!important;
+  background-image:none!important;
+  border:0!important;
+  border-right:1px solid rgba(255,241,227,.32)!important;
+  border-bottom:1px solid rgba(255,241,227,.32)!important;
+  box-shadow:none!important;
+  backdrop-filter:blur(12px)!important;
+  -webkit-backdrop-filter:blur(12px)!important;
+}
+/* Slenkant tas pats tuščias kampas tiksliai sutampa su patvirtinta šokolado ruda (#32180f). */
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar > .rent-time:first-child {
+  background:#32180f!important;
+  background-color:#32180f!important;
+  background-image:none!important;
+  border:0!important;
+  border-right:1px solid rgba(221,195,172,.42)!important;
+  border-bottom:1px solid rgba(221,195,172,.42)!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
 </style>
