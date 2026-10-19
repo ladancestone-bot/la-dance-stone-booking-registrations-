@@ -4162,9 +4162,47 @@ html body #timetableView .class-calendar-slot.occupied * {
   </div>
 </div>
 </section>
+<section id="studioSelectView" class="view">
+  <div class="studio-select-top">
+    <button class="back" data-view="home"><span aria-hidden="true">←</span>Grįžti į pasirinkimą</button>
+  </div>
+  <header class="studio-select-hero">
+    <div class="eyebrow">LA DANCE STONE · ERDVIŲ PASIRINKIMAS</div>
+    <h2>Pasirinkite studiją</h2>
+    <p>Pasirinkite, kurios studijos rezervacijos kalendorių norite atidaryti.</p>
+  </header>
+  <div class="studio-select-grid">
+    <button class="studio-select-card studio-select-card-available" type="button" data-studio-target="rental" aria-label="Pasirinkti studiją Nr. 1, 70 kvadratinių metrų">
+      <span class="studio-select-image-wrap">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg" alt="Pirmoji La Dance Stone studija su trimis arkomis ir veidrodžiais" loading="lazy">
+        <span class="studio-select-number">STUDIJA NR. 1</span>
+      </span>
+      <span class="studio-select-content">
+        <span class="studio-select-title">Studija Nr. 1</span>
+        <span class="studio-select-size">70 m²</span>
+        <span class="studio-select-description">Jauki studija su trimis arkomis, veidrodžiais ir visa rezervacijos sistema.</span>
+        <span class="studio-select-address">V. Krėvės pr. 57, Kaunas</span>
+        <span class="studio-select-cta">Atidaryti rezervaciją <span aria-hidden="true">→</span></span>
+      </span>
+    </button>
+    <article class="studio-select-card studio-select-card-coming" aria-label="Studija Nr. 2, 160 kvadratinių metrų, rezervacija ruošiama">
+      <div class="studio-select-placeholder" aria-hidden="true">
+        <span class="studio-select-placeholder-mark">Ⅱ</span>
+        <span class="studio-select-number">STUDIJA NR. 2</span>
+        <span class="studio-select-coming-label">NUOTRAUKOS RUOŠIAMOS</span>
+      </div>
+      <div class="studio-select-content">
+        <span class="studio-select-title">Studija Nr. 2</span>
+        <span class="studio-select-size">160 m²</span>
+        <span class="studio-select-description">Nauja, erdvi studija. Jos rezervacijos sistema bus pateikta atskirai.</span>
+        <span class="studio-select-cta studio-select-cta-muted">Rezervacija ruošiama <span aria-hidden="true">✦</span></span>
+      </div>
+    </article>
+  </div>
+</section>
 <section id="rentalView" class="view">
 <div class="rental-intro">
-  <button class="back rental-back" data-view="home"><span>←</span>Grįžti į pasirinkimą</button>
+  <button class="back rental-back" data-view="studioSelect"><span>←</span>Grįžti į studijų pasirinkimą</button>
   <div class="rental-address"><span aria-hidden="true">●</span> V. Krėvės pr. 57, Kaunas</div>
   <header class="rental-hero">
     <h2>Studijos nuoma</h2>
@@ -4374,7 +4412,7 @@ const $=id=>document.getElementById(id);
 function showView(name){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));$(name+'View').classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
 let classReturnView="home";const classContextBack=$("classContextBack");if(classContextBack)classContextBack.addEventListener("click",()=>showView(classReturnView));
 const classesBackToGroups=$("classesBackToGroups");if(classesBackToGroups)classesBackToGroups.addEventListener("click",()=>{if($('classDetail')&&!$('classDetail').hidden){$('classDetail').hidden=true;$('classDetail').style.display='none';$('classOverview').style.display='block';showView('classes');$('classOverview').scrollIntoView({behavior:'smooth',block:'start'});}else{showView('home');}});
-document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view==='rental'?'studioSelect':b.dataset.view)));document.querySelectorAll('[data-studio-target]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.studioTarget==='rental')showView('rental');}));
 const groups={
 kids57:{title:'Šiuolaikinis šokis · 5–7 m.',desc:'Vaikų grupė antradieniais ir ketvirtadieniais. Galite rinktis abonementą arba vienkartinę pamoką.',options:['5–7 m. · Antradieniais ir ketvirtadieniais · 18:00–18:45'],schedule:[['Vaikai · 5–7 m.','Antradieniais ir ketvirtadieniais','18:00–18:45']]},
 kids712:{title:'Šiuolaikinis šokis · 7–12 m.',desc:'Pasirinkite Jums tinkantį savaitės grafiką. Abonementas apima 2 treniruotes per savaitę.',options:['Pirmadieniais ir trečiadieniais · 16:00–17:00','Antradieniais ir ketvirtadieniais · 16:00–17:00'],schedule:[['Vaikai · 7–12 m.','Pirmadieniais ir trečiadieniais','16:00–17:00'],['Vaikai · 7–12 m.','Antradieniais ir ketvirtadieniais','16:00–17:00']]},
@@ -22069,6 +22107,47 @@ html body #classesView > button#classesBackToGroups.back:active * {
  box-shadow:none!important;
  outline:none!important;
  text-shadow:none!important;
+}
+
+/* Studio chooser: separates the two rental locations without touching either booking flow. */
+#studioSelectView .studio-select-top{margin-bottom:12px}
+#studioSelectView .studio-select-hero{max-width:760px;margin:0 auto 30px;text-align:center}
+#studioSelectView .studio-select-hero h2{margin:10px 0 8px;color:#FFF7ED;font:600 clamp(42px,7vw,68px)/1 'Cormorant Garamond',serif;letter-spacing:-.025em}
+#studioSelectView .studio-select-hero .eyebrow{color:#F0D7B5}
+#studioSelectView .studio-select-hero p{max-width:560px;margin:0 auto;color:#FFF7ED;font-size:clamp(14px,1.8vw,17px);line-height:1.65}
+#studioSelectView .studio-select-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:stretch;max-width:1000px;margin:0 auto}
+#studioSelectView .studio-select-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;text-align:left;padding:0;border:1px solid rgba(255,247,237,.8);border-radius:28px;background:rgba(255,247,237,.12);color:#FFF7ED;box-shadow:0 18px 42px rgba(38,20,17,.2);font:inherit}
+#studioSelectView .studio-select-card-available{cursor:pointer;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+#studioSelectView .studio-select-card-available:hover{transform:translateY(-3px);border-color:#FFF7ED;box-shadow:0 22px 48px rgba(38,20,17,.28)}
+#studioSelectView .studio-select-image-wrap{position:relative;display:block;height:clamp(190px,26vw,310px);overflow:hidden;background:#8C7A6B}
+#studioSelectView .studio-select-image-wrap:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(180deg,transparent,rgba(39,20,19,.58))}
+#studioSelectView .studio-select-image-wrap img{display:block;width:100%;height:100%;object-fit:cover}
+#studioSelectView .studio-select-number{position:absolute;z-index:1;top:17px;left:17px;display:inline-flex;align-items:center;padding:8px 12px;border:1px solid rgba(255,247,237,.65);border-radius:999px;background:rgba(72,24,36,.86);color:#FFF7ED;font-size:10px;font-weight:700;letter-spacing:.14em}
+#studioSelectView .studio-select-content{display:flex;flex:1;flex-direction:column;align-items:flex-start;padding:23px 24px 25px}
+#studioSelectView .studio-select-title{display:block;color:#FFF7ED;font:600 clamp(28px,3vw,38px)/1.05 'Cormorant Garamond',serif}
+#studioSelectView .studio-select-size{display:block;margin-top:8px;color:#F0D7B5;font-size:16px;font-weight:700;letter-spacing:.05em}
+#studioSelectView .studio-select-description{display:block;margin-top:12px;color:#FFF7ED;font-size:14px;line-height:1.65}
+#studioSelectView .studio-select-address{display:block;margin-top:13px;color:#F0D7B5;font-size:11px;letter-spacing:.08em}
+#studioSelectView .studio-select-cta{display:flex;align-items:center;justify-content:space-between;gap:15px;width:100%;margin-top:22px;padding:13px 16px;border:1px solid rgba(255,247,237,.75);border-radius:999px;background:rgba(255,247,237,.12);color:#FFF7ED;font-size:13px;font-weight:700;transition:color .12s ease,background .12s ease}
+#studioSelectView .studio-select-card-available:active .studio-select-cta{background:#FFF7ED;color:#481824}
+#studioSelectView .studio-select-card-available:active .studio-select-cta *{color:#481824}
+#studioSelectView .studio-select-card-available:active{transform:scale(.99)}
+#studioSelectView .studio-select-card-coming{background:rgba(255,247,237,.07);border-style:dashed;border-color:rgba(255,247,237,.52)}
+#studioSelectView .studio-select-placeholder{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;min-height:clamp(190px,26vw,310px);background:linear-gradient(145deg,rgba(72,24,36,.4),rgba(255,247,237,.08));border-bottom:1px solid rgba(255,247,237,.28)}
+#studioSelectView .studio-select-placeholder .studio-select-number{position:static}
+#studioSelectView .studio-select-placeholder-mark{color:rgba(255,247,237,.65);font:300 80px/1 'Cormorant Garamond',serif}
+#studioSelectView .studio-select-coming-label{color:#F0D7B5;font-size:9px;font-weight:700;letter-spacing:.17em}
+#studioSelectView .studio-select-cta-muted{background:rgba(255,247,237,.06);border-color:rgba(255,247,237,.35);color:#F0D7B5}
+@media(max-width:700px){
+ #studioSelectView{padding-top:20px}
+ #studioSelectView .studio-select-hero{margin-bottom:22px}
+ #studioSelectView .studio-select-hero h2{font-size:clamp(40px,10vw,54px)}
+ #studioSelectView .studio-select-grid{grid-template-columns:1fr;gap:17px}
+ #studioSelectView .studio-select-image-wrap{height:220px}
+ #studioSelectView .studio-select-placeholder{min-height:190px}
+ #studioSelectView .studio-select-content{padding:19px 20px 21px}
+ #studioSelectView .studio-select-title{font-size:31px}
+ #studioSelectView .studio-select-description{font-size:13px}
 }
 </style>
 
