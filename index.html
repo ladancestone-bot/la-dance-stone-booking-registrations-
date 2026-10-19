@@ -4770,7 +4770,8 @@ html body #rentalView .phone-card{margin-top:0!important}
 <div class="rental-intro">
   <button class="back rental-back" data-view="studioSelect"><span>←</span>Grįžti į studijų pasirinkimą</button>
 
-  <header class="rental-hero">
+  <p class="rental-studio-eyebrow">LA DANCE STONE · STUDIJA NR. 1</p>
+    <header class="rental-hero">
     <h2>Studijos nuoma</h2>
     <div class="rental-title-line"></div>
     <p class="rental-subtitle">Daugiafunkcinė, jauki ir estetiška<br class="rental-desktop-break"> šokių studija</p>
@@ -4791,7 +4792,7 @@ html body #rentalView .phone-card{margin-top:0!important}
   </article>
   <div class="rental-summary-row" aria-label="Studijos nuomos informacija">
     <div class="rental-summary-price"><strong>20 €</strong><span>už valandą</span></div>
-    <div class="rental-summary-hours"><strong>Nuoma pagal rezervaciją</strong><span>Pasirinkite Jums patogų laiką</span></div>
+    <div class="rental-summary-hours"><strong>08:00–22:00</strong><span>kasdien</span></div>
     <a class="rental-summary-address" href="https://maps.google.com/?q=V.+Kr%C4%97v%C4%97s+pr.+57,+Kaunas" target="_blank" rel="noopener">
       <span class="rental-summary-pin" aria-hidden="true">⌖</span>
       <span><strong>V. Krėvės pr. 57,</strong><small>Kaunas</small></span>
@@ -5008,6 +5009,11 @@ html body #rentalView .phone-card{margin-top:0!important}
         <div class="studio2-summary-hours"><strong>08:00–22:00</strong><span>kasdien</span></div>
         <a class="studio2-map-link" href="https://maps.google.com/?q=Varni%C5%B3+g.+5,+Kaunas" target="_blank" rel="noopener"><span aria-hidden="true">⌖</span><span><strong>Varnių g. 5,</strong><small>Kaunas</small></span></a>
       </div>
+    </div>
+
+    <div class="studio2-secondary-photo">
+      <img src="https://github.com/user-attachments/assets/7faf7206-b4b9-4e23-a405-3291d81e80f0" alt="Rezervacija internetu La Dance Stone studijoje" loading="lazy">
+      <div class="studio2-secondary-caption"><strong>Rezervacija internetu</strong><span>Patogiai pasirinkite norimą datą ir laiką internetu</span></div>
     </div>
 
     <div class="studio2-booking-layout">
@@ -20607,6 +20613,46 @@ html body #studio2View .studio2-hero-image img{
     height:clamp(215px,62vw,300px)!important;
     border-radius:18px!important;
   }
+}
+
+/* Studio 1 small eyebrow and image summary row aligned with Studio 2. */
+html body #rentalView .rental-studio-eyebrow{
+ margin:0 auto 16px!important;text-align:center!important;
+ color:#f1dfce!important;font-size:11px!important;font-weight:700!important;
+ letter-spacing:.22em!important;line-height:1.5!important;
+}
+html body #rentalView .rental-summary-row{
+ grid-template-columns:minmax(90px,.65fr) minmax(150px,1.1fr) minmax(150px,.9fr)!important;
+}
+html body #studio2View .studio2-secondary-photo{
+ position:relative!important;width:100%!important;overflow:hidden!important;
+ margin:2px 0 28px!important;border:1px solid rgba(255,255,255,.78)!important;
+ border-radius:24px!important;box-shadow:0 20px 48px rgba(53,32,25,.15)!important;
+ background:#f8eee3!important;
+}
+html body #studio2View .studio2-secondary-photo img{
+ display:block!important;width:100%!important;height:clamp(210px,42vw,360px)!important;
+ object-fit:cover!important;object-position:center!important;
+}
+html body #studio2View .studio2-secondary-caption{
+ display:flex!important;flex-direction:column!important;gap:5px!important;
+ padding:18px 22px 20px!important;background:rgba(255,248,239,.96)!important;
+ color:#72594d!important;
+}
+html body #studio2View .studio2-secondary-caption strong{
+ color:#542033!important;font:600 27px/1.1 'Cormorant Garamond',serif!important;
+}
+html body #studio2View .studio2-secondary-caption span{
+ color:#72594d!important;font-size:14px!important;line-height:1.5!important;
+}
+@media(max-width:760px){
+ html body #rentalView .rental-studio-eyebrow{font-size:10px!important;letter-spacing:.18em!important;margin-bottom:13px!important}
+ html body #rentalView .rental-summary-row{grid-template-columns:.7fr 1.2fr!important}
+ html body #studio2View .studio2-secondary-photo{margin:0 0 22px!important;border-radius:18px!important}
+ html body #studio2View .studio2-secondary-photo img{height:clamp(190px,58vw,280px)!important}
+ html body #studio2View .studio2-secondary-caption{padding:15px 16px 17px!important}
+ html body #studio2View .studio2-secondary-caption strong{font-size:24px!important}
+ html body #studio2View .studio2-secondary-caption span{font-size:13px!important}
 }
 </style>
 
