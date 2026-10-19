@@ -24683,7 +24683,7 @@ html body #rentalView .rental-reminder-simple {
 
 
 <style id="studio2-calendar-match-studio1-brown-grid-20261019">
-/* Studija Nr. 2: ramybės būsenoje stiklinis permatomas efektas, slenkant – išsaugota patvirtinta tamsaus šokolado spalva. */
+/* Studija Nr. 2: viršutinis kairysis kampas (tuščias langelis) visada seka datų ir valandų juostų spalvą. */
 html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day,
 html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-time,
 html body #studio2View .studio2-live-availability #studio2RentalCalendar .class-calendar-corner,
@@ -24696,6 +24696,22 @@ html body #studio2View .studio2-live-availability #studio2RentalCalendar .class-
   box-shadow:none!important;
   backdrop-filter:blur(12px)!important;
   -webkit-backdrop-filter:blur(12px)!important;
+}
+/* Tuščias viršutinis kairysis langelis gali turėti atskirą elementą ar pseudoelementą — priverstinai pašaliname jo seną šviesų foną. */
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .class-calendar-corner,
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-calendar-corner,
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .calendar-corner,
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-time-header {
+  background:rgba(74,43,32,.30)!important;
+  background-color:rgba(74,43,32,.30)!important;
+  background-image:none!important;
+  color:#fff1e3!important;
+}
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .class-calendar-corner::before,
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .class-calendar-corner::after,
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-calendar-corner::before,
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-calendar-corner::after {
+  background:transparent!important;background-color:transparent!important;background-image:none!important;
 }
 html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day button,
 html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day button strong,
@@ -24713,15 +24729,24 @@ html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-d
 }
 html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day.selected-day button,
 html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day.selected-day button strong {color:#fff8ef!important}
-/* Slenkant: dienų juosta, valandų juosta ir tuščias viršutinis kairysis langelis turi tiksliai sutapti. */
+/* Slenkant: datų juosta, valandų stulpelis ir tuščias kampas turi tą pačią patvirtintą tamsaus šokolado spalvą. */
 html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-day,
 html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-time,
 html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .class-calendar-corner,
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-calendar-corner,
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .calendar-corner,
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-time-header,
 html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .class-calendar-dayhead,
 html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .class-calendar-time {
   background:#32180f!important;background-color:#32180f!important;background-image:none!important;
   border-color:rgba(221,195,172,.42)!important;box-shadow:none!important;
   backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .class-calendar-corner::before,
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .class-calendar-corner::after,
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-calendar-corner::before,
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-calendar-corner::after {
+  background:#32180f!important;background-color:#32180f!important;background-image:none!important;
 }
 html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-day button,
 html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-day button strong,
