@@ -23743,3 +23743,50 @@ html body #rentalView .rental-summary-address{
  html body #rentalView .rental-summary-price span{font-size:10px!important}
 }
 </style>
+
+
+<style id="lds-studio1-seamless-card-fix-20261019">
+/* Make Studio 1 photo and details touch exactly like Studio 2; presentation only. */
+html body #rentalView .rental-gallery.rental-gallery-studio1{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:0!important;
+  row-gap:0!important;
+}
+html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-studio-photo{
+  display:block!important;
+  flex:0 0 auto!important;
+  width:100%!important;
+  margin:0!important;
+  border:1px solid rgba(255,247,237,.82)!important;
+  border-bottom:0!important;
+  border-radius:30px 30px 0 0!important;
+  box-shadow:none!important;
+}
+html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-studio-photo > img{
+  display:block!important;
+  width:100%!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:0!important;
+}
+html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-summary-row{
+  position:relative!important;
+  top:0!important;
+  flex:0 0 auto!important;
+  width:100%!important;
+  margin:0!important;
+  border:1px solid rgba(255,247,237,.82)!important;
+  border-top:1px solid rgba(240,215,181,.5)!important;
+  border-radius:0 0 30px 30px!important;
+  box-shadow:none!important;
+}
+@media(max-width:640px){
+  html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-studio-photo{
+    border-radius:25px 25px 0 0!important;
+  }
+  html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-summary-row{
+    border-radius:0 0 25px 25px!important;
+  }
+}
+</style>
