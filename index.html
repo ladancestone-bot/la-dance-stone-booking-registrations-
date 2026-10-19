@@ -20823,4 +20823,22 @@ html body #homeView .choices>.choice[data-view="classes"]{
   left:auto!important;top:50%!important;transform:translateY(-50%)!important;
  }
 }
+
+/* Move the large homepage headline clearly below the centered return-to-site link. */
+html body #homeView.active{padding-top:194px!important}
+html body #homeView .home-site-link-row{
+ top:28px!important;
+}
+html body #homeView .hero{
+ margin-top:0!important;
+}
+html body #homeView .hero h1{
+ margin-top:0!important;
+}
+@media(max-width:760px){
+ html body #homeView.active{padding-top:194px!important}
+ html body #homeView .home-site-link-row{top:26px!important}
+ html body #homeView .hero{margin-top:0!important}
+ html body #homeView .hero h1{margin-top:0!important}
+}
 </style>
