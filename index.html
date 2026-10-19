@@ -4745,8 +4745,7 @@ html body #rentalView .phone-card{margin-top:0!important}
       </span>
       <span class="studio-select-content">
         <span class="studio-select-title">Studija Nr. 1</span>
-        <span class="studio-select-size">70 m²</span>
-        <span class="studio-select-size">20 € / val.</span>
+        <span class="studio-select-metrics"><span class="studio-select-size">70 m²</span><span class="studio-select-price">20 € <small>/ val.</small></span></span>
         <span class="studio-select-description">Jauki studija su trimis arkomis, veidrodžiais ir visa rezervacijos sistema.</span>
         <span class="studio-select-address">V. Krėvės pr. 57, Kaunas</span>
         <span class="studio-select-cta">Atidaryti rezervaciją <span aria-hidden="true">→</span></span>
@@ -4759,8 +4758,7 @@ html body #rentalView .phone-card{margin-top:0!important}
       </span>
       <span class="studio-select-content">
         <span class="studio-select-title">Studija Nr. 2</span>
-        <span class="studio-select-size">160 m²</span>
-        <span class="studio-select-size">40 € / val.</span>
+        <span class="studio-select-metrics"><span class="studio-select-size">160 m²</span><span class="studio-select-price">40 € <small>/ val.</small></span></span>
         <span class="studio-select-description">Erdvi, moderni erdvė repeticijoms, šokių pamokoms ir individualioms treniruotėms.</span>
         <span class="studio-select-address">Varnių g. 5, Kaunas</span>
         <span class="studio-select-cta">Peržiūrėti studiją <span aria-hidden="true">→</span></span>
@@ -4793,8 +4791,7 @@ html body #rentalView .phone-card{margin-top:0!important}
     <div class="gallery-caption"><strong>Mūsų studija</strong><span>Tikra studijos erdvė, veidrodžiai ir jauki atmosfera</span></div>
   </article>
   <div class="rental-summary-row" aria-label="Studijos nuomos informacija">
-    <div class="rental-summary-price"><strong>70 m²</strong><span>studijos plotas</span></div>
-    <div class="rental-summary-price"><strong>20 €</strong><span>už valandą</span></div>
+    <div class="rental-summary-metrics"><div class="rental-summary-price"><strong>70 m²</strong><span>studijos plotas</span></div><div class="rental-summary-price"><strong>20 €</strong><span>už valandą</span></div></div>
     <div class="rental-summary-hours"><strong>08:00–22:00</strong><span>kasdien</span></div>
     <a class="rental-summary-address" href="https://maps.google.com/?q=V.+Kr%C4%97v%C4%97s+pr.+57,+Kaunas" target="_blank" rel="noopener">
       <svg class="rental-summary-pin-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5.2-8 12-8 12S4 15.2 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
@@ -5008,8 +5005,7 @@ html body #rentalView .phone-card{margin-top:0!important}
         <span class="studio2-image-note">Studija Nr. 2</span>
       </div>
       <div class="studio2-summary-row">
-        <div class="studio2-summary-price"><strong>160 m²</strong><span>studijos plotas</span></div>
-        <div class="studio2-summary-price"><strong>40 €</strong><span>už valandą</span></div>
+        <div class="studio2-summary-metrics"><div class="studio2-summary-price"><strong>160 m²</strong><span>studijos plotas</span></div><div class="studio2-summary-price"><strong>40 €</strong><span>už valandą</span></div></div>
         <div class="studio2-summary-hours"><strong>08:00–22:00</strong><span>kasdien</span></div>
         <a class="studio2-map-link" href="https://maps.google.com/?q=Varni%C5%B3+g.+5,+Kaunas" target="_blank" rel="noopener"><svg class="studio2-map-pin-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5.2-8 12-8 12S4 15.2 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span class="studio2-address-inline"><strong>Varnių g. 5,</strong><small>Kaunas</small></span></a>
       </div>
@@ -23532,5 +23528,56 @@ html body #studio2View .studio2-map-link small{
   html body #studio2View .studio2-map-link small{font-size:12px!important}
   html body #rentalView .rental-summary-pin-svg,
   html body #studio2View .studio2-map-pin-svg{width:23px!important;height:23px!important;flex-basis:23px!important}
+}
+</style>
+
+
+<style id="lds-studio-metrics-elegant-inline">
+/* Premium single-line area + hourly price metrics for both studios */
+html body #studioSelectView .studio-select-metrics{
+ display:flex!important;align-items:baseline!important;flex-wrap:wrap!important;gap:10px!important;
+ margin:13px 0 4px!important;padding:10px 14px!important;
+ border:1px solid rgba(240,215,181,.38)!important;border-radius:999px!important;
+ background:linear-gradient(120deg,rgba(240,215,181,.13),rgba(255,247,237,.04))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.09)!important;
+}
+html body #studioSelectView .studio-select-metrics .studio-select-size{
+ display:inline!important;margin:0!important;color:#FFF0D8!important;
+ font:600 clamp(21px,2.5vw,27px)/1 'Cormorant Garamond',Georgia,serif!important;
+ letter-spacing:.015em!important;white-space:nowrap!important;
+}
+html body #studioSelectView .studio-select-price{
+ display:inline!important;color:#F0D7B5!important;
+ font:600 clamp(20px,2.4vw,25px)/1 'Cormorant Garamond',Georgia,serif!important;
+ white-space:nowrap!important;
+}
+html body #studioSelectView .studio-select-price small{font:500 11px/1.2 Arial,sans-serif!important;letter-spacing:.08em!important;color:#FFF7ED!important}
+html body #rentalView .rental-summary-metrics,
+html body #studio2View .studio2-summary-metrics{
+ display:flex!important;align-items:center!important;gap:clamp(16px,2.5vw,30px)!important;min-width:0!important;
+}
+html body #rentalView .rental-summary-metrics .rental-summary-price,
+html body #studio2View .studio2-summary-metrics .studio2-summary-price{
+ padding:5px 0!important;margin:0!important;border:0!important;min-width:0!important;
+}
+html body #rentalView .rental-summary-metrics .rental-summary-price + .rental-summary-price,
+html body #studio2View .studio2-summary-metrics .studio2-summary-price + .studio2-summary-price{
+ padding-left:clamp(14px,2vw,24px)!important;border-left:1px solid #d8bda8!important;
+}
+html body #rentalView .rental-summary-metrics .rental-summary-price strong,
+html body #studio2View .studio2-summary-metrics .studio2-summary-price strong{
+ font:600 clamp(27px,3vw,38px)/1 'Cormorant Garamond',Georgia,serif!important;
+ letter-spacing:-.025em!important;font-variant-numeric:lining-nums!important;color:#542033!important;
+}
+html body #rentalView .rental-summary-metrics .rental-summary-price span,
+html body #studio2View .studio2-summary-metrics .studio2-summary-price span{
+ font-size:11px!important;letter-spacing:.06em!important;text-transform:uppercase!important;
+}
+@media(max-width:640px){
+ html body #studioSelectView .studio-select-metrics{gap:8px!important;padding:9px 12px!important}
+ html body #rentalView .rental-summary-row{grid-template-columns:1fr!important;gap:14px!important}
+ html body #rentalView .rental-summary-metrics,
+ html body #studio2View .studio2-summary-metrics{gap:18px!important}
+ html body #studio2View .studio2-summary-row{grid-template-columns:1fr!important;gap:14px!important}
 }
 </style>
