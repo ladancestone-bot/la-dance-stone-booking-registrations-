@@ -21301,39 +21301,28 @@ html body .mini-status.selected{
 </style>
 
 <style id="lds-final-burgundy-interactions-20261019">
-/* Final authoritative interaction colors: deep burgundy, never dusty pink. */
+/* Match the active LT/EN language button exactly: deep wine #481824. */
 :root{
- --wine:#5B1027!important;
- --wine2:#6B1730!important;
- --lds-burgundy:#5B1027!important;
- --lds-burgundy-strong:#6B1730!important;
- --lds-burgundy-deep:#3F0A1A!important;
- --gold:#5B1027!important;
+ --wine:#481824!important;
+ --wine2:#481824!important;
+ --lds-burgundy:#481824!important;
+ --lds-burgundy-strong:#481824!important;
+ --lds-burgundy-deep:#35101A!important;
+ --gold:#481824!important;
 }
+html body #ldsLanguageSwitch button[aria-pressed="true"]{
+ background:#481824!important;
+ background-color:#481824!important;
+ border-color:rgba(255,247,237,.4)!important;
+ color:#FFF7ED!important;
+ -webkit-text-fill-color:#FFF7ED!important;
+}
+/* Reuse that same language-toggle burgundy for every card and button interaction. */
 html body #homeView .choices>.choice:hover,
 html body #homeView .choices>.choice:focus,
 html body #homeView .choices>.choice:focus-visible,
 html body #homeView .choices>.choice:active,
-html body #homeView .choices>.choice:focus-within{
- background:#5B1027!important;
- background-color:#5B1027!important;
- background-image:none!important;
- border-color:#F0E4D8!important;
- color:#FFF8F0!important;
- box-shadow:0 0 0 2px #5B10272B,0 7px 20px #2A101B24!important;
- outline-color:#5B1027!important;
-}
-html body #homeView .choices>.choice:hover h3,
-html body #homeView .choices>.choice:hover p,
-html body #homeView .choices>.choice:hover .arrow,
-html body #homeView .choices>.choice:focus h3,
-html body #homeView .choices>.choice:focus p,
-html body #homeView .choices>.choice:focus .arrow,
-html body #homeView .choices>.choice:active h3,
-html body #homeView .choices>.choice:active p,
-html body #homeView .choices>.choice:active .arrow{
- color:#FFF8F0!important;-webkit-text-fill-color:#FFF8F0!important;
-}
+html body #homeView .choices>.choice:focus-within,
 html body button:hover,
 html body button:focus,
 html body button:focus-visible,
@@ -21352,17 +21341,34 @@ html body input[type="submit"]:active,
 html body input[type="button"]:hover,
 html body input[type="button"]:focus,
 html body input[type="button"]:active{
- background:#5B1027!important;
- background-color:#5B1027!important;
+ background:#481824!important;
+ background-color:#481824!important;
  background-image:none!important;
- border-color:#F0E4D8!important;
- color:#FFF8F0!important;
- -webkit-text-fill-color:#FFF8F0!important;
- box-shadow:0 0 0 2px #5B10272B!important;
+ border-color:rgba(255,247,237,.4)!important;
+ color:#FFF7ED!important;
+ -webkit-text-fill-color:#FFF7ED!important;
+ box-shadow:0 0 0 2px #48182430,0 7px 20px #2A101B24!important;
+ outline-color:#481824!important;
+}
+html body #homeView .choices>.choice:hover h3,
+html body #homeView .choices>.choice:hover p,
+html body #homeView .choices>.choice:hover .arrow,
+html body #homeView .choices>.choice:focus h3,
+html body #homeView .choices>.choice:focus p,
+html body #homeView .choices>.choice:focus .arrow,
+html body #homeView .choices>.choice:active h3,
+html body #homeView .choices>.choice:active p,
+html body #homeView .choices>.choice:active .arrow{
+ color:#FFF7ED!important;-webkit-text-fill-color:#FFF7ED!important;
 }
 html body #homeView .hero h1::after,
 html body #homeView .hero .home-values::before{
- background:#5B1027!important;background-color:#5B1027!important;border-color:#5B1027!important;
+ background:#481824!important;background-color:#481824!important;border-color:#481824!important;
+}
+html body .action,
+html body .price-card,
+html body .mini-status.selected{
+ background:#481824!important;background-color:#481824!important;color:#FFF7ED!important;
 }
 </style>
 
