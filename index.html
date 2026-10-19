@@ -4602,6 +4602,91 @@ html body #studio2View .studio2-hero-image img{
  html body #studio2View .studio2-hero h2{font-size:clamp(39px,10vw,49px)!important;line-height:.98!important}
  html body #studio2View .studio2-lead{margin:16px auto 2px!important;text-align:center!important;font-size:15px!important;line-height:1.65!important}
 }
+
+/* Studio 1 hero photo + summary: match Studio 2's image-led layout. */
+html body #rentalView .rental-address{display:none!important}
+html body #rentalView .rental-gallery-studio1{
+ display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+ gap:0!important;margin:22px 0 26px!important;
+}
+html body #rentalView .rental-studio-photo{
+ grid-column:1!important;width:100%!important;margin:0!important;
+ border-radius:24px!important;overflow:hidden!important;
+ background:transparent!important;
+}
+html body #rentalView .rental-studio-photo>img{
+ display:block!important;width:100%!important;
+ height:clamp(250px,48vw,470px)!important;
+ object-fit:cover!important;object-position:center!important;
+}
+html body #rentalView .rental-studio-photo .gallery-caption{
+ position:absolute!important;left:16px!important;bottom:16px!important;
+ display:flex!important;flex-direction:column!important;gap:3px!important;
+ width:max-content!important;max-width:calc(100% - 32px)!important;
+ margin:0!important;padding:11px 17px!important;
+ border:1px solid #ead8c7!important;border-radius:999px!important;
+ background:#fff8ef!important;color:#62483e!important;
+}
+html body #rentalView .rental-studio-photo .gallery-caption strong{color:#542033!important;font-size:14px!important}
+html body #rentalView .rental-studio-photo .gallery-caption span{display:none!important}
+html body #rentalView .rental-summary-row{
+ display:grid!important;
+ grid-template-columns:minmax(100px,.65fr) minmax(170px,1.1fr) minmax(160px,.9fr)!important;
+ align-items:center!important;gap:18px!important;
+ padding:20px 16px 22px!important;margin:0 0 20px!important;
+ border-bottom:1px solid #d9b99f!important;
+ background:transparent!important;border-radius:0!important;
+ box-shadow:none!important;color:#59463f!important;
+}
+html body #rentalView .rental-summary-price,
+html body #rentalView .rental-summary-hours{
+ display:flex!important;flex-direction:column!important;gap:5px!important;
+ min-width:0!important;background:transparent!important;
+}
+html body #rentalView .rental-summary-price strong{
+ font:600 clamp(28px,3.4vw,40px)/1 'Cormorant Garamond',serif!important;
+ color:#542033!important;white-space:nowrap!important;
+}
+html body #rentalView .rental-summary-price span,
+html body #rentalView .rental-summary-hours span{
+ color:#80695d!important;font-size:13px!important;line-height:1.45!important;
+}
+html body #rentalView .rental-summary-hours{
+ padding-left:18px!important;border-left:1px solid #d8bda8!important;
+}
+html body #rentalView .rental-summary-hours strong{
+ color:#542033!important;font-size:14px!important;line-height:1.35!important;
+}
+html body #rentalView .rental-summary-address{
+ display:flex!important;align-items:center!important;gap:10px!important;
+ min-width:0!important;padding-left:18px!important;
+ border-left:1px solid #d8bda8!important;
+ background:transparent!important;border-radius:0!important;
+ box-shadow:none!important;color:#542033!important;text-decoration:none!important;
+}
+html body #rentalView .rental-summary-pin{font-size:27px!important;line-height:1!important;color:#542033!important}
+html body #rentalView .rental-summary-address>span:last-child{display:flex!important;flex-direction:column!important;gap:3px!important}
+html body #rentalView .rental-summary-address strong{font-size:13px!important;color:#542033!important}
+html body #rentalView .rental-summary-address small{font-size:12px!important;color:#80695d!important}
+html body #rentalView .phone-card{margin-top:0!important}
+@media(max-width:760px){
+ html body #rentalView .rental-gallery-studio1{margin:14px 0 20px!important}
+ html body #rentalView .rental-studio-photo{border-radius:18px!important}
+ html body #rentalView .rental-studio-photo>img{height:clamp(215px,62vw,300px)!important}
+ html body #rentalView .rental-studio-photo .gallery-caption{left:12px!important;bottom:12px!important;padding:9px 14px!important}
+ html body #rentalView .rental-summary-row{
+  grid-template-columns:.7fr 1.2fr!important;gap:12px!important;
+  padding:17px 12px 18px!important;margin-bottom:17px!important;
+ }
+ html body #rentalView .rental-summary-price strong{font-size:29px!important}
+ html body #rentalView .rental-summary-hours{padding-left:12px!important}
+ html body #rentalView .rental-summary-hours strong{font-size:12px!important}
+ html body #rentalView .rental-summary-address{
+  grid-column:1/-1!important;border-left:0!important;
+  border-top:1px solid #d8bda8!important;padding:12px 0 0!important;
+ }
+ html body #rentalView .rental-summary-address strong{font-size:13px!important}
+}
 </style>
 
 </head>
@@ -4684,7 +4769,7 @@ html body #studio2View .studio2-hero-image img{
 <section id="rentalView" class="view">
 <div class="rental-intro">
   <button class="back rental-back" data-view="studioSelect"><span>←</span>Grįžti į studijų pasirinkimą</button>
-  <div class="rental-address"><span aria-hidden="true">●</span> V. Krėvės pr. 57, Kaunas</div>
+
   <header class="rental-hero">
     <h2>Studijos nuoma</h2>
     <div class="rental-title-line"></div>
@@ -4699,10 +4784,25 @@ html body #studio2View .studio2-hero-image img{
     <div class="rental-amenity"><span class="rental-amenity-icon"><svg viewBox="0 0 40 40" role="img" aria-label="Automobilis"><path d="M4 24v-3q0-2 2-3l4-1 4-7q1-2 3-2h7q2 0 3 2l4 7 3 1q2 1 2 3v6H4z"/><path d="M10 17h20M13 17l3-7h9l4 7M5 22h5m20 0h5"/><circle cx="11" cy="28" r="3"/><circle cx="29" cy="28" r="3"/></svg></span><span>Parkavimas<br>iki 3 val. nemokamai</span></div>
   </div>
 </div>
-<div class="rental-gallery">
-  <article class="gallery-card"><img src="https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg" alt="Tikra La Dance Stone šokių studija studijos erdvė su veidrodžiais ir užuolaidomis" loading="lazy"><div class="gallery-caption"><strong>Mūsų studija</strong><span>Tikra studijos erdvė, veidrodžiai ir jauki atmosfera</span></div></article>
-  <article class="gallery-card phone-card"><img src="https://github.com/user-attachments/assets/7faf7206-b4b9-4e23-a405-3291d81e80f0" alt="Rezervacija internetu telefone La Dance Stone šokių studija studijoje" loading="lazy"><div class="gallery-caption"><strong>Rezervacija internetu</strong><span>Patogiai pasirinkite norimą datą ir laiką internetu</span></div></article>
+<div class="rental-gallery rental-gallery-studio1">
+  <article class="gallery-card rental-studio-photo">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg" alt="Tikra La Dance Stone šokių studija su veidrodžiais ir užuolaidomis" loading="lazy">
+    <div class="gallery-caption"><strong>Mūsų studija</strong><span>Tikra studijos erdvė, veidrodžiai ir jauki atmosfera</span></div>
+  </article>
+  <div class="rental-summary-row" aria-label="Studijos nuomos informacija">
+    <div class="rental-summary-price"><strong>20 €</strong><span>už valandą</span></div>
+    <div class="rental-summary-hours"><strong>Nuoma pagal rezervaciją</strong><span>Pasirinkite Jums patogų laiką</span></div>
+    <a class="rental-summary-address" href="https://maps.google.com/?q=V.+Kr%C4%97v%C4%97s+pr.+57,+Kaunas" target="_blank" rel="noopener">
+      <span class="rental-summary-pin" aria-hidden="true">⌖</span>
+      <span><strong>V. Krėvės pr. 57,</strong><small>Kaunas</small></span>
+    </a>
+  </div>
+  <article class="gallery-card phone-card">
+    <img src="https://github.com/user-attachments/assets/7faf7206-b4b9-4e23-a405-3291d81e80f0" alt="Rezervacija internetu telefonu La Dance Stone studijoje" loading="lazy">
+    <div class="gallery-caption"><strong>Rezervacija internetu</strong><span>Patogiai pasirinkite norimą datą ir laiką internetu</span></div>
+  </article>
 </div>
+
 <section class="rental-checkin">
   <div class="rental-checkin-title"><span class="rental-checkin-phone" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="14" cy="25" r="5"/><path d="m18 21 11-11 5 5-11 11M25 14l4 4"/></svg></span><div><h3>Self check-in</h3><em>Nuoma vyksta Airbnb principu</em></div></div>
   <div class="rental-checkin-steps"><div><b>1</b><span>Užsiregistruojate ir pasirenkate laiką</span></div><div><b>2</b><span>Atliekate mokėjimą</span></div><div><b>3</b><span>Gaunate atvykimo informaciją</span></div><div><b>4</b><span>Atvykstate į studiją</span></div></div>
