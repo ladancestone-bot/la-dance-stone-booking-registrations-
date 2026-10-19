@@ -4166,6 +4166,29 @@ html body #timetableView .class-calendar-slot.occupied * {
 #studioSelectView .studio-select-card-second .studio-select-image-wrap img{object-position:center;filter:saturate(.82)}
 #studioSelectView .studio-select-card-second .studio-select-cta{background:#fff7ed;color:#4b1d2a}
 @media(max-width:760px){#studio2View .studio2-hero{grid-template-columns:1fr;gap:24px;padding:18px;border-radius:23px}#studio2View .studio2-hero h2{font-size:48px}#studio2View .studio2-hero-image img{height:250px}#studio2View .studio2-feature-grid{grid-template-columns:1fr;gap:10px}#studio2View .studio2-feature-grid article{padding:17px}#studio2View .studio2-booking-layout{grid-template-columns:1fr;gap:14px}#studio2View .studio2-booking-card,#studio2View .studio2-rules-card{padding:19px;border-radius:22px}#studio2View .studio2-section-heading h3,#studio2View .studio2-rules-card h3{font-size:31px}#studio2View .studio2-field-row{gap:9px}}
+
+#studio2View .studio2-photo-disclaimer{max-width:470px;margin:-8px 0 0;color:#907c70;font-size:11px;line-height:1.6}
+#studio2View .studio2-calendar-preview{margin:22px 0 26px;padding:clamp(18px,3vw,28px);border:1px solid rgba(255,247,237,.76);border-radius:26px;background:rgba(255,248,239,.9);box-shadow:0 16px 40px rgba(42,15,22,.07)}
+#studio2View .studio2-calendar-preview-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px}
+#studio2View .studio2-calendar-preview-head h3{margin:0 0 8px;color:#4b1d2a;font:600 32px/1.05 'Cormorant Garamond',serif}
+#studio2View .studio2-calendar-preview-head p:not(.studio2-eyebrow){max-width:620px;margin:0;color:#8b776c;font-size:12px;line-height:1.65}
+#studio2View .studio2-preview-tag{flex-shrink:0;padding:8px 11px;border:1px solid #ddc6b3;border-radius:999px;color:#80574c;background:#f8efe6;font-size:9px;font-weight:700;letter-spacing:.1em}
+#studio2View .studio2-calendar-strip{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+#studio2View .studio2-calendar-day{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:13px 10px;border:1px solid #e3d2c4;border-radius:15px;background:rgba(255,253,249,.85)}
+#studio2View .studio2-calendar-day small{font-size:9px;letter-spacing:.12em;font-weight:700;color:#987967}
+#studio2View .studio2-calendar-day strong{color:#4b1d2a;font:600 29px/1 'Cormorant Garamond',serif}
+#studio2View .studio2-calendar-day span{color:#725a50;font-size:10px;white-space:nowrap}
+#studio2View .studio2-calendar-day b{font-size:9px;line-height:1.4;font-weight:500;color:#8a776a}
+#studio2View .studio2-calendar-footnote{margin:14px 0 0;color:#8b776c;font-size:10px;line-height:1.6}
+@media(max-width:760px){
+ #studio2View .studio2-calendar-preview{padding:17px;border-radius:21px}
+ #studio2View .studio2-calendar-preview-head{display:block}
+ #studio2View .studio2-calendar-preview-head h3{font-size:29px}
+ #studio2View .studio2-preview-tag{display:inline-flex;margin-top:12px}
+ #studio2View .studio2-calendar-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ #studio2View .studio2-calendar-day{padding:12px;border-radius:13px}
+ #studio2View .studio2-calendar-day span{font-size:11px}
+}
 </style>
 
 </head>
@@ -4232,7 +4255,7 @@ html body #timetableView .class-calendar-slot.occupied * {
     </button>
     <button class="studio-select-card studio-select-card-available studio-select-card-second" type="button" data-studio-target="studio2" aria-label="Pasirinkti Studiją Nr. 2, Varnių g. 5, Kaunas">
       <span class="studio-select-image-wrap">
-        <img src="https://static.capital.lt/files/39/photos/005/512/839/files/for_export.jpg" alt="Pastato išorė Varnių gatvėje, kuriame yra Studija Nr. 2" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1600&q=85" alt="Iliustracinė modernios šokių ir judesio erdvės nuotrauka; tai nėra patvirtinta Studijos Nr. 2 patalpų nuotrauka" loading="lazy">
         <span class="studio-select-number">STUDIJA NR. 2</span>
       </span>
       <span class="studio-select-content">
@@ -4462,6 +4485,7 @@ html body #timetableView .class-calendar-slot.occupied * {
         <p class="studio2-eyebrow">LA DANCE STONE · STUDIJA NR. 2</p>
         <h2>Erdvė judesiui.<br><em>Vieta kūrybai.</em></h2>
         <p class="studio2-lead">Moderni erdvė šokių repeticijoms, individualioms treniruotėms, užsiėmimams ir kūrybiniams susitikimams.</p>
+        <p class="studio2-photo-disclaimer">Patalpų nuotrauka šiuo metu iliustracinė. Tikrasis erdvės vaizdas bus atnaujintas, kai turėsime patvirtintas nuotraukas.</p>
         <div class="studio2-hero-facts">
           <span><strong>40 €</strong><small>už valandą</small></span>
           <span><strong>08:00–22:00</strong><small>kasdien</small></span>
@@ -4469,8 +4493,8 @@ html body #timetableView .class-calendar-slot.occupied * {
         <a class="studio2-map-link" href="https://maps.google.com/?q=Varni%C5%B3+g.+5,+Kaunas" target="_blank" rel="noopener">Varnių g. 5, Kaunas ↗</a>
       </div>
       <div class="studio2-hero-image">
-        <img src="https://static.capital.lt/files/39/photos/005/512/839/files/for_export.jpg" alt="Pastato išorė Varnių gatvėje, Kaune" loading="lazy">
-        <span class="studio2-image-note">Varnių g. 5 · Kaunas</span>
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1600&q=85" alt="Iliustracinė modernios šokių ir judesio erdvės nuotrauka; tai nėra patvirtinta Studijos Nr. 2 patalpų nuotrauka" loading="lazy">
+        <span class="studio2-image-note">Iliustracinė nuotrauka</span>
       </div>
     </div>
 
@@ -4479,6 +4503,23 @@ html body #timetableView .class-calendar-slot.occupied * {
       <article><span class="studio2-feature-icon">◷</span><h3>Patogus laikas</h3><p>Rezervacijų langas kasdien nuo 08:00 iki 22:00. Galima rinktis vieną ar daugiau pilnų valandų.</p></article>
       <article><span class="studio2-feature-icon">⌂</span><h3>Įleidimas sutartu laiku</h3><p>Atvyksta atsakingas žmogus ir įleidžia rezervacijos metu sutartu laiku.</p></article>
     </div>
+
+    <section class="studio2-calendar-preview" aria-label="Studijos Nr. 2 kalendoriaus peržiūra">
+      <div class="studio2-calendar-preview-head">
+        <div><p class="studio2-eyebrow">KALENDORIAUS PERŽIŪRA</p><h3>Pasirinkite Jums patogų laiką</h3><p>Kalendoriaus vaizdas paruoštas dizaino peržiūrai. Laisvumas čia dar nėra tikrinamas realiuoju laiku.</p></div>
+        <span class="studio2-preview-tag">DEMONSTRACINIS VAIZDAS</span>
+      </div>
+      <div class="studio2-calendar-strip" aria-hidden="true">
+        <div class="studio2-calendar-day"><small>PIRM.</small><strong>19</strong><span>08:00–22:00</span><b>Pasirinkti laiką žemiau</b></div>
+        <div class="studio2-calendar-day"><small>ANTR.</small><strong>20</strong><span>08:00–22:00</span><b>Pasirinkti laiką žemiau</b></div>
+        <div class="studio2-calendar-day"><small>TREČ.</small><strong>21</strong><span>08:00–22:00</span><b>Pasirinkti laiką žemiau</b></div>
+        <div class="studio2-calendar-day"><small>KETV.</small><strong>22</strong><span>08:00–22:00</span><b>Pasirinkti laiką žemiau</b></div>
+        <div class="studio2-calendar-day"><small>PENKT.</small><strong>23</strong><span>08:00–22:00</span><b>Pasirinkti laiką žemiau</b></div>
+        <div class="studio2-calendar-day"><small>ŠEŠT.</small><strong>24</strong><span>08:00–22:00</span><b>Pasirinkti laiką žemiau</b></div>
+        <div class="studio2-calendar-day"><small>SEKM.</small><strong>25</strong><span>08:00–22:00</span><b>Pasirinkti laiką žemiau</b></div>
+      </div>
+      <p class="studio2-calendar-footnote">Tai nėra tikrų laisvų laikų patvirtinimas. Rezervacijos, užimtumas, mokėjimai ir el. laiškai šiame etape neaktyvinami.</p>
+    </section>
 
     <div class="studio2-booking-layout">
       <section class="studio2-booking-card">
@@ -18872,6 +18913,13 @@ html body #classesView #classDetail.class-detail-adult
 var pairs = [
  ["Ačiū, ","Thank you, "],
  ["Pasirinkite, ką norite nuveikti:","Choose what you would like to do:"],
+ ["Patalpų nuotrauka šiuo metu iliustracinė. Tikrasis erdvės vaizdas bus atnaujintas, kai turėsime patvirtintas nuotraukas.","The space photo is illustrative for now. We will replace it with a real photo once confirmed images are available."],
+ ["KALENDORIAUS PERŽIŪRA","CALENDAR PREVIEW"],
+ ["Pasirinkite Jums patogų laiką","Choose a time that works for you"],
+ ["Kalendoriaus vaizdas paruoštas dizaino peržiūrai. Laisvumas čia dar nėra tikrinamas realiuoju laiku.","The calendar layout is for design review. Availability is not checked in real time yet."],
+ ["DEMONSTRACINIS VAIZDAS","DEMO VIEW"],
+ ["Pasirinkti laiką žemiau","Choose a time below"],
+ ["Tai nėra tikrų laisvų laikų patvirtinimas. Rezervacijos, užimtumas, mokėjimai ir el. laiškai šiame etape neaktyvinami.","This does not confirm real availability. Bookings, availability, payments and emails are not activated at this stage."],
  ["Registracijos patvirtinimas išsiųstas el. paštu ","Registration confirmation has been sent to "],
  ["El. paštas","Email"],
  ["Grupė","Group"],
