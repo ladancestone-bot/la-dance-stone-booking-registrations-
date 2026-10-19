@@ -4167,7 +4167,7 @@ html body #timetableView .class-calendar-slot.occupied * {
     <button class="back" data-view="home"><span aria-hidden="true">←</span>Grįžti į pasirinkimą</button>
   </div>
   <header class="studio-select-hero">
-    <div class="eyebrow">LA DANCE STONE · ERDVIŲ PASIRINKIMAS</div>
+    
     <h2>Pasirinkite studiją</h2>
     <p>Pasirinkite, kurios studijos rezervacijos kalendorių norite atidaryti.</p>
   </header>
@@ -22148,6 +22148,66 @@ html body #classesView > button#classesBackToGroups.back:active * {
  #studioSelectView .studio-select-content{padding:19px 20px 21px}
  #studioSelectView .studio-select-title{font-size:31px}
  #studioSelectView .studio-select-description{font-size:13px}
+}
+
+/* Studio selector header alignment: match the clean, text-only back links used on the other views. */
+#studioSelectView .studio-select-top{
+ display:flex!important;
+ justify-content:center!important;
+ align-items:center!important;
+ width:100%!important;
+ margin:0 auto 28px!important;
+ padding:0!important;
+ text-align:center!important;
+}
+html body #studioSelectView .studio-select-top button.back,
+html body #studioSelectView .studio-select-top button.back:hover,
+html body #studioSelectView .studio-select-top button.back:focus,
+html body #studioSelectView .studio-select-top button.back:focus-visible,
+html body #studioSelectView .studio-select-top button.back:active{
+ display:inline-flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ gap:9px!important;
+ width:auto!important;
+ max-width:100%!important;
+ margin:0!important;
+ padding:0!important;
+ border:0!important;
+ border-radius:0!important;
+ background:transparent!important;
+ background-color:transparent!important;
+ background-image:none!important;
+ box-shadow:none!important;
+ outline:none!important;
+ text-decoration:none!important;
+ color:#FFFFFF!important;
+ -webkit-text-fill-color:#FFFFFF!important;
+ font-size:clamp(14px,1.5vw,18px)!important;
+ font-weight:500!important;
+ letter-spacing:0!important;
+ line-height:1.4!important;
+ -webkit-tap-highlight-color:transparent!important;
+ transition:color .12s ease!important;
+}
+html body #studioSelectView .studio-select-top button.back span{
+ color:#FFFFFF!important;
+ -webkit-text-fill-color:#FFFFFF!important;
+ font-size:1.35em!important;
+ line-height:1!important;
+ margin:0!important;
+ vertical-align:middle!important;
+}
+html body #studioSelectView .studio-select-top button.back:active,
+html body #studioSelectView .studio-select-top button.back:active span{
+ color:#481824!important;
+ -webkit-text-fill-color:#481824!important;
+ background:transparent!important;
+ box-shadow:none!important;
+}
+@media(max-width:760px){
+ #studioSelectView .studio-select-top{margin-bottom:25px!important}
+ html body #studioSelectView .studio-select-top button.back{font-size:14px!important}
 }
 </style>
 
