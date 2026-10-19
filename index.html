@@ -18923,6 +18923,8 @@ var pairs = [
 ["Rezervacija internetu","Online booking"],
 ["Nuoma vyksta Airbnb principu","The studio is rented on a self check-in basis"],
 ["Paspauskite ant dienos arba laisvos valandos.","Tap a day or an available time."],
+["Paspauskite ant dienos arba laisvos valandos. Pasirinktas laikotarpis bus pažymėtas vientisai – nereikia rezervuoti kiekvienos valandos atskirai.","Tap a day or an available time. The selected time slot will be highlighted as one continuous period — there is no need to book each hour separately."],
+["Šis 45 minučių laikotarpis kainuoja tiek pat, kiek viena valanda. Prašome pasilikti pakankamai laiko susitvarkyti ir išeiti iš pastato iki 22.00 val.","This 45-minute time slot costs the same as one hour. Please allow enough time to tidy up and leave the building by 10:00 PM."],
 ["Pasirinktas laikotarpis bus pažymėtas vientisai – nereikia rezervuoti kiekvienos valandos atskirai.","The selected time slot will be highlighted as one continuous period — there is no need to book each hour separately."],
 ["Pažymėkite norimą pradžios laiką ir trukmę – kalendoriuje ji bus rodoma kaip vienas vientisas rezervacijos intervalas.","Select your preferred start time and duration — the calendar will show it as one continuous booking period."],
 ["Pažymėjimai yra demonstraciniai. Tikras studijos užimtumas bus rodomas prijungus rezervacijų duomenų bazę.","The availability shown is for demonstration purposes. Live studio availability will appear once the booking database is connected."],
@@ -18933,12 +18935,7 @@ var pairs = [
 ["Užimta","Booked"],
 ["Jūsų pasirinkimas","Your selection"],
 ["KALENDORIAUS ŽYMĖJIMAI","CALENDAR LEGEND"],
-["Selecteds laikotarpis","The selected time slot"],
 
-["Tap a day or an available time. Selecteds laikotarpis bus pažymėtas vientisai — nereikia rezervuoti kiekvienos valandos atskirai.","Paspauskite ant dienos arba laisvos valandos. Pasirinktas laikotarpis bus pažymėtas vientisai — nereikia rezervuoti kiekvienos valandos atskirai."],
-["Tap a day or an available time. Selecteds laikotarpis bus pažymėtas vientisai – nereikia rezervuoti kiekvienos valandos atskirai.","Paspauskite ant dienos arba laisvos valandos. Pasirinktas laikotarpis bus pažymėtas vientisai – nereikia rezervuoti kiekvienos valandos atskirai."],
-["This 45-minute time slot costs the same as one hour. Prašome pasilikti pakankamai laiko susitvarkyti ir išeiti iš pastato iki 22.00 hr","Šis 45 minučių laikotarpis kainuoja tiek pat, kiek viena valanda. Prašome pasilikti pakankamai laiko susitvarkyti ir išeiti iš pastato iki 22.00 val."],
-["This 45-minute time slot costs the same as one hour.","This 45-minute time slot costs the same as one hour."],
 
 ["Paspauskite ant dienos arba laisvos valandos.","Tap a day or an available time."],
 ["Pasirinktas laikotarpis bus pažymėtas vientisai – nereikia rezervuoti kiekvienos valandos atskirai.","The selected time slot will be marked as one continuous period — you do not need to book each hour separately."],
@@ -19818,6 +19815,38 @@ html body button:active:not(.mini-status):not(.action):not([aria-pressed="true"]
 html body button:active:not(.mini-status):not(.action):not([aria-pressed="true"]) *,html body input[type="button"]:active *,html body input[type="submit"]:active *{color:#481824!important;-webkit-text-fill-color:#481824!important}
 </style>
 
+
+<script id="lds-rental-language-consistency-fix-20261019">
+(function(){
+ function applyRentalLanguage(){
+  var lang=(window.__ldsLanguage==='en'||document.documentElement.lang==='en')?'en':'lt';
+  var root=document.querySelector('#rentalView');
+  if(!root)return;
+  var eyebrow=root.querySelector('.availability-section .availability-heading .eyebrow');
+  var heading=root.querySelector('.availability-section .availability-heading h2');
+  var copy=root.querySelector('.availability-section .availability-heading p');
+  if(eyebrow)eyebrow.textContent=lang==='en'?'INTERACTIVE AVAILABILITY':'INTERAKTYVUS UŽIMTUMO VAIZDAS';
+  if(heading)heading.innerHTML=lang==='en'
+   ?'Available hours <span class="availability-heading-accent">calendar.</span>'
+   :'Laisvų valandų <span class="availability-heading-accent">kalendorius.</span>';
+  if(copy)copy.textContent=lang==='en'
+   ?'Tap a day or an available time. The selected time slot will be highlighted as one continuous period — there is no need to book each hour separately.'
+   :'Paspauskite ant dienos arba laisvos valandos. Pasirinktas laikotarpis bus pažymėtas vientisai – nereikia rezervuoti kiekvienos valandos atskirai.';
+  var legend=root.querySelectorAll('.availability-legend span');
+  var labels=lang==='en'?['Available','Booked','Your selection']:['Laisva','Užimta','Jūsų pasirinkimas'];
+  legend.forEach(function(item,i){if(labels[i]){var icon=item.querySelector('i');item.textContent=labels[i];if(icon)item.prepend(icon);}});
+  var hint=root.querySelector('#selectionHint');
+  if(hint)hint.textContent=lang==='en'
+   ?'Select your preferred start time and duration — the calendar will show it as one continuous booking period. The availability shown is for demonstration purposes. Live studio availability will appear once the booking database is connected.'
+   :'Pažymėkite norimą pradžios laiką ir trukmę – kalendoriuje ji bus rodoma kaip vienas vientisas rezervacijos intervalas. Pažymėjimai yra demonstraciniai. Tikras studijos užimtumas bus rodomas prijungus rezervacijų duomenų bazę.';
+ }
+ window.addEventListener('lds-language-change',function(){setTimeout(applyRentalLanguage,0);});
+ document.addEventListener('click',function(){setTimeout(applyRentalLanguage,80);setTimeout(applyRentalLanguage,300);},true);
+ var root=document.querySelector('#rentalView');
+ if(root)new MutationObserver(function(){setTimeout(applyRentalLanguage,0);}).observe(root,{attributes:true,attributeFilter:['class']});
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',applyRentalLanguage);else applyRentalLanguage();
+})();
+</script>
 </body>
 </html>
 
