@@ -21237,7 +21237,7 @@ html body:has(#homeView.active) #homeView .brand-footer-main{
  background-color:transparent!important;
  background-image:none!important;
 }
-/* All three homepage capsules share the same neutral taupe appearance. Burgundy appears only while pressed/focused. */
+/* Keep all capsules neutral until interaction; use true deep burgundy (not dusty rose) for every pressed state. */
 html body #homeView .choices>.choice,
 html body #homeView .choices>.choice[data-view="classes"]{
  background:transparent!important;
@@ -21252,32 +21252,48 @@ html body #homeView .choices>.choice .arrow{
  -webkit-text-fill-color:#FFF8F0!important;
 }
 html body #homeView .choices>.choice:active,
+html body #homeView .choices>.choice:focus,
 html body #homeView .choices>.choice:focus-visible,
-html body button:not(.mini-status):active,
+html body button:active,
+html body button:focus,
+html body button:focus-visible,
 html body .action:active,
 html body .back:active,
 html body .cal-toolbar button:active,
 html body .mini-status:active,
 html body input[type="submit"]:active,
 html body input[type="button"]:active{
- background:#8A1F3E!important;
- background-color:#8A1F3E!important;
+ background:#5B1027!important;
+ background-color:#5B1027!important;
  border-color:#F0E4D8!important;
  color:#FFF8F0!important;
  -webkit-text-fill-color:#FFF8F0!important;
- box-shadow:0 0 0 2px #8A1F3E38,0 7px 20px #2A101B24!important;
+ box-shadow:0 0 0 2px #5B10272B,0 7px 20px #2A101B24!important;
+ outline-color:#5B1027!important;
+}
+html body #homeView .choices>.choice:active h3,
+html body #homeView .choices>.choice:active p,
+html body #homeView .choices>.choice:active .arrow,
+html body #homeView .choices>.choice:focus h3,
+html body #homeView .choices>.choice:focus p,
+html body #homeView .choices>.choice:focus .arrow,
+html body #homeView .choices>.choice:focus-visible h3,
+html body #homeView .choices>.choice:focus-visible p,
+html body #homeView .choices>.choice:focus-visible .arrow{
+ color:#FFF8F0!important;
+ -webkit-text-fill-color:#FFF8F0!important;
 }
 html body #homeView .hero h1::after,
 html body #homeView .hero .home-values::before{
- background:#6B1730!important;
- background-color:#6B1730!important;
- border-color:#6B1730!important;
+ background:#5B1027!important;
+ background-color:#5B1027!important;
+ border-color:#5B1027!important;
 }
 html body .action,
 html body .price-card,
 html body .mini-status.selected{
- background:#6B1730!important;
- background-color:#6B1730!important;
+ background:#5B1027!important;
+ background-color:#5B1027!important;
  color:#FFF8F0!important;
 }
 </style>
