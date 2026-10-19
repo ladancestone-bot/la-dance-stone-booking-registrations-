@@ -4689,6 +4689,34 @@ html body #rentalView .phone-card{margin-top:0!important}
 }
 </style>
 
+<style id="studio2-live-booking-styles">
+/* Studio 2 uses the same booking flow styles as Studio 1, with its own state and data. */
+html body #studio2View .studio2-live-availability{margin-top:24px!important}
+html body #studio2View .studio2-live-availability .calendar-panel{background:var(--paper);border:1px solid var(--line);border-radius:8px 24px 8px 24px;padding:18px;box-shadow:var(--shadow)}
+html body #studio2View .studio2-live-availability .cal-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+html body #studio2View .studio2-live-availability .cal-toolbar button{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:#fffaf4;color:#542033;font-size:25px}
+html body #studio2View .studio2-live-availability .cal-title{font-weight:700;color:#542033;text-align:center}
+html body #studio2View .studio2-live-availability .cal-scroll{overflow:auto}
+html body #studio2View .studio2-live-availability .calendar-help{color:#f9eee4}
+html body #studio2View .studio2-live-availability .calendar-help p{color:inherit}
+html body #studio2View .rental-layout{display:none!important}
+html body #studio2View .rental-layout.booking-open{display:grid!important}
+html body #studio2View #studio2RentalConfirmation{display:none;width:100%;margin:28px 0 38px;padding:clamp(26px,5vw,54px);background:linear-gradient(145deg,#fffaf3,#f2e4d3);border:1.5px solid #d9c4a8;border-radius:28px 28px 8px 28px;text-align:center;color:#382821;box-shadow:0 18px 45px #38282112}
+html body #studio2View #studio2RentalConfirmation .rc-check{display:grid;place-items:center;width:76px;height:76px;margin:0 auto 20px;border-radius:50%;background:#481824;color:#fff7ee;font-size:34px}
+html body #studio2View #studio2RentalConfirmation h3{font:700 clamp(30px,5vw,44px)/1.1 'Cormorant Garamond',serif;color:#481824}
+html body #studio2View #studio2RentalConfirmation .rc-intro,
+html body #studio2View #studio2RentalConfirmation .rc-note{color:#59463f;line-height:1.7}
+html body #studio2View #studio2RentalConfirmation .rc-details{max-width:620px;margin:24px auto;text-align:left}
+html body #studio2View #studio2RentalConfirmation .rc-row{display:flex;justify-content:space-between;gap:18px;padding:12px 0;border-bottom:1px solid #ddc8b6}
+html body #studio2View #studio2RentalConfirmation .rc-row span{color:#80695d}
+html body #studio2View #studio2RentalConfirmation .rc-row strong{color:#481824;text-align:right}
+html body #studio2View #studio2RentalConfirmation .rc-back{margin-top:20px;padding:13px 22px;border:1px solid #542033;border-radius:999px;background:#542033;color:#fff8ef}
+@media(max-width:760px){
+ html body #studio2View .studio2-live-availability .calendar-panel{padding:12px}
+ html body #studio2View #studio2RentalConfirmation .rc-row{flex-direction:column;gap:4px}
+ html body #studio2View #studio2RentalConfirmation .rc-row strong{text-align:left}
+}
+</style>
 </head>
 <body>
 <main class="wrap">
@@ -5032,7 +5060,7 @@ html body #rentalView .phone-card{margin-top:0!important}
 <label class="email-label">El. paštas rezervacijos informacijai *<input type="email" id="studio2RentEmail" name="email" placeholder="vardas@pastas.lt" autocomplete="email" required></label>
 <div class="toast" id="studio2RentToast"></div>
 </div>
-<aside class="price-card"><div><div class="eyebrow">Studijos Nr. 2 nuoma</div><h3>Jūsų erdvė,<br>jūsų idėjos.</h3><div class="amount" id="studio2RentPrice">40 €</div><p id="studio2PriceExplanation">1 valanda vienoje rezervacijoje.</p></div><div class="rule">Pirmos 3 val. – 40 €/val.<br>Kiekviena papildoma valanda – 40 €.</div><button class="action" id="studio2RentSubmit">Tęsti rezervaciją</button></aside>
+<aside class="price-card"><div><div class="eyebrow">Studijos Nr. 2 nuoma</div><h3>Jūsų erdvė,<br>jūsų idėjos.</h3><div class="amount" id="studio2RentPrice">40 €</div><p id="studio2PriceExplanation">1 valanda vienoje rezervacijoje.</p></div><div class="rule">Visos rezervacijos valandos – 40 €/val.</div><button class="action" id="studio2RentSubmit">Tęsti rezervaciją</button></aside>
 </div>
 <section id="studio2RentalConfirmation" aria-live="polite" aria-labelledby="studio2RentalConfirmationTitle">
   <div class="rc-check" aria-hidden="true">✓</div>
