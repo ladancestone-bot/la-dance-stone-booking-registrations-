@@ -23856,3 +23856,59 @@ html body #rentalView .rental-gallery.rental-gallery-studio1 > .phone-card{
   }
 }
 </style>
+
+
+<style id="lds-match-studio1-to-studio2-final-20261019">
+/* Match Studio 1 badge placement and time typography to Studio 2. */
+html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-studio-photo > .gallery-caption{
+  position:absolute!important;
+  left:22px!important;
+  bottom:18px!important;
+  top:auto!important;
+  z-index:5!important;
+  transform:translateY(-1px)!important;
+  margin:0!important;
+  min-height:0!important;
+  padding:10px 20px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:max-content!important;
+  border-radius:999px!important;
+}
+html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-studio-photo > .gallery-caption strong{
+  font:600 17px 'Cormorant Garamond',serif!important;
+  line-height:1.05!important;
+  letter-spacing:.01em!important;
+}
+html body #rentalView .rental-summary-hours strong,
+html body #studio2View .studio2-summary-hours strong{
+  font-family:'Cormorant Garamond',serif!important;
+  font-size:clamp(24px,5.4vw,32px)!important;
+  font-weight:700!important;
+  line-height:1.08!important;
+  letter-spacing:.015em!important;
+  font-variant-numeric:lining-nums!important;
+}
+html body #rentalView .rental-summary-hours span,
+html body #studio2View .studio2-summary-hours span{
+  font-family:'Jost',sans-serif!important;
+  font-size:14px!important;
+  font-weight:400!important;
+  letter-spacing:.015em!important;
+  line-height:1.4!important;
+}
+@media(max-width:640px){
+  html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-studio-photo > .gallery-caption{
+    left:18px!important;
+    bottom:16px!important;
+    padding:9px 17px!important;
+  }
+  html body #rentalView .rental-summary-hours strong,
+  html body #studio2View .studio2-summary-hours strong{
+    font-size:clamp(23px,6vw,28px)!important;
+  }
+  html body #rentalView .rental-summary-hours span,
+  html body #studio2View .studio2-summary-hours span{font-size:13px!important}
+}
+</style>
