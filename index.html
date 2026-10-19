@@ -24880,4 +24880,25 @@ html body #studio2View .studio2-live-availability .cal-scroll:not(.is-scrolling)
   -webkit-backdrop-filter:blur(12px) saturate(1.08)!important;
   backdrop-filter:blur(12px) saturate(1.08)!important;
 }
+
+/* Galutinis kampelio spalvos suvienodinimas: pašalinamas šviesus fill ir atskira juostelė, bet dydis išlieka toks pats. */
+html body #studio2View .studio2-live-availability .cal-scroll #studio2RentalCalendar > .rent-time:first-child {
+  background:rgba(74,43,32,.30)!important;
+  background-color:rgba(74,43,32,.30)!important;
+  background-image:none!important;
+  border-top:1px solid rgba(255,248,239,.36)!important;
+  border-left:1px solid rgba(255,248,239,.36)!important;
+  border-right:1px solid rgba(255,248,239,.36)!important;
+  border-bottom:1px solid rgba(255,248,239,.36)!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+html body #studio2View .studio2-live-availability .cal-scroll #studio2RentalCalendar > .rent-time:first-child::before,
+html body #studio2View .studio2-live-availability .cal-scroll #studio2RentalCalendar > .rent-time:first-child::after {
+  content:none!important;display:none!important;background:transparent!important;
+}
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar > .rent-time:first-child {
+  background:#32180f!important;background-color:#32180f!important;background-image:none!important;
+  border-color:rgba(221,195,172,.42)!important;outline:0!important;box-shadow:none!important;
+}
 </style>
