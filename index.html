@@ -21001,4 +21001,57 @@ html body #homeView .choices>.choice .num{
  html body #homeView .choices>.choice p{font-size:17px!important}
  html body #homeView .choices>.choice .arrow{right:15px!important;inset-inline-end:15px!important;font-size:31px!important}
 }
+
+/* La Dance Stone site-wide background color, sampled from the user's solid-color reference (#4d4640).
+   Apply to every page/view while preserving the individual cards, calendars, forms and controls. */
+:root{
+ --lds-site-background:#4d4640!important;
+ --lds-page-background:#4d4640!important;
+}
+html,body,
+body main.wrap,
+body .page-wrap,
+body .site-main,
+body .main-content,
+body #homeView,
+body #rentalView,
+body #timetableView,
+body #classesView,
+body #classOverview,
+body #classDetail,
+body #scheduleView,
+body #bookingView,
+body #registrationView,
+body .view,
+body .page,
+body .page-section,
+body .content-section{
+ background-color:#4d4640!important;
+ background-image:none!important;
+}
+html{background:#4d4640!important}
+body{
+ background:#4d4640!important;
+ background-color:#4d4640!important;
+ background-image:none!important;
+}
+body::before,body::after{
+ background-image:none!important;
+}
+body main.wrap,
+body #homeView,
+body #rentalView,
+body #timetableView,
+body #classesView{
+ color:#f8f0e7;
+}
+body .brand-footer,
+body #homeView .brand-footer,
+body #rentalView .brand-footer,
+body #timetableView .brand-footer,
+body #classesView .brand-footer{
+ background:#4d4640!important;
+ background-color:#4d4640!important;
+ background-image:none!important;
+}
 </style>
