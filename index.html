@@ -4189,6 +4189,52 @@ html body #timetableView .class-calendar-slot.occupied * {
  #studio2View .studio2-calendar-day{padding:12px;border-radius:13px}
  #studio2View .studio2-calendar-day span{font-size:11px}
 }
+
+/* Studio 2 readability: force high-contrast ink on pale glass surfaces. */
+#studio2View .studio2-hero .studio2-eyebrow,
+#studio2View .studio2-hero .studio2-lead,
+#studio2View .studio2-hero .studio2-photo-disclaimer,
+#studio2View .studio2-hero-facts small,
+#studio2View .studio2-feature-grid article h3,
+#studio2View .studio2-feature-grid article p,
+#studio2View .studio2-section-heading .studio2-eyebrow,
+#studio2View .studio2-section-heading>p:last-child,
+#studio2View .studio2-field,
+#studio2View .studio2-price-row,
+#studio2View .studio2-preview-notice,
+#studio2View .studio2-preview-notice span,
+#studio2View .studio2-rules-card ul,
+#studio2View .studio2-rule-note{color:#604b43!important;text-shadow:none!important}
+#studio2View .studio2-hero h2,
+#studio2View .studio2-section-heading h3,
+#studio2View .studio2-rules-card h3,
+#studio2View .studio2-feature-grid h3{color:#4b1d2a!important;text-shadow:none!important}
+#studio2View .studio2-hero h2 em{color:#906c5b!important}
+#studio2View .studio2-calendar-widget{margin:0 0 22px;border:1px solid #dfcbbb;border-radius:16px;overflow:hidden;background:#fffaf4;color:#4b1d2a}
+#studio2View .studio2-cal-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;background:#f2e5d9;border-bottom:1px solid #e2d0c0}
+#studio2View .studio2-cal-toolbar button{width:32px;height:32px;flex:0 0 32px;border:1px solid #d9c2b0;border-radius:50%;background:#fffaf4;color:#4b1d2a;font-size:23px;line-height:1}
+#studio2View .studio2-cal-title{font-size:12px;font-weight:700;text-align:center;color:#4b1d2a}
+#studio2View .studio2-cal-scroll{max-height:390px;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+#studio2View .studio2-calendar-grid{display:grid;grid-template-columns:46px repeat(7,minmax(76px,1fr));min-width:620px}
+#studio2View .studio2-cal-corner,#studio2View .studio2-cal-dayhead{position:sticky;top:0;z-index:3;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:53px;padding:6px 2px;background:#f8efe7;border-bottom:1px solid #e3d3c5;border-right:1px solid #eadfd5;color:#725a50;font-size:10px}
+#studio2View .studio2-cal-dayhead strong{display:block;margin-top:3px;color:#4b1d2a;font:600 19px/1 'Cormorant Garamond',serif}
+#studio2View .studio2-cal-time{position:sticky;left:0;z-index:2;display:flex;align-items:flex-start;justify-content:center;padding:9px 2px 0;background:#fbf5ee;border-right:1px solid #e3d3c5;border-bottom:1px solid #eadfd5;color:#8a776a;font-size:9px}
+#studio2View .studio2-cal-slot{min-height:48px;padding:3px;border-right:1px solid #eee3d9;border-bottom:1px solid #eadfd5;background:#fffaf4}
+#studio2View .studio2-cal-slot button{width:100%;height:41px;padding:3px 1px;border:1px solid #d8e1d0;border-radius:6px;background:#edf2e8;color:#506349;font-size:9px;line-height:1.2;cursor:pointer}
+#studio2View .studio2-cal-slot button small{display:block;margin-top:3px;color:inherit;font-size:8px}
+#studio2View .studio2-cal-slot button.selected{border-color:#4b1d2a;background:#4b1d2a;color:#fffaf4;box-shadow:0 2px 8px #4b1d2a24}
+#studio2View .studio2-cal-legend{display:flex;flex-wrap:wrap;gap:12px;padding:10px 12px 0;color:#604b43;font-size:10px}
+#studio2View .studio2-cal-legend span{display:flex;align-items:center;gap:5px}
+#studio2View .studio2-cal-legend i{display:inline-block;width:9px;height:9px;border-radius:3px;background:#edf2e8;border:1px solid #d8e1d0}
+#studio2View .studio2-cal-legend i.chosen{background:#4b1d2a;border-color:#4b1d2a}
+#studio2View .studio2-cal-note{margin:8px 12px 12px;color:#7d685d;font-size:10px;line-height:1.5}
+@media(max-width:760px){
+ #studio2View .studio2-hero .studio2-eyebrow{color:#916b5d!important}
+ #studio2View .studio2-hero .studio2-lead{color:#604b43!important}
+ #studio2View .studio2-cal-scroll{max-height:340px}
+ #studio2View .studio2-calendar-grid{grid-template-columns:40px repeat(7,minmax(68px,1fr));min-width:516px}
+ #studio2View .studio2-cal-dayhead{font-size:9px}
+}
 </style>
 
 </head>
@@ -4504,26 +4550,21 @@ html body #timetableView .class-calendar-slot.occupied * {
       <article><span class="studio2-feature-icon">⌂</span><h3>Įleidimas sutartu laiku</h3><p>Atvyksta atsakingas žmogus ir įleidžia rezervacijos metu sutartu laiku.</p></article>
     </div>
 
-    <section class="studio2-calendar-preview" aria-label="Studijos Nr. 2 kalendoriaus peržiūra">
-      <div class="studio2-calendar-preview-head">
-        <div><p class="studio2-eyebrow">KALENDORIAUS PERŽIŪRA</p><h3>Pasirinkite Jums patogų laiką</h3><p>Kalendoriaus vaizdas paruoštas dizaino peržiūrai. Laisvumas čia dar nėra tikrinamas realiuoju laiku.</p></div>
-        <span class="studio2-preview-tag">DEMONSTRACINIS VAIZDAS</span>
-      </div>
-      <div class="studio2-calendar-strip" aria-hidden="true">
-        <div class="studio2-calendar-day"><small>PIRM.</small><strong>19</strong><span>08:00–22:00</span><b>Pasirinkti laiką žemiau</b></div>
-        <div class="studio2-calendar-day"><small>ANTR.</small><strong>20</strong><span>08:00–22:00</span><b>Pasirinkti laiką žemiau</b></div>
-        <div class="studio2-calendar-day"><small>TREČ.</small><strong>21</strong><span>08:00–22:00</span><b>Pasirinkti laiką žemiau</b></div>
-        <div class="studio2-calendar-day"><small>KETV.</small><strong>22</strong><span>08:00–22:00</span><b>Pasirinkti laiką žemiau</b></div>
-        <div class="studio2-calendar-day"><small>PENKT.</small><strong>23</strong><span>08:00–22:00</span><b>Pasirinkti laiką žemiau</b></div>
-        <div class="studio2-calendar-day"><small>ŠEŠT.</small><strong>24</strong><span>08:00–22:00</span><b>Pasirinkti laiką žemiau</b></div>
-        <div class="studio2-calendar-day"><small>SEKM.</small><strong>25</strong><span>08:00–22:00</span><b>Pasirinkti laiką žemiau</b></div>
-      </div>
-      <p class="studio2-calendar-footnote">Tai nėra tikrų laisvų laikų patvirtinimas. Rezervacijos, užimtumas, mokėjimai ir el. laiškai šiame etape neaktyvinami.</p>
-    </section>
-
     <div class="studio2-booking-layout">
       <section class="studio2-booking-card">
         <div class="studio2-section-heading"><p class="studio2-eyebrow">REZERVACIJOS PLANAS</p><h3>Pasirinkite laiką</h3><p>Šiame etape kalendoriaus išvaizda ir pasirinkimai paruošti peržiūrai. Laisvų laikų tikrinimas dar neprijungtas prie rezervacijų duomenų.</p></div>
+        <div class="studio2-calendar-widget">
+          <div class="studio2-cal-toolbar">
+            <button type="button" id="studio2PrevWeek" aria-label="Ankstesnė savaitė">‹</button>
+            <div id="studio2WeekLabel" class="studio2-cal-title">Savaitės kalendorius</div>
+            <button type="button" id="studio2NextWeek" aria-label="Kita savaitė">›</button>
+          </div>
+          <div class="studio2-cal-scroll" tabindex="0" aria-label="Studijos Nr. 2 savaitės laiko pasirinkimai">
+            <div id="studio2Calendar" class="studio2-calendar-grid"></div>
+          </div>
+          <div class="studio2-cal-legend"><span><i class="free"></i>Laisvas laikas (demonstracinis)</span><span><i class="chosen"></i>Pasirinktas laikas</span></div>
+          <p class="studio2-cal-note">Kalendorius skirtas dizaino ir pasirinkimų peržiūrai. Realus užimtumas dar neprijungtas.</p>
+        </div>
         <label class="studio2-field">Data
           <input id="studio2Date" type="date" min="2026-10-19">
         </label>
@@ -4573,8 +4614,35 @@ const $=id=>document.getElementById(id);
 
 const studio2Date=$('studio2Date'),studio2Start=$('studio2Start'),studio2Duration=$('studio2Duration'),studio2Price=$('studio2Price');
 if(studio2Date){const now=new Date();const localDate=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);studio2Date.min=localDate;studio2Date.value=localDate;}
-function updateStudio2Price(){if(!studio2Start||!studio2Duration||!studio2Price)return;const start=Number(studio2Start.value||8);const maxDuration=Math.max(1,22-start);Array.from(studio2Duration.options).forEach(o=>{o.disabled=Number(o.value)>maxDuration;});if(Number(studio2Duration.value)>maxDuration)studio2Duration.value=String(maxDuration);studio2Price.textContent=(Number(studio2Duration.value||1)*40).toLocaleString('lt-LT')+' €';}
-if(studio2Start)studio2Start.addEventListener('change',updateStudio2Price);if(studio2Duration)studio2Duration.addEventListener('change',updateStudio2Price);updateStudio2Price();
+let studio2WeekOffset=0;
+function studio2LocalISO(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function studio2Monday(d){const x=new Date(d);x.setHours(12,0,0,0);x.setDate(x.getDate()-(x.getDay()+6)%7);return x}
+function renderStudio2Calendar(){
+ const host=$('studio2Calendar'),label=$('studio2WeekLabel');if(!host||!label||!studio2Date)return;
+ const selectedValue=studio2Date.value||studio2LocalISO(new Date());
+ const selectedDate=new Date(selectedValue+'T12:00:00');const monday=studio2Monday(selectedDate);monday.setDate(monday.getDate()+studio2WeekOffset*7);
+ const sunday=new Date(monday);sunday.setDate(sunday.getDate()+6);
+ const en=window.__ldsLanguage==='en';
+ label.textContent=en?monday.toLocaleDateString('en-GB',{day:'numeric',month:'short'})+' – '+sunday.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):monday.getFullYear()+' m. '+monday.toLocaleDateString('lt-LT',{month:'short',day:'numeric'})+' – '+sunday.toLocaleDateString('lt-LT',{month:'short',day:'numeric',year:'numeric'});
+ const dayNames=en?['Mon','Tue','Wed','Thu','Fri','Sat','Sun']:['Pr','An','Tr','Kt','Pn','Št','Sk'];
+ let out='<div class="studio2-cal-corner">'+(en?'TIME':'LAIKAS')+'</div>';
+ for(let i=0;i<7;i++){const d=new Date(monday);d.setDate(d.getDate()+i);out+='<div class="studio2-cal-dayhead">'+dayNames[i]+'<strong>'+d.getDate()+'</strong></div>'}
+ const selectedDay=studio2LocalISO(selectedDate), selectedHour=Number(studio2Start?.value||8);
+ for(let hour=8;hour<22;hour++){
+  out+='<div class="studio2-cal-time">'+String(hour).padStart(2,'0')+':00</div>';
+  for(let day=0;day<7;day++){
+   const d=new Date(monday);d.setDate(d.getDate()+day);const iso=studio2LocalISO(d);const chosen=iso===selectedDay&&hour===selectedHour;
+   out+='<div class="studio2-cal-slot"><button type="button" class="'+(chosen?'selected':'')+'" data-studio2-date="'+iso+'" data-studio2-hour="'+hour+'" aria-pressed="'+(chosen?'true':'false')+'">'+(chosen?(en?'SELECTED':'PASIRINKTA'):(en?'Select':'Rinktis'))+'<small>'+String(hour).padStart(2,'0')+':00</small></button></div>';
+  }
+ }
+ host.innerHTML=out;
+ host.querySelectorAll('[data-studio2-date]').forEach(btn=>btn.addEventListener('click',()=>{
+  studio2Date.value=btn.dataset.studio2Date;studio2Start.value=btn.dataset.studio2Hour;
+  studio2WeekOffset=0;updateStudio2Price();renderStudio2Calendar();
+ }));
+}
+function updateStudio2Price(){if(!studio2Start||!studio2Duration||!studio2Price)return;const start=Number(studio2Start.value||8);const maxDuration=Math.max(1,22-start);Array.from(studio2Duration.options).forEach(o=>{o.disabled=Number(o.value)>maxDuration;});if(Number(studio2Duration.value)>maxDuration)studio2Duration.value=String(maxDuration);studio2Price.textContent=(Number(studio2Duration.value||1)*40).toLocaleString('lt-LT')+' €';if(typeof renderStudio2Calendar==='function')renderStudio2Calendar();}
+const studio2Prev=$('studio2PrevWeek'),studio2Next=$('studio2NextWeek');if(studio2Prev)studio2Prev.addEventListener('click',()=>{studio2WeekOffset--;renderStudio2Calendar()});if(studio2Next)studio2Next.addEventListener('click',()=>{studio2WeekOffset++;renderStudio2Calendar()});if(studio2Date)studio2Date.addEventListener('change',()=>{studio2WeekOffset=0;renderStudio2Calendar()});if(studio2Start)studio2Start.addEventListener('change',updateStudio2Price);if(studio2Duration)studio2Duration.addEventListener('change',updateStudio2Price);updateStudio2Price();
 
 function showView(name){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));$(name+'View').classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
 let classReturnView="home";const classContextBack=$("classContextBack");if(classContextBack)classContextBack.addEventListener("click",()=>showView(classReturnView));
