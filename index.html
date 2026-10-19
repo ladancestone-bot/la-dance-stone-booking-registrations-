@@ -5578,7 +5578,7 @@ function studio2UpdateBookingSummary(){
  if(summaryLabels.length>=2){summaryLabels[0].textContent=en?'Selected time':'Pasirinktas laikas';summaryLabels[1].textContent=en?'Price per booking':'Vieno užsakymo kaina';}
  studio2RenderRentalCalendar();
 }
-function studio2RenderRentalCalendar(){const host=$('studio2RentalCalendar');if(!host)return;const chosen=studio2RentSelectedDate();studio2RentWeek=mondayOf(chosen);const weekEnd=new Date(studio2RentWeek);weekEnd.setDate(weekEnd.getDate()+6);$('studio2RentWeekLabel').textContent=window.__ldsLanguage==='en'?studio2RentWeek.getDate()+'–'+weekEnd.getDate()+' '+weekEnd.toLocaleDateString('en-GB',{month:'long'})+' '+weekEnd.getFullYear():studio2RentWeek.getFullYear()+' m. '+weekEnd.toLocaleDateString('lt-LT',{month:'long'})+' '+studio2RentWeek.getDate()+'–'+weekEnd.getDate()+' d.';const days=window.__ldsLanguage==='en'?['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']:['Pirmadienis','Antradienis','Trečiadienis','Ketvirtadienis','Penktadienis','Šeštadienis','Sekmadienis'];let html='<div class="rent-time"></div>';for(let day=0;day<7;day++){const dt=new Date(studio2RentWeek);dt.setDate(dt.getDate()+day);const isSelected=localISO(dt)===localISO(chosen);html+='<div class="rent-day '+(isSelected?'selected-day':'')+'"><button data-pick-day="'+day+'">'+days[day]+'<strong>'+dt.getDate()+'</strong></button></div>'}const start=studio2StartHour(),len=studio2BookingDuration(),selectedDay=(chosen.getDay()+6)%7,conflict=studio2HasConflict(selectedDay,start,len);for(let hour=8;hour<22;hour++){html+='<div class="rent-time">'+String(hour).padStart(2,'0')+':00</div>';for(let day=0;day<7;day++){const isBusy=studio2BusyAt(day,hour);const availabilityState=studio2RentalWeekBounds();const isReady=studio2AvailabilityLoadedKey===availabilityState.key;const hasError=studio2AvailabilityErrorKey===availabilityState.key;const selected=day===selectedDay&&hour>=start&&hour<(start===21?22:start+len);let cls='rent-slot';if(isBusy)cls+=' busy';if(selected)cls+=' chosen'+(hour===start?' first':'')+(hour===(start===21?21:start+len-1)?' last':'')+(conflict?' conflict':'');let en=window.__ldsLanguage==='en';let label=!isReady?(hasError?(en?'UNAVAILABLE':'NEPASIEKIAMA'):(en?'CHECKING':'TIKRINAMA')):isBusy?(en?'BOOKED':'UŽIMTA'):selected?(hour===start?(en?'YOUR TIME':'JŪSŲ LAIKAS'):hour===start+len-1?(en?'UNTIL ':'IKI ')+String((hour+1)%24).padStart(2,'0')+':00':'✓ '+String(hour).padStart(2,'0')+':00'):(en?'FREE':'LAISVA');let sub=String(hour).padStart(2,'0')+':00–'+String(hour+1).padStart(2,'0')+':00';html+='<div class="rent-cell"><button class="'+cls+'" data-rent-day="'+day+'" data-rent-hour="'+hour+'" '+(isBusy||!isReady?'disabled':'')+'><strong>'+label+'</strong><small>'+sub+'</small></button></div>'}}host.innerHTML=html;const state=studio2RentalWeekBounds();if(studio2AvailabilityLoadedKey!==state.key)$('studio2SelectionHint').textContent=studio2AvailabilityErrorKey===state.key?'Nepavyko patikrinti užimtumo. Atnaujinkite puslapį.':'Tikriname realų studijos užimtumą…';host.querySelectorAll('[data-pick-day]').forEach(btn=>btn.onclick=()=>{const dt=new Date(studio2RentWeek);dt.setDate(dt.getDate()+Number(btn.dataset.pickDay));$('studio2RentDate').value=localISO(dt);$('studio2RentToast').classList.remove('show');studio2UpdateBookingSummary()});host.querySelectorAll('[data-rent-day]').forEach(btn=>btn.onclick=()=>{const dt=new Date(studio2RentWeek);dt.setDate(dt.getDate()+Number(btn.dataset.rentDay));$('studio2RentDate').value=localISO(dt);$('studio2RentTime').value=String(Number(btn.dataset.rentHour)).padStart(2,'0');$('studio2RentLength').value='1';$('studio2RentToast').classList.remove('show');$('studio2RentalBooking').classList.add('booking-open');studio2UpdateBookingSummary();$('studio2RentalBooking').scrollIntoView({behavior:'smooth',block:'start'})})}
+function studio2RenderRentalCalendar(){const host=$('studio2RentalCalendar');if(!host)return;const chosen=studio2RentSelectedDate();studio2RentWeek=mondayOf(chosen);const weekEnd=new Date(studio2RentWeek);weekEnd.setDate(weekEnd.getDate()+6);$('studio2RentWeekLabel').textContent=window.__ldsLanguage==='en'?studio2RentWeek.getDate()+'–'+weekEnd.getDate()+' '+weekEnd.toLocaleDateString('en-GB',{month:'long'})+' '+weekEnd.getFullYear():studio2RentWeek.getFullYear()+' m. '+weekEnd.toLocaleDateString('lt-LT',{month:'long'})+' '+studio2RentWeek.getDate()+'–'+weekEnd.getDate()+' d.';const days=window.__ldsLanguage==='en'?['Mon','Tue','Wed','Thu','Fri','Sat','Sun']:['Pr','An','Tr','Kt','Pn','Št','Sk'];let html='<div class="rent-time"></div>';for(let day=0;day<7;day++){const dt=new Date(studio2RentWeek);dt.setDate(dt.getDate()+day);const isSelected=localISO(dt)===localISO(chosen);html+='<div class="rent-day '+(isSelected?'selected-day':'')+'"><button data-pick-day="'+day+'">'+days[day]+'<strong>'+dt.getDate()+'</strong></button></div>'}const start=studio2StartHour(),len=studio2BookingDuration(),selectedDay=(chosen.getDay()+6)%7,conflict=studio2HasConflict(selectedDay,start,len);for(let hour=8;hour<22;hour++){html+='<div class="rent-time">'+String(hour).padStart(2,'0')+':00</div>';for(let day=0;day<7;day++){const isBusy=studio2BusyAt(day,hour);const availabilityState=studio2RentalWeekBounds();const isReady=studio2AvailabilityLoadedKey===availabilityState.key;const hasError=studio2AvailabilityErrorKey===availabilityState.key;const selected=day===selectedDay&&hour>=start&&hour<(start===21?22:start+len);let cls='rent-slot';if(isBusy)cls+=' busy';if(selected)cls+=' chosen'+(hour===start?' first':'')+(hour===(start===21?21:start+len-1)?' last':'')+(conflict?' conflict':'');let en=window.__ldsLanguage==='en';let label=!isReady?(hasError?(en?'UNAVAILABLE':'NEPASIEKIAMA'):(en?'CHECKING':'TIKRINAMA')):isBusy?(en?'BOOKED':'UŽIMTA'):selected?(hour===start?(en?'YOUR TIME':'JŪSŲ LAIKAS'):hour===start+len-1?(en?'UNTIL ':'IKI ')+String((hour+1)%24).padStart(2,'0')+':00':'✓ '+String(hour).padStart(2,'0')+':00'):(en?'FREE':'LAISVA');let sub=String(hour).padStart(2,'0')+':00–'+String(hour+1).padStart(2,'0')+':00';html+='<div class="rent-cell"><button class="'+cls+'" data-rent-day="'+day+'" data-rent-hour="'+hour+'" '+(isBusy||!isReady?'disabled':'')+'><strong>'+label+'</strong><small>'+sub+'</small></button></div>'}}host.innerHTML=html;const state=studio2RentalWeekBounds();if(studio2AvailabilityLoadedKey!==state.key)$('studio2SelectionHint').textContent=studio2AvailabilityErrorKey===state.key?'Nepavyko patikrinti užimtumo. Atnaujinkite puslapį.':'Tikriname realų studijos užimtumą…';host.querySelectorAll('[data-pick-day]').forEach(btn=>btn.onclick=()=>{const dt=new Date(studio2RentWeek);dt.setDate(dt.getDate()+Number(btn.dataset.pickDay));$('studio2RentDate').value=localISO(dt);$('studio2RentToast').classList.remove('show');studio2UpdateBookingSummary()});host.querySelectorAll('[data-rent-day]').forEach(btn=>btn.onclick=()=>{const dt=new Date(studio2RentWeek);dt.setDate(dt.getDate()+Number(btn.dataset.rentDay));$('studio2RentDate').value=localISO(dt);$('studio2RentTime').value=String(Number(btn.dataset.rentHour)).padStart(2,'0');$('studio2RentLength').value='1';$('studio2RentToast').classList.remove('show');$('studio2RentalBooking').classList.add('booking-open');studio2UpdateBookingSummary();$('studio2RentalBooking').scrollIntoView({behavior:'smooth',block:'start'})})}
 $('studio2RentDate').addEventListener('change',()=>{studio2RentWeek=mondayOf(studio2RentSelectedDate());studio2UpdateBookingSummary();studio2LoadRentalAvailability(true)});$('studio2RentTime').addEventListener('change',studio2UpdateBookingSummary);
 $('studio2DurationMinus').onclick=()=>{const n=Math.max(1,studio2BookingDuration()-1);$('studio2RentLength').value=String(n);studio2UpdateBookingSummary()};
 $('studio2DurationPlus').onclick=()=>{const max=studio2MaxAllowedDuration((studio2RentSelectedDate().getDay()+6)%7,studio2StartHour());const n=Math.min(6,max,studio2BookingDuration()+1);if(n>=1){$('studio2RentLength').value=String(n);studio2UpdateBookingSummary()}};
@@ -24617,5 +24617,69 @@ html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #stud
 }
 html body #studio2View #studio2FinalSlotNotice {
   display:none!important;
+}
+</style>
+
+
+<style id="studio2-scroll-colors-and-reminder-scope-20261019">
+/* Studija Nr. 2: šviesus permatomas fonas įprastai, tamsesnis tik slenkant. */
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day {
+  background:rgba(230,211,194,.46)!important;
+  background-image:none!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day button {
+  color:#67483e!important;
+  font-size:clamp(9px,2.4vw,12px)!important;
+  font-weight:600!important;
+  line-height:1.15!important;
+  white-space:nowrap!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day button strong {
+  color:#4b302b!important;
+  font-size:clamp(16px,4.2vw,21px)!important;
+}
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day.selected-day {
+  background:#743849!important;
+  box-shadow:inset 0 -3px #d4b36f!important;
+}
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day.selected-day button,
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day.selected-day button strong {
+  color:#fff8ef!important;
+}
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-day {
+  background:#9d806d!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-day button,
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-day button strong {
+  color:#392521!important;
+}
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-day.selected-day {
+  background:#743849!important;
+}
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-day.selected-day button,
+html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #studio2RentalCalendar .rent-day.selected-day button strong {
+  color:#fff8ef!important;
+}
+/* Užrakinimo priminimas priklauso tik pirmajai studijai. */
+html body #studio2View .closing-notice,
+html body #studio2View .rental-reminder-simple,
+html body #studio2View #studio2FinalSlotNotice {
+  display:none!important;
+}
+html body #rentalView .rental-reminder-simple {
+  display:block!important;
+}
+html body #rentalView #finalSlotNotice {
+  display:block!important;
 }
 </style>
