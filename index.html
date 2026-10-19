@@ -20656,6 +20656,68 @@ html body #studio2View .studio2-secondary-caption span{
 }
 </style>
 
+
+<style id="studio1-summary-card-contrast-fix">
+/* Connect the price/address strip directly to the Studio 1 photo as one clean card. */
+html body #rentalView .rental-studio-photo{
+ border:1px solid rgba(255,248,239,.9)!important;
+ border-bottom:0!important;
+ border-radius:24px 24px 0 0!important;
+ background:#fff8ef!important;
+}
+html body #rentalView .rental-studio-photo>img{
+ border-radius:23px 23px 0 0!important;
+}
+html body #rentalView .rental-studio-photo .gallery-caption{
+ background:#fff8ef!important;border-color:#e5d0bd!important;
+ color:#5d443a!important;box-shadow:0 4px 16px rgba(54,31,23,.12)!important;
+}
+html body #rentalView .rental-summary-row{
+ position:relative!important;
+ margin:-1px 0 24px!important;
+ padding:22px 22px 24px!important;
+ background:#fff8ef!important;
+ border:1px solid #e4cbb7!important;
+ border-top:1px solid #e4cbb7!important;
+ border-radius:0 0 24px 24px!important;
+ box-shadow:0 14px 30px rgba(48,29,23,.12)!important;
+ color:#5a4339!important;
+}
+html body #rentalView .rental-summary-price strong,
+html body #rentalView .rental-summary-hours strong,
+html body #rentalView .rental-summary-address strong{
+ color:#4b1d2a!important;
+}
+html body #rentalView .rental-summary-price span,
+html body #rentalView .rental-summary-hours span,
+html body #rentalView .rental-summary-address small{
+ color:#765d51!important;
+}
+html body #rentalView .rental-summary-hours,
+html body #rentalView .rental-summary-address{
+ border-color:#ddc1ac!important;
+}
+html body #rentalView .rental-summary-pin{color:#4b1d2a!important}
+@media(max-width:760px){
+ html body #rentalView .rental-studio-photo{border-radius:18px 18px 0 0!important}
+ html body #rentalView .rental-studio-photo>img{border-radius:17px 17px 0 0!important}
+ html body #rentalView .rental-summary-row{
+  grid-template-columns:.72fr 1.28fr!important;
+  gap:12px!important;padding:18px 16px 20px!important;
+  margin:0 0 20px!important;border-radius:0 0 18px 18px!important;
+ }
+ html body #rentalView .rental-summary-price strong{font-size:30px!important}
+ html body #rentalView .rental-summary-price span,
+ html body #rentalView .rental-summary-hours span{font-size:13px!important}
+ html body #rentalView .rental-summary-hours{padding-left:12px!important}
+ html body #rentalView .rental-summary-hours strong{font-size:14px!important}
+ html body #rentalView .rental-summary-address{
+  grid-column:1/-1!important;border-left:0!important;
+  border-top:1px solid #ddc1ac!important;padding:13px 0 0!important;
+ }
+}
+</style>
+
 </body>
 </html>
 
