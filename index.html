@@ -5561,33 +5561,18 @@ function studio2UpdateBookingSummary(){
  $('studio2DurationMinus').disabled=len<=1;
  const total=len*40;
  const fmt=n=>String(n).padStart(2,'0')+':00';
- const includesFinalSlot=start+len===22;
- const displayEnd=includesFinalSlot?'21:45':fmt(end);
- const finalSlotNotice=$('studio2FinalSlotNotice');if(finalSlotNotice)finalSlotNotice.hidden=!includesFinalSlot;
  $('studio2DurationValue').textContent=len+(en?(len===1?' hour':' hours'):(len===1?' val.':' val.'));
- let durationNote;
- if(includesFinalSlot){
-   if(len===1){
-     durationNote='<span class="summary-detail">'+(en?'Duration: 45 min.':'Trukmė: 45 min.')+'</span><span class="summary-detail">'+(en?'Same price as 1 hour.':'Kaina kaip už 1 valandą.')+'</span>';
-   }else{
-     durationNote='<span class="summary-detail">'+(len-1)+(en?' h 45 min.':' val. 45 min.')+'</span><span class="summary-detail">'+(en?'Charged as '+len+' hour'+(len===1?'':'s')+'.':'Apmokestinama kaip '+len+' val.')+'</span>';
-   }
- }else{
-   durationNote=len+(en?(len===1?' hour':' hours'):(len===1?' valanda':' valandos'));
- }
- $('studio2RentInterval').innerHTML='<span class="summary-time">'+fmt(start)+'–'+displayEnd+'</span><span class="summary-note">'+durationNote+'</span>';
+ $('studio2RentInterval').innerHTML='<span class="summary-time">'+fmt(start)+'–'+fmt(end)+'</span><span class="summary-note">'+len+' '+(en?(len===1?'hour':'hours')+' per booking.':(len===1?'valanda':'valandos')+' vienoje rezervacijoje.')+'</span>';
  $('studio2RentTotal').textContent=total+' €';
  $('studio2RentPrice').textContent=total+' €';
- $('studio2PriceExplanation').textContent=includesFinalSlot
-   ?(len===1?(en?'45 min. · same price as 1 hour.':'45 min. · kaina kaip už 1 valandą.'):(len-1)+(en?' h 45 min. · charged as '+len+' hour'+(len===1?'':'s')+'.':' val. 45 min. · apmokestinama kaip '+len+' val.'))
-   :len+' '+(en?(len===1?'hour':'hours')+' per booking.':(len===1?'valanda':'valandos')+' vienoje rezervacijoje.');
+ $('studio2PriceExplanation').textContent=len+' '+(en?(len===1?'hour':'hours')+' per booking.':(len===1?'valanda':'valandos')+' vienoje rezervacijoje.');
  const issue=studio2HasConflict(weekday,start,len)
-   ?(start===21?(en?'The final 45-minute slot is already booked. Please choose another time.':'Paskutinis 45 min. laikas jau užimtas. Pasirinkite kitą laiką.')
-     :(en?'The selected period overlaps a booked time or ends too late. Bookings are available until 21:45.':'Pasirinktas intervalas susikerta su užimtu laiku arba baigiasi per vėlai. Galima rezervuoti iki 21:45 val.'))
+   ?(start===21?(en?'The 21:00–22:00 slot is already booked. Please choose another time.':'21.00–22.00 val. laikas jau užimtas. Pasirinkite kitą laiką.')
+     :(en?'The selected period overlaps a booked time or ends too late. Bookings are available until 22:00.':'Pasirinktas intervalas susikerta su užimtu laiku arba baigiasi per vėlai. Galima rezervuoti iki 22.00 val.'))
    :'';
  $('studio2SelectionHint').textContent=issue||(en
-   ?'Selected as one continuous '+(includesFinalSlot?(len===1?'45-minute period, charged as 1 hour':(len-1)+' h 45 min. period, charged as '+len+' hours'):len+'-hour period')+' — this is one booking, not separate bookings.'
-   :'Pažymėtas vientisas '+(includesFinalSlot?(len===1?'45 min. intervalas, apmokestinamas kaip 1 valanda':(len-1)+' val. 45 min. intervalas, apmokestinamas kaip '+len+' val.'):' '+len+' val. intervalas')+' — tai viena rezervacija, ne atskiri užsakymai.');
+   ?'Selected as one continuous '+len+'-hour period — this is one booking, not separate bookings.'
+   :'Pažymėtas vientisas '+len+' val. intervalas — tai viena rezervacija, ne atskiri užsakymai.');
  $('studio2SelectionHint').style.color=issue?'#9b3434':'';
  const summaryLabels=document.querySelectorAll('#studio2View .booking-summary > div > span');
  if(summaryLabels.length>=2){summaryLabels[0].textContent=en?'Selected time':'Pasirinktas laikas';summaryLabels[1].textContent=en?'Price per booking':'Vieno užsakymo kaina';}
