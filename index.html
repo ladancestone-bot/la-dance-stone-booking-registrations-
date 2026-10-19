@@ -4235,6 +4235,171 @@ html body #timetableView .class-calendar-slot.occupied * {
  #studio2View .studio2-calendar-grid{grid-template-columns:40px repeat(7,minmax(68px,1fr));min-width:516px}
  #studio2View .studio2-cal-dayhead{font-size:9px}
 }
+
+/* FINAL STUDIO 2 PALETTE + CONTRAST RESET
+   Scoped to Studio 2 only. Opaque warm ivory surfaces, deep plum text, no pale text-shadow. */
+html body #studio2View{
+  --s2-ink:#3f202b;
+  --s2-text:#59463f;
+  --s2-muted:#705d54;
+  --s2-wine:#542033;
+  --s2-clay:#946b58;
+  --s2-line:#d9c4b2;
+  --s2-paper:#fffaf4;
+  --s2-card:#fffaf5;
+  --s2-soft:#f2e5d9;
+  color:var(--s2-text)!important;
+  background:#9a8373!important;
+  text-shadow:none!important;
+}
+html body #studio2View *,
+html body #studio2View *::before,
+html body #studio2View *::after{
+  text-shadow:none!important;
+}
+html body #studio2View .studio2-shell{color:var(--s2-text)!important}
+html body #studio2View .studio2-back{
+  background:var(--s2-paper)!important;
+  color:var(--s2-wine)!important;
+  border:1px solid var(--s2-line)!important;
+  box-shadow:0 5px 16px rgba(63,32,43,.09)!important;
+}
+html body #studio2View .studio2-back span{color:var(--s2-wine)!important}
+html body #studio2View .studio2-hero{
+  background:linear-gradient(145deg,#fffaf4 0%,#f5e8db 100%)!important;
+  border:1px solid #ead8c7!important;
+  box-shadow:0 18px 45px rgba(55,31,34,.13)!important;
+}
+html body #studio2View .studio2-eyebrow,
+html body #studio2View .studio2-hero .studio2-eyebrow,
+html body #studio2View .studio2-section-heading .studio2-eyebrow{
+  color:#8b5d4c!important;
+  opacity:1!important;
+}
+html body #studio2View .studio2-hero h2,
+html body #studio2View .studio2-hero h2 em,
+html body #studio2View .studio2-feature-grid h3,
+html body #studio2View .studio2-section-heading h3,
+html body #studio2View .studio2-rules-card h3{
+  color:var(--s2-ink)!important;
+  opacity:1!important;
+}
+html body #studio2View .studio2-hero h2 em{color:var(--s2-clay)!important}
+html body #studio2View .studio2-lead,
+html body #studio2View .studio2-photo-disclaimer,
+html body #studio2View .studio2-hero-facts small,
+html body #studio2View .studio2-feature-grid p,
+html body #studio2View .studio2-section-heading>p:last-child,
+html body #studio2View .studio2-field,
+html body #studio2View .studio2-price-row,
+html body #studio2View .studio2-preview-notice,
+html body #studio2View .studio2-preview-notice span,
+html body #studio2View .studio2-rules-card ul,
+html body #studio2View .studio2-rule-note{
+  color:var(--s2-text)!important;
+  opacity:1!important;
+}
+html body #studio2View .studio2-hero-facts strong,
+html body #studio2View .studio2-price-row strong{color:var(--s2-wine)!important}
+html body #studio2View .studio2-map-link{
+  color:var(--s2-wine)!important;
+  border-bottom-color:#b9937e!important;
+}
+html body #studio2View .studio2-image-note{
+  color:var(--s2-wine)!important;
+  background:#fffaf4!important;
+  border-color:#ead8c7!important;
+}
+html body #studio2View .studio2-feature-grid article,
+html body #studio2View .studio2-booking-card,
+html body #studio2View .studio2-rules-card{
+  background:#fffaf5!important;
+  border:1px solid #e4d1c0!important;
+  box-shadow:0 10px 28px rgba(63,32,43,.08)!important;
+}
+html body #studio2View .studio2-feature-icon{
+  color:var(--s2-wine)!important;
+  border-color:#c8a58e!important;
+  background:#f7eee5!important;
+}
+html body #studio2View .studio2-field input,
+html body #studio2View .studio2-field select{
+  background:#fffdf9!important;
+  color:var(--s2-ink)!important;
+  border:1px solid #cdb5a2!important;
+  opacity:1!important;
+  -webkit-text-fill-color:var(--s2-ink)!important;
+  box-shadow:none!important;
+}
+html body #studio2View .studio2-field input::placeholder{color:#806d62!important;opacity:1!important}
+html body #studio2View .studio2-field input:focus,
+html body #studio2View .studio2-field select:focus{
+  outline:3px solid rgba(148,107,88,.25)!important;
+  border-color:#946b58!important;
+}
+html body #studio2View .studio2-preview-notice{
+  background:#f5e9dd!important;
+  border:1px solid #d9bfa9!important;
+}
+html body #studio2View .studio2-preview-notice strong{color:var(--s2-wine)!important}
+html body #studio2View .studio2-rule-note{
+  background:#f5e9dd!important;
+  border-left-color:#946b58!important;
+}
+html body #studio2View .studio2-calendar-widget{
+  background:#fffdf9!important;
+  border:1px solid #d9c4b2!important;
+}
+html body #studio2View .studio2-cal-toolbar{background:#efe0d2!important;border-bottom-color:#d9c4b2!important}
+html body #studio2View .studio2-cal-toolbar button{
+  background:#fffaf4!important;color:var(--s2-wine)!important;border-color:#cdb5a2!important;
+}
+html body #studio2View .studio2-cal-title,
+html body #studio2View .studio2-cal-corner,
+html body #studio2View .studio2-cal-dayhead{color:var(--s2-text)!important;opacity:1!important}
+html body #studio2View .studio2-cal-dayhead strong{color:var(--s2-wine)!important}
+html body #studio2View .studio2-cal-time{color:#705d54!important;background:#f8f0e8!important}
+html body #studio2View .studio2-cal-slot{background:#fffdf9!important}
+html body #studio2View .studio2-cal-slot button{
+  color:#354a32!important;
+  background:#edf3e8!important;
+  border:1px solid #c8d7bd!important;
+  opacity:1!important;
+}
+html body #studio2View .studio2-cal-slot button small{color:inherit!important}
+html body #studio2View .studio2-cal-slot button.selected{
+  color:#fffaf4!important;
+  background:var(--s2-wine)!important;
+  border-color:var(--s2-wine)!important;
+}
+html body #studio2View .studio2-cal-legend,
+html body #studio2View .studio2-cal-note{color:var(--s2-text)!important;opacity:1!important}
+html body #studio2View .studio2-reserve-button{
+  color:#725d52!important;
+  background:#e9d8c8!important;
+  border:1px solid #cdb5a2!important;
+  opacity:1!important;
+}
+html body #studio2View .studio2-reserve-button:disabled{cursor:not-allowed!important}
+html body #studio2View .brand-footer{
+  background:#4b2632!important;
+  border-top:1px solid #b8957e!important;
+}
+html body #studio2View .brand-footer-copy,
+html body #studio2View .brand-footer-copy p,
+html body #studio2View .brand-footer-copy a{
+  color:#fff7ef!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+html body #studio2View .brand-footer-copy a{text-decoration-color:#c9a48b!important}
+@media(max-width:760px){
+  html body #studio2View .studio2-hero{background:linear-gradient(155deg,#fffaf4 0%,#f2e2d3 100%)!important}
+  html body #studio2View .studio2-lead{font-size:15px!important;line-height:1.7!important}
+  html body #studio2View .studio2-photo-disclaimer{font-size:12px!important;line-height:1.6!important}
+  html body #studio2View .studio2-feature-grid article{background:#fffaf5!important}
+  html body #studio2View .studio2-cal-scroll{max-height:330px!important}
+}
 </style>
 
 </head>
