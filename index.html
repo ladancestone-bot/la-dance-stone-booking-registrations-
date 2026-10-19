@@ -4295,7 +4295,7 @@ html body #timetableView .class-calendar-slot.occupied * {
 <div class="class-single-note" id="classSingleNote" style="display:none">Pasirinkta paslauga ir jos mokestis bus patvirtinti registracijos metu. Šiame prototipe vieta dar neužsakoma ir mokėjimas neatliekamas.</div>
 <div class="class-payment-note" id="classPaymentNote" style="display:none"></div>
 <button class="action" id="classSubmit">Tęsti registraciją</button><div id="classToast" class="toast"></div>
-<div id="classConfirmation" class="class-confirmation" style="display:none" aria-live="polite"><div class="class-confirm-check">✓</div><div class="brand-lockup" style="align-items:center;margin-bottom:16px"><span class="brand-lockup-main">La Dance Stone</span><span class="brand-lockup-sub">Šokių&nbsp;studija</span></div><h3>Registracija sėkminga!</h3><p id="classConfirmationIntro">Registracijos informacija paruošta.</p><div id="classConfirmationDetails" class="class-confirmation-details"></div><div class="class-email-note"><span>✉</span><p><strong>Patvirtinimas el. paštu</strong><br>Šioje peržiūroje tikras el. laiškas dar neišsiunčiamas.</p></div><button class="action" id="classBackToGroups" type="button">Grįžti į pamokas</button></div></div>
+<div id="classConfirmation" class="class-confirmation" style="display:none" aria-live="polite"><div class="class-confirm-check">✓</div><div class="brand-lockup" style="align-items:center;margin-bottom:16px"><img src="https://assets.zyrosite.com/mxBXMb8brLT3X2qV/lds-0827-YY3AE6z0CaVNCYEp.svg" alt="La Dance Stone" style="display:block;width:190px;max-width:100%;height:auto;margin:0 auto"></div><h3>Registracija sėkminga!</h3><p id="classConfirmationIntro">Registracijos informacija paruošta.</p><div id="classConfirmationDetails" class="class-confirmation-details"></div><div class="class-email-note"><span>✉</span><p><strong>Patvirtinimas el. paštu</strong><br>Šioje peržiūroje tikras el. laiškas dar neišsiunčiamas.</p></div><button class="action" id="classBackToGroups" type="button">Grįžti į pamokas</button></div></div>
 <aside class="class-detail-aside"><div class="eyebrow">Pamokų laikas</div><h3>Savaitės tvarkaraštis.</h3><div id="classScheduleRows" class="class-schedule-rows"></div><div class="class-aside-price"><span id="classAsidePriceTitle">Mėnesio abonementas</span><strong id="classAsidePriceAmount">50 € / mėn.</strong><small id="classAsidePriceNote">Papildomas 5 € registracijos mokestis.</small></div></aside>
 </div>
 </div>
@@ -4447,6 +4447,7 @@ function renderClassDates(){
 }
 
 function updateClassPricing(){
+ const en=(window.__ldsLanguage||document.documentElement.lang||current)==='en';
  const adult=classCurrentGroupKey==='adult';
  const type=document.querySelector('input[name="classBookingType"]:checked')?.value||'group';
  const frequency=Number($('adultFrequency')?.value||2);
@@ -4455,16 +4456,34 @@ function updateClassPricing(){
  $('adultPriceTiers').style.display=adult&&type==='group'?'flex':'none';
  $('classAdultOffer').style.display=type==='group'?'block':'none';
  $('classGroupLabel').style.display=adult?'none':'';
- $('classGroupOptionNote').textContent=adult?'Pasirinkite 1, 2 arba 3 treniruotes per savaitę.':'Reguliarios treniruotės pasirinktoje grupėje.';
- $('classOfferTitle').textContent=type==='single'?'Vienkartinė pamoka':adult?'Abonementas · '+frequency+' k./sav.':'Mėnesio abonementas';
- $('classAdultPrice').innerHTML=type==='single'?'10 € <small>/ pamoka</small>':adult?price+' € <small>/ mėn.</small>':'50 € <small>/ mėn.</small>';
+ $('classGroupOptionNote').textContent=adult
+  ?(en?'Choose 1, 2 or 3 classes per week.':'Pasirinkite 1, 2 arba 3 treniruotes per savaitę.')
+  :(en?'Regular classes in your selected group.':'Reguliarios treniruotės pasirinktoje grupėje.');
+ $('classOfferTitle').textContent=type==='single'
+  ?(en?'Single class':'Vienkartinė pamoka')
+  :adult?(en?'Membership · '+frequency+' classes/week':'Abonementas · '+frequency+' k./sav.')
+  :(en?'Monthly membership':'Mėnesio abonementas');
+ $('classAdultPrice').innerHTML=type==='single'
+  ?'10 € <small>'+(en?'/ class':'/ pamoka')+'</small>'
+  :adult?price+' € <small>'+(en?'/ month':'/ mėn.')+'</small>'
+  :'50 € <small>'+(en?'/ month':'/ mėn.')+'</small>';
  $('classOfferFee').style.display=type==='single'?'none':'';
- $('classOfferFee').innerHTML=type==='single'?'':'<span>Pirmą kartą registruojantis – mokestis</span><strong>+5 €</strong>';
- $('classOfferNote').textContent=type==='single'?'Vienkartinės pamokos kaina – 10 €.':adult?'Abonementas suteikia '+frequency+' treniruot'+(frequency===1?'ę':'es')+' per savaitę. Registracijos mokestis mokamas tik pirmą kartą.':'Mėnesio abonementas – 50 €. Registracijos mokestis mokamas tik pirmą kartą.';
- $('classAsidePriceTitle').textContent=type==='single'?'Vienkartinė pamoka':'Mėnesio abonementas';
- $('classAsidePriceAmount').textContent=type==='single'?'10 €':(adult?price:50)+' € / mėn.';
- $('classAsidePriceNote').textContent=type==='single'?'Vienkartinės pamokos mokestis.':'Papildomas 5 € registracijos mokestis.';
- if($('adultDaysHint'))$('adultDaysHint').textContent='Pasirinkite '+frequency+' '+(frequency===1?'dieną':'dienas')+' per savaitę.';
+ $('classOfferFee').innerHTML=type==='single'?'':'<span>'+(en?'Registration fee':'Registracijos mokestis')+'</span><strong>+5 €</strong>';
+ $('classOfferNote').textContent=type==='single'
+  ?(en?'Single class price – €10.':'Vienkartinės pamokos kaina – 10 €.')
+  :adult
+   ?(en?'Membership includes '+frequency+' classes per week. The registration fee is paid only once, on first registration.':'Abonementas suteikia '+frequency+' treniruot'+(frequency===1?'ę':'es')+' per savaitę. Registracijos mokestis mokamas tik pirmą kartą.')
+   :(en?'Monthly membership – €50. The registration fee is paid only once, on first registration.':'Mėnesio abonementas – 50 €. Registracijos mokestis mokamas tik pirmą kartą.');
+ $('classAsidePriceTitle').textContent=type==='single'
+  ?(en?'Single class':'Vienkartinė pamoka')
+  :(en?'Monthly membership':'Mėnesio abonementas');
+ $('classAsidePriceAmount').textContent=type==='single'?'10 €':(adult?price:50)+' € '+(en?'/ month':'/ mėn.');
+ $('classAsidePriceNote').textContent=type==='single'
+  ?(en?'Single-class fee.':'Vienkartinės pamokos mokestis.')
+  :(en?'Additional €5 registration fee.':'Papildomas 5 € registracijos mokestis.');
+ if($('adultDaysHint'))$('adultDaysHint').textContent=en
+  ?'Choose '+frequency+' '+(frequency===1?'day':'days')+' per week.'
+  :'Pasirinkite '+frequency+' '+(frequency===1?'dieną':'dienas')+' per savaitę.';
 }
 function openClassCard(key){classReturnView='classes';showView('classes');showClassDetail(key)}
 function showClassDetail(key){
@@ -4500,21 +4519,23 @@ document.querySelectorAll('input[name="adultDay"]').forEach(cb=>cb.addEventListe
 document.querySelectorAll('input[name="adultDay"]').forEach(cb=>cb.addEventListener('change',renderClassDates));
 document.querySelectorAll('input[name="classBookingType"]').forEach(r=>r.addEventListener('change',()=>{document.querySelectorAll('input[name="adultDay"]').forEach(cb=>{cb.checked=false;cb.disabled=false});updateClassPricing();renderClassDates();$('classToast').classList.remove('show')}));
 $('classSubmit').onclick=async()=>{const button=$('classSubmit');if(button.disabled)return;const first=$('classFirstName').value.trim(),last=$('classLastName').value.trim(),birth=$('classBirthDate').value,email=$('classEmail').value.trim(),phone=$('classPhone').value.trim(),group=({adult:'Šiuolaikinis šokis suaugusiesiems',kids57:'Šiuolaikinis šokis vaikams · 5–7 m.',kids712:'Šiuolaikinis šokis vaikams · 7–12 m.',teens:'Šiuolaikinis šokis paaugliams · 13–18 m.'})[classCurrentGroupKey]||groups[classCurrentGroupKey]?.title||'',type=document.querySelector('input[name="classBookingType"]:checked').value,adultDays=[...document.querySelectorAll('input[name="adultDay"]:checked')].map(cb=>cb.value),adultFrequency=Number($('adultFrequency').value);const required=[['Vardas',first],['Pavardė',last],['Gimimo data',birth],['El. paštas',email],['Telefono numeris',phone],['Grupė',group]];const missing=required.find(x=>!x[1]);if(missing){$('classToast').textContent='Prašome užpildyti lauką „'+missing[0]+'“.​';$('classToast').classList.add('show');return}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){$('classToast').textContent='Patikrinkite el. pašto adresą.';$('classToast').classList.add('show');return}if(classCurrentGroupKey==='adult'&&type==='group'&&adultDays.length!==adultFrequency){$('classToast').textContent='Pasirinkite tiksliai '+adultFrequency+' '+(adultFrequency===1?'dieną':'dienas')+' per savaitę.';$('classToast').classList.add('show');return}if(!classSelectedSessions.length){renderClassDates();$('classToast').textContent=type==='single'?'Pasirinkite konkrečią pamokos datą.':'Pasirinkite galiojančią pamokų savaitę ir dienas.';$('classToast').classList.add('show');return}button.disabled=true;button.textContent='Siunčiama registracija…';$('classToast').classList.remove('show');try{const response=await fetch('https://tqzabmlrtbrylibafjfh.supabase.co/functions/v1/public-class-registration',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_nLHN6DiC2vh_bTXW3uTc7w_I7aT5Za-'},body:JSON.stringify({firstName:first,lastName:last,birthDate:birth,email,phone,group,bookingType:type,groupKey:classCurrentGroupKey,adultDays,adultFrequency,groupIndex:Number($('classGroup').value||0),selectedSessions:classSelectedSessions,language:window.__ldsLanguage||document.documentElement.lang||'lt'})});const result=await response.json().catch(()=>({error:'Serveris grąžino neteisingą atsakymą.'}));if(!response.ok||!result.ok)throw new Error(result.error||'Nepavyko pateikti registracijos.');const adultPrice=({1:40,2:50,3:60})[adultFrequency];
-const typeLabel=type==='single'?'Vienkartinė pamoka · 10 €':(classCurrentGroupKey==='adult'?'Abonementas · '+adultFrequency+' k./sav. · '+adultPrice+' € / mėn.':'Abonementas · 50 € / mėn.');
-$('classConfirmationIntro').textContent='Ačiū, '+first+'! Registracijos patvirtinimas išsiųstas el. paštu '+email+'.';
-const selectedSessionRows=classSelectedSessions.map(s=>escapeClassText(s.day+', '+s.date+' · '+s.start+'–'+s.end)).join('<br>');
+const en=(window.__ldsLanguage||document.documentElement.lang||current)==='en';
+$('classConfirmationIntro').textContent=(en?'Thank you, ':'Ačiū, ')+first+'! '+(en?'Your registration confirmation has been sent to ':'Registracijos patvirtinimas išsiųstas el. paštu ')+email+'.';
+const selectedSessionRows=classSelectedSessions.map(s=>escapeClassText((en?({'Pirmadienis':'Monday','Antradienis':'Tuesday','Trečiadienis':'Wednesday','Ketvirtadienis':'Thursday','Penktadienis':'Friday','Šeštadienis':'Saturday','Sekmadienis':'Sunday'}[s.day]||s.day):s.day)+', '+s.date+' · '+s.start+'–'+s.end)).join('<br>');
 const priceDetails=type==='single'
- ? '<div class="class-confirmation-price"><div class="class-confirmation-price-main"><span>VIENKARTINĖ PAMOKA</span><strong>10 € <small>/ pamoka</small></strong></div></div>'
- : '<div class="class-confirmation-price"><div class="class-confirmation-price-main"><span>MĖNESIO ABONEMENTAS</span><strong>'+escapeClassText(classCurrentGroupKey==='adult'?String(adultPrice):'50')+' € <small>/ mėn.</small></strong><em>'+escapeClassText(classCurrentGroupKey==='adult'?adultFrequency+' k. per savaitę':'Pagal pasirinktos grupės tvarkaraštį')+'</em></div><div class="class-confirmation-price-fee"><span>Registruojantis pirmą kartą</span><strong>+5 €</strong></div><p>5 € registracijos mokestis taikomas tik pirmą kartą. Abonemento mokėjimo nuoroda atsiunčiama atskirai po pirmosios pamokos.</p></div>';
+ ? '<div class="class-confirmation-price"><div class="class-confirmation-price-main"><span>'+(en?'SINGLE CLASS':'VIENKARTINĖ PAMOKA')+'</span><strong>10 € <small>'+(en?'/ class':'/ pamoka')+'</small></strong></div></div>'
+ : '<div class="class-confirmation-price"><div class="class-confirmation-price-main"><span>'+(en?'MONTHLY MEMBERSHIP':'MĖNESIO ABONEMENTAS')+'</span><strong>'+escapeClassText(classCurrentGroupKey==='adult'?String(adultPrice):'50')+' € <small>'+(en?'/ month':'/ mėn.')+'</small></strong><em>'+escapeClassText(classCurrentGroupKey==='adult'?(en?adultFrequency+' classes per week':adultFrequency+' k. per savaitę'):(en?"According to the selected group's timetable":'Pagal pasirinktos grupės tvarkaraštį'))+'</em></div><div class="class-confirmation-price-fee"><span>'+(en?'For first-time registration':'Registruojantis pirmą kartą')+'</span><strong>+5 €</strong></div><p>'+(en?'The €5 registration fee applies only to first-time registrations. The membership payment link will be sent separately after the first class.':'5 € registracijos mokestis taikomas tik pirmą kartą. Abonemento mokėjimo nuoroda atsiunčiama atskirai po pirmosios pamokos.')+'</p></div>';
 $('classConfirmationDetails').innerHTML=
- '<div class="class-confirmation-row"><span>Dalyvis</span><strong>'+escapeClassText(first+' '+last)+'</strong></div>'+
- '<div class="class-confirmation-row"><span>Grupė</span><strong>'+escapeClassText(group)+'</strong></div>'+
- '<div class="class-confirmation-row"><span>El. paštas</span><strong>'+escapeClassText(email)+'</strong></div>'+
- '<div class="class-confirmation-row"><span>Telefonas</span><strong>'+escapeClassText(phone)+'</strong></div>'+
- '<div class="class-confirmation-row"><span>Pamokos data ir laikas</span><strong>'+selectedSessionRows+'</strong></div>'+
- (classCurrentGroupKey==='adult'&&type==='group'?'<div class="class-confirmation-row"><span>Lankymo dienos</span><strong>'+escapeClassText(adultDays.join(', '))+'</strong></div>':'')+
+ '<div class="class-confirmation-row"><span>'+(en?'Participant':'Dalyvis')+'</span><strong>'+escapeClassText(first+' '+last)+'</strong></div>'+
+ '<div class="class-confirmation-row"><span>'+(en?'Group':'Grupė')+'</span><strong>'+escapeClassText(en?({'adult':'Contemporary dance for adults','kids57':'Contemporary dance for children · ages 5–7','kids712':'Contemporary dance for children · ages 7–12','teens':'Contemporary dance for teens · ages 13–18'}[classCurrentGroupKey]||group):group)+'</strong></div>'+
+ '<div class="class-confirmation-row"><span>'+(en?'Email':'El. paštas')+'</span><strong>'+escapeClassText(email)+'</strong></div>'+
+ '<div class="class-confirmation-row"><span>'+(en?'Phone':'Telefonas')+'</span><strong>'+escapeClassText(phone)+'</strong></div>'+
+ '<div class="class-confirmation-row"><span>'+(en?'Class date and time':'Pamokos data ir laikas')+'</span><strong>'+selectedSessionRows+'</strong></div>'+
+ (classCurrentGroupKey==='adult'&&type==='group'?'<div class="class-confirmation-row"><span>'+(en?'Attendance days':'Lankymo dienos')+'</span><strong>'+escapeClassText(adultDays.map(d=>en?({'Pirmadienis':'Monday','Antradienis':'Tuesday','Trečiadienis':'Wednesday','Ketvirtadienis':'Thursday','Penktadienis':'Friday','Šeštadienis':'Saturday','Sekmadienis':'Sunday'}[d]||d):d).join(', '))+'</strong></div>':'')+
  priceDetails+
- '<p class="class-confirmation-payment-note">El. laiške rasite mokėjimo mygtuką ir informaciją, kaip pasiruošti pamokai.</p>';
+ '<p class="class-confirmation-payment-note">'+(en?'The email contains a payment button and information on how to prepare for class.':'El. laiške rasite mokėjimo mygtuką ir informaciją, kaip pasiruošti pamokai.')+'</p>';
+$('classConfirmationIntro').setAttribute('lang',en?'en':'lt');
+$('classConfirmationDetails').setAttribute('lang',en?'en':'lt');
 $('classRegistrationPanel').querySelectorAll(':scope > .eyebrow,:scope > h3,:scope > p,:scope > .class-option-cards,:scope > .fields,:scope > .class-single-note,:scope > .class-payment-note,:scope > .class-adult-offer,:scope > #classSubmit,:scope > #classToast').forEach(el=>el.style.display='none');$('classConfirmation').style.display='block';$('classToast').classList.remove('show');$('classConfirmation').scrollIntoView({behavior:'smooth',block:'start'})}catch(error){$('classToast').textContent=error?.message||'Nepavyko pateikti registracijos. Pabandykite dar kartą.';$('classToast').classList.add('show')}finally{button.disabled=false;button.textContent='Tęsti registraciją'}};function escapeClassText(v){return String(v).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}$('classBackToGroups').onclick=()=>{ $('classConfirmation').style.display='none';$('classRegistrationPanel').querySelectorAll(':scope > .eyebrow,:scope > h3,:scope > p,:scope > .class-option-cards,:scope > .fields,:scope > .class-single-note,:scope > .class-payment-note,:scope > #classSubmit').forEach(el=>el.style.display='');$('classRegistrationPanel').style.display='';$('classOverview').style.display='block';$('classDetail').hidden=true;$('classDetail').style.display='none';showView('classes');$('classOverview').scrollIntoView({behavior:'smooth',block:'start'})};
 let liveBusyRanges=[];let availabilityLoadedKey='';let availabilityErrorKey='';let availabilityRequestKey='';
 let rentWeek=new Date(2026,9,12);
@@ -18967,6 +18988,33 @@ pairs.push(
  ["Pirmiausia pasirinkite 2 lankymo dienas per savaitę.","First, choose 2 class days per week."],
  ["Pirmiausia pasirinkite 3 lankymo dienas per savaitę.","First, choose 3 class days per week."],
  ["Šį mėnesį tinkamų pamokų nebeliko arba jų nėra. Pasirinkite kitą būsimą mėnesį.","There are no remaining classes this month. Please choose another future month."]
+);
+// Explicit English/Lithuanian pairs for dynamically generated class-registration labels.
+pairs.push(
+ ["Reguliarios treniruotės pasirinktoje grupėje.","Regular classes in your selected group."],
+ ["Pagal pasirinktos grupės tvarkaraštį","According to the selected group's timetable"],
+ ["Papildomas 5 € registracijos mokestis.","Additional €5 registration fee."],
+ ["Pirmą kartą registruojantis – mokestis","Registration fee for first-time registration"],
+ ["Vienkartinės pamokos kaina – 10 €.","Single class price – €10."],
+ ["Vienkartinės pamokos mokestis.","Single-class fee."],
+ ["5 € registracijos mokestis taikomas tik pirmą kartą.","The €5 registration fee applies only to first-time registrations."],
+ ["Abonemento mokėjimo nuoroda atsiunčiama atskirai po pirmosios pamokos.","The membership payment link will be sent separately after the first class."],
+ ["El. laiške rasite mokėjimo mygtuką ir informaciją, kaip pasiruošti pamokai.","The email contains a payment button and information on how to prepare for class."],
+ ["Šioje peržiūroje tikras el. laiškas dar neišsiunčiamas.","A real email is not sent in this preview."],
+ ["Patvirtinimas el. paštu","Email confirmation"],
+ ["Grįžti į pamokas","Back to classes"],
+ ["Registracija sėkminga!","Registration successful!"],
+ ["Registracijos informacija paruošta.","Your registration details are ready."],
+ ["Dalyvis","Participant"],
+ ["El. paštas","Email"],
+ ["Telefonas","Phone"],
+ ["Pamokos data ir laikas","Class date and time"],
+ ["Lankymo dienos","Attendance days"],
+ ["MĖNESIO ABONEMENTAS","MONTHLY MEMBERSHIP"],
+ ["VIENKARTINĖ PAMOKA","SINGLE CLASS"],
+ ["Registruojantis pirmą kartą","For first-time registration"],
+ ["Ačiū,","Thank you,"],
+ ["Registracijos patvirtinimas išsiųstas el. paštu","Your registration confirmation has been sent to"]
 );
 var toEn=new Map(pairs), toLt=new Map(pairs.map(function(p){return [p[1],p[0]];}));
 var current='lt', scheduled=false;
