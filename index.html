@@ -20925,6 +20925,52 @@ html body #studio2View .studio2-map-link strong{color:#4b1d2a!important}
 }
 </style>
 
+
+<style id="studio-info-typography-inline-address">
+/* Make the selected-studio cards' price/time/address stronger and keep city on same line. */
+html body .studio-select-card .studio-select-size{
+ display:block!important;margin:8px 0 14px!important;
+ color:#f0d7b5!important;font-size:clamp(23px,3vw,30px)!important;
+ font-weight:700!important;letter-spacing:.01em!important;line-height:1.15!important;
+}
+html body .studio-select-card .studio-select-address{
+ display:block!important;white-space:nowrap!important;overflow:visible!important;
+ color:#f0d7b5!important;font-size:clamp(12px,1.6vw,15px)!important;
+ letter-spacing:.04em!important;line-height:1.4!important;
+}
+html body #rentalView .rental-summary-hours strong,
+html body #studio2View .studio2-summary-hours strong{
+ font-size:clamp(20px,3.2vw,30px)!important;
+ line-height:1.2!important;letter-spacing:.005em!important;
+}
+html body #rentalView .rental-summary-address>span:last-child,
+html body #studio2View .studio2-map-link .studio2-address-inline{
+ display:flex!important;flex-direction:row!important;align-items:baseline!important;
+ flex-wrap:nowrap!important;gap:5px!important;min-width:0!important;white-space:nowrap!important;
+}
+html body #rentalView .rental-summary-address strong,
+html body #rentalView .rental-summary-address small,
+html body #studio2View .studio2-map-link strong,
+html body #studio2View .studio2-map-link small{
+ display:inline!important;white-space:nowrap!important;font-size:clamp(12px,1.4vw,15px)!important;
+ line-height:1.4!important;
+}
+@media(max-width:760px){
+ html body .studio-select-card .studio-select-size{font-size:24px!important}
+ html body .studio-select-card .studio-select-address{font-size:12px!important}
+ html body #rentalView .rental-summary-hours strong,
+ html body #studio2View .studio2-summary-hours strong{font-size:clamp(17px,4.7vw,22px)!important}
+ html body #rentalView .rental-summary-address>span:last-child,
+ html body #studio2View .studio2-map-link .studio2-address-inline{
+  flex-direction:row!important;flex-wrap:nowrap!important;gap:4px!important;
+ }
+ html body #rentalView .rental-summary-address strong,
+ html body #rentalView .rental-summary-address small,
+ html body #studio2View .studio2-map-link strong,
+ html body #studio2View .studio2-map-link small{font-size:12px!important}
+}
+</style>
+
 </body>
 </html>
 
