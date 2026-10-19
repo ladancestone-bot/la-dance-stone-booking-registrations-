@@ -17421,6 +17421,9 @@ html body #rentalView.view:not(#homeView) .availability-section .cal-scroll.is-s
   rail.querySelectorAll(':scope > .choice[data-carousel-clone],:scope > .choice[data-loop-clone]').forEach(c=>c.remove());
   const originals=Array.from(rail.querySelectorAll(':scope > .choice[data-view]'));
   if(originals.length<3)return;
+  /* The approved homepage uses a vertical three-card layout, not the legacy infinite swipe carousel.
+     Keep the original three buttons and their existing navigation handlers; do not inject duplicate clones. */
+  if(document.querySelector('style#lds-approved-homepage-design-20261019'))return;
   let frame=0,settleTimer=0,wrapping=false,wrapRelease=0;
   const isMobile=()=>window.matchMedia('(max-width:760px)').matches;
   function cloneCard(card,edge){
@@ -20258,14 +20261,15 @@ html body #homeView .choices{
   margin:48px auto 0!important;padding:0!important;
   perspective:none!important;overflow:visible!important;
 }
-html body #homeView .choices>.choice[data-carousel-clone="1"]{display:none!important}
+html body #homeView .choices>.choice[data-carousel-clone],
+html body #homeView .choices>.choice[data-loop-clone]{display:none!important}
 html body #homeView .choices>.choice,
 html body #homeView .choices>.choice.is-center,
 html body #homeView .choices>.choice.is-side{
   display:flex!important;position:relative!important;flex:0 0 auto!important;
   width:100%!important;max-width:none!important;min-width:0!important;
   min-height:108px!important;height:auto!important;max-height:none!important;
-  align-items:center!important;justify-content:flex-start!important;gap:0!important;
+  flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:0!important;
   margin:0!important;padding:22px 86px 22px 34px!important;
   border:1px solid rgba(248,240,231,.26)!important;
   border-radius:999px!important;
@@ -20285,7 +20289,7 @@ html body #homeView .choices>.choice .num,
 html body #homeView .choices>.choice .home-icon,
 html body #homeView .choices>.choice .choice-action{display:none!important}
 html body #homeView .choices>.choice h3{
-  display:block!important;position:static!important;width:auto!important;max-width:100%!important;
+  display:block!important;position:static!important;width:100%!important;max-width:100%!important;
   margin:0 0 4px!important;padding:0!important;
   color:#fff7ed!important;-webkit-text-fill-color:#fff7ed!important;
   font-family:'Cormorant Garamond',Georgia,serif!important;
@@ -20294,7 +20298,7 @@ html body #homeView .choices>.choice h3{
   text-align:left!important;text-shadow:none!important;overflow-wrap:normal!important;
 }
 html body #homeView .choices>.choice p{
-  display:block!important;position:static!important;width:auto!important;max-width:100%!important;
+  display:block!important;position:static!important;width:100%!important;max-width:100%!important;
   margin:0!important;padding:0!important;
   color:rgba(255,247,237,.78)!important;-webkit-text-fill-color:rgba(255,247,237,.78)!important;
   font-family:'Cormorant Garamond',Georgia,serif!important;
@@ -20310,6 +20314,10 @@ html body #homeView .choices>.choice .arrow{
   font-family:Arial,sans-serif!important;font-size:27px!important;font-weight:300!important;
   line-height:1!important;text-shadow:none!important;box-shadow:none!important;
 }
+/* Keep the three homepage actions in their intended order on every screen. */
+html body #homeView .choices>.choice[data-view="timetable"]{order:1!important}
+html body #homeView .choices>.choice[data-view="classes"]{order:2!important}
+html body #homeView .choices>.choice[data-view="rental"]{order:3!important}
 html body #homeView .brand-footer{display:none!important}
 html body #ldsLanguageSwitch{
   top:22px!important;right:22px!important;left:auto!important;
@@ -20328,9 +20336,9 @@ html body #ldsLanguageSwitch button[aria-pressed="true"]{
   background:#481824!important;border-color:rgba(255,247,237,.4)!important;color:#fff7ed!important;
 }
 @media(max-width:760px){
- html body #homeView.active{padding:132px 22px 48px!important}
+ html body #homeView.active{padding:176px 22px 48px!important}
  html body #homeView .hero{margin-bottom:22px!important}
- html body #homeView .hero h1{max-width:390px!important;font-size:clamp(37px,9.3vw,51px)!important;line-height:1.02!important;margin-bottom:22px!important}
+ html body #homeView .hero h1{max-width:390px!important;font-size:clamp(34px,8.5vw,43px)!important;line-height:1.02!important;margin-bottom:22px!important}
  html body #homeView .hero h1:after{margin-top:24px!important}
  html body #homeView .hero .home-values{max-width:340px!important;font-size:21px!important;line-height:1.3!important}
  html body #homeView .choices{gap:15px!important;margin-top:38px!important}
@@ -20342,6 +20350,6 @@ html body #ldsLanguageSwitch button[aria-pressed="true"]{
  html body #homeView .choices>.choice h3{font-size:clamp(20px,5.4vw,25px)!important;line-height:1.05!important}
  html body #homeView .choices>.choice p{font-size:18px!important;line-height:1.2!important}
  html body #homeView .choices>.choice .arrow{right:16px!important;width:43px!important;height:43px!important;font-size:23px!important}
- html body #ldsLanguageSwitch{top:18px!important;right:18px!important}
+ html body #ldsLanguageSwitch{position:fixed!important;top:78px!important;right:18px!important;left:auto!important;z-index:10000!important}
 }
 </style>
