@@ -19056,6 +19056,23 @@ document.addEventListener('click',function(e){
  e.stopPropagation();
  setLanguage(target.getAttribute('data-lds-lang'));
 },true);
+// iOS Safari fallback: if an overlay steals the tap target, identify the
+// language button by its screen coordinates and handle the tap once.
+document.addEventListener('touchstart',function(e){
+ var touch=e.changedTouches&&e.changedTouches[0];
+ if(!touch)return;
+ var x=touch.clientX,y=touch.clientY;
+ var buttons=document.querySelectorAll('#ldsLanguageSwitch button[data-lds-lang]');
+ for(var i=0;i<buttons.length;i++){
+  var button=buttons[i],r=button.getBoundingClientRect();
+  if(x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom){
+   e.preventDefault();
+   e.stopImmediatePropagation();
+   setLanguage(button.getAttribute('data-lds-lang'));
+   return;
+  }
+ }
+},{capture:true,passive:false});
 document.addEventListener('click',function(e){
  var b=e.target.closest('button,[role="button"]');
  if(b && /rentSubmit|rentalCashChoice/.test(b.id||'')) setTimeout(function(){translateTree(document.body,current);if(typeof updateBookingSummary==='function'){try{updateBookingSummary();}catch(e){}}},0);
