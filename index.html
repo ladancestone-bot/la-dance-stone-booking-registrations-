@@ -4488,6 +4488,83 @@ html body #studio2View .brand-footer{background:#4b2632!important}
  html body #studio2View .studio2-calendar-grid{grid-template-columns:40px repeat(7,minmax(68px,1fr))!important;min-width:516px!important}
  html body #studio2View .studio2-cal-slot button{font-size:8px!important}
 }
+
+/* Studio 2 layout refinement: remove the large hero panel and back-button capsule.
+   Keep photo, price, opening hours and address as separate page elements. */
+html body #studio2View .studio2-back{
+ display:inline-flex!important;align-items:center!important;gap:10px!important;
+ padding:8px 0!important;margin:0 0 24px!important;min-height:0!important;
+ border:0!important;border-radius:0!important;background:transparent!important;
+ color:#fff7ef!important;box-shadow:none!important;text-shadow:none!important;
+ font-size:14px!important;font-weight:500!important;
+}
+html body #studio2View .studio2-back:hover,
+html body #studio2View .studio2-back:focus,
+html body #studio2View .studio2-back:active{
+ background:transparent!important;box-shadow:none!important;color:#fff7ef!important;
+}
+html body #studio2View .studio2-back span{color:#fff7ef!important}
+html body #studio2View .studio2-hero-compact{
+ display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+ gap:18px!important;padding:0!important;margin:0!important;
+ border:0!important;border-radius:0!important;background:transparent!important;
+ box-shadow:none!important;overflow:visible!important;
+}
+html body #studio2View .studio2-hero-copy{padding:0 18px!important;max-width:900px!important}
+html body #studio2View .studio2-hero .studio2-eyebrow{color:#f2dfcf!important}
+html body #studio2View .studio2-hero h2{color:#fff8f0!important;text-shadow:none!important}
+html body #studio2View .studio2-hero h2 em{color:#4b3029!important}
+html body #studio2View .studio2-lead{color:#fff8f0!important}
+html body #studio2View .studio2-hero-image{margin:0!important;padding:0!important}
+html body #studio2View .studio2-hero-image img{
+ width:100%!important;height:clamp(250px,48vw,470px)!important;
+ border-radius:24px!important;border:1px solid rgba(255,248,240,.85)!important;
+ box-shadow:0 12px 28px rgba(50,31,26,.12)!important;
+}
+html body #studio2View .studio2-summary-row{
+ display:grid!important;grid-template-columns:minmax(100px,.65fr) minmax(180px,1.1fr) minmax(160px,.9fr)!important;
+ align-items:center!important;gap:18px!important;
+ margin:0!important;padding:0 18px 20px!important;
+ border-bottom:1px solid #d9b99f!important;
+ background:transparent!important;border-radius:0!important;box-shadow:none!important;
+}
+html body #studio2View .studio2-summary-price,
+html body #studio2View .studio2-summary-hours{background:transparent!important;border-radius:0!important;box-shadow:none!important}
+html body #studio2View .studio2-summary-price strong,
+html body #studio2View .studio2-summary-hours strong{color:#4b1d2a!important}
+html body #studio2View .studio2-summary-price span,
+html body #studio2View .studio2-summary-hours span{color:#f9eee4!important}
+html body #studio2View .studio2-summary-row .studio2-map-link{
+ background:transparent!important;border-radius:0!important;box-shadow:none!important;
+}
+html body #studio2View .studio2-summary-row .studio2-map-link strong{color:#4b1d2a!important}
+html body #studio2View .studio2-summary-row .studio2-map-link small{color:#f9eee4!important}
+html body #studio2View .studio2-booking-layout{margin-top:20px!important}
+html body #studio2View .studio2-booking-card{
+ border-radius:0!important;border:0!important;border-top:1px solid rgba(255,248,240,.55)!important;
+ background:transparent!important;box-shadow:none!important;padding:22px 0!important;
+}
+@media(max-width:760px){
+ html body #studio2View .studio2-back{padding:7px 0!important;margin:0 0 18px!important;font-size:14px!important}
+ html body #studio2View .studio2-hero-compact{gap:15px!important}
+ html body #studio2View .studio2-hero-copy{padding:0 16px!important}
+ html body #studio2View .studio2-hero h2{font-size:clamp(39px,10vw,49px)!important;line-height:.98!important}
+ html body #studio2View .studio2-lead{font-size:15px!important;line-height:1.65!important}
+ html body #studio2View .studio2-hero-image img{height:clamp(215px,62vw,300px)!important;border-radius:18px!important}
+ html body #studio2View .studio2-summary-row{
+   grid-template-columns:.7fr 1.2fr!important;gap:12px!important;
+   padding:2px 16px 18px!important;margin:0!important;
+ }
+ html body #studio2View .studio2-summary-price strong,
+ html body #studio2View .studio2-summary-hours strong{font-size:28px!important}
+ html body #studio2View .studio2-summary-hours{padding-left:12px!important;border-left:1px solid #d8bda8!important}
+ html body #studio2View .studio2-summary-row .studio2-map-link{
+   grid-column:1/-1!important;border-left:0!important;border-top:1px solid #d8bda8!important;
+   padding:12px 0 0!important;margin-top:2px!important;
+ }
+ html body #studio2View .studio2-booking-layout{margin-top:12px!important}
+ html body #studio2View .studio2-booking-card{padding:18px 0!important}
+}
 </style>
 
 </head>
