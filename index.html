@@ -21237,16 +21237,17 @@ html body:has(#homeView.active) #homeView .brand-footer-main{
  background-color:transparent!important;
  background-image:none!important;
 }
-/* Stronger, richer burgundy for the registration capsule and all active/pressed controls. */
+/* All three homepage capsules share the same neutral taupe appearance. Burgundy appears only while pressed/focused. */
+html body #homeView .choices>.choice,
 html body #homeView .choices>.choice[data-view="classes"]{
- background:#6B1730!important;
- background-color:#6B1730!important;
+ background:transparent!important;
+ background-color:transparent!important;
  border-color:#F0E4D8!important;
  color:#FFF8F0!important;
 }
-html body #homeView .choices>.choice[data-view="classes"] h3,
-html body #homeView .choices>.choice[data-view="classes"] p,
-html body #homeView .choices>.choice[data-view="classes"] .arrow{
+html body #homeView .choices>.choice h3,
+html body #homeView .choices>.choice p,
+html body #homeView .choices>.choice .arrow{
  color:#FFF8F0!important;
  -webkit-text-fill-color:#FFF8F0!important;
 }
