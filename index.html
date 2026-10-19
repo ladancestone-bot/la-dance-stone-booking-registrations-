@@ -21669,7 +21669,7 @@ html body .mini-status.selected{
 </style>
 
 <style id="lds-final-burgundy-interactions-20261019">
-/* Match the active LT/EN language button exactly: deep wine #481824. */
+/* Preserve the active language capsule; normalize other button interactions without affecting their base styles. */
 :root{
  --wine:#481824!important;
  --wine2:#481824!important;
@@ -21678,45 +21678,30 @@ html body .mini-status.selected{
  --lds-burgundy-deep:#35101A!important;
  --gold:#481824!important;
 }
+
+/* The selected LT/EN control keeps its permanent branded burgundy background. */
 html body #ldsLanguageSwitch button[aria-pressed="true"]{
  background:#481824!important;
  background-color:#481824!important;
  border-color:rgba(255,247,237,.4)!important;
  color:#FFF7ED!important;
  -webkit-text-fill-color:#FFF7ED!important;
+ box-shadow:none!important;
 }
-/* Reuse that same language-toggle burgundy for every card and button interaction. */
+
+/* Large homepage cards retain their own burgundy interaction/focus treatment. */
 html body #homeView .choices>.choice:hover,
 html body #homeView .choices>.choice:focus,
 html body #homeView .choices>.choice:focus-visible,
 html body #homeView .choices>.choice:active,
 html body #homeView .choices>.choice:focus-within,
-html body button:hover,
-html body button:focus,
-html body button:focus-visible,
-html body button:active,
-html body .action:hover,
-html body .action:focus,
-html body .action:focus-visible,
-html body .action:active,
-html body .back:hover,
-html body .back:focus,
-html body .back:focus-visible,
-html body .back:active,
-html body input[type="submit"]:hover,
-html body input[type="submit"]:focus,
-html body input[type="submit"]:active,
-html body input[type="button"]:hover,
-html body input[type="button"]:focus,
-html body input[type="button"]:active{
+html body #homeView .choices>.choice.is-selected{
  background:#481824!important;
  background-color:#481824!important;
- background-image:none!important;
- border-color:rgba(255,247,237,.4)!important;
+ border-color:#F0E4D8!important;
  color:#FFF7ED!important;
  -webkit-text-fill-color:#FFF7ED!important;
- box-shadow:0 0 0 2px #48182430,0 7px 20px #2A101B24!important;
- outline-color:#481824!important;
+ box-shadow:none!important;
 }
 html body #homeView .choices>.choice:hover h3,
 html body #homeView .choices>.choice:hover p,
@@ -21726,17 +21711,134 @@ html body #homeView .choices>.choice:focus p,
 html body #homeView .choices>.choice:focus .arrow,
 html body #homeView .choices>.choice:active h3,
 html body #homeView .choices>.choice:active p,
-html body #homeView .choices>.choice:active .arrow{
- color:#FFF7ED!important;-webkit-text-fill-color:#FFF7ED!important;
+html body #homeView .choices>.choice:active .arrow,
+html body #homeView .choices>.choice:focus-visible h3,
+html body #homeView .choices>.choice:focus-visible p,
+html body #homeView .choices>.choice:focus-visible .arrow,
+html body #homeView .choices>.choice.is-selected h3,
+html body #homeView .choices>.choice.is-selected p,
+html body #homeView .choices>.choice.is-selected .arrow{
+ color:#FFF7ED!important;
+ -webkit-text-fill-color:#FFF7ED!important;
 }
-html body #homeView .hero h1::after,
-html body #homeView .hero .home-values::before{
- background:#481824!important;background-color:#481824!important;border-color:#481824!important;
+
+/* Standard buttons: keep their normal background/border; only text and icons change while physically pressed.
+   Deliberately do not select .choice cards, selected language controls or selected-state buttons. */
+html body button:active:not(.choice):not(.mini-status):not(.action):not([aria-pressed="true"]):not(.rent-slot):not(.duration-stepper button),
+html body input[type="button"]:active,
+html body input[type="submit"]:active{
+ color:#481824!important;
+ -webkit-text-fill-color:#481824!important;
+ box-shadow:none!important;
 }
+html body button:active:not(.choice):not(.mini-status):not(.action):not([aria-pressed="true"]):not(.rent-slot):not(.duration-stepper button) *,
+html body input[type="button"]:active *,
+html body input[type="submit"]:active *{
+ color:#481824!important;
+ -webkit-text-fill-color:#481824!important;
+}
+
+/* Focus is not a pressed state: avoid sticky burgundy fills and rectangular shadows after a tap.
+   Keep a visible keyboard-focus outline, except on the minimal back-navigation links. */
+html body button:focus:not(.choice):not(.mini-status):not(.action):not([aria-pressed="true"]):not(.rent-slot):not(.duration-stepper button),
+html body input[type="button"]:focus,
+html body input[type="submit"]:focus{
+ box-shadow:none!important;
+}
+html body button:focus-visible:not(.choice):not(.mini-status):not(.action):not([aria-pressed="true"]):not(.rent-slot):not(.duration-stepper button),
+html body input[type="button"]:focus-visible,
+html body input[type="submit"]:focus-visible{
+ outline:2px solid #D0B184!important;
+ outline-offset:3px!important;
+}
+
+/* Minimal back links stay transparent and have no rectangular fill or shadow in every state. */
+html body a.back,
+html body button.back,
+html body button[data-view="home"],
+html body .timetable-back-link,
+html body .back-link,
+html body .return-link,
+html body .site-link,
+html body [class*="back"] a,
+html body a[class*="back"],
+html body button[class*="back"]{
+ background:transparent!important;
+ background-color:transparent!important;
+ background-image:none!important;
+ box-shadow:none!important;
+ color:#FFF7ED!important;
+ -webkit-text-fill-color:#FFF7ED!important;
+}
+html body a.back:active,
+html body button.back:active,
+html body button[data-view="home"]:active,
+html body .timetable-back-link:active,
+html body .back-link:active,
+html body .return-link:active,
+html body .site-link:active,
+html body [class*="back"] a:active,
+html body a[class*="back"]:active,
+html body button[class*="back"]:active{
+ background:transparent!important;
+ background-color:transparent!important;
+ background-image:none!important;
+ border-color:transparent!important;
+ box-shadow:none!important;
+ outline:none!important;
+ color:#481824!important;
+ -webkit-text-fill-color:#481824!important;
+}
+html body a.back:active *,
+html body button.back:active *,
+html body button[data-view="home"]:active *,
+html body .timetable-back-link:active *,
+html body .back-link:active *,
+html body .return-link:active *,
+html body .site-link:active *,
+html body [class*="back"] a:active *,
+html body a[class*="back"]:active *,
+html body button[class*="back"]:active *{
+ color:#481824!important;
+ -webkit-text-fill-color:#481824!important;
+}
+html body a.back:focus,
+html body button.back:focus,
+html body button[data-view="home"]:focus,
+html body .timetable-back-link:focus,
+html body .back-link:focus,
+html body .return-link:focus,
+html body .site-link:focus,
+html body [class*="back"] a:focus,
+html body a[class*="back"]:focus,
+html body button[class*="back"]:focus{
+ background:transparent!important;
+ background-color:transparent!important;
+ background-image:none!important;
+ box-shadow:none!important;
+ outline:none!important;
+ color:#FFF7ED!important;
+ -webkit-text-fill-color:#FFF7ED!important;
+}
+html body a.back:focus-visible,
+html body button.back:focus-visible,
+html body button[data-view="home"]:focus-visible,
+html body .timetable-back-link:focus-visible,
+html body .back-link:focus-visible,
+html body .return-link:focus-visible,
+html body .site-link:focus-visible{
+ outline:2px solid #D0B184!important;
+ outline-offset:3px!important;
+}
+
+/* Maintain the deep burgundy treatment on existing primary action buttons even on hover/focus.
+   Their configured backgrounds are not replaced by the generic pressed-state rule. */
 html body .action,
 html body .price-card,
 html body .mini-status.selected{
- background:#481824!important;background-color:#481824!important;color:#FFF7ED!important;
+ background:#481824!important;
+ background-color:#481824!important;
+ color:#FFF7ED!important;
 }
 </style>
 
