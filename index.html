@@ -19157,8 +19157,8 @@ html body #rentalView #finalSlotNotice .notice-time {
  }
  let queued=false;
  function schedule(){if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;apply()})}
- document.addEventListener('click',e=>{if(e.target.closest('[data-lang],.lang-toggle,.language-switch,.language-btn,#langLT,#langEN'))setTimeout(schedule,0)},true);
- new MutationObserver(schedule).observe(document.documentElement,{attributes:true,attributeFilter:['lang'],subtree:true,childList:true});
+ document.addEventListener('click',()=>setTimeout(schedule,0),true);
+ new MutationObserver(schedule).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
  document.addEventListener('DOMContentLoaded',schedule);
  window.addEventListener('load',schedule);
  schedule();
