@@ -21978,5 +21978,97 @@ html body #classesView > button#classesBackToGroups.back:active * {
  -webkit-text-fill-color:#481824!important;
  text-shadow:none!important;
 }
+
+/* SITEWIDE BACK-LINK NORMALIZATION: white text/arrows at rest, burgundy only while pressed. */
+html body #homeView .home-site-link-row .site-link,
+html body #homeView .home-site-link-row .site-link:hover,
+html body #homeView .home-site-link-row .site-link:focus,
+html body #homeView .home-site-link-row .site-link:focus-visible,
+html body #homeView .home-site-link-row .site-link:active,
+html body a.site-link,
+html body a.site-link:hover,
+html body a.site-link:focus,
+html body a.site-link:focus-visible,
+html body a.site-link:active,
+html body a.back,
+html body a.back:hover,
+html body a.back:focus,
+html body a.back:focus-visible,
+html body a.back:active,
+html body button.back,
+html body button.back:hover,
+html body button.back:focus,
+html body button.back:focus-visible,
+html body button.back:active,
+html body button[data-view="home"],
+html body button[data-view="home"]:hover,
+html body button[data-view="home"]:focus,
+html body button[data-view="home"]:focus-visible,
+html body button[data-view="home"]:active,
+html body button.timetable-back-link,
+html body button.timetable-back-link:hover,
+html body button.timetable-back-link:focus,
+html body button.timetable-back-link:focus-visible,
+html body button.timetable-back-link:active,
+html body #timetableView button.timetable-back,
+html body #timetableView button.timetable-back:hover,
+html body #timetableView button.timetable-back:focus,
+html body #timetableView button.timetable-back:focus-visible,
+html body #timetableView button.timetable-back:active,
+html body #classesView > button#classesBackToGroups.back,
+html body #classesView > button#classesBackToGroups.back:hover,
+html body #classesView > button#classesBackToGroups.back:focus,
+html body #classesView > button#classesBackToGroups.back:focus-visible,
+html body #classesView > button#classesBackToGroups.back:active {
+ -webkit-tap-highlight-color:transparent!important;
+ color:#FFFFFF!important;
+ -webkit-text-fill-color:#FFFFFF!important;
+ background:transparent!important;
+ background-color:transparent!important;
+ background-image:none!important;
+ border-color:transparent!important;
+ box-shadow:none!important;
+ text-shadow:none!important;
+}
+html body #homeView .home-site-link-row .site-link *,
+html body a.site-link *,
+html body a.back *,
+html body button.back *,
+html body button[data-view="home"] *,
+html body button.timetable-back-link *,
+html body #timetableView button.timetable-back *,
+html body #classesView > button#classesBackToGroups.back * {
+ -webkit-tap-highlight-color:transparent!important;
+ color:#FFFFFF!important;
+ -webkit-text-fill-color:#FFFFFF!important;
+ text-shadow:none!important;
+}
+/* Both label and arrow turn burgundy on the actual press, with no background or rectangular tap highlight. */
+html body #homeView .home-site-link-row .site-link:active,
+html body #homeView .home-site-link-row .site-link:active *,
+html body a.site-link:active,
+html body a.site-link:active *,
+html body a.back:active,
+html body a.back:active *,
+html body button.back:active,
+html body button.back:active *,
+html body button[data-view="home"]:active,
+html body button[data-view="home"]:active *,
+html body button.timetable-back-link:active,
+html body button.timetable-back-link:active *,
+html body #timetableView button.timetable-back:active,
+html body #timetableView button.timetable-back:active *,
+html body #classesView > button#classesBackToGroups.back:active,
+html body #classesView > button#classesBackToGroups.back:active * {
+ color:#481824!important;
+ -webkit-text-fill-color:#481824!important;
+ background:transparent!important;
+ background-color:transparent!important;
+ background-image:none!important;
+ border-color:transparent!important;
+ box-shadow:none!important;
+ outline:none!important;
+ text-shadow:none!important;
+}
 </style>
 
