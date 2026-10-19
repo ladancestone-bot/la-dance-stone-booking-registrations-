@@ -21077,4 +21077,37 @@ body #homeView .brand-footer,body #rentalView .brand-footer,
 body #timetableView .brand-footer,body #classesView .brand-footer{
  background:#4d4640!important;background-color:#4d4640!important;background-image:none!important;
 }
+
+/* Force the exact sampled background color on the homepage; earlier homepage-specific CSS overrides the global layer. */
+html body:has(#homeView.active),
+html body:has(#homeView.active) main.wrap,
+html body #homeView,
+html body #homeView.active,
+html body #homeView.active::before,
+html body #homeView.active::after,
+html body:has(#homeView.active) main.wrap::before,
+html body:has(#homeView.active) main.wrap::after{
+ background:#4d4640!important;
+ background-color:#4d4640!important;
+ background-image:none!important;
+}
+html body:has(#homeView.active) main.wrap{
+ background:#4d4640!important;
+ background-color:#4d4640!important;
+ background-image:none!important;
+}
+html body:has(#homeView.active) #homeView .brand-footer,
+html body:has(#homeView.active) #homeView .brand-footer-main,
+html body:has(#homeView.active) #homeView .brand-footer::before,
+html body:has(#homeView.active) #homeView .brand-footer::after{
+ background:#4d4640!important;
+ background-color:#4d4640!important;
+ background-image:none!important;
+}
+html body:has(#homeView.active) #homeView .choices,
+html body:has(#homeView.active) #homeView .hero{
+ background:transparent!important;
+ background-color:transparent!important;
+ background-image:none!important;
+}
 </style>
