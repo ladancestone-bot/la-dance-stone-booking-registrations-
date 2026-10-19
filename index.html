@@ -19058,7 +19058,7 @@ new MutationObserver(function(mutations){
 }).observe(document.body,{subtree:true,childList:true});
 // Lithuanian is always the default when the page opens; English is opt-in.
 var initial='lt';
-try{var savedLanguage=localStorage.getItem('lds-site-language');if(savedLanguage==='en'||savedLanguage==='lt')initial=savedLanguage;}catch(e){}
+try{var queryLanguage=new URLSearchParams(window.location.search).get('lang');var savedLanguage=localStorage.getItem('lds-site-language');if(queryLanguage==='en'||queryLanguage==='lt')initial=queryLanguage;else if(savedLanguage==='en'||savedLanguage==='lt')initial=savedLanguage;}catch(e){}
 setLanguage(initial);
 })();
 </script>
