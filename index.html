@@ -25146,12 +25146,7 @@ html body #studio2View #studio2RentalConfirmation .rc-back{
   document.getElementById("ldsDemoPdf").onclick=()=>window.print();
   document.getElementById("ldsDemoCopy").onclick=async()=>{
     const amount=document.getElementById("ldsDemoAmount").value||t("Neįvesta","Not entered");
-    const text=t("PROTOTIPAS – NEGALIOJA","PROTOTYPE – INVALID")+"
-"+t("Gavėjas: DEMONSTRACINĖ SĄSKAITA","Recipient: DEMO ACCOUNT")+"
-IBAN: LT83 7300 0101 4913 8487
-Bankas: SEB bankas (prototipas)
-"+t("Rezervacijos kodas: ","Reservation reference: ")+safeId+"
-"+t("Suma: ","Amount: ")+amount+" EUR";
+    const text=t("PAVEDIMO PROTOTIPAS – REKVIZITAI PAVYZDINIAI","BANK TRANSFER PROTOTYPE – SAMPLE DETAILS")+"\\n"+t("Gavėjas: DANGUOLĖ ŪDRAITĖ","Recipient: DANGUOLĖ ŪDRAITĖ")+"\\nIBAN: LT83 7300 0101 4913 8487\\nBankas: SEB bankas (prototipas)\\n"+t("Rezervacijos kodas: ","Reservation reference: ")+safeId+"\\n"+t("Suma: ","Amount: ")+amount+" EUR"
     try{await navigator.clipboard.writeText(text);document.getElementById("ldsDemoStatus").textContent=t("Rekvizitų pavyzdys nukopijuotas. Primename: jis negalioja.","Sample details copied. Reminder: they are invalid.");}
     catch(e){const ta=document.createElement("textarea");ta.value=text;wrap.querySelector(".panel").appendChild(ta);ta.select();document.execCommand("copy");ta.remove();document.getElementById("ldsDemoStatus").textContent=t("Nukopijuotas prototipo tekstas (negaliojantys duomenys).","Prototype text copied (invalid details).");}
   };
