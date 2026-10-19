@@ -5016,43 +5016,101 @@ html body #rentalView .phone-card{margin-top:0!important}
       <div class="studio2-secondary-caption"><strong>Rezervacija internetu</strong><span>Patogiai pasirinkite norimą datą ir laiką internetu</span></div>
     </div>
 
-    <div class="studio2-booking-layout">
-      <section class="studio2-booking-card">
-        <div class="studio2-section-heading"><p class="studio2-eyebrow">REZERVACIJOS PLANAS</p><h3>Pasirinkite laiką</h3><p>Šiame etape kalendoriaus išvaizda ir pasirinkimai paruošti peržiūrai. Laisvų laikų tikrinimas dar neprijungtas prie rezervacijų duomenų.</p></div>
-        <div class="studio2-calendar-widget">
-          <div class="studio2-cal-toolbar">
-            <button type="button" id="studio2PrevWeek" aria-label="Ankstesnė savaitė">‹</button>
-            <div id="studio2WeekLabel" class="studio2-cal-title">Savaitės kalendorius</div>
-            <button type="button" id="studio2NextWeek" aria-label="Kita savaitė">›</button>
-          </div>
-          <div class="studio2-cal-scroll" tabindex="0" aria-label="Studijos Nr. 2 savaitės laiko pasirinkimai">
-            <div id="studio2Calendar" class="studio2-calendar-grid"></div>
-          </div>
-          <div class="studio2-cal-legend"><span><i class="free"></i>Laisvas laikas (demonstracinis)</span><span><i class="chosen"></i>Pasirinktas laikas</span></div>
-          <p class="studio2-cal-note">Kalendorius skirtas dizaino ir pasirinkimų peržiūrai. Realus užimtumas dar neprijungtas.</p>
-        </div>
-        <label class="studio2-field">Data
-          <input id="studio2Date" type="date" min="2026-10-19">
-        </label>
-        <div class="studio2-field-row">
-          <label class="studio2-field">Pradžios laikas
-            <select id="studio2Start">
-              <option value="08">08:00</option><option value="09">09:00</option><option value="10">10:00</option><option value="11">11:00</option><option value="12">12:00</option><option value="13">13:00</option><option value="14">14:00</option><option value="15">15:00</option><option value="16">16:00</option><option value="17">17:00</option><option value="18">18:00</option><option value="19">19:00</option><option value="20">20:00</option><option value="21">21:00</option>
-            </select>
-          </label>
-          <label class="studio2-field">Trukmė
-            <select id="studio2Duration">
-              <option value="1">1 val.</option><option value="2">2 val.</option><option value="3">3 val.</option><option value="4">4 val.</option><option value="5">5 val.</option><option value="6">6 val.</option><option value="7">7 val.</option><option value="8">8 val.</option><option value="9">9 val.</option><option value="10">10 val.</option><option value="11">11 val.</option><option value="12">12 val.</option><option value="13">13 val.</option><option value="14">14 val.</option>
-            </select>
-          </label>
-        </div>
-        <div class="studio2-price-row"><span>Preliminari kaina</span><strong id="studio2Price">40 €</strong></div>
-        <div class="studio2-preview-notice"><strong>Rezervacijų kalendorius ruošiamas</strong><span>Pasirinkimai skirti peržiūrai. Rezervacijos patvirtinimo ir apmokėjimo funkcijos bus jungiamos tik atskirai patvirtinus kitą etapą.</span></div>
-        <button class="studio2-reserve-button" type="button" disabled>Rezervacija bus aktyvuota vėliau</button>
-      </section>
+<section class="availability-section studio2-live-availability"><div class="availability-heading"><div><div class="eyebrow">Interaktyvus užimtumo vaizdas</div><h2>Laisvų valandų <span class="availability-heading-accent">kalendorius.</span></h2><p>Paspauskite ant dienos arba laisvos valandos. Pasirinktas laikotarpis bus pažymėtas vientisai — nereikia rezervuoti kiekvienos valandos atskirai.</p></div></div>
+<div class="calendar-panel"><div class="cal-toolbar"><button id="prevStudio2RentWeek" aria-label="Ankstesnė savaitė">‹</button><div class="cal-title" id="studio2RentWeekLabel">2026 m. spalio 12–18 d.</div><button id="nextStudio2RentWeek" aria-label="Kita savaitė">›</button></div><div class="cal-scroll"><div id="studio2RentalCalendar" class="rental-calendar"></div></div></div><div class="calendar-help"><div class="availability-legend"><span><i class="legend-block free"></i>Laisva</span><span><i class="legend-block reserved"></i>Užimta</span><span><i class="legend-block chosen"></i>Jūsų pasirinkimas</span></div><p id="studio2SelectionHint">Pažymėkite norimą pradžios laiką ir trukmę – kalendoriuje ji bus rodoma kaip vienas vientisas rezervacijos intervalas.</p><p>Pažymėjimai yra demonstraciniai. Tikras studijos užimtumas bus rodomas prijungus rezervacijų duomenų bazę.</p></div>
+<div class="rental-reminder-simple"><span class="closing-notice-mark clock-mark" aria-hidden="true">◷</span><div><strong>Malonus priminimas prieš rezervuojant</strong><p><span class="notice-line">Pastatas automatiškai užrakinamas <span class="notice-time">22.00&nbsp;val.</span></span><span class="notice-line">Paskutinis rezervuojamas laikotarpis – <span class="notice-time">21.00–21.45&nbsp;val.</span></span><span class="notice-line">Šis 45 minučių laikotarpis kainuoja tiek pat, kiek viena valanda.</span><span class="notice-line">Prašome pasilikti pakankamai laiko susitvarkyti ir išeiti iš pastato iki <span class="notice-time">22.00&nbsp;val.</span></span></p></div></div>
+</section>
+<div class="rental-layout" id="studio2RentalBooking">
+<div class="panel booking-panel"><div class="eyebrow">Pasirinkite laiką</div><h3>Rezervuokite visą savo laiką vienu kartu.</h3><p>Pasirinkite dieną ir pradžios laiką, tada nurodykite, kiek valandų norite rezervuoti. Lentelėje iš karto matysite vientisą pasirinkto laiko intervalą.</p>
+<div class="fields"><label>Rezervacijos data<input type="date" id="studio2RentDate" value=""></label><label>Pradžios laikas<select id="studio2RentTime"><option value="08">08:00</option><option value="09">09:00</option><option value="10" selected>10:00</option><option value="11">11:00</option><option value="12">12:00</option><option value="13">13:00</option><option value="14">14:00</option><option value="15">15:00</option><option value="16">16:00</option><option value="17">17:00</option><option value="18">18:00</option><option value="19">19:00</option><option value="20">20:00</option><option value="21">21:00 · paskutinis laikas</option></select></label></div><div id="studio2FinalSlotNotice" class="closing-notice closing-notice-compact" hidden><div class="notice-copy"><strong>Pastatas užrakinamas <span class="notice-time">22.00&nbsp;val.</span></strong><p><span class="notice-line">Paskutinis rezervacijos laikas: <span class="notice-time">21.00–21.45&nbsp;val.</span></span><span class="notice-line">Šio laiko kaina – <span class="notice-time">40 €</span>, kaip už visą valandą.</span><span class="notice-line">Prašome pasilikti laiko susitvarkyti ir išeiti iš pastato iki <span class="notice-time">22.00&nbsp;val.</span></span></p></div></div>
+<div class="duration-row"><div><label class="duration-label">Kiek laiko norite rezervuoti?</label><div class="duration-contact-note">Norite rezervuoti ilgiau nei 6 val.? <span>Susisiekite el. paštu</span> <a href="mailto:info@ladancestone.lt">info@ladancestone.lt</a>.</div></div><div class="duration-stepper"><button id="studio2DurationMinus" type="button" aria-label="Sumažinti valandų skaičių">−</button><strong id="studio2DurationValue">1 val.</strong><button id="studio2DurationPlus" type="button" aria-label="Padidinti valandų skaičių">+</button></div></div>
+<input type="hidden" id="studio2RentLength" value="1">
+<div class="booking-summary"><div><span>Pasirinktas laikas</span><strong id="studio2RentInterval">10:00–11:00 · 1 val.</strong></div><div><span>Vieno užsakymo kaina</span><strong class="summary-price" id="studio2RentTotal">40 €</strong></div></div>
+<label class="email-label">Vardas *<input type="text" id="studio2RentFirstName" name="firstName" placeholder="Jūsų vardas" autocomplete="given-name" required></label>
+<label class="email-label">Pavardė *<input type="text" id="studio2RentLastName" name="lastName" placeholder="Jūsų pavardė" autocomplete="family-name" required></label>
+<label class="email-label">Telefono numeris *<input type="tel" id="studio2RentPhone" name="phone" placeholder="+370 600 00000" autocomplete="tel" inputmode="tel" required></label>
+<label class="email-label">El. paštas rezervacijos informacijai *<input type="email" id="studio2RentEmail" name="email" placeholder="vardas@pastas.lt" autocomplete="email" required></label>
+<div class="toast" id="studio2RentToast"></div>
+</div>
+<aside class="price-card"><div><div class="eyebrow">Studijos Nr. 2 nuoma</div><h3>Jūsų erdvė,<br>jūsų idėjos.</h3><div class="amount" id="studio2RentPrice">40 €</div><p id="studio2PriceExplanation">1 valanda vienoje rezervacijoje.</p></div><div class="rule">Pirmos 3 val. – 40 €/val.<br>Kiekviena papildoma valanda – 40 €.</div><button class="action" id="studio2RentSubmit">Tęsti rezervaciją</button></aside>
+</div>
+<section id="studio2RentalConfirmation" aria-live="polite" aria-labelledby="studio2RentalConfirmationTitle">
+  <div class="rc-check" aria-hidden="true">✓</div>
+  <div class="rc-brand brand-lockup"><span class="brand-lockup-main">La Dance Stone</span><span class="brand-lockup-sub">Šokių&nbsp;studija</span></div>
+  <h3 id="studio2RentalConfirmationTitle">Rezervacija sėkminga!</h3>
+  <p class="rc-intro" id="studio2RentalConfirmationIntro">Ačiū! Jūsų studijos nuomos rezervacija išsaugota.</p>
+  <div class="rc-details" id="studio2RentalConfirmationDetails"></div>
+  <div class="rc-note" id="studio2RentalConfirmationNote">Rezervacija laukia apmokėjimo. Patikrinkite el. paštą dėl tolesnės informacijos.</div>
+  <button type="button" class="rc-back" id="studio2RentalConfirmationBack">Grįžti į Studijos Nr. 2 puslapį</button>
+</section>
+let studio2RentWeek=mondayOf(new Date());
+let studio2LiveBusyRanges=[];
+let studio2AvailabilityLoadedKey='';
+let studio2AvailabilityErrorKey='';
+let studio2AvailabilityRequestKey='';
+function studio2Duration(){return Number($('studio2RentLength').value)}
+function studio2StartHour(){return Number($('studio2RentTime').value)}
+$('studio2RentDate').value=localISO(new Date(Date.now()+86400000));
+$('studio2RentDate').min=localISO(new Date());
+$('studio2RentalConfirmationBack').onclick=()=>{$('studio2RentalConfirmation').style.display='none';$('studio2RentalBooking').classList.add('booking-open');$('studio2RentalBooking').scrollIntoView({behavior:'smooth',block:'start'})};
+studio2UpdateBookingSummary();
+studio2LoadRentalAvailability(true);
+function studio2RentSelectedDate(){return new Date(($('studio2RentDate').value||'2026-10-15')+'T12:00:00')}
+function studio2RentalWeekBounds(){const start=mondayOf(studio2RentSelectedDate()),end=new Date(start);end.setDate(end.getDate()+6);return {start:localISO(start),end:localISO(end),key:localISO(start)+'|'+localISO(end)}}
+function timeMinutes(v){const p=String(v||'').split(':').map(Number);return (p[0]||0)*60+(p[1]||0)}
+function studio2BusyAt(day,hour){const dt=new Date(studio2RentWeek);dt.setDate(dt.getDate()+day);const date=localISO(dt),a=hour*60,b=(hour+1)*60;return studio2LiveBusyRanges.some(r=>r.date===date&&timeMinutes(r.start)<b&&timeMinutes(r.end)>a)}
+async function studio2LoadRentalAvailability(force=false){const bounds=studio2RentalWeekBounds();if(!force&&(studio2AvailabilityLoadedKey===bounds.key||studio2AvailabilityErrorKey===bounds.key))return;studio2AvailabilityRequestKey=bounds.key;studio2AvailabilityLoadedKey='';studio2AvailabilityErrorKey='';studio2RenderRentalCalendar();try{const res=await fetch('https://tqzabmlrtbrylibafjfh.supabase.co/functions/v1/public-rental-availability-studio2',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_nLHN6DiC2vh_bTXW3uTc7w_I7aT5Za-'},body:JSON.stringify({startDate:bounds.start,endDate:bounds.end})});const data=await res.json().catch(()=>({error:'Netinkamas serverio atsakymas.'}));if(!res.ok||!data.ok)throw new Error(data.error||'Nepavyko atnaujinti užimtumo.');if(studio2AvailabilityRequestKey!==bounds.key)return;studio2LiveBusyRanges=Array.isArray(data.busy)?data.busy:[];studio2AvailabilityLoadedKey=bounds.key;studio2AvailabilityErrorKey='';}catch(error){console.error('Nuomos užimtumo klaida:',error);if(studio2AvailabilityRequestKey===bounds.key){studio2AvailabilityErrorKey=bounds.key;studio2AvailabilityLoadedKey='';}}if(studio2AvailabilityRequestKey===bounds.key)studio2UpdateBookingSummary()}
+function studio2Duration(){return Number($('studio2RentLength').value)}
+function studio2StartHour(){return Number($('studio2RentTime').value)}
+function studio2MaxAllowedDuration(day,hour){if(hour===21)return studio2BusyAt(day,21)?0:1;let max=0;for(let t=hour;t<21&&max<6;t++){if(studio2BusyAt(day,t))break;max++}if(max>0&&hour+max===21&&!studio2BusyAt(day,21)&&max<6)max++;return max}function studio2HasConflict(day,hour,len){if(hour===21)return len!==1||studio2BusyAt(day,21);return len>studio2MaxAllowedDuration(day,hour)||hour+len>22}
+function studio2UpdateBookingSummary(){
+ const en=window.__ldsLanguage==='en';
+ const len=studio2Duration(),start=studio2StartHour(),end=start+len,day=studio2RentSelectedDate().getDay(),weekday=(day+6)%7;
+ const maxLen=studio2MaxAllowedDuration(weekday,start);
+ $('studio2DurationPlus').disabled=start===21||len>=maxLen;
+ $('studio2DurationMinus').disabled=len<=1;
+ const total=len*40;
+ const fmt=n=>String(n).padStart(2,'0')+':00';
+ const includesFinalSlot=start+len===22;
+ const displayEnd=includesFinalSlot?'21:45':fmt(end);
+ const finalSlotNotice=$('studio2FinalSlotNotice');if(finalSlotNotice)finalSlotNotice.hidden=!includesFinalSlot;
+ $('studio2DurationValue').textContent=len===1&&start===21?'45 min.':len+(en?(len===1?' hour':' hours'):(len===1?' val.':' val.'));
+ let durationNote;
+ if(includesFinalSlot){
+   if(len===1){
+     durationNote='<span class="summary-detail">'+(en?'Duration: 45 min.':'Trukmė: 45 min.')+'</span><span class="summary-detail">'+(en?'Same price as 1 hour.':'Kaina kaip už 1 valandą.')+'</span>';
+   }else{
+     durationNote='<span class="summary-detail">'+(len-1)+(en?' h 45 min.':' val. 45 min.')+'</span><span class="summary-detail">'+(en?'Charged as '+len+' hour'+(len===1?'':'s')+'.':'Apmokestinama kaip '+len+' val.')+'</span>';
+   }
+ }else{
+   durationNote=len+(en?(len===1?' hour':' hours'):(len===1?' valanda':' valandos'));
+ }
+ $('studio2RentInterval').innerHTML='<span class="summary-time">'+fmt(start)+'–'+displayEnd+'</span><span class="summary-note">'+durationNote+'</span>';
+ $('studio2RentTotal').textContent=total+' €';
+ $('studio2RentPrice').textContent=total+' €';
+ $('studio2PriceExplanation').textContent=includesFinalSlot
+   ?(len===1?(en?'45 min. · same price as 1 hour.':'45 min. · kaina kaip už 1 valandą.'):(len-1)+(en?' h 45 min. · charged as '+len+' hour'+(len===1?'':'s')+'.':' val. 45 min. · apmokestinama kaip '+len+' val.'))
+   :len+' '+(en?(len===1?'hour':'hours')+' per booking.':(len===1?'valanda':'valandos')+' vienoje rezervacijoje.');
+ const issue=studio2HasConflict(weekday,start,len)
+   ?(start===21?(en?'The final 45-minute slot is already booked. Please choose another time.':'Paskutinis 45 min. laikas jau užimtas. Pasirinkite kitą laiką.')
+     :(en?'The selected period overlaps a booked time or ends too late. Bookings are available until 21:45.':'Pasirinktas intervalas susikerta su užimtu laiku arba baigiasi per vėlai. Galima rezervuoti iki 21:45 val.'))
+   :'';
+ $('studio2SelectionHint').textContent=issue||(en
+   ?'Selected as one continuous '+(includesFinalSlot?(len===1?'45-minute period, charged as 1 hour':(len-1)+' h 45 min. period, charged as '+len+' hours'):len+'-hour period')+' — this is one booking, not separate bookings.'
+   :'Pažymėtas vientisas '+(includesFinalSlot?(len===1?'45 min. intervalas, apmokestinamas kaip 1 valanda':(len-1)+' val. 45 min. intervalas, apmokestinamas kaip '+len+' val.'):' '+len+' val. intervalas')+' — tai viena rezervacija, ne atskiri užsakymai.');
+ $('studio2SelectionHint').style.color=issue?'#9b3434':'';
+ const summaryLabels=document.querySelectorAll('#studio2View .booking-summary > div > span');
+ if(summaryLabels.length>=2){summaryLabels[0].textContent=en?'Selected time':'Pasirinktas laikas';summaryLabels[1].textContent=en?'Price per booking':'Vieno užsakymo kaina';}
+ studio2RenderRentalCalendar();
+}
+function studio2RenderRentalCalendar(){const host=$('studio2RentalCalendar');if(!host)return;const chosen=studio2RentSelectedDate();studio2RentWeek=mondayOf(chosen);const weekEnd=new Date(studio2RentWeek);weekEnd.setDate(weekEnd.getDate()+6);$('studio2RentWeekLabel').textContent=window.__ldsLanguage==='en'?studio2RentWeek.getDate()+'–'+weekEnd.getDate()+' '+weekEnd.toLocaleDateString('en-GB',{month:'long'})+' '+weekEnd.getFullYear():studio2RentWeek.getFullYear()+' m. '+weekEnd.toLocaleDateString('lt-LT',{month:'long'})+' '+studio2RentWeek.getDate()+'–'+weekEnd.getDate()+' d.';const days=window.__ldsLanguage==='en'?['Mon','Tue','Wed','Thu','Fri','Sat','Sun']:['Pr','An','Tr','Kt','Pn','Št','Sk'];let html='<div class="rent-time"></div>';for(let day=0;day<7;day++){const dt=new Date(studio2RentWeek);dt.setDate(dt.getDate()+day);const isSelected=localISO(dt)===localISO(chosen);html+='<div class="rent-day '+(isSelected?'selected-day':'')+'"><button data-pick-day="'+day+'">'+days[day]+'<strong>'+dt.getDate()+'</strong></button></div>'}const start=studio2StartHour(),len=studio2Duration(),selectedDay=(chosen.getDay()+6)%7,conflict=studio2HasConflict(selectedDay,start,len);for(let hour=8;hour<22;hour++){html+='<div class="rent-time">'+String(hour).padStart(2,'0')+':00</div>';for(let day=0;day<7;day++){const isBusy=studio2BusyAt(day,hour);const availabilityState=studio2RentalWeekBounds();const isReady=studio2AvailabilityLoadedKey===availabilityState.key;const hasError=studio2AvailabilityErrorKey===availabilityState.key;const selected=day===selectedDay&&hour>=start&&hour<(start===21?22:start+len);let cls='rent-slot';if(isBusy)cls+=' busy';if(selected)cls+=' chosen'+(hour===start?' first':'')+(hour===(start===21?21:start+len-1)?' last':'')+(conflict?' conflict':'');let en=window.__ldsLanguage==='en';let label=!isReady?(hasError?(en?'UNAVAILABLE':'NEPASIEKIAMA'):(en?'CHECKING':'TIKRINAMA')):isBusy?(en?'BOOKED':'UŽIMTA'):selected?(hour===start?(en?'YOUR TIME':'JŪSŲ LAIKAS'):hour===start+len-1?(en?'UNTIL ':'IKI ')+String((hour+1)%24).padStart(2,'0')+':00':'✓ '+String(hour).padStart(2,'0')+':00'):(en?'FREE':'LAISVA');let sub=hour===21?'21:00–21:45':String(hour).padStart(2,'0')+':00–'+String(hour+1).padStart(2,'0')+':00';html+='<div class="rent-cell"><button class="'+cls+'" data-rent-day="'+day+'" data-rent-hour="'+hour+'" '+(isBusy||!isReady?'disabled':'')+'><strong>'+label+'</strong><small>'+sub+'</small></button></div>'}}host.innerHTML=html;const state=studio2RentalWeekBounds();if(studio2AvailabilityLoadedKey!==state.key)$('studio2SelectionHint').textContent=studio2AvailabilityErrorKey===state.key?'Nepavyko patikrinti užimtumo. Atnaujinkite puslapį.':'Tikriname realų studijos užimtumą…';host.querySelectorAll('[data-pick-day]').forEach(btn=>btn.onclick=()=>{const dt=new Date(studio2RentWeek);dt.setDate(dt.getDate()+Number(btn.dataset.pickDay));$('studio2RentDate').value=localISO(dt);$('studio2RentToast').classList.remove('show');studio2UpdateBookingSummary()});host.querySelectorAll('[data-rent-day]').forEach(btn=>btn.onclick=()=>{const dt=new Date(studio2RentWeek);dt.setDate(dt.getDate()+Number(btn.dataset.rentDay));$('studio2RentDate').value=localISO(dt);$('studio2RentTime').value=String(Number(btn.dataset.rentHour)).padStart(2,'0');$('studio2RentLength').value='1';$('studio2RentToast').classList.remove('show');$('studio2RentalBooking').classList.add('booking-open');studio2UpdateBookingSummary();$('studio2RentalBooking').scrollIntoView({behavior:'smooth',block:'start'})})}
+$('studio2RentDate').addEventListener('change',()=>{studio2RentWeek=mondayOf(studio2RentSelectedDate());studio2UpdateBookingSummary();studio2LoadRentalAvailability(true)});$('studio2RentTime').addEventListener('change',studio2UpdateBookingSummary);
+$('studio2DurationMinus').onclick=()=>{const n=Math.max(1,studio2Duration()-1);$('studio2RentLength').value=String(n);studio2UpdateBookingSummary()};
+$('studio2DurationPlus').onclick=()=>{const max=studio2MaxAllowedDuration((studio2RentSelectedDate().getDay()+6)%7,studio2StartHour());const n=Math.min(6,max,studio2Duration()+1);if(n>=1){$('studio2RentLength').value=String(n);studio2UpdateBookingSummary()}};
+$('prevStudio2RentWeek').onclick=()=>{const d=studio2RentSelectedDate();d.setDate(d.getDate()-7);$('studio2RentDate').value=localISO(d);studio2RentWeek=mondayOf(d);studio2UpdateBookingSummary();studio2LoadRentalAvailability(true)};
+$('nextStudio2RentWeek').onclick=()=>{const d=studio2RentSelectedDate();d.setDate(d.getDate()+7);$('studio2RentDate').value=localISO(d);studio2RentWeek=mondayOf(d);studio2UpdateBookingSummary();studio2LoadRentalAvailability(true)};
+$('studio2RentSubmit').onclick=async()=>{const button=$('studio2RentSubmit');const requiredFields=[$('studio2RentFirstName'),$('studio2RentLastName'),$('studio2RentPhone'),$('studio2RentEmail')];for(const field of requiredFields){if(!field.checkValidity()){field.reportValidity();field.focus();return}}const len=studio2Duration(),start=studio2StartHour(),end=start+len,date=$('studio2RentDate').value;if(studio2HasConflict((studio2RentSelectedDate().getDay()+6)%7,start,len)){ $('studio2RentToast').textContent=start===21?'Paskutinis 21:00–21:45 laikas užimtas. Pasirinkite kitą laiką.':'Rezervacija turi baigtis iki 21:00 val. Paskutinis galimas laikas – 21:00–21:45.';$('studio2RentToast').classList.add('show');return}if(!date){$('studio2RentToast').textContent='Pasirinkite rezervacijos datą.';$('studio2RentToast').classList.add('show');return}button.disabled=true;button.setAttribute('aria-busy','true');button.textContent='Pateikiama rezervacija…';$('studio2RentToast').textContent='Tikriname užimtumą ir išsaugome rezervaciją…';$('studio2RentToast').classList.add('show');try{const first=$('studio2RentFirstName').value.trim(),last=$('studio2RentLastName').value.trim(),phone=$('studio2RentPhone').value.trim(),email=$('studio2RentEmail').value.trim(),total=len*40;const response=await fetch('https://tqzabmlrtbrylibafjfh.supabase.co/functions/v1/public-rental-booking-studio2',{method:'POST',headers:{'Content-Type':'application/json','apikey':'sb_publishable_nLHN6DiC2vh_bTXW3uTc7w_I7aT5Za-'},body:JSON.stringify({firstName:first,lastName:last,phone,email,date,startHour:start,duration:len,language:window.__ldsLanguage||document.documentElement.lang||'lt'})});const result=await response.json().catch(()=>({error:'Serveris grąžino neteisingą atsakymą.'}));if(!response.ok||!result.ok){$('studio2RentToast').textContent=result.error||'Nepavyko pateikti rezervacijos. Pabandykite dar kartą.';return}const dateObj=new Date(date+'T12:00:00');const dateLabel=dateObj.toLocaleDateString((window.__ldsLanguage||document.documentElement.lang)==='en'?'en-GB':'lt-LT',{weekday:'long',year:'numeric',month:'long',day:'numeric'});const fmt=n=>String(n).padStart(2,'0')+':00';window.__lastStudio2BookingId=result.bookingId;const en=(window.__ldsLanguage||document.documentElement.lang)==='en';const details=en?[['Full name',first+' '+last],['Reservation date',dateLabel],['Time',fmt(start)+'–'+(start===21?'21:45':fmt(end))],['Duration',start===21?'45 min. (charged as 1 hour)':len+(len===1?' hour':' hours')],['Reservation price',total+' €'],['Email',email],['Phone number',phone]]:[['Vardas, pavardė',first+' '+last],['Rezervacijos data',dateLabel],['Laikas',fmt(start)+'–'+(start===21?'21:45':fmt(end))],['Trukmė',start===21?'45 min. (apmokestinama kaip 1 val.)':len+(len===1?' valanda':' valandos')],['Rezervacijos kaina',total+' €'],['El. paštas',email],['Telefono numeris',phone]];const host=$('studio2RentalConfirmationDetails');host.replaceChildren();details.forEach(([label,value])=>{const row=document.createElement('div');row.className='rc-row'+(label===(en?'Reservation price':'Rezervacijos kaina')?' rc-total-price':'');const left=document.createElement('span');left.textContent=label===(en?'Reservation price':'Rezervacijos kaina')?(en?'Total reservation price':'Bendra rezervacijos kaina'):label;const right=document.createElement('strong');right.textContent=value;row.append(left,right);host.appendChild(row)});$('studio2RentalConfirmationIntro').textContent=(window.__ldsLanguage||document.documentElement.lang)==='en'?'Thank you, '+first+'! Your studio rental reservation details have been saved.':'Ačiū, '+first+'! Jūsų studijos nuomos rezervacijos informacija išsaugota.';/* Payment options are sent in the confirmation email. */$('studio2RentalConfirmationNote').textContent=(window.__ldsLanguage||document.documentElement.lang)==='en'?(result.emailSent?'Reservation saved. The payment button is in the email sent to '+email+'. If you cannot find it, check your Spam folder. If you have trouble completing payment, contact info@ladancestone.lt.':(result.paymentLinkCreated?'Reservation saved and the payment link is ready. If you have trouble completing payment, contact info@ladancestone.lt.':'Reservation saved, but we could not prepare the payment link. Please contact info@ladancestone.lt.')):(result.emailSent?'Rezervacija išsaugota. Apmokėjimo mygtuką rasite el. laiške, kurį išsiuntėme adresu '+email+'. Jei laiško nematote, patikrinkite šlamšto (Spam) aplanką. Jei nepavyksta atlikti apmokėjimo, susisiekite info@ladancestone.lt.':(result.paymentLinkCreated?'Rezervacija išsaugota ir apmokėjimo nuoroda paruošta. Jei nepavyksta atlikti apmokėjimo, susisiekite info@ladancestone.lt.':'Rezervacija išsaugota, tačiau mokėjimo nuorodos paruošti nepavyko. Susisiekite info@ladancestone.lt.'));$('studio2RentalBooking').classList.remove('booking-open');$('studio2RentalConfirmation').style.display='block';$('studio2RentToast').classList.remove('show');button.textContent=(window.__ldsLanguage||document.documentElement.lang)==='en'?'Reservation submitted':'Rezervacija pateikta';button.disabled=true;$('studio2RentalConfirmation').scrollIntoView({behavior:'smooth',block:'start'});return}catch(error){console.error('Nuomos rezervacijos klaida:',error);$('studio2RentToast').textContent='Nepavyko prisijungti prie rezervacijų sistemos. Patikrinkite interneto ryšį ir bandykite dar kartą.'}finally{button.removeAttribute('aria-busy');if((window.__ldsLanguage||document.documentElement.lang)==='en'?!button.textContent.includes('submitted'):!button.textContent.includes('pateikta')){button.disabled=false;button.textContent=(window.__ldsLanguage||document.documentElement.lang)==='en'?'Continue booking':'Tęsti rezervaciją'}}};
 
-
-    </div>
   </div>
   <div class="brand-footer">
     <div class="brand-footer-main">
