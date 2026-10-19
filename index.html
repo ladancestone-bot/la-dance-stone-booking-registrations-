@@ -19079,6 +19079,11 @@ function setLanguage(lang){
  if(typeof renderClassDates==='function'){try{renderClassDates();}catch(e){}}
  if(typeof updateClassPricing==='function'){try{updateClassPricing();}catch(e){}}
  translateTree(document.getElementById('classDetail')||document.body,current);
+ // Explicit translations for the two registration labels missing exact dictionary entries.
+ var classAudiencePill=document.querySelector('#classOverview .viewhead > .pill');
+ if(classAudiencePill) classAudiencePill.textContent=current==='en'?'Children · teens · adults':'Vaikams · paaugliams · suaugusiesiems';
+ var classAsidePriceNote=document.getElementById('classAsidePriceNote');
+ if(classAsidePriceNote) classAsidePriceNote.textContent=current==='en'?'Additional €5 registration fee.':'Papildomas 5 € registracijos mokestis.';
  window.dispatchEvent(new CustomEvent('lds-language-change',{detail:{language:current}}));
 }
 // Move the switch outside transformed/stacked page sections so no page overlay can cover it.
