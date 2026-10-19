@@ -19049,33 +19049,30 @@ function setLanguage(lang){
 // as in the first working version before the glass styling changes.
 var languageSwitch=document.getElementById('ldsLanguageSwitch');
 window.__ldsSetLanguage=function(lang){setLanguage(lang);};
-// Robust language control handling: pointerup supports mouse, touch and pen;
-// click remains as a keyboard/accessibility fallback. Avoid cancelling touchstart,
-// because that can suppress the subsequent click in mobile Safari.
-var ldsLastPointerLanguage = '';
-var ldsLastPointerAt = 0;
-function ldsLanguageButtonFromEvent(e){
- var target=e.target;
- return target&&target.closest?target.closest('#ldsLanguageSwitch button[data-lds-lang]'):null;
+// Bind directly to each language button. This avoids relying on delegated
+// document handlers when other page scripts intercept clicks.
+function bindLdsLanguageButtons(){
+ var switchEl=document.getElementById('ldsLanguageSwitch');
+ if(!switchEl)return false;
+ var buttons=switchEl.querySelectorAll('button[data-lds-lang]');
+ if(!buttons.length)return false;
+ buttons.forEach(function(button){
+  if(button.dataset.ldsBound==='1')return;
+  button.dataset.ldsBound='1';
+  var activate=function(event){
+   if(event){event.preventDefault();event.stopPropagation();}
+   var lang=button.getAttribute('data-lds-lang');
+   setLanguage(lang);
+  };
+  button.addEventListener('click',activate,false);
+  button.addEventListener('touchend',function(event){
+   // iOS Safari fallback; prevent the synthetic click from translating twice.
+   activate(event);
+  },{passive:false});
+ });
+ return true;
 }
-document.addEventListener('pointerup',function(e){
- var target=ldsLanguageButtonFromEvent(e);
- if(!target)return;
- e.preventDefault();
- e.stopPropagation();
- ldsLastPointerLanguage=target.getAttribute('data-lds-lang');
- ldsLastPointerAt=Date.now();
- setLanguage(ldsLastPointerLanguage);
-},true);
-document.addEventListener('click',function(e){
- var target=ldsLanguageButtonFromEvent(e);
- if(!target)return;
- e.preventDefault();
- e.stopPropagation();
- // Pointer interaction already changed the language; don't run translation twice.
- if(Date.now()-ldsLastPointerAt<800 && target.getAttribute('data-lds-lang')===ldsLastPointerLanguage)return;
- setLanguage(target.getAttribute('data-lds-lang'));
-},true);
+bindLdsLanguageButtons();
 document.addEventListener('click',function(e){
  var b=e.target.closest('button,[role="button"]');
  if(b && /rentSubmit|rentalCashChoice/.test(b.id||'')) setTimeout(function(){translateTree(document.body,current);if(typeof updateBookingSummary==='function'){try{updateBookingSummary();}catch(e){}}},0);
