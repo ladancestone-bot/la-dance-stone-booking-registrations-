@@ -19062,6 +19062,108 @@ try{var queryLanguage=new URLSearchParams(window.location.search).get('lang');va
 setLanguage(initial);
 })();
 </script>
+
+<style id="lds-rental-closing-notice-contrast-translation-20261019">
+/* Rental warning: stable high contrast in both languages and automatic phone display modes. */
+html body #rentalView .closing-notice,
+html body #rentalView .closing-notice-compact,
+html body #rentalView #finalSlotNotice {
+  background:#fff8f0!important;
+  background-image:none!important;
+  color:#382821!important;
+  border:1px solid #c9ad91!important;
+  border-left:5px solid #7a263d!important;
+  box-shadow:0 8px 22px rgba(56,40,33,.12)!important;
+  color-scheme:light!important;
+}
+html body #rentalView .closing-notice strong,
+html body #rentalView #finalSlotNotice strong {
+  color:#481824!important;
+  -webkit-text-fill-color:#481824!important;
+  text-shadow:none!important;
+}
+html body #rentalView .closing-notice p,
+html body #rentalView #finalSlotNotice p,
+html body #rentalView .closing-notice .notice-line {
+  color:#493a32!important;
+  -webkit-text-fill-color:#493a32!important;
+  text-shadow:none!important;
+}
+html body #rentalView .closing-notice .notice-time,
+html body #rentalView #finalSlotNotice .notice-time {
+  color:#7a263d!important;
+  -webkit-text-fill-color:#7a263d!important;
+  font-weight:800!important;
+}
+@media(prefers-color-scheme:dark) {
+ html body #rentalView .closing-notice,
+ html body #rentalView .closing-notice-compact,
+ html body #rentalView #finalSlotNotice {
+   background:#fff8f0!important;background-image:none!important;color:#382821!important;
+ }
+ html body #rentalView .closing-notice strong,
+ html body #rentalView #finalSlotNotice strong {color:#481824!important;-webkit-text-fill-color:#481824!important}
+ html body #rentalView .closing-notice p,
+ html body #rentalView #finalSlotNotice p,
+ html body #rentalView .closing-notice .notice-line {color:#493a32!important;-webkit-text-fill-color:#493a32!important}
+ html body #rentalView .closing-notice .notice-time,
+ html body #rentalView #finalSlotNotice .notice-time {color:#7a263d!important;-webkit-text-fill-color:#7a263d!important}
+}
+</style>
+<script id="lds-rental-closing-notice-english-20261019">
+(function(){
+ const translations = [
+  ['Pastatas užrakinamas','The building locks at'],
+  ['Paskutinis rezervacijos laikas:','Last available booking time:'],
+  ['Šio laiko kaina –','This time slot costs'],
+  ['kaip už visą valandą.','the full hourly rate.'],
+  ['Prašome pasilikti laiko susitvarkyti ir išeiti iš pastato iki','Please allow time to tidy up and leave the building by'],
+  ['21:00 · paskutinis laikas','21:00 · last available start'],
+  ['21:00 · paskutinis laikas','21:00 · last available start']
+ ];
+ function apply(){
+  const en = window.__ldsLanguage === 'en' || document.documentElement.lang === 'en';
+  const notice = document.getElementById('finalSlotNotice');
+  if(notice){
+   const strong = notice.querySelector('strong');
+   const lines = notice.querySelectorAll('.notice-line');
+   if(strong){
+    strong.replaceChildren(document.createTextNode(en?'The building locks at ':'Pastatas užrakinamas '));
+    const time = document.createElement('span'); time.className='notice-time'; time.innerHTML='22.00&nbsp;'+(en?'hrs':'val.');
+    strong.appendChild(time);
+   }
+   const content = [
+    en?'Last available booking time: ':'Paskutinis rezervacijos laikas: ',
+    en?'This time slot costs ':'Šio laiko kaina – ',
+    en?'Please allow time to tidy up and leave the building by ':'Prašome pasilikti laiko susitvarkyti ir išeiti iš pastato iki '
+   ];
+   lines.forEach((line,i)=>{
+    const time = line.querySelector('.notice-time');
+    const existingTime = time ? time.innerHTML : (i===1?'20 €':'22.00&nbsp;'+(en?'hrs':'val.'));
+    line.replaceChildren(document.createTextNode(content[i]));
+    const value = document.createElement('span'); value.className='notice-time';
+    if(i===0) value.innerHTML='21.00–21.45&nbsp;'+(en?'hrs':'val.');
+    else if(i===1) value.textContent='20 €';
+    else value.innerHTML='22.00&nbsp;'+(en?'hrs':'val.');
+    line.appendChild(value);
+    if(i===1) line.appendChild(document.createTextNode(en?', the full hourly rate.':', kaip už visą valandą.'));
+   });
+  }
+  const timeSelect = document.getElementById('rentTime');
+  if(timeSelect){
+   const last = timeSelect.querySelector('option[value="21"]');
+   if(last) last.textContent = en?'21:00 · last available start':'21:00 · paskutinis laikas';
+  }
+ }
+ let queued=false;
+ function schedule(){if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;apply()})}
+ document.addEventListener('click',e=>{if(e.target.closest('[data-lang],.lang-toggle,.language-switch,.language-btn,#langLT,#langEN'))setTimeout(schedule,0)},true);
+ new MutationObserver(schedule).observe(document.documentElement,{attributes:true,attributeFilter:['lang'],subtree:true,childList:true});
+ document.addEventListener('DOMContentLoaded',schedule);
+ window.addEventListener('load',schedule);
+ schedule();
+})();
+</script>
 </body>
 </html>
 
