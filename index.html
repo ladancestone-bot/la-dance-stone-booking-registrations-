@@ -19582,6 +19582,97 @@ html body #homeView .choices>.choice[data-view="classes"].is-selected .arrow{
 html body #homeView .choices>.choice:focus-visible{outline:2px solid #d0b184!important;outline-offset:3px!important}
 </style>
 
+
+<style id="lds-press-state-cleanup-20261019">
+/* Cards: a clear deep-burgundy selected/pressed state, never dusty pink. */
+html body #homeView .choices>.choice:active,
+html body #homeView .choices>.choice.is-selected,
+html body #classOverview .class-choices>.choice:active,
+html body #classOverview .class-choices>.choice.is-selected,
+html body #classOverview .class-choices-four>.choice:active,
+html body #classOverview .class-choices-four>.choice.is-selected,
+html body .class-choices>.choice:active,
+html body .class-choices>.choice.is-selected{
+ background:#481824!important;
+ background-color:#481824!important;
+ background-image:linear-gradient(135deg,#5b1027 0%,#481824 58%,#35101a 100%)!important;
+ border-color:#d0b184!important;
+ color:#fff8f0!important;
+ box-shadow:inset 0 0 0 1px rgba(255,248,240,.12),0 8px 20px rgba(48,12,25,.18)!important;
+ -webkit-tap-highlight-color:transparent!important;
+}
+html body #homeView .choices>.choice:active h3,
+html body #homeView .choices>.choice:active p,
+html body #homeView .choices>.choice:active .num,
+html body #homeView .choices>.choice:active .arrow,
+html body #homeView .choices>.choice.is-selected h3,
+html body #homeView .choices>.choice.is-selected p,
+html body #homeView .choices>.choice.is-selected .num,
+html body #homeView .choices>.choice.is-selected .arrow,
+html body .class-choices>.choice:active h3,
+html body .class-choices>.choice:active p,
+html body .class-choices>.choice:active .num,
+html body .class-choices>.choice:active .arrow,
+html body .class-choices>.choice.is-selected h3,
+html body .class-choices>.choice.is-selected p,
+html body .class-choices>.choice.is-selected .num,
+html body .class-choices>.choice.is-selected .arrow{
+ color:#fff8f0!important;
+ -webkit-text-fill-color:#fff8f0!important;
+}
+/* Back/navigation links: no rectangular focus fill or shadow; only the text/arrow turns burgundy. */
+html body button.back,
+html body button.back:hover,
+html body button.back:active,
+html body button.back:focus,
+html body button.back:focus-visible,
+html body button[data-view="home"],
+html body button[data-view="home"]:hover,
+html body button[data-view="home"]:active,
+html body button[data-view="home"]:focus,
+html body button[data-view="home"]:focus-visible,
+html body .timetable-back-link,
+html body .timetable-back-link:hover,
+html body .timetable-back-link:active,
+html body .timetable-back-link:focus,
+html body .timetable-back-link:focus-visible,
+html body #classesView button.back,
+html body #classesView button.back:hover,
+html body #classesView button.back:active,
+html body #classesView button.back:focus,
+html body #classesView button.back:focus-visible{
+ background:transparent!important;
+ background-color:transparent!important;
+ background-image:none!important;
+ border-color:transparent!important;
+ box-shadow:none!important;
+ outline:none!important;
+ color:#481824!important;
+ -webkit-text-fill-color:#481824!important;
+}
+html body button.back *,
+html body button[data-view="home"] *,
+html body .timetable-back-link *,
+html body #classesView button.back *{
+ color:#481824!important;
+ -webkit-text-fill-color:#481824!important;
+}
+html body button.back:focus-visible,
+html body button[data-view="home"]:focus-visible,
+html body .timetable-back-link:focus-visible{
+ outline:2px solid #d0b184!important;
+ outline-offset:3px!important;
+}
+/* Remove the iOS/WebKit rectangular tap highlight from interactive cards and navigation. */
+html body #homeView .choices>.choice,
+html body .class-choices>.choice,
+html body button.back,
+html body button[data-view="home"],
+html body .timetable-back-link{
+ -webkit-tap-highlight-color:transparent!important;
+}
+</style>
+
 </body>
 </html>
 
