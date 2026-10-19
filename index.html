@@ -4414,7 +4414,7 @@ function renderClassDates(){
  const schedule=classScheduleForSelection().filter(s=>type==='single'||!adult||selectedAdultDays.includes(s.name||classWeekdays[s.day]));
  const sessions=[];
  if(adult&&type==='group'&&selectedAdultDays.length!==Number($('adultFrequency').value)){
-  help.textContent='Pirmiausia pasirinkite '+Number($('adultFrequency').value)+' '+(Number($('adultFrequency').value)===1?'lankymo dieną':'lankymo dienas')+' per savaitę.';
+  help.textContent=window.__ldsLanguage==='en'?'First, choose '+Number($('adultFrequency').value)+' class '+(Number($('adultFrequency').value)===1?'day':'days')+' per week.':'Pirmiausia pasirinkite '+Number($('adultFrequency').value)+' '+(Number($('adultFrequency').value)===1?'lankymo dieną':'lankymo dienas')+' per savaitę.';
   help.style.display='block';host.innerHTML='';classSelectedSessions=[];return;
  }
  if(Number.isInteger(year)&&Number.isInteger(month)&&month>=1&&month<=12){
@@ -4432,12 +4432,12 @@ function renderClassDates(){
  classSelectedSessions=type==='single'?[]:sessions;
  help.style.display='none';host.innerHTML='';
  if(!sessions.length){
-  help.textContent='Šį mėnesį tinkamų pamokų nebeliko arba jų nėra. Pasirinkite kitą būsimą mėnesį.';
+  help.textContent=window.__ldsLanguage==='en'?'There are no remaining classes this month. Please choose another future month.':'Šį mėnesį tinkamų pamokų nebeliko arba jų nėra. Pasirinkite kitą būsimą mėnesį.';
   help.style.display='block';classSelectedSessions=[];return;
  }
  const dateLabel=s=>new Date(s.date+'T12:00:00').toLocaleDateString(window.__ldsLanguage==='en'?'en-GB':'lt-LT',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
  if(type==='group'){
-  host.innerHTML=sessions.map(s=>'<div class="class-date-option"><span><strong>'+dateLabel(s)+'</strong><small>'+s.start+'–'+s.end+'</small></span><small>Įtraukta</small></div>').join('');
+  host.innerHTML=sessions.map(s=>'<div class="class-date-option"><span><strong>'+dateLabel(s)+'</strong><small>'+s.start+'–'+s.end+'</small></span><small>'+(window.__ldsLanguage==='en'?'Included':'Įtraukta')+'</small></div>').join('');
   return;
  }
  const selected=sessions.some(s=>s.date===prevSelected)?prevSelected:'';
@@ -18935,6 +18935,39 @@ var pairs = [
  ["Registracijos mokestis mokamas tik pirmą kartą.","The registration fee is paid only for the first registration."],
  ["Pasirinkite, kaip norite lankyti užsiėmimus.","Choose how you would like to attend classes."],
 ];
+// Complete class-registration translations, including dynamic group/date-picker content.
+pairs.push(
+ ["Matysite tik pasirinktos grupės treniruočių dienas, datas ir laikus. Galima rinktis šį arba bet kurį būsimą mėnesį.","Only the selected group's class days, dates and times are shown. You can choose this month or any future month."],
+ ["Pasirinkite mėnesį. Matysite tik pasirinktos grupės treniruočių dienas, datas ir laikus. Galima rinktis šį arba bet kurį būsimą mėnesį.","Choose a month. Only the selected group's class days, dates and times are shown. You can choose this month or any future month."],
+ ["Šiuolaikinis šokis vaikams · 5–7 m.","Contemporary dance for children · ages 5–7"],
+ ["Šiuolaikinis šokis vaikams · 7–12 m.","Contemporary dance for children · ages 7–12"],
+ ["Šiuolaikinis šokis paaugliams · 13–18 m.","Contemporary dance for teens · ages 13–18"],
+ ["Šiuolaikinis šokis suaugusiesiems","Contemporary dance for adults"],
+ ["Šiuolaikinis šokis · 5–7 m.","Contemporary dance · ages 5–7"],
+ ["Šiuolaikinis šokis · 7–12 m.","Contemporary dance · ages 7–12"],
+ ["Šiuolaikinis šokis · 13–18 m.","Contemporary dance · ages 13–18"],
+ ["Vaikų grupė antradieniais ir ketvirtadieniais. Galite rinktis abonementą arba vienkartinę pamoką.","Children's group on Tuesdays and Thursdays. You can choose a membership or a single class."],
+ ["Pasirinkite Jums tinkantį savaitės grafiką. Abonementas apima 2 treniruotes per savaitę.","Choose the weekly schedule that suits you. The membership includes 2 classes per week."],
+ ["Pasirinkite 1, 2 arba 3 treniruotes per savaitę ir Jums patogiausias dienas.","Choose 1, 2 or 3 classes per week and the days that suit you best."],
+ ["5–7 m. · Antradieniais ir ketvirtadieniais · 18:00–18:45","Ages 5–7 · Tuesdays and Thursdays · 18:00–18:45"],
+ ["Pirmadieniais ir trečiadieniais · 16:00–17:00","Mondays and Wednesdays · 16:00–17:00"],
+ ["Antradieniais ir ketvirtadieniais · 16:00–17:00","Tuesdays and Thursdays · 16:00–17:00"],
+ ["Pirmadieniais ir trečiadieniais · 17:00–18:00","Mondays and Wednesdays · 17:00–18:00"],
+ ["Antradieniais ir ketvirtadieniais · 17:00–18:00","Tuesdays and Thursdays · 17:00–18:00"],
+ ["Vaikai · 5–7 m.","Children · ages 5–7"],
+ ["Vaikai · 7–12 m.","Children · ages 7–12"],
+ ["Paaugliai · 13–18 m.","Teens · ages 13–18"],
+ ["Suaugusiųjų grupė","Adult group"],
+ ["Pirmadieniais","Mondays"],["Antradieniais","Tuesdays"],["Trečiadieniais","Wednesdays"],["Ketvirtadieniais","Thursdays"],["Penktadieniais","Fridays"],["Šeštadieniais","Saturdays"],["Sekmadieniais","Sundays"],
+ ["Pirmadienis","Monday"],["Antradienis","Tuesday"],["Trečiadienis","Wednesday"],["Ketvirtadienis","Thursday"],["Penktadienis","Friday"],["Šeštadienis","Saturday"],["Sekmadienis","Sunday"],
+ ["Įtraukta","Included"],
+ ["Gimimo data","Date of birth"],
+ ["Pasirinkite patogias dienas","Choose the days that suit you"],
+ ["Pirmiausia pasirinkite 1 lankymo dieną per savaitę.","First, choose 1 class day per week."],
+ ["Pirmiausia pasirinkite 2 lankymo dienas per savaitę.","First, choose 2 class days per week."],
+ ["Pirmiausia pasirinkite 3 lankymo dienas per savaitę.","First, choose 3 class days per week."],
+ ["Šį mėnesį tinkamų pamokų nebeliko arba jų nėra. Pasirinkite kitą būsimą mėnesį.","There are no remaining classes this month. Please choose another future month."]
+);
 var toEn=new Map(pairs), toLt=new Map(pairs.map(function(p){return [p[1],p[0]];}));
 var current='lt', scheduled=false;
 function translateTextNode(node,lang){
@@ -19042,6 +19075,10 @@ function setLanguage(lang){
  var durationPlus=document.getElementById('durationPlus');
  if(durationMinus)durationMinus.setAttribute('aria-label',current==='en'?'Decrease booking duration':'Sumažinti valandų skaičių');
  if(durationPlus)durationPlus.setAttribute('aria-label',current==='en'?'Increase booking duration':'Padidinti valandų skaičių');
+ // Refresh dynamic class-registration content in the selected language.
+ if(typeof renderClassDates==='function'){try{renderClassDates();}catch(e){}}
+ if(typeof updateClassPricing==='function'){try{updateClassPricing();}catch(e){}}
+ translateTree(document.getElementById('classDetail')||document.body,current);
  window.dispatchEvent(new CustomEvent('lds-language-change',{detail:{language:current}}));
 }
 // Move the switch outside transformed/stacked page sections so no page overlay can cover it.
