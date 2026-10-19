@@ -20510,4 +20510,83 @@ html body #homeView .choices>.choice .arrow{right:16px!important;width:43px!impo
    -webkit-text-fill-color:#fff8f0!important;
  }
 }
+
+/* Final home header + capsule alignment correction. */
+html body #homeView .home-site-link-row{
+ display:block!important;
+ position:absolute!important;
+ top:22px!important;left:16px!important;right:auto!important;
+ width:auto!important;max-width:calc(100% - 190px)!important;
+ margin:0!important;padding:0!important;
+ z-index:10001!important;
+}
+html body #homeView .home-site-link-row .site-link{
+ display:inline-flex!important;align-items:center!important;gap:7px!important;
+ padding:8px 0!important;margin:0!important;
+ color:#f8f0e7!important;-webkit-text-fill-color:#f8f0e7!important;
+ font-size:12px!important;line-height:1.2!important;
+ white-space:normal!important;text-decoration:none!important;
+ background:transparent!important;border:0!important;box-shadow:none!important;
+}
+html body #ldsLanguageSwitch{
+ position:fixed!important;top:18px!important;right:14px!important;left:auto!important;
+ z-index:10002!important;
+ width:auto!important;max-width:132px!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ gap:3px!important;box-sizing:border-box!important;
+ padding:4px!important;
+}
+html body #ldsLanguageSwitch button{
+ flex:0 0 auto!important;box-sizing:border-box!important;
+ min-width:38px!important;width:38px!important;min-height:38px!important;height:38px!important;
+ padding:0!important;margin:0!important;line-height:1!important;
+}
+html body #homeView .choices>.choice,
+html body #homeView .choices>.choice.is-center,
+html body #homeView .choices>.choice.is-side{
+ box-sizing:border-box!important;
+ height:88px!important;min-height:88px!important;max-height:88px!important;
+ display:flex!important;flex-direction:column!important;
+ align-items:flex-start!important;justify-content:center!important;
+ padding:12px 58px 12px 22px!important;
+}
+html body #homeView .choices>.choice h3,
+html body #homeView .choices>.choice p{
+ flex:0 0 auto!important;
+ width:100%!important;max-width:100%!important;min-width:0!important;
+ text-align:left!important;position:static!important;
+}
+html body #homeView .choices>.choice h3{
+ margin:0 0 4px!important;
+}
+html body #homeView .choices>.choice .arrow{
+ display:block!important;
+ position:absolute!important;
+ top:50%!important;right:18px!important;bottom:auto!important;left:auto!important;
+ inset-inline-start:auto!important;inset-inline-end:18px!important;
+ width:auto!important;height:auto!important;min-width:0!important;min-height:0!important;
+ margin:0!important;padding:0!important;
+ border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+ transform:translateY(-50%)!important;
+ font-size:25px!important;line-height:1!important;
+ color:#fff8f0!important;-webkit-text-fill-color:#fff8f0!important;
+}
+@media(max-width:760px){
+ html body #homeView.active{position:relative!important;padding-top:158px!important}
+ html body #homeView .home-site-link-row{top:18px!important;left:14px!important;max-width:calc(100% - 154px)!important}
+ html body #homeView .home-site-link-row .site-link{font-size:11px!important;gap:4px!important}
+ html body #ldsLanguageSwitch{top:14px!important;right:12px!important;max-width:122px!important}
+ html body #ldsLanguageSwitch button{width:34px!important;min-width:34px!important;height:34px!important;min-height:34px!important}
+ html body #homeView .choices{gap:12px!important;margin-top:28px!important}
+ html body #homeView .choices>.choice,
+ html body #homeView .choices>.choice.is-center,
+ html body #homeView .choices>.choice.is-side{
+  height:88px!important;min-height:88px!important;max-height:88px!important;
+  padding:12px 54px 12px 20px!important;
+ }
+ html body #homeView .choices>.choice .arrow{
+  top:50%!important;right:17px!important;inset-inline-end:17px!important;
+  transform:translateY(-50%)!important;
+ }
+}
 </style>
