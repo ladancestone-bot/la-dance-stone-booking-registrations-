@@ -23790,3 +23790,69 @@ html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-summary-r
   }
 }
 </style>
+
+
+<style id="lds-studio1-caption-position-final-20261019">
+/* Final Studio 1 polish: badge stays on photo, remove seam above metrics,
+   lift the details slightly, and keep the booking photo visually separate. */
+html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-studio-photo{
+  position:relative!important;
+  padding:0!important;
+  margin:0!important;
+  overflow:hidden!important;
+  border-bottom:0!important;
+}
+html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-studio-photo > .gallery-caption{
+  position:absolute!important;
+  left:22px!important;
+  bottom:18px!important;
+  top:auto!important;
+  z-index:2!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:max-content!important;
+  max-width:calc(100% - 44px)!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:9px 20px!important;
+  transform:none!important;
+  border:1px solid rgba(255,247,237,.9)!important;
+  border-radius:999px!important;
+  background:rgba(93,61,48,.78)!important;
+  color:#fff7ed!important;
+  box-shadow:0 5px 16px rgba(40,24,19,.16)!important;
+  backdrop-filter:blur(8px)!important;
+}
+html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-studio-photo > .gallery-caption strong{
+  margin:0!important;
+  color:#fff7ed!important;
+  font:600 17px 'Cormorant Garamond',serif!important;
+  line-height:1.1!important;
+}
+html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-studio-photo > .gallery-caption span{
+  display:none!important;
+}
+html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-summary-row{
+  padding-top:16px!important;
+  border-top:0!important;
+}
+html body #rentalView .rental-gallery.rental-gallery-studio1 > .phone-card{
+  margin-top:28px!important;
+  border-radius:28px!important;
+}
+@media(max-width:640px){
+  html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-studio-photo > .gallery-caption{
+    left:18px!important;
+    bottom:16px!important;
+    max-width:calc(100% - 36px)!important;
+    padding:9px 17px!important;
+  }
+  html body #rentalView .rental-gallery.rental-gallery-studio1 > .rental-summary-row{
+    padding-top:14px!important;
+  }
+  html body #rentalView .rental-gallery.rental-gallery-studio1 > .phone-card{
+    margin-top:24px!important;
+  }
+}
+</style>
