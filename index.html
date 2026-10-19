@@ -24781,3 +24781,66 @@ html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #stud
   -webkit-backdrop-filter:none!important;
 }
 </style>
+
+
+<style id="studio2-corner-final-override-20261019">
+/* FINAL OVERRIDE — only Studio 2 rental calendar's empty upper-left corner.
+   This block is intentionally last so later global calendar CSS cannot repaint it. */
+html body #studio2View #studio2RentalCalendar .rent-time:first-child,
+html body #studio2View #studio2RentalCalendar .rent-time:first-of-type,
+html body #studio2View #studio2RentalCalendar .class-calendar-corner,
+html body #studio2View #studio2RentalCalendar .rent-calendar-corner,
+html body #studio2View #studio2RentalCalendar .calendar-corner,
+html body #studio2View #studio2RentalCalendar .rent-time-header {
+  background:rgba(255,249,241,.12)!important;
+  background-color:rgba(255,249,241,.12)!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  border-top-color:rgba(255,248,239,.36)!important;
+  border-left-color:rgba(255,248,239,.36)!important;
+  border-right-color:rgba(255,248,239,.36)!important;
+  border-bottom-color:rgba(255,248,239,.36)!important;
+  -webkit-backdrop-filter:blur(12px) saturate(1.08)!important;
+  backdrop-filter:blur(12px) saturate(1.08)!important;
+}
+html body #studio2View #studio2RentalCalendar .rent-time:first-child::before,
+html body #studio2View #studio2RentalCalendar .rent-time:first-child::after,
+html body #studio2View #studio2RentalCalendar .rent-time:first-of-type::before,
+html body #studio2View #studio2RentalCalendar .rent-time:first-of-type::after,
+html body #studio2View #studio2RentalCalendar .class-calendar-corner::before,
+html body #studio2View #studio2RentalCalendar .class-calendar-corner::after,
+html body #studio2View #studio2RentalCalendar .rent-calendar-corner::before,
+html body #studio2View #studio2RentalCalendar .rent-calendar-corner::after,
+html body #studio2View #studio2RentalCalendar .calendar-corner::before,
+html body #studio2View #studio2RentalCalendar .calendar-corner::after {
+  background:transparent!important;background-color:transparent!important;background-image:none!important;
+  box-shadow:none!important;
+}
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .rent-time:first-child,
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .rent-time:first-of-type,
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .class-calendar-corner,
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .rent-calendar-corner,
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .calendar-corner,
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .rent-time-header {
+  background:#32180f!important;background-color:#32180f!important;background-image:none!important;
+  box-shadow:none!important;
+  border-top-color:rgba(221,195,172,.42)!important;
+  border-left-color:rgba(221,195,172,.42)!important;
+  border-right-color:rgba(221,195,172,.42)!important;
+  border-bottom-color:rgba(221,195,172,.42)!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .rent-time:first-child::before,
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .rent-time:first-child::after,
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .rent-time:first-of-type::before,
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .rent-time:first-of-type::after,
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .class-calendar-corner::before,
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .class-calendar-corner::after,
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .rent-calendar-corner::before,
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .rent-calendar-corner::after,
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .calendar-corner::before,
+html body #studio2View .cal-scroll.is-scrolling #studio2RentalCalendar .calendar-corner::after {
+  background:#32180f!important;background-color:#32180f!important;background-image:none!important;
+  box-shadow:none!important;
+}
+</style>
