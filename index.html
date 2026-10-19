@@ -23581,3 +23581,102 @@ html body #studio2View .studio2-summary-metrics .studio2-summary-price span{
  html body #studio2View .studio2-summary-row{grid-template-columns:1fr!important;gap:14px!important}
 }
 </style>
+
+
+<style id="lds-unified-studio-detail-cards">
+/* Keep each studio photo and its information visually connected as one premium card. */
+html body #rentalView .rental-studio-photo{
+  display:block!important;overflow:hidden!important;
+  margin:22px 0 0!important;
+  border:1px solid rgba(255,247,237,.82)!important;
+  border-bottom:0!important;
+  border-radius:30px 30px 0 0!important;
+  background:#9b8879!important;
+  box-shadow:0 18px 44px rgba(50,31,26,.13)!important;
+}
+html body #rentalView .rental-studio-photo>img{
+  display:block!important;width:100%!important;height:clamp(230px,48vw,470px)!important;
+  object-fit:cover!important;border-radius:0!important;
+}
+html body #rentalView .rental-studio-photo .gallery-caption{
+  min-height:0!important;padding:18px 24px 14px!important;
+  background:#9b8879!important;border:0!important;
+}
+html body #rentalView .rental-summary-row{
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+  gap:18px!important;align-items:stretch!important;
+  margin:0 0 28px!important;padding:22px 24px 24px!important;
+  border:1px solid rgba(255,247,237,.82)!important;border-top:1px solid rgba(240,215,181,.5)!important;
+  border-radius:0 0 30px 30px!important;
+  background:linear-gradient(145deg,#9b8879 0%,#927e70 100%)!important;
+  box-shadow:0 18px 44px rgba(50,31,26,.13)!important;
+}
+html body #rentalView .rental-summary-metrics{
+  width:max-content!important;max-width:100%!important;
+  padding:12px 18px!important;border:1px solid rgba(240,215,181,.52)!important;
+  border-radius:999px!important;background:rgba(255,247,237,.07)!important;
+}
+html body #rentalView .rental-summary-hours{
+  padding:0 0 16px!important;border:0!important;border-bottom:1px solid rgba(255,240,216,.55)!important;
+}
+html body #rentalView .rental-summary-hours strong{color:#542033!important}
+html body #rentalView .rental-summary-hours span{color:#fff3e5!important}
+html body #rentalView .rental-summary-address{
+  display:flex!important;align-items:center!important;gap:12px!important;
+  margin:0!important;padding-top:2px!important;color:#fff3e5!important;
+  border:0!important;background:transparent!important;
+}
+html body #studio2View .studio2-hero-image{
+  overflow:hidden!important;margin:22px 0 0!important;
+  border:1px solid rgba(255,247,237,.82)!important;border-bottom:0!important;
+  border-radius:30px 30px 0 0!important;background:#9b8879!important;
+  box-shadow:0 18px 44px rgba(50,31,26,.13)!important;
+}
+html body #studio2View .studio2-hero-image>img{
+  display:block!important;width:100%!important;height:clamp(230px,48vw,470px)!important;
+  object-fit:cover!important;border-radius:0!important;
+}
+html body #studio2View .studio2-image-note{
+  left:22px!important;bottom:18px!important;padding:10px 20px!important;
+  border:1px solid rgba(255,247,237,.8)!important;border-radius:999px!important;
+  background:rgba(93,61,48,.72)!important;color:#fff7ed!important;
+  backdrop-filter:blur(8px)!important;font:600 17px 'Cormorant Garamond',serif!important;
+}
+html body #studio2View .studio2-summary-row{
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+  gap:18px!important;align-items:stretch!important;
+  margin:0 0 28px!important;padding:22px 24px 24px!important;
+  border:1px solid rgba(255,247,237,.82)!important;border-top:1px solid rgba(240,215,181,.5)!important;
+  border-radius:0 0 30px 30px!important;
+  background:linear-gradient(145deg,#9b8879 0%,#927e70 100%)!important;
+  box-shadow:0 18px 44px rgba(50,31,26,.13)!important;
+}
+html body #studio2View .studio2-summary-metrics{
+  width:max-content!important;max-width:100%!important;
+  padding:12px 18px!important;border:1px solid rgba(240,215,181,.52)!important;
+  border-radius:999px!important;background:rgba(255,247,237,.07)!important;
+}
+html body #studio2View .studio2-summary-hours{
+  padding:0 0 16px!important;border:0!important;border-bottom:1px solid rgba(255,240,216,.55)!important;
+}
+html body #studio2View .studio2-summary-hours span{color:#fff3e5!important}
+html body #studio2View .studio2-map-link{
+  display:flex!important;align-items:center!important;gap:12px!important;
+  margin:0!important;padding:2px 0 0!important;color:#fff3e5!important;
+  border:0!important;background:transparent!important;
+}
+@media(max-width:640px){
+ html body #rentalView .rental-studio-photo,
+ html body #studio2View .studio2-hero-image{margin-top:16px!important;border-radius:25px 25px 0 0!important}
+ html body #rentalView .rental-studio-photo>img,
+ html body #studio2View .studio2-hero-image>img{height:clamp(220px,72vw,340px)!important}
+ html body #rentalView .rental-summary-row,
+ html body #studio2View .studio2-summary-row{padding:20px 18px 22px!important;border-radius:0 0 25px 25px!important;gap:16px!important}
+ html body #rentalView .rental-summary-metrics,
+ html body #studio2View .studio2-summary-metrics{padding:10px 13px!important;gap:14px!important}
+ html body #rentalView .rental-summary-metrics .rental-summary-price strong,
+ html body #studio2View .studio2-summary-metrics .studio2-summary-price strong{font-size:30px!important}
+ html body #rentalView .rental-summary-price span,
+ html body #studio2View .studio2-summary-price span{font-size:10px!important}
+}
+</style>
