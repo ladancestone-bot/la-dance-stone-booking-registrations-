@@ -20707,4 +20707,37 @@ html body #homeView .hero{margin-top:22px!important}
  html body #homeView .hero{margin-top:24px!important}
  html body #homeView .hero .home-values{margin-top:0!important}
 }
+
+/* Center the studio-rental action and lower its supporting line. */
+html body #homeView .choices>.choice[data-view="rental"]{
+ position:relative!important;
+}
+html body #homeView .choices>.choice[data-view="rental"] .arrow{
+ right:50%!important;
+ inset-inline-end:50%!important;
+ transform:translate(50%,-50%)!important;
+}
+html body #homeView .choices>.choice[data-view="rental"] h3{
+ text-align:center!important;
+}
+html body #homeView .choices>.choice[data-view="rental"] p{
+ margin-top:7px!important;
+ text-align:center!important;
+}
+@media(max-width:760px){
+ html body #homeView .choices>.choice[data-view="rental"]{
+  align-items:center!important;
+  padding-left:22px!important;padding-right:22px!important;
+ }
+ html body #homeView .choices>.choice[data-view="rental"] .arrow{
+  right:50%!important;inset-inline-end:50%!important;
+  transform:translate(50%,-50%)!important;
+ }
+ html body #homeView .choices>.choice[data-view="rental"] h3{
+  width:100%!important;text-align:center!important;
+ }
+ html body #homeView .choices>.choice[data-view="rental"] p{
+  width:100%!important;margin-top:8px!important;text-align:center!important;
+ }
+}
 </style>
