@@ -20349,7 +20349,86 @@ html body #ldsLanguageSwitch button[aria-pressed="true"]{
  }
  html body #homeView .choices>.choice h3{font-size:clamp(20px,5.4vw,25px)!important;line-height:1.05!important}
  html body #homeView .choices>.choice p{font-size:18px!important;line-height:1.2!important}
- html body #homeView .choices>.choice .arrow{right:16px!important;width:43px!important;height:43px!important;font-size:23px!important}
+ /* Final mobile capsule alignment: uniform size, muted stone-grey finish, stable text/arrow columns. */
+html body #homeView .choices>.choice,
+html body #homeView .choices>.choice.is-center,
+html body #homeView .choices>.choice.is-side,
+html body #homeView .choices>.choice[data-carousel-clone]{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-width:0!important;
+  height:112px!important;
+  min-height:112px!important;
+  max-height:112px!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  padding:18px 82px 18px 24px!important;
+  border:1.5px solid rgba(255,249,240,.72)!important;
+  border-radius:999px!important;
+  background:#857d75!important;
+  color:#fff8f0!important;
+  box-shadow:inset 0 0 0 1px rgba(255,249,240,.15),0 1px 2px rgba(35,22,16,.12)!important;
+  text-align:left!important;
+}
+html body #homeView .choices>.choice h3,
+html body #homeView .choices>.choice p{
+  position:static!important;
+  flex:0 1 auto!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  text-align:left!important;
+}
+html body #homeView .choices>.choice h3{
+  font-size:clamp(19px,5vw,24px)!important;
+  line-height:1.08!important;
+  margin:0 0 5px!important;
+  letter-spacing:.015em!important;
+  overflow-wrap:anywhere!important;
+}
+html body #homeView .choices>.choice p{
+  font-size:clamp(16px,4.2vw,19px)!important;
+  line-height:1.15!important;
+  overflow-wrap:anywhere!important;
+}
+html body #homeView .choices>.choice .arrow{
+  position:absolute!important;
+  inset-inline-start:auto!important;
+  inset-inline-end:20px!important;
+  right:20px!important;left:auto!important;
+  top:50%!important;bottom:auto!important;
+  width:46px!important;height:46px!important;min-width:46px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  margin:0!important;padding:0!important;
+  transform:translateY(-50%)!important;
+  border:1.5px solid rgba(255,249,240,.94)!important;
+  border-radius:50%!important;
+  background:transparent!important;
+  color:#fff8f0!important;-webkit-text-fill-color:#fff8f0!important;
+  line-height:1!important;font-size:24px!important;
+}
+html body #homeView .choices>.choice[data-view="timetable"],
+html body #homeView .choices>.choice[data-view="classes"],
+html body #homeView .choices>.choice[data-view="rental"]{
+  order:initial!important;
+}
+html body #homeView .choices>.choice[data-view="timetable"]{order:1!important}
+html body #homeView .choices>.choice[data-view="classes"]{order:2!important}
+html body #homeView .choices>.choice[data-view="rental"]{order:3!important}
+@media(max-width:760px){
+ html body #homeView.active{padding-left:16px!important;padding-right:16px!important;padding-bottom:40px!important}
+ html body #homeView .choices{gap:16px!important;margin-top:38px!important}
+ html body #homeView .choices>.choice,
+ html body #homeView .choices>.choice.is-center,
+ html body #homeView .choices>.choice.is-side{
+   height:112px!important;min-height:112px!important;max-height:112px!important;
+   padding:16px 74px 16px 22px!important;
+   background:#857d75!important;
+ }
+ html body #homeView .choices>.choice .arrow{right:16px!important;width:42px!important;height:42px!important;min-width:42px!important}
+}
+html body #homeView .choices>.choice .arrow{right:16px!important;width:43px!important;height:43px!important;font-size:23px!important}
  html body #ldsLanguageSwitch{position:fixed!important;top:78px!important;right:18px!important;left:auto!important;z-index:10000!important}
 }
 </style>
