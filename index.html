@@ -18668,6 +18668,8 @@ html body #classesView #classDetail.class-detail-adult
 
 <style id="lds-language-switch-style">
 #ldsLanguageSwitch{position:fixed;z-index:99999;right:16px;top:12px;display:flex;align-items:center;gap:4px;padding:5px;border:1px solid rgba(255,241,220,.78);border-radius:999px;background:rgba(255,248,239,.24);box-shadow:0 8px 28px rgba(38,20,18,.2),inset 0 1px 0 rgba(255,255,255,.48);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font:600 11px/1 Jost,Arial,sans-serif}
+#ldsLanguageSwitch{pointer-events:auto!important;isolation:isolate;touch-action:manipulation}
+#ldsLanguageSwitch button{pointer-events:auto!important;touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
 #ldsLanguageSwitch button{position:relative;display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:999px;padding:10px 12px;background:rgba(255,255,255,.12);color:#fff8ef;min-width:36px;min-height:34px;cursor:pointer}
 #ldsLanguageSwitch button[aria-pressed="true"]{background:rgba(76,22,39,.82);border-color:rgba(255,240,220,.66);color:#fffaf3}
 @media(max-width:600px){#ldsLanguageSwitch{top:10px;right:10px;padding:4px}#ldsLanguageSwitch button{padding:9px 10px;min-width:34px;min-height:34px}}
@@ -19047,32 +19049,33 @@ function setLanguage(lang){
 // as in the first working version before the glass styling changes.
 var languageSwitch=document.getElementById('ldsLanguageSwitch');
 window.__ldsSetLanguage=function(lang){setLanguage(lang);};
-// Use one delegated click handler only. Multiple touch/pointer/click handlers
-// caused the language switch to run repeatedly on mobile Safari.
-document.addEventListener('click',function(e){
- var target=e.target&&e.target.closest?e.target.closest('#ldsLanguageSwitch button[data-lds-lang]'):null;
+// Robust language control handling: pointerup supports mouse, touch and pen;
+// click remains as a keyboard/accessibility fallback. Avoid cancelling touchstart,
+// because that can suppress the subsequent click in mobile Safari.
+var ldsLastPointerLanguage = '';
+var ldsLastPointerAt = 0;
+function ldsLanguageButtonFromEvent(e){
+ var target=e.target;
+ return target&&target.closest?target.closest('#ldsLanguageSwitch button[data-lds-lang]'):null;
+}
+document.addEventListener('pointerup',function(e){
+ var target=ldsLanguageButtonFromEvent(e);
  if(!target)return;
  e.preventDefault();
  e.stopPropagation();
+ ldsLastPointerLanguage=target.getAttribute('data-lds-lang');
+ ldsLastPointerAt=Date.now();
+ setLanguage(ldsLastPointerLanguage);
+},true);
+document.addEventListener('click',function(e){
+ var target=ldsLanguageButtonFromEvent(e);
+ if(!target)return;
+ e.preventDefault();
+ e.stopPropagation();
+ // Pointer interaction already changed the language; don't run translation twice.
+ if(Date.now()-ldsLastPointerAt<800 && target.getAttribute('data-lds-lang')===ldsLastPointerLanguage)return;
  setLanguage(target.getAttribute('data-lds-lang'));
 },true);
-// iOS Safari fallback: if an overlay steals the tap target, identify the
-// language button by its screen coordinates and handle the tap once.
-document.addEventListener('touchstart',function(e){
- var touch=e.changedTouches&&e.changedTouches[0];
- if(!touch)return;
- var x=touch.clientX,y=touch.clientY;
- var buttons=document.querySelectorAll('#ldsLanguageSwitch button[data-lds-lang]');
- for(var i=0;i<buttons.length;i++){
-  var button=buttons[i],r=button.getBoundingClientRect();
-  if(x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom){
-   e.preventDefault();
-   e.stopImmediatePropagation();
-   setLanguage(button.getAttribute('data-lds-lang'));
-   return;
-  }
- }
-},{capture:true,passive:false});
 document.addEventListener('click',function(e){
  var b=e.target.closest('button,[role="button"]');
  if(b && /rentSubmit|rentalCashChoice/.test(b.id||'')) setTimeout(function(){translateTree(document.body,current);if(typeof updateBookingSummary==='function'){try{updateBookingSummary();}catch(e){}}},0);
