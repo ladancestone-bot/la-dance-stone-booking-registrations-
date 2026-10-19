@@ -20435,6 +20435,81 @@ html body button:active:not(.mini-status):not(.action):not([aria-pressed="true"]
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',applyRentalLanguage);else applyRentalLanguage();
 })();
 </script>
+
+<style id="studio2-final-topbar-fix">
+/* Final high-specificity override: plain back link, no capsule/pill. */
+html body #studio2View button.back.studio2-back,
+html body #studio2View .studio2-shell > button.studio2-back{
+  display:flex!important;
+  width:max-content!important;
+  max-width:calc(100% - 24px)!important;
+  min-height:0!important;
+  height:auto!important;
+  margin:0 auto 22px!important;
+  padding:6px 0!important;
+  border:0!important;
+  border-radius:0!important;
+  outline:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  color:#fff8f0!important;
+  font:500 15px/1.4 inherit!important;
+  text-align:center!important;
+  text-decoration:none!important;
+  -webkit-appearance:none!important;
+  appearance:none!important;
+}
+html body #studio2View button.back.studio2-back::before,
+html body #studio2View button.back.studio2-back::after{
+  display:none!important;
+  content:none!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+html body #studio2View button.back.studio2-back span{
+  color:#fff8f0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+html body #studio2View .studio2-hero-copy{
+  width:100%!important;
+  text-align:center!important;
+  margin-inline:auto!important;
+}
+html body #studio2View .studio2-hero .studio2-eyebrow,
+html body #studio2View .studio2-hero h2,
+html body #studio2View .studio2-lead{
+  text-align:center!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+html body #studio2View .studio2-hero-image img{
+  display:block!important;
+  width:100%!important;
+  height:clamp(250px,48vw,470px)!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  border-radius:24px!important;
+}
+/* Use the real room photo from the Varniu g. 5 property listing. */
+@media(max-width:760px){
+  html body #studio2View button.back.studio2-back,
+  html body #studio2View .studio2-shell > button.studio2-back{
+    margin:0 auto 18px!important;
+    padding:5px 0!important;
+    max-width:calc(100% - 20px)!important;
+    font-size:14px!important;
+  }
+  html body #studio2View .studio2-hero-image img{
+    height:clamp(215px,62vw,300px)!important;
+    border-radius:18px!important;
+  }
+}
+</style>
+
 </body>
 </html>
 
