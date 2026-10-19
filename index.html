@@ -4794,8 +4794,8 @@ html body #rentalView .phone-card{margin-top:0!important}
     <div class="rental-summary-price"><strong>20 €</strong><span>už valandą</span></div>
     <div class="rental-summary-hours"><strong>08:00–22:00</strong><span>kasdien</span></div>
     <a class="rental-summary-address" href="https://maps.google.com/?q=V.+Kr%C4%97v%C4%97s+pr.+57,+Kaunas" target="_blank" rel="noopener">
-      <span class="rental-summary-pin" aria-hidden="true">⌖</span>
-      <span><strong>V. Krėvės pr. 57,</strong><small>Kaunas</small></span>
+      <svg class="rental-summary-pin-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5.2-8 12-8 12S4 15.2 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <span class="rental-address-inline"><strong>V. Krėvės pr. 57,</strong><small>Kaunas</small></span>
     </a>
   </div>
   <article class="gallery-card phone-card">
@@ -5007,7 +5007,7 @@ html body #rentalView .phone-card{margin-top:0!important}
       <div class="studio2-summary-row">
         <div class="studio2-summary-price"><strong>40 €</strong><span>už valandą</span></div>
         <div class="studio2-summary-hours"><strong>08:00–22:00</strong><span>kasdien</span></div>
-        <a class="studio2-map-link" href="https://maps.google.com/?q=Varni%C5%B3+g.+5,+Kaunas" target="_blank" rel="noopener"><span aria-hidden="true">⌖</span><span><strong>Varnių g. 5,</strong><small>Kaunas</small></span></a>
+        <a class="studio2-map-link" href="https://maps.google.com/?q=Varni%C5%B3+g.+5,+Kaunas" target="_blank" rel="noopener"><svg class="studio2-map-pin-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5.2-8 12-8 12S4 15.2 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span class="studio2-address-inline"><strong>Varnių g. 5,</strong><small>Kaunas</small></span></a>
       </div>
     </div>
 
@@ -20715,6 +20715,132 @@ html body #rentalView .rental-summary-pin{color:#4b1d2a!important}
   grid-column:1/-1!important;border-left:0!important;
   border-top:1px solid #ddc1ac!important;padding:13px 0 0!important;
  }
+}
+</style>
+
+
+<style id="both-studios-unified-photo-info-card">
+/* Both studios: one continuous photo + cream information card. */
+html body #rentalView .rental-gallery-studio1{
+ display:block!important;margin:22px 0 26px!important;
+}
+html body #rentalView .rental-studio-photo{
+ margin:0!important;border:1px solid #ead8c7!important;
+ border-bottom:0!important;border-radius:24px 24px 0 0!important;
+ overflow:hidden!important;background:#fff7ed!important;
+}
+html body #rentalView .rental-studio-photo>img{
+ border-radius:23px 23px 0 0!important;
+}
+html body #rentalView .rental-summary-row{
+ display:grid!important;grid-template-columns:minmax(100px,.7fr) minmax(170px,1.1fr) minmax(200px,1fr)!important;
+ align-items:center!important;gap:16px!important;
+ margin:0!important;padding:22px 24px 24px!important;
+ background:#fff7ed!important;border:1px solid #ead8c7!important;
+ border-top:0!important;border-radius:0 0 24px 24px!important;
+ box-shadow:0 16px 34px rgba(52,31,24,.14)!important;color:#604a40!important;
+}
+html body #rentalView .rental-summary-price strong,
+html body #rentalView .rental-summary-hours strong,
+html body #rentalView .rental-summary-address strong{color:#4b1d2a!important}
+html body #rentalView .rental-summary-price span,
+html body #rentalView .rental-summary-hours span,
+html body #rentalView .rental-summary-address small{color:#765d51!important}
+html body #rentalView .rental-summary-hours,
+html body #rentalView .rental-summary-address{border-color:#ddc1ac!important}
+html body #rentalView .rental-summary-address{
+ display:flex!important;align-items:center!important;gap:10px!important;
+ min-width:0!important;padding-left:16px!important;
+ border-left:1px solid #ddc1ac!important;text-decoration:none!important;
+}
+html body #rentalView .rental-summary-pin-svg,
+html body #studio2View .studio2-map-pin-svg{
+ display:block!important;flex:0 0 27px!important;width:27px!important;height:27px!important;
+ fill:none!important;stroke:#4b1d2a!important;stroke-width:1.7!important;
+ stroke-linecap:round!important;stroke-linejoin:round!important;
+}
+html body #rentalView .rental-address-inline,
+html body #studio2View .studio2-address-inline{
+ display:flex!important;flex-direction:row!important;align-items:baseline!important;
+ flex-wrap:wrap!important;column-gap:5px!important;row-gap:0!important;min-width:0!important;
+}
+html body #rentalView .rental-summary-address strong,
+html body #rentalView .rental-summary-address small,
+html body #studio2View .studio2-map-link strong,
+html body #studio2View .studio2-map-link small{
+ display:inline!important;font-size:13px!important;line-height:1.4!important;
+ white-space:normal!important;
+}
+html body #studio2View .studio2-hero-image{
+ margin:0!important;padding:0!important;border:1px solid #ead8c7!important;
+ border-bottom:0!important;border-radius:24px 24px 0 0!important;
+ overflow:hidden!important;background:#fff7ed!important;
+}
+html body #studio2View .studio2-hero-image img{
+ border-radius:23px 23px 0 0!important;box-shadow:none!important;
+}
+html body #studio2View .studio2-summary-row{
+ display:grid!important;grid-template-columns:minmax(100px,.7fr) minmax(170px,1.1fr) minmax(200px,1fr)!important;
+ align-items:center!important;gap:16px!important;
+ margin:0!important;padding:22px 24px 24px!important;
+ background:#fff7ed!important;border:1px solid #ead8c7!important;
+ border-top:0!important;border-radius:0 0 24px 24px!important;
+ box-shadow:0 16px 34px rgba(52,31,24,.14)!important;
+}
+html body #studio2View .studio2-summary-price,
+html body #studio2View .studio2-summary-hours{min-width:0!important}
+html body #studio2View .studio2-summary-hours{
+ padding-left:16px!important;border-left:1px solid #ddc1ac!important;
+}
+html body #studio2View .studio2-summary-price span,
+html body #studio2View .studio2-summary-hours span{color:#765d51!important}
+html body #studio2View .studio2-map-link{
+ display:flex!important;align-items:center!important;gap:10px!important;
+ min-width:0!important;padding-left:16px!important;
+ border-left:1px solid #ddc1ac!important;border-bottom:0!important;
+ text-decoration:none!important;color:#4b1d2a!important;
+}
+html body #studio2View .studio2-map-link strong{color:#4b1d2a!important}
+html body #studio2View .studio2-map-link small{color:#765d51!important}
+@media(max-width:760px){
+ html body #rentalView .rental-gallery-studio1{margin:16px 0 22px!important}
+ html body #rentalView .rental-studio-photo,
+ html body #studio2View .studio2-hero-image{border-radius:18px 18px 0 0!important}
+ html body #rentalView .rental-studio-photo>img,
+ html body #studio2View .studio2-hero-image img{border-radius:17px 17px 0 0!important}
+ html body #rentalView .rental-summary-row,
+ html body #studio2View .studio2-summary-row{
+  grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr)!important;
+  gap:14px 12px!important;padding:18px 16px 20px!important;
+  border-radius:0 0 18px 18px!important;
+ }
+ html body #rentalView .rental-summary-price strong,
+ html body #studio2View .studio2-summary-price strong{font-size:30px!important}
+ html body #rentalView .rental-summary-hours,
+ html body #studio2View .studio2-summary-hours{
+  padding-left:12px!important;border-left:1px solid #ddc1ac!important;
+ }
+ html body #rentalView .rental-summary-hours strong,
+ html body #studio2View .studio2-summary-hours strong{font-size:14px!important}
+ html body #rentalView .rental-summary-address,
+ html body #studio2View .studio2-map-link{
+  grid-column:1/-1!important;display:flex!important;align-items:center!important;
+  border-left:0!important;border-top:1px solid #ddc1ac!important;
+  padding:13px 0 0!important;gap:9px!important;
+ }
+ html body #rentalView .rental-address-inline,
+ html body #studio2View .studio2-address-inline{
+  flex-direction:row!important;align-items:baseline!important;flex-wrap:nowrap!important;
+  gap:5px!important;white-space:nowrap!important;
+ }
+ html body #rentalView .rental-summary-address strong,
+ html body #rentalView .rental-summary-address small,
+ html body #studio2View .studio2-map-link strong,
+ html body #studio2View .studio2-map-link small{
+  font-size:13px!important;white-space:nowrap!important;
+ }
+ html body #rentalView .rental-summary-pin-svg,
+ html body #studio2View .studio2-map-pin-svg{width:24px!important;height:24px!important;flex-basis:24px!important}
 }
 </style>
 
