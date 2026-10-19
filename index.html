@@ -24902,3 +24902,157 @@ html body #studio2View .studio2-live-availability .cal-scroll.is-scrolling #stud
   border-color:rgba(221,195,172,.42)!important;outline:0!important;box-shadow:none!important;
 }
 </style>
+
+
+
+<style id="studio2-calendar-bubbles-and-price-card-20261019">
+/* STUDIJA NR. 2 ONLY — calendar legend and booking price emphasis.
+   Cosmetic CSS. The first studio, reservation flow, and calculations are untouched. */
+html body #studio2View .studio2-live-availability .calendar-help{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  padding:clamp(18px,3vw,27px)!important;margin-top:15px!important;
+  border:1px solid rgba(255,248,239,.62)!important;border-radius:25px!important;
+  border-left:5px solid #e2c27c!important;
+  background:linear-gradient(135deg,rgba(255,248,239,.22),rgba(255,248,239,.09))!important;
+  box-shadow:0 16px 34px rgba(38,18,24,.18),inset 0 1px 0 rgba(255,255,255,.28)!important;
+  backdrop-filter:blur(20px) saturate(1.2)!important;-webkit-backdrop-filter:blur(20px) saturate(1.2)!important;
+}
+html body #studio2View .studio2-live-availability .calendar-help:before{
+  content:""!important;position:absolute!important;z-index:-1!important;right:-28px!important;top:-42px!important;
+  width:135px!important;height:135px!important;border-radius:50%!important;
+  background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.23),rgba(255,255,255,0) 70%)!important;
+  border:1px solid rgba(255,255,255,.12)!important;pointer-events:none!important;
+}
+html body #studio2View .studio2-live-availability .availability-legend{
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:10px!important;margin:0 0 20px!important;padding:0!important;color:#fff8f1!important;
+}
+html body #studio2View .studio2-live-availability .availability-legend span{
+  display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;
+  min-width:0!important;min-height:66px!important;padding:12px 14px!important;box-sizing:border-box!important;
+  border:1px solid rgba(255,248,239,.55)!important;border-radius:999px!important;
+  background:linear-gradient(145deg,rgba(255,248,239,.22),rgba(255,248,239,.08))!important;
+  color:#fff8f1!important;font-size:clamp(11px,1.3vw,15px)!important;font-weight:700!important;
+  line-height:1.3!important;text-align:center!important;
+  box-shadow:0 7px 18px rgba(26,12,18,.14),inset 0 1px 0 rgba(255,255,255,.26)!important;
+  backdrop-filter:blur(13px)!important;-webkit-backdrop-filter:blur(13px)!important;
+}
+html body #studio2View .studio2-live-availability .availability-legend .legend-block{
+  display:inline-block!important;flex:0 0 17px!important;width:17px!important;height:17px!important;
+  min-width:17px!important;min-height:17px!important;margin:0!important;border-radius:50%!important;
+  border:2px solid rgba(255,255,255,.92)!important;
+  box-shadow:0 0 0 5px rgba(255,255,255,.08),0 3px 9px rgba(22,11,16,.22),inset 0 1px 0 rgba(255,255,255,.68)!important;
+}
+html body #studio2View .studio2-live-availability .availability-legend .legend-block.free{
+  background:radial-gradient(circle at 30% 25%,#f4fff0,#9bc9ad 62%,#6b9c7d)!important;
+}
+html body #studio2View .studio2-live-availability .availability-legend .legend-block.reserved{
+  background:radial-gradient(circle at 30% 25%,#ffeaf0,#d38aa4 62%,#a64c6c)!important;
+}
+html body #studio2View .studio2-live-availability .availability-legend .legend-block.chosen{
+  background:radial-gradient(circle at 30% 25%,#fff8d6,#e4c276 62%,#bb9141)!important;
+  border-color:#fff2c9!important;
+}
+html body #studio2View .studio2-live-availability .calendar-help p{
+  position:relative!important;z-index:1!important;margin:11px 0 0!important;
+  color:#fff8f1!important;font-size:clamp(12px,1.45vw,15px)!important;line-height:1.7!important;
+}
+html body #studio2View .studio2-live-availability .calendar-help p#studio2SelectionHint{
+  font-weight:650!important;color:#fffaf4!important;
+}
+html body #studio2View #studio2RentalBooking .booking-summary{
+  position:relative!important;overflow:hidden!important;isolation:isolate!important;
+  align-items:center!important;gap:18px!important;
+  margin-top:22px!important;padding:clamp(20px,3vw,30px)!important;
+  border:1px solid rgba(255,255,255,.92)!important;border-radius:27px!important;
+  background:linear-gradient(135deg,#fff7ee 0%,#f0dfd1 52%,#dfc9b8 100%)!important;
+  box-shadow:0 15px 34px rgba(44,21,28,.15),inset 0 1px 0 #fff!important;
+}
+html body #studio2View #studio2RentalBooking .booking-summary:before{
+  content:""!important;position:absolute!important;z-index:-1!important;left:0!important;top:0!important;bottom:0!important;width:7px!important;
+  background:linear-gradient(180deg,#efd69a,#b88a43)!important;
+}
+html body #studio2View #studio2RentalBooking .booking-summary>div{
+  min-width:0!important;flex:1 1 0!important;
+}
+html body #studio2View #studio2RentalBooking .booking-summary>div+div{
+  padding-left:18px!important;border-left:1px solid rgba(84,32,51,.18)!important;
+}
+html body #studio2View #studio2RentalBooking .booking-summary span{
+  margin-bottom:9px!important;color:#70584f!important;font-size:clamp(11px,1.3vw,14px)!important;line-height:1.45!important;
+}
+html body #studio2View #studio2RentalBooking .booking-summary strong{
+  display:block!important;color:#64263b!important;font-size:clamp(15px,1.7vw,21px)!important;line-height:1.35!important;font-weight:750!important;
+}
+html body #studio2View #studio2RentalBooking .booking-summary .summary-price{
+  color:#50172c!important;font:600 clamp(34px,4.2vw,54px)/1 'Cormorant Garamond',serif!important;white-space:nowrap!important;
+}
+html body #studio2View #studio2RentalBooking>.price-card{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  min-height:330px!important;padding:clamp(25px,3.4vw,39px)!important;
+  border:1px solid rgba(255,248,239,.75)!important;border-radius:30px!important;
+  background:linear-gradient(145deg,#843d52 0%,#61243a 47%,#3f1728 100%)!important;
+  color:#fff8ef!important;
+  box-shadow:0 22px 42px rgba(45,17,29,.30),inset 0 1px 0 rgba(255,255,255,.42),inset 0 -2px 0 rgba(33,11,20,.25)!important;
+}
+html body #studio2View #studio2RentalBooking>.price-card:before{
+  content:""!important;position:absolute!important;z-index:-1!important;left:18px!important;right:18px!important;top:5px!important;height:27%!important;
+  border-radius:999px!important;background:linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,0))!important;pointer-events:none!important;
+}
+html body #studio2View #studio2RentalBooking>.price-card .eyebrow{color:#f2dba4!important;letter-spacing:.18em!important}
+html body #studio2View #studio2RentalBooking>.price-card h3{
+  color:#fff8ef!important;font:600 clamp(32px,4.1vw,48px)/1.08 'Cormorant Garamond',serif!important;
+  margin:20px 0 8px!important;text-shadow:none!important;
+}
+html body #studio2View #studio2RentalBooking>.price-card .amount{
+  color:#fff8ef!important;font:600 clamp(52px,6vw,70px)/1 'Cormorant Garamond',serif!important;
+  margin:10px 0 18px!important;text-shadow:none!important;
+}
+html body #studio2View #studio2RentalBooking>.price-card p{
+  color:#fff1e8!important;font-size:14px!important;line-height:1.7!important;
+}
+html body #studio2View #studio2RentalBooking>.price-card .rule{
+  border-top:1px solid rgba(255,248,239,.35)!important;padding-top:17px!important;margin-top:19px!important;
+  color:#fff1e8!important;font-size:13px!important;line-height:1.7!important;
+}
+html body #studio2View #studio2RentalBooking>.price-card .action{
+  min-height:60px!important;margin-top:24px!important;padding:17px 22px!important;
+  border:1px solid rgba(255,255,255,.72)!important;border-radius:999px!important;
+  background:linear-gradient(145deg,#a34f68,#66283f 68%,#481a2c)!important;color:#fffaf5!important;
+  font-size:15px!important;font-weight:750!important;
+  box-shadow:0 8px 0 rgba(30,9,18,.20),0 13px 26px rgba(26,7,16,.28),inset 0 1px 0 rgba(255,255,255,.48)!important;
+}
+@media(max-width:760px){
+ html body #studio2View .studio2-live-availability .calendar-help{
+  padding:17px 15px!important;border-radius:22px!important;border-left-width:4px!important;
+ }
+ html body #studio2View .studio2-live-availability .availability-legend{
+  grid-template-columns:1fr!important;gap:9px!important;margin-bottom:17px!important;
+ }
+ html body #studio2View .studio2-live-availability .availability-legend span{
+  justify-content:flex-start!important;min-height:49px!important;padding:10px 18px!important;font-size:14px!important;
+ }
+ html body #studio2View .studio2-live-availability .availability-legend .legend-block{
+  flex-basis:16px!important;width:16px!important;height:16px!important;min-width:16px!important;min-height:16px!important;
+ }
+ html body #studio2View #studio2RentalBooking .booking-summary{
+  flex-direction:row!important;align-items:flex-start!important;gap:10px!important;
+  padding:22px 17px 21px 20px!important;border-radius:23px!important;
+ }
+ html body #studio2View #studio2RentalBooking .booking-summary>div{flex:1 1 0!important}
+ html body #studio2View #studio2RentalBooking .booking-summary>div+div{padding-left:12px!important}
+ html body #studio2View #studio2RentalBooking .booking-summary span{font-size:11px!important}
+ html body #studio2View #studio2RentalBooking .booking-summary strong{font-size:14px!important;overflow-wrap:anywhere!important}
+ html body #studio2View #studio2RentalBooking .booking-summary .summary-price{font-size:clamp(31px,9vw,44px)!important}
+ html body #studio2View #studio2RentalBooking>.price-card{
+  min-height:0!important;padding:27px 23px!important;border-radius:26px!important;
+ }
+ html body #studio2View #studio2RentalBooking>.price-card h3{font-size:39px!important}
+ html body #studio2View #studio2RentalBooking>.price-card .amount{font-size:61px!important}
+}
+@media(max-width:370px){
+ html body #studio2View #studio2RentalBooking .booking-summary{gap:7px!important;padding-left:16px!important;padding-right:12px!important}
+ html body #studio2View #studio2RentalBooking .booking-summary>div+div{padding-left:8px!important}
+ html body #studio2View #studio2RentalBooking .booking-summary .summary-price{font-size:29px!important}
+}
+</style>
