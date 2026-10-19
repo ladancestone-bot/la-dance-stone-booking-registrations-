@@ -19114,25 +19114,49 @@ document.addEventListener('click',function(e){
  var b=e.target.closest('button,[role="button"]');
  if(b && /rentSubmit|rentalCashChoice/.test(b.id||'')) setTimeout(function(){translateTree(document.body,current);if(typeof updateBookingSummary==='function'){try{updateBookingSummary();}catch(e){}}},0);
 });
-new MutationObserver(function(mutations){
- // Translate only newly inserted nodes. Re-translating the entire page whenever the
- // calendar re-renders repeatedly touches the availability heading and can cause
- // visible text/layout jitter on mobile Safari.
- var added=[];
- mutations.forEach(function(m){
-  if(m.addedNodes) m.addedNodes.forEach(function(node){
-   if(node.nodeType===Node.ELEMENT_NODE || node.nodeType===Node.TEXT_NODE) added.push(node);
-  });
+// Reliable translation of dynamically generated registration content.
+var ldsPendingTranslationNodes=new Set();
+var ldsTranslationFramePending=false;
+function ldsFlushTranslations(){
+ ldsTranslationFramePending=false;
+ var pending=Array.from(ldsPendingTranslationNodes);
+ ldsPendingTranslationNodes.clear();
+ pending.forEach(function(node){
+  if(!node || !node.isConnected)return;
+  if(node.nodeType===Node.TEXT_NODE){
+   if(node.parentElement && !node.parentElement.closest('script,style,noscript,#ldsLanguageSwitch')) translateTextNode(node,current);
+  }else if(node.nodeType===Node.ELEMENT_NODE){
+   if(node.matches && node.matches('#ldsLanguageSwitch,script,style,noscript'))return;
+   if(node.parentElement && node.parentElement.closest('script,style,noscript,#ldsLanguageSwitch'))return;
+   translateTree(node,current);
+  }
  });
- if(!added.length || scheduled)return;
- scheduled=true;
- requestAnimationFrame(function(){
-  scheduled=false;
-  added.forEach(function(node){
-   if(node.isConnected && node.parentElement && !node.parentElement.closest('script,style,noscript,#ldsLanguageSwitch')) translateTree(node,current);
+}
+function ldsScheduleTranslation(node){
+ if(node)ldsPendingTranslationNodes.add(node);
+ if(ldsTranslationFramePending)return;
+ ldsTranslationFramePending=true;
+ requestAnimationFrame(ldsFlushTranslations);
+}
+new MutationObserver(function(mutations){
+ mutations.forEach(function(m){
+  if(m.addedNodes)m.addedNodes.forEach(function(node){
+   if(node.nodeType===Node.ELEMENT_NODE || node.nodeType===Node.TEXT_NODE) ldsScheduleTranslation(node);
   });
  });
 }).observe(document.body,{subtree:true,childList:true});
+// Class registration is built with innerHTML after navigation. Translate after the
+// view's own click handlers finish, and once more after its date/pricing refresh.
+document.addEventListener('click',function(){
+ setTimeout(function(){
+  translateTree(document.body,current);
+  if(typeof renderClassDates==='function'){try{renderClassDates();}catch(e){}}
+  if(typeof updateClassPricing==='function'){try{updateClassPricing();}catch(e){}}
+  translateTree(document.getElementById('classDetail')||document.body,current);
+ },0);
+ setTimeout(function(){translateTree(document.getElementById('classDetail')||document.body,current);},100);
+},true);
+
 // Lithuanian is always the default when the page opens; English is opt-in.
 var initial='lt';
 try{var queryLanguage=new URLSearchParams(window.location.search).get('lang');var savedLanguage=localStorage.getItem('lds-site-language');if(queryLanguage==='en'||queryLanguage==='lt')initial=queryLanguage;else if(savedLanguage==='en'||savedLanguage==='lt')initial=savedLanguage;}catch(e){}
