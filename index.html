@@ -20740,4 +20740,45 @@ html body #homeView .choices>.choice[data-view="rental"] p{
   width:100%!important;margin-top:8px!important;text-align:center!important;
  }
 }
+
+/* Correct homepage header hierarchy: centered return link, title below, language control stays top-right. */
+html body #homeView.active{padding-top:132px!important}
+html body #homeView .home-site-link-row{
+ display:flex!important;position:absolute!important;
+ top:28px!important;left:16px!important;right:16px!important;
+ width:auto!important;max-width:none!important;min-height:34px!important;
+ margin:0!important;padding:0!important;
+ align-items:center!important;justify-content:center!important;
+ text-align:center!important;z-index:10001!important;
+}
+html body #homeView .home-site-link-row .site-link{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ gap:7px!important;padding:5px 0!important;margin:0 auto!important;
+ font-size:12px!important;line-height:1.25!important;white-space:nowrap!important;
+ text-align:center!important;
+}
+html body #ldsLanguageSwitch{
+ position:absolute!important;top:26px!important;right:12px!important;left:auto!important;
+ z-index:10002!important;
+}
+html body #homeView .hero{
+ margin-top:0!important;
+}
+html body #homeView .hero h1{
+ margin-top:0!important;
+}
+@media(max-width:760px){
+ html body #homeView.active{padding-top:132px!important}
+ html body #homeView .home-site-link-row{
+  top:26px!important;left:0!important;right:0!important;
+  width:100%!important;max-width:100%!important;min-height:32px!important;
+  justify-content:center!important;
+ }
+ html body #homeView .home-site-link-row .site-link{
+  font-size:11px!important;gap:5px!important;white-space:nowrap!important;
+ }
+ html body #ldsLanguageSwitch{top:22px!important;right:12px!important}
+ html body #homeView .hero{margin-top:0!important}
+ html body #homeView .hero h1{margin-top:0!important}
+}
 </style>
