@@ -4130,7 +4130,7 @@ html body #timetableView .class-calendar-slot.occupied * {
 <div class="home-site-link-row"><a class="site-link" href="https://ladancestone.lt"><span aria-hidden="true">←</span> Grįžti į svetainės pradžią</a></div>
 <div class="hero">
   <h1>Šokio erdvė prasideda čia.</h1>
-  <p class="home-values">Pasirinkite, ką norite nuveikti: peržiūrėti tvarkaraštį, išsinuomoti studiją ar užsiregistruoti į pamokas.</p>
+  <p class="home-values">Pasirinkite, ką norite nuveikti:</p>
 </div>
 <div class="choices">
 <button class="choice" data-view="timetable"><span class="num">SAVAITĖS PLANAS</span><span class="home-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="11" width="32" height="29" rx="5"/><path d="M16 7v9M32 7v9M8 19h32"/><path d="M16 25h4M28 25h4M16 32h4M28 32h4"/><path d="M24 19v21" opacity=".22"/></svg></span><h3>Tvarkaraštis</h3><p>Užsiėmimų laikai</p><span class="choice-action">Peržiūrėti tvarkaraštį <span aria-hidden="true">→</span></span><span class="arrow" aria-hidden="true">→</span></button>
@@ -18704,6 +18704,7 @@ html body #classesView #classDetail.class-detail-adult
 'use strict';
 var pairs = [
  ["Ačiū, ","Thank you, "],
+ ["Pasirinkite, ką norite nuveikti:","Choose what you would like to do:"],
  ["Registracijos patvirtinimas išsiųstas el. paštu ","Registration confirmation has been sent to "],
  ["El. paštas","Email"],
  ["Grupė","Group"],
@@ -20207,5 +20208,140 @@ html body #rentalView .availability-section .rent-slot > strong {
 }
 @media (min-width: 390px) {
  html body #rentalView .availability-section .rent-slot > strong {font-size:6.5px!important}
+}
+</style>
+
+
+<style id="lds-approved-homepage-design-20261019">
+/* Approved homepage-only visual refresh. Existing view IDs, buttons, and event handlers stay unchanged. */
+html body:has(#homeView.active),
+html body:has(#homeView.active) main.wrap{
+  background:#5b4539!important;
+}
+html body:has(#homeView.active){color:#f8f0e7!important}
+html body:has(#homeView.active) main.wrap{
+  width:100%!important;max-width:none!important;margin:0!important;padding:0!important;
+}
+html body #homeView.active{
+  display:block!important;min-height:100svh!important;
+  padding:clamp(108px,16vh,170px) 22px 70px!important;
+  background:#5b4539!important;color:#f8f0e7!important;
+  overflow:hidden!important;
+}
+html body #homeView .home-site-link-row{display:none!important}
+html body #homeView .hero{
+  max-width:820px!important;width:100%!important;
+  padding:0!important;margin:0 auto 26px!important;text-align:center!important;
+}
+html body #homeView .hero h1{
+  margin:0 auto 26px!important;max-width:760px!important;
+  color:#f8f0e7!important;-webkit-text-fill-color:#f8f0e7!important;
+  font-family:'Cormorant Garamond',Georgia,serif!important;
+  font-size:clamp(42px,8vw,76px)!important;font-weight:600!important;
+  line-height:.98!important;letter-spacing:.015em!important;
+  text-transform:uppercase!important;text-wrap:balance!important;
+}
+html body #homeView .hero h1:after{
+  content:"";display:block;width:92px;height:1px;background:#d4bd91;
+  margin:28px auto 0!important;
+}
+html body #homeView .hero .home-values{
+  max-width:560px!important;margin:0 auto!important;padding:0!important;
+  color:rgba(248,240,231,.82)!important;-webkit-text-fill-color:rgba(248,240,231,.82)!important;
+  font-family:'Cormorant Garamond',Georgia,serif!important;
+  font-size:clamp(19px,3vw,27px)!important;line-height:1.35!important;
+  text-shadow:none!important;letter-spacing:.01em!important;
+}
+html body #homeView .choices{
+  display:flex!important;flex-direction:column!important;align-items:stretch!important;
+  gap:18px!important;width:100%!important;max-width:780px!important;
+  margin:48px auto 0!important;padding:0!important;
+  perspective:none!important;overflow:visible!important;
+}
+html body #homeView .choices>.choice[data-carousel-clone="1"]{display:none!important}
+html body #homeView .choices>.choice,
+html body #homeView .choices>.choice.is-center,
+html body #homeView .choices>.choice.is-side{
+  display:flex!important;position:relative!important;flex:0 0 auto!important;
+  width:100%!important;max-width:none!important;min-width:0!important;
+  min-height:108px!important;height:auto!important;max-height:none!important;
+  align-items:center!important;justify-content:flex-start!important;gap:0!important;
+  margin:0!important;padding:22px 86px 22px 34px!important;
+  border:1px solid rgba(248,240,231,.26)!important;
+  border-radius:999px!important;
+  background:#89776a!important;color:#fff7ed!important;
+  box-shadow:none!important;transform:none!important;opacity:1!important;
+  filter:none!important;overflow:hidden!important;text-align:left!important;
+  cursor:pointer!important;transition:background .2s ease,border-color .2s ease!important;
+}
+html body #homeView .choices>.choice:before,
+html body #homeView .choices>.choice:after{content:none!important;display:none!important}
+html body #homeView .choices>.choice:hover,
+html body #homeView .choices>.choice:focus-visible{
+  background:#968474!important;border-color:rgba(248,240,231,.7)!important;
+  transform:translateY(-1px)!important;outline:none!important;
+}
+html body #homeView .choices>.choice .num,
+html body #homeView .choices>.choice .home-icon,
+html body #homeView .choices>.choice .choice-action{display:none!important}
+html body #homeView .choices>.choice h3{
+  display:block!important;position:static!important;width:auto!important;max-width:100%!important;
+  margin:0 0 4px!important;padding:0!important;
+  color:#fff7ed!important;-webkit-text-fill-color:#fff7ed!important;
+  font-family:'Cormorant Garamond',Georgia,serif!important;
+  font-size:clamp(22px,3.2vw,31px)!important;font-weight:500!important;
+  line-height:1.08!important;letter-spacing:.025em!important;text-transform:uppercase!important;
+  text-align:left!important;text-shadow:none!important;overflow-wrap:normal!important;
+}
+html body #homeView .choices>.choice p{
+  display:block!important;position:static!important;width:auto!important;max-width:100%!important;
+  margin:0!important;padding:0!important;
+  color:rgba(255,247,237,.78)!important;-webkit-text-fill-color:rgba(255,247,237,.78)!important;
+  font-family:'Cormorant Garamond',Georgia,serif!important;
+  font-size:clamp(16px,2.4vw,22px)!important;line-height:1.25!important;
+  text-align:left!important;text-shadow:none!important;
+}
+html body #homeView .choices>.choice .arrow{
+  display:flex!important;position:absolute!important;right:25px!important;top:50%!important;left:auto!important;bottom:auto!important;
+  width:54px!important;height:54px!important;align-items:center!important;justify-content:center!important;
+  transform:translateY(-50%)!important;border:1px solid rgba(255,247,237,.9)!important;
+  border-radius:50%!important;background:transparent!important;
+  color:#fff7ed!important;-webkit-text-fill-color:#fff7ed!important;
+  font-family:Arial,sans-serif!important;font-size:27px!important;font-weight:300!important;
+  line-height:1!important;text-shadow:none!important;box-shadow:none!important;
+}
+html body #homeView .brand-footer{display:none!important}
+html body #ldsLanguageSwitch{
+  top:22px!important;right:22px!important;left:auto!important;
+  padding:4px!important;gap:3px!important;
+  border:1px solid rgba(255,247,237,.5)!important;border-radius:999px!important;
+  background:rgba(248,240,231,.12)!important;box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+html body #ldsLanguageSwitch button{
+  min-width:42px!important;min-height:40px!important;padding:10px 12px!important;
+  border-radius:999px!important;background:transparent!important;
+  color:#fff7ed!important;border-color:transparent!important;
+  font:600 12px/1 Jost,Arial,sans-serif!important;
+}
+html body #ldsLanguageSwitch button[aria-pressed="true"]{
+  background:#481824!important;border-color:rgba(255,247,237,.4)!important;color:#fff7ed!important;
+}
+@media(max-width:760px){
+ html body #homeView.active{padding:132px 22px 48px!important}
+ html body #homeView .hero{margin-bottom:22px!important}
+ html body #homeView .hero h1{max-width:390px!important;font-size:clamp(37px,9.3vw,51px)!important;line-height:1.02!important;margin-bottom:22px!important}
+ html body #homeView .hero h1:after{margin-top:24px!important}
+ html body #homeView .hero .home-values{max-width:340px!important;font-size:21px!important;line-height:1.3!important}
+ html body #homeView .choices{gap:15px!important;margin-top:38px!important}
+ html body #homeView .choices>.choice,
+ html body #homeView .choices>.choice.is-center,
+ html body #homeView .choices>.choice.is-side{
+   min-height:100px!important;padding:21px 66px 21px 25px!important;border-radius:999px!important;
+ }
+ html body #homeView .choices>.choice h3{font-size:clamp(20px,5.4vw,25px)!important;line-height:1.05!important}
+ html body #homeView .choices>.choice p{font-size:18px!important;line-height:1.2!important}
+ html body #homeView .choices>.choice .arrow{right:16px!important;width:43px!important;height:43px!important;font-size:23px!important}
+ html body #ldsLanguageSwitch{top:18px!important;right:18px!important}
 }
 </style>
