@@ -24248,130 +24248,149 @@ html body #studio2View .studio2-live-availability .calendar-help p{
 
 <style id="studio2-week-calendar-overflow-root-fix-20261019">
 /*
- * Studio 2 calendar overflow fix.
- * The legacy shared stylesheet gives .rental-calendar a 920px min-width on mobile.
- * Keep this correction scoped to Studio 2 and its own live calendar; booking JS untouched.
+ * Studijos Nr. 2 kalendorius: ta pati struktūra ir būsena kaip Studijos Nr. 1,
+ * tačiau septynios dienos telpa telefono ekrane. Rezervacijos JS nekeičiamas.
  */
-html body #studio2View,
-html body #studio2View .studio2-shell,
 html body #studio2View .studio2-live-availability,
-html body #studio2View .studio2-live-availability .availability-section,
 html body #studio2View .studio2-live-availability .calendar-panel,
-html body #studio2View .studio2-live-availability .cal-scroll {
+html body #studio2View .studio2-live-availability .cal-scroll,
+html body #studio2View .studio2-live-availability #studio2RentalCalendar {
+  box-sizing:border-box!important;
   width:100%!important;
   min-width:0!important;
   max-width:100%!important;
-  box-sizing:border-box!important;
 }
 html body #studio2View .studio2-live-availability .calendar-panel {
   overflow:hidden!important;
+  padding:14px!important;
+  border:1px solid rgba(255,248,239,.72)!important;
+  border-radius:24px!important;
+  background:rgba(255,248,239,.13)!important;
+  box-shadow:0 12px 28px rgba(50,30,25,.12)!important;
+}
+html body #studio2View .studio2-live-availability .cal-toolbar {
+  display:grid!important;
+  grid-template-columns:36px minmax(0,1fr) 36px!important;
+  align-items:center!important;
+  gap:10px!important;
+  width:100%!important;
+  min-width:0!important;
+  margin:0 0 10px!important;
+  padding:12px!important;
+  box-sizing:border-box!important;
+  border:1px solid rgba(255,248,239,.3)!important;
+  border-radius:17px 17px 5px 5px!important;
+  background:linear-gradient(115deg,#592737,#401c27)!important;
+}
+html body #studio2View .studio2-live-availability .cal-toolbar button {
+  width:36px!important;height:36px!important;min-width:0!important;
+  padding:0!important;border:1px solid #fff5e9!important;
+  border-radius:13px!important;background:linear-gradient(145deg,#fffaf2,#dbc7b5)!important;
+  color:#542033!important;display:grid!important;place-items:center!important;
+}
+html body #studio2View .studio2-live-availability .cal-title {
+  min-width:0!important;text-align:center!important;color:#fff8ef!important;
+  font-size:clamp(10px,2.8vw,15px)!important;line-height:1.25!important;
+  overflow-wrap:anywhere!important;
 }
 html body #studio2View .studio2-live-availability .cal-scroll {
   display:block!important;
   overflow-x:hidden!important;
-  overflow-y:visible!important;
+  overflow-y:auto!important;
+  max-height:390px!important;
   padding:0!important;
-  -webkit-overflow-scrolling:auto!important;
+  border-radius:15px!important;
+  overscroll-behavior:contain!important;
+  -webkit-overflow-scrolling:touch!important;
 }
 html body #studio2View .studio2-live-availability #studio2RentalCalendar.rental-calendar {
   display:grid!important;
-  width:100%!important;
-  min-width:0!important;
-  max-width:100%!important;
-  margin:0!important;
-  padding:0!important;
-  grid-template-columns:minmax(30px,clamp(30px,8vw,52px)) repeat(7,minmax(0,1fr))!important;
+  grid-template-columns:34px repeat(7,minmax(0,1fr))!important;
+  width:100%!important;min-width:0!important;max-width:100%!important;
+  margin:0!important;padding:0!important;gap:0!important;
   box-sizing:border-box!important;
+  background:transparent!important;
 }
 html body #studio2View .studio2-live-availability #studio2RentalCalendar.rental-calendar > * {
-  min-width:0!important;
-  max-width:100%!important;
-  box-sizing:border-box!important;
+  min-width:0!important;max-width:100%!important;box-sizing:border-box!important;
 }
-html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day,
-html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-time,
-html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-cell {
-  min-width:0!important;
-  max-width:100%!important;
-  box-sizing:border-box!important;
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day {
+  min-width:0!important;overflow:hidden!important;padding:7px 0!important;
+  text-align:center!important;
+}
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day button {
+  display:block!important;width:100%!important;min-width:0!important;max-width:100%!important;
+  padding:0!important;white-space:normal!important;overflow-wrap:anywhere!important;
+  font-size:clamp(7px,1.9vw,10px)!important;
+}
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day button strong {
+  display:block!important;font-size:clamp(14px,4vw,19px)!important;margin-top:2px!important;
+}
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-time {
+  position:sticky!important;left:0!important;z-index:2!important;
+  min-width:0!important;max-width:100%!important;
+  padding:5px 1px!important;text-align:center!important;
+  font-size:8px!important;box-sizing:border-box!important;
 }
 html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-cell {
-  padding:2px!important;
-  overflow:hidden!important;
+  min-width:0!important;max-width:100%!important;height:42px!important;
+  min-height:42px!important;padding:1px!important;overflow:hidden!important;
+  box-sizing:border-box!important;
 }
 html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-slot {
-  min-width:0!important;
-  max-width:100%!important;
-  overflow:hidden!important;
-  box-sizing:border-box!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  width:100%!important;height:100%!important;min-width:0!important;min-height:40px!important;
+  max-width:100%!important;padding:2px 0!important;gap:0!important;
+  border-radius:8px!important;box-sizing:border-box!important;overflow:hidden!important;
+  text-align:center!important;white-space:normal!important;overflow-wrap:anywhere!important;
+  word-break:break-word!important;font-size:clamp(5px,1.7vw,7px)!important;line-height:1.05!important;
+}
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-slot strong {
+  display:block!important;max-width:100%!important;font-size:inherit!important;
+  letter-spacing:0!important;overflow-wrap:anywhere!important;
+}
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-slot small {
+  display:none!important;
+}
+html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-slot.chosen {
+  border-color:#c4a05b!important;box-shadow:inset 0 0 0 1px #c4a05b!important;
+}
+html body #studio2View .studio2-live-availability .availability-legend {
+  display:flex!important;flex-wrap:wrap!important;gap:8px 14px!important;
 }
 @media(max-width:760px) {
   html body #studio2View .studio2-live-availability .calendar-panel {
-    padding:6px!important;
-    border-radius:18px!important;
+    padding:7px!important;border-radius:19px!important;
+  }
+  html body #studio2View .studio2-live-availability .cal-toolbar {
+    grid-template-columns:32px minmax(0,1fr) 32px!important;gap:6px!important;padding:7px!important;
+  }
+  html body #studio2View .studio2-live-availability .cal-toolbar button {
+    width:32px!important;height:32px!important;
   }
   html body #studio2View .studio2-live-availability #studio2RentalCalendar.rental-calendar {
     grid-template-columns:30px repeat(7,minmax(0,1fr))!important;
   }
   html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day {
     padding:6px 0!important;
-    overflow:hidden!important;
-  }
-  html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day button {
-    min-width:0!important;
-    max-width:100%!important;
-    padding:0!important;
-    font-size:clamp(7px,2.1vw,9px)!important;
-    white-space:normal!important;
-    overflow-wrap:anywhere!important;
-  }
-  html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-day button strong {
-    font-size:clamp(14px,4vw,18px)!important;
   }
   html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-time {
-    padding:2px 0!important;
-    font-size:7px!important;
-    text-align:center!important;
-  }
-  html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-cell {
-    height:42px!important;
-    padding:1px!important;
-  }
-  html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-time {
-    height:42px!important;
-    min-height:42px!important;
+    height:42px!important;min-height:42px!important;font-size:7px!important;padding:2px 0!important;
   }
   html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-slot {
-    height:100%!important;
-    min-height:0!important;
-    padding:1px 0!important;
-    border-radius:5px!important;
-    font-size:clamp(4.5px,1.45vw,6.5px)!important;
-    line-height:1!important;
-    text-align:center!important;
-    overflow-wrap:anywhere!important;
-    word-break:break-word!important;
+    border-radius:6px!important;font-size:clamp(5px,1.7vw,7px)!important;
   }
-  html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-slot strong {
-    font-size:inherit!important;
-    letter-spacing:0!important;
-  }
-  html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-slot small {
-    display:none!important;
+  html body #studio2View .studio2-live-availability .calendar-help {
+    padding:10px!important;box-sizing:border-box!important;max-width:100%!important;
   }
 }
 @media(max-width:360px) {
+  html body #studio2View .studio2-live-availability .calendar-panel {padding:5px!important}
   html body #studio2View .studio2-live-availability #studio2RentalCalendar.rental-calendar {
     grid-template-columns:27px repeat(7,minmax(0,1fr))!important;
   }
   html body #studio2View .studio2-live-availability #studio2RentalCalendar .rent-slot {
-    font-size:4.5px!important;
-  }
-}
-/* Prevent page-level horizontal overflow caused by the Studio 2 booking calendar. */
-@media(max-width:760px) {
-  html body #studio2View .studio2-live-availability {
-    overflow-x:clip!important;
+    font-size:5px!important;
   }
 }
 </style>
