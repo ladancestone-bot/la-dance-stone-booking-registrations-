@@ -4129,7 +4129,7 @@ html body #timetableView .class-calendar-slot.occupied * {
 <section id="homeView" class="active view">
 <div class="home-site-link-row"><a class="site-link" href="https://ladancestone.lt"><span aria-hidden="true">←</span> Grįžti į svetainės pradžią</a></div>
 <div class="hero">
-  <h1>Šokio erdvė prasideda čia.</h1>
+  <h1>Šokio erdvė prasideda čia</h1>
   <p class="home-values">Pasirinkite, ką norite nuveikti:</p>
 </div>
 <div class="choices">
@@ -19330,6 +19330,72 @@ html body #ldsLanguageSwitch button{position:relative!important;z-index:1!import
 </style>
 
 
+
+
+<style id="lds-burgundy-interaction-polish-20261019">
+/* Refined warm taupe and burgundy interaction states. Existing actions and handlers stay unchanged. */
+:root{
+ --lds-burgundy:#76283b;
+ --lds-burgundy-strong:#842b43;
+ --lds-burgundy-deep:#5a1d2e;
+ --lds-burgundy-glow:#a54a60;
+}
+/* Replace the gold divider under the homepage heading with burgundy. */
+html body #homeView .hero h1::after,
+html body #homeView .hero .home-values::before{
+ border-color:var(--lds-burgundy)!important;
+ background-color:var(--lds-burgundy)!important;
+}
+/* Clear, visible pressed state on the three main homepage capsules. */
+html body #homeView .choices>.choice{
+ -webkit-tap-highlight-color:transparent!important;
+ transition:background-color .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease,transform .18s ease!important;
+}
+html body #homeView .choices>.choice:active,
+html body #homeView .choices>.choice:focus-visible{
+ background:var(--lds-burgundy-strong)!important;
+ background-color:var(--lds-burgundy-strong)!important;
+ border-color:#f3e8dc!important;
+ color:#fff8f0!important;
+ box-shadow:0 0 0 2px #842b4330,0 8px 22px #2a101b30!important;
+ outline:none!important;
+}
+html body #homeView .choices>.choice:active h3,
+html body #homeView .choices>.choice:active p,
+html body #homeView .choices>.choice:active .arrow,
+html body #homeView .choices>.choice:focus-visible h3,
+html body #homeView .choices>.choice:focus-visible p,
+html body #homeView .choices>.choice:focus-visible .arrow{
+ color:#fff8f0!important;
+ -webkit-text-fill-color:#fff8f0!important;
+}
+/* Use the same burgundy press feedback on buttons and interactive controls throughout the booking pages. */
+html body button:not(.mini-status):active,
+html body .action:active,
+html body .back:active,
+html body .cal-toolbar button:active,
+html body .pill:active,
+html body .site-link:active,
+html body #ldsLanguageSwitch button:active,
+html body .mini-status:active,
+html body input[type="submit"]:active,
+html body input[type="button"]:active{
+ background-color:var(--lds-burgundy-strong)!important;
+ border-color:var(--lds-burgundy-strong)!important;
+ color:#fff8f0!important;
+ -webkit-text-fill-color:#fff8f0!important;
+ box-shadow:0 0 0 2px #842b4326!important;
+}
+html body button:focus-visible,
+html body .site-link:focus-visible{
+ outline:2px solid var(--lds-burgundy-glow)!important;
+ outline-offset:3px!important;
+}
+/* Burgundy instead of gold for small decorative accents and interactive borders. */
+html body #homeView .hero .home-values::before{
+ background:var(--lds-burgundy)!important;
+}
+</style>
 </body>
 </html>
 
