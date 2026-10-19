@@ -20589,4 +20589,81 @@ html body #homeView .choices>.choice .arrow{
   transform:translateY(-50%)!important;
  }
 }
+
+/* Repair mobile header overlap: put the return link and language control on one clean row. */
+html body #homeView.active{
+ position:relative!important;
+ padding-top:108px!important;
+}
+html body #homeView .home-site-link-row{
+ display:block!important;
+ position:relative!important;
+ inset:auto!important;
+ width:calc(100% - 138px)!important;
+ max-width:calc(100% - 138px)!important;
+ min-height:34px!important;
+ margin:0!important;
+ padding:0!important;
+ text-align:left!important;
+ z-index:20!important;
+}
+html body #homeView .home-site-link-row .site-link{
+ display:inline-flex!important;
+ align-items:center!important;
+ justify-content:flex-start!important;
+ gap:5px!important;
+ width:auto!important;
+ max-width:100%!important;
+ padding:4px 0!important;
+ margin:0!important;
+ font-size:11px!important;
+ line-height:1.25!important;
+ white-space:normal!important;
+ color:#f8f0e7!important;
+ -webkit-text-fill-color:#f8f0e7!important;
+}
+html body #ldsLanguageSwitch{
+ position:absolute!important;
+ top:90px!important;
+ right:14px!important;
+ left:auto!important;
+ z-index:30!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ gap:3px!important;
+ width:auto!important;
+ max-width:116px!important;
+ box-sizing:border-box!important;
+ padding:3px!important;
+ margin:0!important;
+}
+html body #ldsLanguageSwitch button{
+ box-sizing:border-box!important;
+ flex:0 0 34px!important;
+ width:34px!important;
+ min-width:34px!important;
+ height:34px!important;
+ min-height:34px!important;
+ padding:0!important;
+ margin:0!important;
+ border-radius:50%!important;
+ line-height:1!important;
+}
+html body #homeView .hero{
+ margin-top:14px!important;
+}
+html body #homeView .choices>.choice[data-view="classes"] .arrow{
+ display:block!important;
+ visibility:visible!important;
+ opacity:1!important;
+}
+@media(max-width:760px){
+ html body #homeView.active{padding-top:102px!important}
+ html body #homeView .home-site-link-row{width:calc(100% - 132px)!important;max-width:calc(100% - 132px)!important;min-height:32px!important}
+ html body #homeView .home-site-link-row .site-link{font-size:10.5px!important}
+ html body #ldsLanguageSwitch{top:84px!important;right:12px!important;max-width:110px!important}
+ html body #ldsLanguageSwitch button{flex-basis:32px!important;width:32px!important;min-width:32px!important;height:32px!important;min-height:32px!important}
+ html body #homeView .hero{margin-top:14px!important}
+}
 </style>
