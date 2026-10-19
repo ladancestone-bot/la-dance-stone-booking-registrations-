@@ -18673,8 +18673,8 @@ html body #classesView #classDetail.class-detail-adult
 @media(max-width:600px){#ldsLanguageSwitch{top:10px;right:10px;padding:4px}#ldsLanguageSwitch button{padding:9px 10px;min-width:34px;min-height:34px}}
 </style>
 <div id="ldsLanguageSwitch" role="group" aria-label="Language / Kalba">
-<button type="button" data-lds-lang="lt" aria-pressed="true" onclick="window.__ldsSetLanguage &amp;&amp; window.__ldsSetLanguage('lt')">LT</button>
-<button type="button" data-lds-lang="en" aria-pressed="false" onclick="window.__ldsSetLanguage &amp;&amp; window.__ldsSetLanguage('en')">EN</button>
+<button type="button" data-lds-lang="lt" aria-pressed="true">LT</button>
+<button type="button" data-lds-lang="en" aria-pressed="false">EN</button>
 </div>
 <script id="lds-language-switch-script">
 (function(){
@@ -19047,40 +19047,15 @@ function setLanguage(lang){
 // as in the first working version before the glass styling changes.
 var languageSwitch=document.getElementById('ldsLanguageSwitch');
 window.__ldsSetLanguage=function(lang){setLanguage(lang);};
-if(languageSwitch){
- languageSwitch.querySelectorAll('button[data-lds-lang]').forEach(function(button){
-  button.addEventListener('click',function(){setLanguage(button.getAttribute('data-lds-lang'));});
- });
-}
+// Use one delegated click handler only. Multiple touch/pointer/click handlers
+// caused the language switch to run repeatedly on mobile Safari.
 document.addEventListener('click',function(e){
- var target=e.target&&e.target.closest?e.target.closest('#ldsLanguageSwitch [data-lds-lang]'):null;
+ var target=e.target&&e.target.closest?e.target.closest('#ldsLanguageSwitch button[data-lds-lang]'):null;
  if(!target)return;
+ e.preventDefault();
  e.stopPropagation();
  setLanguage(target.getAttribute('data-lds-lang'));
 },true);
-document.addEventListener('pointerup',function(e){
- var target=e.target&&e.target.closest?e.target.closest('#ldsLanguageSwitch [data-lds-lang]'):null;
- if(!target)return;
- setLanguage(target.getAttribute('data-lds-lang'));
-},true);
-// Fallback for iOS Safari when an invisible page layer intercepts the actual tap target.
-// Resolve the intended LT/EN control from the touch coordinates, independent of event.target.
-document.addEventListener('touchstart',function(e){
- var touch=e.changedTouches&&e.changedTouches[0];
- if(!touch||!languageSwitch)return;
- var x=touch.clientX,y=touch.clientY,rect=languageSwitch.getBoundingClientRect();
- if(x<rect.left||x>rect.right||y<rect.top||y>rect.bottom)return;
- var buttons=languageSwitch.querySelectorAll('button[data-lds-lang]');
- for(var i=0;i<buttons.length;i++){
-  var br=buttons[i].getBoundingClientRect();
-  if(x>=br.left&&x<=br.right&&y>=br.top&&y<=br.bottom){
-   e.preventDefault();
-   e.stopImmediatePropagation();
-   setLanguage(buttons[i].getAttribute('data-lds-lang'));
-   return;
-  }
- }
-},{capture:true,passive:false});
 document.addEventListener('click',function(e){
  var b=e.target.closest('button,[role="button"]');
  if(b && /rentSubmit|rentalCashChoice/.test(b.id||'')) setTimeout(function(){translateTree(document.body,current);if(typeof updateBookingSummary==='function'){try{updateBookingSummary();}catch(e){}}},0);
@@ -19218,33 +19193,7 @@ html body #ldsLanguageSwitch{position:fixed!important;z-index:2147483647!importa
 html body #ldsLanguageSwitch,html body #ldsLanguageSwitch *{pointer-events:auto!important}
 html body #ldsLanguageSwitch button{position:relative!important;z-index:1!important;cursor:pointer!important;-webkit-tap-highlight-color:rgba(255,255,255,.18);touch-action:manipulation!important}
 </style>
-<script id="lds-language-switch-click-fix-script-20261019">
-(function(){
- 'use strict';
- function bindLanguageSwitch(){
-  var sw=document.getElementById('ldsLanguageSwitch');
-  if(!sw||sw.dataset.ldsClickFixBound==='1')return;
-  sw.dataset.ldsClickFixBound='1';
-  sw.style.setProperty('pointer-events','auto','important');
-  sw.style.setProperty('z-index','2147483647','important');
-  sw.addEventListener('click',function(e){
-   var button=e.target&&e.target.closest?e.target.closest('button[data-lds-lang]'):null;
-   if(!button||!sw.contains(button))return;
-   var lang=button.getAttribute('data-lds-lang');
-   if(typeof window.__ldsSetLanguage==='function'){
-    window.__ldsSetLanguage(lang);
-   }else{
-    try{localStorage.setItem('lds-site-language',lang);}catch(err){}
-    var url=new URL(window.location.href);
-    url.searchParams.set('lang',lang);
-    window.location.assign(url.toString());
-   }
-  },true);
- }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bindLanguageSwitch,{once:true});
- bindLanguageSwitch();
-})();
-</script>
+
 
 </body>
 </html>
