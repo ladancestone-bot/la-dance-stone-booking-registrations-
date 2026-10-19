@@ -20666,4 +20666,45 @@ html body #homeView .choices>.choice[data-view="classes"] .arrow{
  html body #ldsLanguageSwitch button{flex-basis:32px!important;width:32px!important;min-width:32px!important;height:32px!important;min-height:32px!important}
  html body #homeView .hero{margin-top:14px!important}
 }
+
+/* Align the return link and language selector on the same top row; add air above hero. */
+html body #homeView.active{padding-top:118px!important}
+html body #homeView .home-site-link-row{
+ position:absolute!important;
+ top:28px!important;left:16px!important;
+ width:calc(100% - 156px)!important;max-width:calc(100% - 156px)!important;
+ min-height:36px!important;margin:0!important;padding:0!important;
+ display:flex!important;align-items:center!important;justify-content:flex-start!important;
+}
+html body #homeView .home-site-link-row .site-link{
+ display:inline-flex!important;align-items:center!important;justify-content:flex-start!important;
+ gap:5px!important;padding:4px 0!important;margin:0!important;
+ font-size:11px!important;line-height:1.25!important;white-space:normal!important;
+}
+html body #ldsLanguageSwitch{
+ position:absolute!important;top:26px!important;right:14px!important;left:auto!important;
+ z-index:10002!important;display:flex!important;align-items:center!important;justify-content:center!important;
+ gap:3px!important;width:auto!important;max-width:116px!important;
+ padding:3px!important;margin:0!important;box-sizing:border-box!important;
+}
+html body #ldsLanguageSwitch button{
+ flex:0 0 34px!important;width:34px!important;min-width:34px!important;
+ height:34px!important;min-height:34px!important;padding:0!important;margin:0!important;
+}
+html body #homeView .hero{margin-top:22px!important}
+@media(max-width:760px){
+ html body #homeView.active{padding-top:118px!important}
+ html body #homeView .home-site-link-row{
+  top:26px!important;left:14px!important;
+  width:calc(100% - 146px)!important;max-width:calc(100% - 146px)!important;
+  min-height:36px!important;
+ }
+ html body #ldsLanguageSwitch{top:26px!important;right:12px!important;max-width:110px!important}
+ html body #ldsLanguageSwitch button{
+  flex-basis:32px!important;width:32px!important;min-width:32px!important;
+  height:32px!important;min-height:32px!important;
+ }
+ html body #homeView .hero{margin-top:24px!important}
+ html body #homeView .hero .home-values{margin-top:0!important}
+}
 </style>
