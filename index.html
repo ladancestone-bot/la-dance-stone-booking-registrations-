@@ -4787,6 +4787,28 @@ main.wrap::before,main.wrap::after,
     rgba(55,28,28,.34) 100%)!important;
 }
 </style>
+
+<style id="lds-homepage-warm-luxury-final-20261020">
+/* Homepage-only color correction: warm champagne/taupe image grade with a soft cocoa-to-burgundy fade.
+   This block is intentionally last in the document head to override older conflicting homepage layers.
+   No layout, image URL, card, navigation, booking, payment, or other view behavior is changed. */
+html body:has(#homeView.active) #homeView,
+html body:has(#homeView.active) main.wrap {
+  background-color:#C8B6A2!important;
+  background-image:none!important;
+}
+html body:has(#homeView.active) #homeView::before {
+  filter:blur(4px) brightness(1.08) saturate(1.09) sepia(.13) hue-rotate(-4deg)!important;
+  transform:scale(1.04)!important;
+}
+html body:has(#homeView.active) #homeView::after {
+  background:linear-gradient(180deg,
+    rgba(244,222,195,.12) 0%,
+    rgba(166,112,78,.055) 42%,
+    rgba(58,27,31,.27) 100%)!important;
+}
+</style>
+
 </head>
 <body>
 <main class="wrap">
