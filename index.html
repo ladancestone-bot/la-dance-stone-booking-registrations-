@@ -21293,6 +21293,30 @@ html body #rentalView .rental-gallery-studio1 .rental-summary-row{
 }
 </style>
 
+
+<style id="studio1-studio2-final-spacing-cleanup">
+/* Studio 1 rental photo: lift the capsule well clear of the image edge so it sits fully on the photo. */
+html body #rentalView .rental-gallery-studio1 article.rental-studio-photo>.gallery-caption{
+ bottom:30px!important;
+}
+/* Studio 2: retain only the divider between price and hours; remove the extra divider before the address. */
+html body #studio2View .studio2-summary-row .studio2-map-link{
+ border-left:0!important;
+ padding-left:0!important;
+}
+/* Remove any stray decorative burgundy strip at the bottom of the Studio 2 hero card. */
+html body #studio2View .studio2-hero,
+html body #studio2View .studio2-shell{
+ background-image:none!important;
+}
+html body #studio2View .studio2-hero::after,
+html body #studio2View .studio2-hero::before,
+html body #studio2View .studio2-shell::after,
+html body #studio2View .studio2-shell::before{
+ content:none!important;display:none!important;
+}
+</style>
+
 </body>
 </html>
 
