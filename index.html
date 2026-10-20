@@ -4860,7 +4860,7 @@ html body #studio2View #studio2RentalConfirmation .rc-back{margin-top:20px;paddi
       <span style="position:absolute;left:16px;bottom:14px;color:#fff;font-size:13px;font-weight:700;text-shadow:0 1px 5px rgba(0,0,0,.8);">Žiūrėti vaizdo gidą</span>
     </button>
   </div>
-  <p class="rental-howto-copy" style="max-width:950px;margin:12px auto 0;text-align:center;font-size:clamp(9px,1.8vw,12px);line-height:1.35;white-space:normal;color:#674d40!important;opacity:1!important;">Jei vaizdo įrašas neatsidaro, <a href="https://drive.google.com/file/d/1XqSfPEfjQq2glsSIGtJKUt-p_-v5lyz3/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" style="color:#711f32!important;font-weight:700;text-decoration:underline;text-underline-offset:2px;">žiūrėkite jį „Google Drive“</a>.</p>
+  <p class="rental-howto-copy" style="max-width:950px;margin:12px auto 0;text-align:center;font-size:clamp(9px,1.8vw,12px);line-height:1.35;white-space:normal;color:#674d40!important;opacity:1!important;">Jei vaizdo įrašas neatsidaro, <a href="https://youtube.com/shorts/w5-rrEhM4Pk" target="_blank" rel="noopener noreferrer" style="color:#711f32!important;font-weight:700;text-decoration:underline;text-underline-offset:2px;">žiūrėkite jį „Google Drive“</a>.</p>
 </section>
 <div id="rentalHowToModal" hidden role="dialog" aria-modal="true" aria-label="Vaizdo gidas – studija Nr. 1">
   <div class="rental-howto-modal-inner">
@@ -4870,13 +4870,34 @@ html body #studio2View #studio2RentalConfirmation .rc-back{margin-top:20px;paddi
 <script>
 (function(){
   var play=document.getElementById('rentalHowToPlay');
-  if(!play||play.dataset.bound==='1') return;
-  play.dataset.bound='1';
-  play.addEventListener('click',function(){
-    // iOS Safari and embedded Google Drive preview can render a black screen.
-    // Open the original Drive video directly instead of creating an iframe.
-    window.open('https://drive.google.com/file/d/1XqSfPEfjQq2glsSIGtJKUt-p_-v5lyz3/view', '_blank', 'noopener,noreferrer');
-  });
+  var modal=document.getElementById('rentalHowToModal');
+  var inner=modal&&modal.querySelector('.rental-howto-modal-inner');
+  var close=document.getElementById('rentalHowToClose');
+  var videoUrl='https://www.youtube-nocookie.com/embed/w5-rrEhM4Pk?autoplay=1&playsinline=1&rel=0';
+  function closeVideo(){
+    if(!modal||!inner) return;
+    modal.hidden=true;
+    var frame=inner.querySelector('iframe');
+    if(frame) frame.remove();
+    document.body.style.overflow='';
+  }
+  if(play&&modal&&inner&&play.dataset.bound!=='1'){
+    play.dataset.bound='1';
+    play.addEventListener('click',function(){
+      var frame=document.createElement('iframe');
+      frame.src=videoUrl;
+      frame.title='Kaip rezervuoti ir patekti į šokių studiją Nr. 1';
+      frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      frame.allowFullscreen=true;
+      frame.referrerPolicy='strict-origin-when-cross-origin';
+      inner.appendChild(frame);
+      modal.hidden=false;
+      document.body.style.overflow='hidden';
+    });
+  }
+  if(close) close.addEventListener('click',closeVideo);
+  if(modal) modal.addEventListener('click',function(event){if(event.target===modal) closeVideo();});
+  document.addEventListener('keydown',function(event){if(event.key==='Escape'&&modal&&!modal.hidden) closeVideo();});
 })();
 </script>
 
