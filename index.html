@@ -4771,6 +4771,21 @@ main.wrap::before,main.wrap::after,
   background-color:#A99A8A!important;
   background-image:none!important;
 }
+
+/* lds-homepage-warm-tint-20261020: warm the photo-led landing page without changing its layout or interactions */
+#homeView{
+  background:#A99A8A!important;
+  background-color:#A99A8A!important;
+}
+#homeView::before{
+  filter:sepia(.24) saturate(1.12) hue-rotate(-5deg) blur(5px) brightness(.91)!important;
+}
+#homeView::after{
+  background:linear-gradient(180deg,
+    rgba(169,154,132,.20) 0%,
+    rgba(132,87,62,.15) 42%,
+    rgba(55,28,28,.34) 100%)!important;
+}
 </style>
 </head>
 <body>
