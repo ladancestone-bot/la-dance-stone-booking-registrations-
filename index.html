@@ -4832,17 +4832,33 @@ html body #studio2View #studio2RentalConfirmation .rc-back{margin-top:20px;paddi
   </article>
 </div>
 
-<section class="rental-howto-video" aria-labelledby="rentalHowToTitle" style="max-width:1120px;margin:28px auto 34px;padding:clamp(18px,3vw,30px);border:1px solid rgba(128,83,75,.22);border-radius:24px;background:linear-gradient(135deg,rgba(250,245,237,.96),rgba(239,225,214,.9));box-shadow:0 16px 40px rgba(65,35,32,.08);color:#4a1725;">
-  <div style="max-width:760px;margin:0 auto 18px;text-align:center;">
-    <p style="margin:0 0 8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;opacity:.72;">LA DANCE STONE · STUDIJA NR. 1</p>
-    <h3 id="rentalHowToTitle" style="margin:0 0 9px;font-size:clamp(22px,3vw,32px);line-height:1.2;">Kaip rezervuoti ir patekti į studiją Nr. 1?</h3>
-    <p style="margin:0;font-size:15px;line-height:1.65;opacity:.84;">Trumpas gidas nuo rezervacijos internetu iki atvykimo į studiją.</p>
+<section class="rental-howto-video" aria-labelledby="rentalHowToTitle" style="max-width:1120px;margin:28px auto 34px;padding:clamp(18px,3vw,30px);border:1px solid rgba(128,83,75,.22);border-radius:28px;background:linear-gradient(145deg,#fbf5ed 0%,#f0e2d5 100%);box-shadow:0 16px 40px rgba(65,35,32,.08);color:#4a1725;">
+  <div style="max-width:760px;margin:0 auto 22px;text-align:center;">
+    <p style="margin:0 0 10px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#927365;">LA DANCE STONE · STUDIJA NR. 1</p>
+    <h3 id="rentalHowToTitle" style="margin:0 0 12px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(25px,4vw,42px);line-height:1.15;font-weight:600;color:#4a1725;">Kaip rezervuoti ir patekti į studiją Nr. 1?</h3>
+    <p style="margin:0;font-size:clamp(15px,2vw,20px);line-height:1.6;color:#795f52;">Trumpas gidas nuo rezervacijos internetu iki atvykimo į studiją.</p>
   </div>
-  <div style="position:relative;width:100%;max-width:900px;margin:0 auto;aspect-ratio:16/9;overflow:hidden;border-radius:16px;background:#24151a;box-shadow:0 12px 28px rgba(35,16,22,.16);">
-    <iframe src="https://drive.google.com/file/d/1XqSfPEfjQq2glsSIGtJKUt-p_-v5lyz3/preview" title="Kaip rezervuoti ir patekti į La Dance Stone studiją Nr. 1 – vaizdo gidas" allow="autoplay" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
+  <div id="rentalHowToPoster" style="position:relative;width:100%;max-width:950px;margin:0 auto;aspect-ratio:16/9;overflow:hidden;border-radius:20px;background:#21171a;box-shadow:0 12px 28px rgba(35,16,22,.16);">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format%3Dauto%2Cw%3D2800%2Ch%3D2102%2Cfit%3Dcrop/mxBXMb8brLT3X2qV/image00001-0prBS3KY0TyTVlFL.jpeg" alt="La Dance Stone pirmoji šokių studija su arkiniais veidrodžiais ir šiltu apšvietimu" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 52%;display:block;">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,15,17,.04),rgba(25,15,17,.18));pointer-events:none;"></div>
+    <button type="button" id="rentalHowToPlay" aria-label="Paleisti vaizdo gidą" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:76px;border:2px solid rgba(255,255,255,.9);border-radius:50%;background:#711f32;color:white;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(20,10,12,.28);cursor:pointer;">
+      <svg viewBox="0 0 24 24" aria-hidden="true" style="width:29px;height:29px;fill:currentColor;margin-left:4px;"><path d="M8 5.5v13l10-6.5z"/></svg>
+    </button>
+    <span style="position:absolute;left:16px;bottom:14px;color:#fff;font-size:13px;font-weight:600;text-shadow:0 1px 5px rgba(0,0,0,.6);">Žiūrėti vaizdo gidą</span>
   </div>
-  <p style="margin:14px 0 0;text-align:center;font-size:13px;line-height:1.5;">Jei vaizdo įrašas neatsidaro, <a href="https://drive.google.com/file/d/1XqSfPEfjQq2glsSIGtJKUt-p_-v5lyz3/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" style="color:#6d293c;font-weight:700;text-decoration:underline;text-underline-offset:3px;">žiūrėkite jį „Google Drive“</a>.</p>
+  <div id="rentalHowToPlayer" hidden style="position:relative;width:100%;max-width:950px;margin:0 auto;aspect-ratio:16/9;overflow:hidden;border-radius:20px;background:#21171a;box-shadow:0 12px 28px rgba(35,16,22,.16);">
+    <iframe src="https://drive.google.com/file/d/1XqSfPEfjQq2glsSIGtJKUt-p_-v5lyz3/preview" title="Kaip rezervuoti ir patekti į La Dance Stone studiją Nr. 1 – vaizdo gidas" allow="autoplay; fullscreen" allowfullscreen loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
+  </div>
+  <p style="max-width:950px;margin:15px auto 0;text-align:center;font-size:14px;line-height:1.65;color:#795f52;">Jei vaizdo įrašas neatsidaro, <a href="https://drive.google.com/file/d/1XqSfPEfjQq2glsSIGtJKUt-p_-v5lyz3/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" style="color:#711f32;font-weight:700;text-decoration:underline;text-underline-offset:4px;">žiūrėkite jį „Google Drive“</a>.</p>
 </section>
+<script>
+(function(){
+  var play=document.getElementById('rentalHowToPlay');
+  var poster=document.getElementById('rentalHowToPoster');
+  var player=document.getElementById('rentalHowToPlayer');
+  if(play&&poster&&player){play.addEventListener('click',function(){poster.hidden=true;player.hidden=false;});}
+})();
+</script>
 
 <section class="rental-checkin">
   <div class="rental-checkin-title"><span class="rental-checkin-phone" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="14" cy="25" r="5"/><path d="m18 21 11-11 5 5-11 11M25 14l4 4"/></svg></span><div><h3>Self check-in</h3><em>Nuoma vyksta Airbnb principu</em></div></div>
