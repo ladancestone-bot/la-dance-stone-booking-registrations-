@@ -21278,6 +21278,30 @@ html body #studio2View .studio2-shell::before{
 }
 </style>
 
+
+<style id="studio1-detail-capsule-match-studio2">
+/* Make the Studio 1 detail-page label match Studio 2's label in position, scale, and color. */
+html body #rentalView .rental-gallery-studio1 article.rental-studio-photo>.gallery-caption{
+ left:22px!important;right:auto!important;top:auto!important;bottom:18px!important;
+ padding:10px 20px!important;border:1px solid rgba(255,247,237,.8)!important;
+ border-radius:999px!important;background:rgba(93,61,48,.72)!important;
+ -webkit-backdrop-filter:blur(8px)!important;backdrop-filter:blur(8px)!important;
+ color:#fff7ed!important;box-shadow:none!important;
+}
+html body #rentalView .rental-gallery-studio1 article.rental-studio-photo>.gallery-caption strong{
+ color:#fff7ed!important;-webkit-text-fill-color:#fff7ed!important;
+ font:600 17px 'Cormorant Garamond',Georgia,serif!important;line-height:1.2!important;
+}
+@media(max-width:700px){
+ html body #rentalView .rental-gallery-studio1 article.rental-studio-photo>.gallery-caption{
+  left:22px!important;bottom:18px!important;padding:10px 20px!important;
+ }
+ html body #rentalView .rental-gallery-studio1 article.rental-studio-photo>.gallery-caption strong{
+  font-size:17px!important;
+ }
+}
+</style>
+
 </body>
 </html>
 
