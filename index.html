@@ -5287,7 +5287,15 @@ html body:has(#homeView.active) #homeView::after {
 <div class="studio2-price-table-wrap"><table class="studio2-price-table"><thead><tr><th>Trukmė</th><th>Darbo dienomis</th><th>Savaitgaliais</th></tr></thead><tbody><tr><td>1 valanda</td><td>40 €</td><td>45 €</td></tr><tr><td>4 valandos</td><td><strong>150 €</strong><small>37,50 €/val.</small></td><td><strong>160 €</strong><small>40 €/val.</small></td></tr><tr><td>8 valandos</td><td><strong>300 €</strong><small>37,50 €/val.</small></td><td><strong>320 €</strong><small>40 €/val.</small></td></tr></tbody></table><p class="studio2-price-footnote">4 val. ir ilgesnėms rezervacijoms taikomas ilgesnės nuomos tarifas. Savaitgalis – šeštadienis ir sekmadienis.</p></div>
 <div class="studio2-price-facts"><p class="studio2-eyebrow">ERDVĖJE</p><h3>Kas yra vietoje</h3><dl><div><dt>Plotas</dt><dd>160 m²</dd></div><div><dt>Adresas</dt><dd>Varnių g. 5, Kaunas</dd></div><div><dt>Rezervacijos</dt><dd>08:00–23:00</dd></div><div><dt>Automobilių stovėjimas</dt><dd>2 vietos</dd></div><div><dt>Internetas</dt><dd>Wi‑Fi</dd></div><div><dt>Garso kolonėlė</dt><dd>Yra</dd></div></dl></div>
 </div></section>
-\n<section class="availability-section studio2-live-availability"><div class="availability-heading"><div><div class="eyebrow">Interaktyvus užimtumo vaizdas</div><h2>Laisvų valandų <span class="availability-heading-accent">kalendorius.</span></h2><p>Paspauskite ant dienos arba laisvos valandos. Pasirinktas laikotarpis bus pažymėtas vientisai — nereikia rezervuoti kiekvienos valandos atskirai.</p></div></div>
+\n
+<section class="studio2-price-details" aria-labelledby="studio2PriceTitle">
+<div class="studio2-price-intro"><p class="studio2-eyebrow">KAIP SKAIČIUOJAMA KAINA</p><h3 id="studio2PriceTitle">Mokate tik už laiką.</h3><p>Rezervacijos kaina apskaičiuojama automatiškai pagal pasirinktą trukmę ir dieną.</p></div>
+<div class="studio2-price-grid">
+<div class="studio2-price-table-wrap"><table class="studio2-price-table"><thead><tr><th>Trukmė</th><th>Darbo dienomis</th><th>Savaitgaliais</th></tr></thead><tbody><tr><td>1 valanda</td><td>40 €</td><td>45 €</td></tr><tr><td>4 valandos</td><td><strong>150 €</strong><small>37,50 €/val.</small></td><td><strong>160 €</strong><small>40 €/val.</small></td></tr><tr><td>8 valandos</td><td><strong>300 €</strong><small>37,50 €/val.</small></td><td><strong>320 €</strong><small>40 €/val.</small></td></tr></tbody></table><p class="studio2-price-footnote">4 val. ir ilgesnėms rezervacijoms taikomas ilgesnės nuomos tarifas. Savaitgalis – šeštadienis ir sekmadienis.</p></div>
+<div class="studio2-price-facts"><p class="studio2-eyebrow">ERDVĖJE</p><h3>Kas yra vietoje</h3><dl><div><dt>Plotas</dt><dd>160 m²</dd></div><div><dt>Adresas</dt><dd>Varnių g. 5, Kaunas</dd></div><div><dt>Rezervacijos</dt><dd>08:00–23:00</dd></div><div><dt>Automobilių stovėjimas</dt><dd>2 vietos</dd></div><div><dt>Internetas</dt><dd>Wi‑Fi</dd></div><div><dt>Garso kolonėlė</dt><dd>Yra</dd></div></dl></div>
+</div></section>
+
+<section class="availability-section studio2-live-availability"><div class="availability-heading"><div><div class="eyebrow">Interaktyvus užimtumo vaizdas</div><h2>Laisvų valandų <span class="availability-heading-accent">kalendorius.</span></h2><p>Paspauskite ant dienos arba laisvos valandos. Pasirinktas laikotarpis bus pažymėtas vientisai — nereikia rezervuoti kiekvienos valandos atskirai.</p></div></div>
 <div class="calendar-panel"><div class="cal-toolbar"><button id="prevStudio2RentWeek" aria-label="Ankstesnė savaitė">‹</button><div class="cal-title" id="studio2RentWeekLabel">2026 m. spalio 12–18 d.</div><button id="nextStudio2RentWeek" aria-label="Kita savaitė">›</button></div><div class="cal-scroll"><div id="studio2RentalCalendar" class="rental-calendar"></div></div></div><div class="calendar-help"><div class="availability-legend"><span><i class="legend-block free"></i>Laisva</span><span><i class="legend-block reserved"></i>Užimta</span><span><i class="legend-block chosen"></i>Jūsų pasirinkimas</span></div><p id="studio2SelectionHint">Pažymėkite norimą pradžios laiką ir trukmę – kalendoriuje ji bus rodoma kaip vienas vientisas rezervacijos intervalas.</p><p>Pažymėjimai yra demonstraciniai. Tikras studijos užimtumas bus rodomas prijungus rezervacijų duomenų bazę.</p></div>
 
 </section>
@@ -21543,6 +21551,60 @@ html body #studioSelectView .studio-select-card .studio-select-content>.studio-s
   padding-top:0!important;padding-left:0!important;margin-top:0!important;
  }
 }
+</style>
+
+
+<style id="studio2-reference-design-20261020">
+#studio2View{--s2-paper:#f4eee5;--s2-card:#fbf8f2;--s2-ink:#352d28;--s2-muted:#8d7b6d;--s2-line:#dfd2c3;--s2-accent:#a9855e;background:var(--s2-paper)!important;color:var(--s2-ink)!important;font-family:Jost,Arial,sans-serif}
+#studio2View .studio2-shell{max-width:1500px;padding:0 3.5% 58px}
+#studio2View .studio2-back{margin:0;padding:22px 0 0;background:transparent;border:0;color:var(--s2-muted);font-size:12px}
+#studio2View .studio2-hero{display:flex;flex-direction:column;gap:0;padding:34px 0 42px;border:0;border-radius:0;background:transparent;box-shadow:none;text-align:center}
+#studio2View .studio2-hero-copy{width:100%;order:0}
+#studio2View .studio2-eyebrow{color:var(--s2-accent);letter-spacing:.22em;font-size:11px}
+#studio2View .studio2-hero h2{color:var(--s2-ink);font-size:clamp(54px,8vw,112px);line-height:.96;font-weight:500;letter-spacing:-.04em}
+#studio2View .studio2-hero h2 em{color:var(--s2-ink);font-style:normal}
+#studio2View .studio2-lead{max-width:760px;margin:20px auto 22px;color:var(--s2-muted);font-size:clamp(15px,1.8vw,22px);line-height:1.6}
+#studio2View .studio2-hero-image{display:none}
+#studio2View .studio2-summary-row{width:100%;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;margin:18px auto 0;padding-top:22px;border-top:1px solid var(--s2-line)}
+#studio2View .studio2-summary-metrics{display:flex;gap:28px}
+#studio2View .studio2-summary-price{display:flex;flex-direction:column;gap:5px;align-items:flex-start}
+#studio2View .studio2-summary-price strong{color:var(--s2-ink);font:500 27px/1.1 'Cormorant Garamond',serif}
+#studio2View .studio2-summary-price span,#studio2View .studio2-summary-hours span{color:var(--s2-muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+#studio2View .studio2-summary-hours{padding-left:24px;border-left:1px solid var(--s2-line);display:flex;flex-direction:column;gap:5px}
+#studio2View .studio2-summary-hours strong{color:var(--s2-ink);font:500 22px 'Cormorant Garamond',serif}
+#studio2View .studio2-map-link{padding:0 0 5px;color:var(--s2-ink);border-color:var(--s2-accent)}
+#studio2View .studio2-secondary-photo{position:relative;margin:0 0 50px;overflow:hidden;border-radius:3px;background:var(--s2-card)}
+#studio2View .studio2-secondary-photo img{display:block;width:100%;height:clamp(260px,45vw,620px);object-fit:cover}
+#studio2View .studio2-secondary-caption{position:absolute;left:24px;bottom:24px;display:flex;flex-direction:column;gap:5px;padding:14px 18px;background:rgba(244,238,229,.92);color:var(--s2-ink);backdrop-filter:blur(8px)}
+#studio2View .studio2-secondary-caption strong{font:500 28px 'Cormorant Garamond',serif}
+#studio2View .studio2-secondary-caption span{font-size:12px;color:var(--s2-muted)}
+#studio2View .studio2-price-details{margin:20px 0 54px;color:var(--s2-ink)}
+#studio2View .studio2-price-intro h3,#studio2View .studio2-price-facts h3{margin:0 0 20px;color:var(--s2-ink);font:500 clamp(34px,4vw,52px)/1.05 'Cormorant Garamond',serif}
+#studio2View .studio2-price-intro>p:last-child{color:var(--s2-muted);font-size:14px}
+#studio2View .studio2-price-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.95fr);gap:42px;margin-top:26px}
+#studio2View .studio2-price-table{width:100%;border-collapse:collapse;background:var(--s2-card);border:1px solid var(--s2-line);text-align:left}
+#studio2View .studio2-price-table th{padding:18px 20px;color:var(--s2-muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--s2-line)}
+#studio2View .studio2-price-table td{padding:22px 20px;border-bottom:1px solid var(--s2-line);color:var(--s2-ink);font:400 17px 'Cormorant Garamond',serif}
+#studio2View .studio2-price-table tr:last-child td{border-bottom:0}
+#studio2View .studio2-price-table td strong{display:block;font:500 29px 'Cormorant Garamond',serif}
+#studio2View .studio2-price-table td small{display:block;margin-top:2px;color:var(--s2-muted);font:400 12px Jost,Arial,sans-serif}
+#studio2View .studio2-price-footnote{margin:12px 0;color:var(--s2-muted);font-size:12px;line-height:1.65}
+#studio2View .studio2-price-facts dl{margin:0}
+#studio2View .studio2-price-facts dl>div{display:flex;justify-content:space-between;gap:18px;padding:17px 0;border-top:1px solid var(--s2-line)}
+#studio2View .studio2-price-facts dt{color:var(--s2-ink);font-size:14px}
+#studio2View .studio2-price-facts dd{margin:0;color:var(--s2-muted);font-size:14px;text-align:right}
+#studio2View .availability-heading h2,#studio2View .booking-panel h3{color:var(--s2-ink);font-family:'Cormorant Garamond',serif;font-weight:500}
+#studio2View .availability-section{margin-top:34px}
+#studio2View .calendar-panel,#studio2View .booking-panel,#studio2View .price-card{border:1px solid var(--s2-line);border-radius:3px;background:var(--s2-card);box-shadow:none}
+#studio2View .cal-toolbar{background:var(--s2-paper);color:var(--s2-ink)}
+#studio2View .studio2-live-availability .eyebrow{color:var(--s2-accent)}
+#studio2View .rental-layout{gap:22px}
+#studio2View .booking-panel,#studio2View .price-card{padding:clamp(18px,3vw,30px)}
+#studio2View .price-card .amount{color:var(--s2-ink);font:500 48px 'Cormorant Garamond',serif}
+#studio2View .fields input,#studio2View .fields select,#studio2View .email-label input{border:1px solid var(--s2-line);border-radius:2px;background:#fffdf9;color:var(--s2-ink)}
+#studio2View .booking-summary{border-color:var(--s2-line);background:#f4eee5}
+#studio2View .summary-price{color:var(--s2-ink)}
+@media(max-width:800px){#studio2View .studio2-shell{padding-left:16px;padding-right:16px}#studio2View .studio2-hero{padding:28px 0 32px}#studio2View .studio2-hero h2{font-size:clamp(48px,13vw,76px)}#studio2View .studio2-summary-row{gap:16px;justify-content:flex-start}#studio2View .studio2-summary-hours{padding-left:14px}#studio2View .studio2-price-grid{grid-template-columns:1fr;gap:28px}#studio2View .studio2-price-table th,#studio2View .studio2-price-table td{padding:13px 10px}#studio2View .studio2-price-table th{font-size:10px}#studio2View .studio2-price-table td{font-size:15px}#studio2View .studio2-price-table td strong{font-size:24px}#studio2View .studio2-secondary-photo{margin-bottom:35px}}
 </style>
 
 
