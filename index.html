@@ -4935,29 +4935,37 @@ html body #studio2View #studio2RentalConfirmation .rc-back{margin-top:20px;paddi
 </section>
 <section class="studio1-gallery" aria-labelledby="studio1-gallery-title">
   <style>
-    .studio1-gallery{max-width:1120px;margin:34px auto;padding:clamp(18px,3vw,30px);color:#3e2022;background:#fbf5ed;border:1px solid #e3d1c2;border-radius:28px;box-shadow:0 16px 40px rgba(65,35,32,.07);overflow:hidden}
+    .studio1-gallery{max-width:1180px;margin:42px auto 34px;padding:clamp(22px,4vw,42px);color:#442315;background:radial-gradient(ellipse at 18% 0%,rgba(255,255,255,.9),transparent 48%),linear-gradient(135deg,#fbf4eb 0%,#f4e4d4 100%);border:1px solid rgba(255,255,255,.92);border-radius:30px;box-shadow:0 18px 48px rgba(67,39,24,.11);overflow:hidden}
     .studio1-gallery *{box-sizing:border-box}
-    .studio1-gallery-heading{text-align:center;margin:0 auto 20px}
-    .studio1-gallery-kicker{margin:0 0 8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#75503d;font-weight:700}
-    .studio1-gallery h3{margin:0;font:italic 600 clamp(27px,4vw,42px)/1.15 Georgia,'Times New Roman',serif;color:#4a1725;text-shadow:none}
-    .studio1-gallery-intro{margin:10px 0 0;color:#5e463a;font-size:15px;line-height:1.6;text-shadow:none}
-    .studio1-gallery-track{display:flex;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#a88970 #eaded2;padding:0 0 12px;-webkit-overflow-scrolling:touch}
-    .studio1-gallery-track:focus-visible{outline:2px solid #711f32;outline-offset:4px}
-    .studio1-gallery-card{flex:0 0 min(78%,650px);margin:0;scroll-snap-align:start;border-radius:18px;overflow:hidden;background:#e8dbcf;box-shadow:0 8px 24px rgba(65,35,32,.12)}
-    .studio1-gallery-card img{display:block;width:100%;height:clamp(260px,53vw,470px);object-fit:cover}
-    .studio1-gallery-card figcaption{padding:11px 14px;background:#f4e9dd;color:#4f382f;font-size:13px;letter-spacing:.02em}
-    .studio1-gallery-hint{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:7px 0 24px;color:#674d40;font-size:12px}
-    .studio1-gallery-dots{display:flex;gap:5px;flex-shrink:0}
-    .studio1-gallery-dots span{width:6px;height:6px;border-radius:50%;background:#d5c4b3}
-    .studio1-gallery-dots span:first-child{background:#711f32}
-    .studio1-gallery-cta{display:grid;grid-template-columns:1fr 1.1fr;gap:22px;align-items:center;padding:clamp(20px,3vw,30px);border-radius:20px;background:linear-gradient(135deg,#a17a5e,#62402f 75%);color:#fff8f0}
-    .studio1-gallery-cta h4{margin:0;font:500 clamp(23px,3vw,32px)/1.2 Georgia,'Times New Roman',serif;color:#fff8f0;text-shadow:none}
-    .studio1-gallery-cta p{margin:0 0 16px;font-size:15px;line-height:1.65;color:#fff8f0;text-shadow:none}
-    .studio1-gallery-contact{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:12px 22px;border:1px solid rgba(255,255,255,.65);border-radius:999px;background:#711f32;color:#fff!important;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.12em}
-    @media(max-width:600px){.studio1-gallery{margin:26px 12px;padding:18px 14px;border-radius:22px}.studio1-gallery-card{flex-basis:84%}.studio1-gallery-card img{height:clamp(300px,100vw,420px)}.studio1-gallery-cta{grid-template-columns:1fr;gap:12px}.studio1-gallery-hint{font-size:11px;align-items:flex-start}}
+    .studio1-gallery-heading{text-align:left;max-width:100%;margin:0 0 26px;position:relative;padding:0 0 4px}
+    .studio1-gallery-kicker{display:flex;align-items:center;gap:14px;margin:0 0 18px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#89644c;font-weight:700;text-shadow:none}
+    .studio1-gallery-kicker:after{content:"";height:1px;width:clamp(48px,15vw,160px);background:#c6a58b;display:inline-block}
+    .studio1-gallery h3{margin:0;font:italic 600 clamp(34px,5.2vw,64px)/1.02 Georgia,'Times New Roman',serif;letter-spacing:-.045em;color:#492111;text-shadow:none}
+    .studio1-gallery-intro{margin:15px 0 0;color:#87664f;font-size:clamp(15px,1.8vw,21px);line-height:1.55;text-shadow:none;max-width:760px}
+    .studio1-gallery-heading:after{content:"70 m²";position:absolute;right:0;top:48px;display:flex;align-items:center;justify-content:center;padding:12px 24px;border:1px solid #dfc3a9;border-radius:999px;color:#63351f;font:italic 500 19px Georgia,'Times New Roman',serif;white-space:nowrap}
+    .studio1-gallery-track{display:flex;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#a77d5e #ead8c6;padding:0 0 14px;-webkit-overflow-scrolling:touch}
+    .studio1-gallery-track:focus-visible{outline:2px solid #805035;outline-offset:4px}
+    .studio1-gallery-card{flex:0 0 min(78%,760px);margin:0;scroll-snap-align:center;border-radius:18px;overflow:hidden;background:#e8d7c6;box-shadow:0 10px 28px rgba(74,43,26,.12)}
+    .studio1-gallery-card img{display:block;width:100%;height:clamp(280px,48vw,500px);object-fit:cover}
+    .studio1-gallery-card figcaption{padding:12px 16px;background:linear-gradient(100deg,#fbf2e8,#f2e1d0);color:#69462f;font-size:13px;letter-spacing:.035em}
+    .studio1-gallery-hint{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:9px 0 30px;color:#79563e;font-size:12px;letter-spacing:.025em}
+    .studio1-gallery-dots{display:flex;gap:7px;flex-shrink:0}
+    .studio1-gallery-dots span{width:8px;height:8px;border-radius:50%;background:#dfc7b0}
+    .studio1-gallery-dots span:first-child{background:#633018}
+    .studio1-gallery-cta{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:center;padding:clamp(24px,4vw,44px);border:1px solid rgba(255,255,255,.92);border-radius:25px;background:radial-gradient(ellipse at 100% 0%,rgba(255,255,255,.76),transparent 52%),linear-gradient(135deg,#fdf7ef 0%,#f4e4d3 100%);color:#4b2818;box-shadow:inset 0 0 0 1px rgba(183,141,105,.12)}
+    .studio1-gallery-cta:before{content:"NUOMAI REGULIARIAI";display:block;grid-column:1/-1;margin:0 0 -12px;color:#956c4f;font-size:10px;font-weight:700;letter-spacing:.22em}
+    .studio1-gallery-cta h4{margin:0;font:italic 600 clamp(29px,4vw,49px)/1.08 Georgia,'Times New Roman',serif;letter-spacing:-.035em;color:#4a2110;text-shadow:none}
+    .studio1-gallery-cta p{margin:0 0 20px;font-size:clamp(15px,1.6vw,19px);line-height:1.65;color:#79563e;text-shadow:none}
+    .studio1-gallery-contact{display:inline-flex;align-items:center;justify-content:center;gap:12px;max-width:100%;padding:14px 22px;border:1px solid #a97955;border-radius:999px;background:rgba(255,255,255,.44);color:#552b17!important;text-decoration:none;font-size:clamp(13px,1.5vw,18px);font-weight:600;letter-spacing:.015em;overflow-wrap:anywhere;box-shadow:inset 0 1px 0 rgba(255,255,255,.85);transition:background .2s ease,transform .2s ease}
+    .studio1-gallery-contact:before{content:"✉";display:inline-flex;align-items:center;justify-content:center;flex:0 0 42px;width:42px;height:42px;margin:-7px 4px -7px -12px;border-radius:50%;background:linear-gradient(145deg,#a16b43,#542714);color:#fff7ed;font-size:20px}
+    .studio1-gallery-contact:hover{background:#fffaf4;transform:translateY(-1px)}
+    .studio1-gallery-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-left:1px solid #dec4ac}
+    .studio1-gallery-benefit{padding:7px 13px;text-align:center;border-right:1px solid #dec4ac;color:#936a4c;font-size:11px;line-height:1.45;letter-spacing:.04em;text-transform:uppercase}
+    .studio1-gallery-benefit strong{display:block;margin-bottom:8px;color:#805136;font-size:23px;font-weight:400}
+    @media(max-width:700px){.studio1-gallery{margin:28px 12px 26px;padding:22px 16px;border-radius:24px}.studio1-gallery-heading{padding-bottom:0;margin-bottom:20px}.studio1-gallery-kicker{font-size:9px;letter-spacing:.16em;gap:8px;margin-bottom:14px}.studio1-gallery h3{font-size:clamp(34px,9vw,48px);max-width:100%;padding-right:0}.studio1-gallery-intro{font-size:15px;margin-top:12px;padding-right:0}.studio1-gallery-heading:after{position:static;margin-top:15px;width:max-content;padding:7px 16px;font-size:15px}.studio1-gallery-card{flex-basis:88%}.studio1-gallery-card img{height:clamp(270px,86vw,420px)}.studio1-gallery-hint{align-items:flex-start;font-size:10px;line-height:1.5;margin-bottom:24px}.studio1-gallery-dots{gap:5px;padding-top:4px}.studio1-gallery-dots span{width:6px;height:6px}.studio1-gallery-cta{grid-template-columns:1fr;gap:15px;padding:24px 19px;border-radius:21px}.studio1-gallery-cta:before{grid-column:auto;margin-bottom:-4px}.studio1-gallery-cta h4{font-size:clamp(30px,8vw,40px)}.studio1-gallery-cta p{font-size:15px;margin-bottom:17px}.studio1-gallery-contact{font-size:14px;padding:11px 16px}.studio1-gallery-contact:before{flex-basis:36px;width:36px;height:36px;font-size:17px}.studio1-gallery-benefits{border-left:0;border-top:1px solid #dec4ac;margin-top:6px}.studio1-gallery-benefit{padding:14px 6px 0;font-size:9px}.studio1-gallery-benefit strong{font-size:20px}}
   </style>
   <header class="studio1-gallery-heading">
-    <p class="studio1-gallery-kicker">La Dance Stone · Studijos Nr. 1 galerija</p>
+    <p class="studio1-gallery-kicker">La Dance Stone</p>
     <h3 id="studio1-gallery-title">Studijos Nr. 1 galerija</h3>
     <p class="studio1-gallery-intro">Braukite į šoną ir apžiūrėkite pirmosios studijos erdvę.</p>
   </header>
@@ -4975,7 +4983,8 @@ html body #studio2View #studio2RentalConfirmation .rc-back{margin-top:20px;paddi
   <div class="studio1-gallery-hint"><span>← Braukite į šoną, kad pamatytumėte daugiau →</span><span class="studio1-gallery-dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></div>
   <div class="studio1-gallery-cta">
     <h4>Ilgalaikės studijos nuoma</h4>
-    <div><p>Jei planuojate studiją nuomotis reguliariai, kviečiame susisiekti su mumis individualiai.</p><a class="studio1-gallery-contact" href="mailto:info@ladancestone.lt?subject=Ilgalaik%C4%97s%20studijos%20nuoma">SUSISIEKTI <span aria-hidden="true">↗</span></a></div>
+    <div><p>Jei planuojate studiją nuomotis reguliariai, kviečiame susisiekti su mumis individualiai.</p><a class="studio1-gallery-contact" href="mailto:info@ladancestone.lt">info@ladancestone.lt</a></div>
+    <div class="studio1-gallery-benefits"><div class="studio1-gallery-benefit"><strong>⌑</strong>Lankstūs nuomos sprendimai</div><div class="studio1-gallery-benefit"><strong>♧</strong>Individualūs pasiūlymai</div><div class="studio1-gallery-benefit"><strong>♡</strong>Kūrybinei veiklai pritaikyta erdvė</div></div>
   </div>
 </section>
 <div class="brand-footer">
