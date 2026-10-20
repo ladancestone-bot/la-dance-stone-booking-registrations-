@@ -25828,4 +25828,61 @@ body #contactView,
 body [id$="View"].active {
   background-color: var(--lds-page-background) !important;
 }
+
+
+<style id="lds-force-pure-white-background-last-20261020">
+/* Final override: older appended CSS blocks hard-code taupe backgrounds with !important.
+   This last, high-specificity layer overrides only page/canvas surfaces, not cards or booking controls. */
+:root {
+  --lds-site-background: #FFFFFF !important;
+  --lds-page-background: #FFFFFF !important;
+}
+html,
+html body,
+html body main,
+html body main.wrap,
+html body .wrap,
+html body .page-wrap,
+html body .site-main,
+html body .main-content,
+html body .view,
+html body .view.active,
+html body .page,
+html body .page-section,
+html body .content-section,
+html body #homeView,
+html body #rentalView,
+html body #timetableView,
+html body #classesView,
+html body #classOverview,
+html body #classDetail,
+html body #scheduleView,
+html body #bookingView,
+html body #registrationView,
+html body #studioSelectView,
+html body #studio1View,
+html body #studio2View,
+html body #galleryView,
+html body #contactView,
+html body .brand-footer,
+html body .brand-footer-main,
+html body:has(#homeView.active),
+html body:has(#homeView.active) main.wrap,
+html body:has(#homeView.active) #homeView,
+html body:has(#homeView.active) #homeView.active {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+}
+html body::before,
+html body::after,
+html body main::before,
+html body main::after,
+html body main.wrap::before,
+html body main.wrap::after,
+html body #homeView::before,
+html body #homeView::after {
+  background-color: transparent !important;
+  background-image: none !important;
+}
 </style>
