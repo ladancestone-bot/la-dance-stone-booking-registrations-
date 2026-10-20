@@ -21115,45 +21115,44 @@ html body #studio2View .studio2-map-link small{
 
 <section class="studio1-gallery" aria-labelledby="studio1-gallery-title">
   <style>
-    .studio1-gallery{max-width:1120px;margin:0 auto 34px;padding:clamp(18px,3vw,30px);color:#4a1725;background:#fbf5ed;border:1px solid #e3d1c2;border-radius:28px;box-shadow:0 16px 40px rgba(65,35,32,.07);overflow:hidden}
+    .studio1-gallery{max-width:1120px;margin:34px auto;padding:clamp(18px,3vw,30px);color:#3e2022;background:#fbf5ed;border:1px solid #e3d1c2;border-radius:28px;box-shadow:0 16px 40px rgba(65,35,32,.07);overflow:hidden}
     .studio1-gallery *{box-sizing:border-box}
-    .studio1-gallery-heading{text-align:center;margin:0 auto 18px}
-    .studio1-gallery-kicker{margin:0 0 8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#795747;font-weight:700}
-    .studio1-gallery h3{margin:0;font:italic 600 clamp(27px,4vw,42px)/1.15 Georgia,'Times New Roman',serif;color:#4a1725}
-    .studio1-gallery-intro{margin:10px 0 0;color:#674d40;font-size:15px;line-height:1.6}
+    .studio1-gallery-heading{text-align:center;margin:0 auto 20px}
+    .studio1-gallery-kicker{margin:0 0 8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#75503d;font-weight:700}
+    .studio1-gallery h3{margin:0;font:italic 600 clamp(27px,4vw,42px)/1.15 Georgia,'Times New Roman',serif;color:#4a1725;text-shadow:none}
+    .studio1-gallery-intro{margin:10px 0 0;color:#5e463a;font-size:15px;line-height:1.6;text-shadow:none}
     .studio1-gallery-track{display:flex;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#a88970 #eaded2;padding:0 0 12px;-webkit-overflow-scrolling:touch}
     .studio1-gallery-track:focus-visible{outline:2px solid #711f32;outline-offset:4px}
     .studio1-gallery-card{flex:0 0 min(78%,650px);margin:0;scroll-snap-align:start;border-radius:18px;overflow:hidden;background:#e8dbcf;box-shadow:0 8px 24px rgba(65,35,32,.12)}
     .studio1-gallery-card img{display:block;width:100%;height:clamp(260px,53vw,470px);object-fit:cover}
-    .studio1-gallery-placeholder{min-height:clamp(260px,53vw,470px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;border:1px dashed #b99b83;background:linear-gradient(145deg,#f7eee4,#ead8c7);color:#674d40}
-    .studio1-gallery-placeholder span{font-size:10px;letter-spacing:.16em;font-weight:700;color:#795747}
-    .studio1-gallery-placeholder strong{font:italic 600 27px/1.2 Georgia,'Times New Roman',serif;color:#4a1725}
-    .studio1-gallery-placeholder small{font-size:12px;line-height:1.5}
-    .studio1-gallery-card figcaption{padding:10px 14px;background:#f4e9dd;color:#674d40;font-size:12px;letter-spacing:.04em}
-    .studio1-gallery-hint{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:5px 0 24px;color:#795747;font-size:12px}
-    .studio1-gallery-dots{display:flex;gap:5px}
+    .studio1-gallery-card figcaption{padding:11px 14px;background:#f4e9dd;color:#4f382f;font-size:13px;letter-spacing:.02em}
+    .studio1-gallery-hint{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:7px 0 24px;color:#674d40;font-size:12px}
+    .studio1-gallery-dots{display:flex;gap:5px;flex-shrink:0}
     .studio1-gallery-dots span{width:6px;height:6px;border-radius:50%;background:#d5c4b3}
     .studio1-gallery-dots span:first-child{background:#711f32}
     .studio1-gallery-cta{display:grid;grid-template-columns:1fr 1.1fr;gap:22px;align-items:center;padding:clamp(20px,3vw,30px);border-radius:20px;background:linear-gradient(135deg,#a17a5e,#62402f 75%);color:#fff8f0}
-    .studio1-gallery-cta h4{margin:0;font:500 clamp(23px,3vw,32px)/1.2 Georgia,'Times New Roman',serif}
-    .studio1-gallery-cta p{margin:0 0 16px;font-size:15px;line-height:1.65;color:#fff4e9}
-    .studio1-gallery-contact{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:12px 22px;border:1px solid rgba(255,255,255,.5);border-radius:999px;background:#711f32;color:white;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.12em}
-    @media(max-width:600px){.studio1-gallery{margin-left:12px;margin-right:12px;padding:18px 14px;border-radius:22px}.studio1-gallery-card{flex-basis:84%}.studio1-gallery-card img{height:clamp(300px,100vw,420px)}.studio1-gallery-cta{grid-template-columns:1fr;gap:12px}.studio1-gallery-hint{font-size:11px}}
+    .studio1-gallery-cta h4{margin:0;font:500 clamp(23px,3vw,32px)/1.2 Georgia,'Times New Roman',serif;color:#fff8f0;text-shadow:none}
+    .studio1-gallery-cta p{margin:0 0 16px;font-size:15px;line-height:1.65;color:#fff8f0;text-shadow:none}
+    .studio1-gallery-contact{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:12px 22px;border:1px solid rgba(255,255,255,.65);border-radius:999px;background:#711f32;color:#fff!important;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.12em}
+    @media(max-width:600px){.studio1-gallery{margin:26px 12px;padding:18px 14px;border-radius:22px}.studio1-gallery-card{flex-basis:84%}.studio1-gallery-card img{height:clamp(300px,100vw,420px)}.studio1-gallery-cta{grid-template-columns:1fr;gap:12px}.studio1-gallery-hint{font-size:11px;align-items:flex-start}}
   </style>
   <header class="studio1-gallery-heading">
     <p class="studio1-gallery-kicker">La Dance Stone · Studija Nr. 1</p>
     <h3 id="studio1-gallery-title">Pažink mūsų studiją</h3>
-    <p class="studio1-gallery-intro">Braukite į šoną ir atraskite erdvę iš skirtingų kampų.</p><p class="studio1-gallery-intro" style="font-size:12px">Ši galerija skirta tik Studijai Nr. 1. Studijos Nr. 2 nuotraukų čia nenaudokite.</p>
+    <p class="studio1-gallery-intro">Braukite į šoną ir atraskite mūsų studiją iš skirtingų kampų.</p>
   </header>
-  <div class="studio1-gallery-track" tabindex="0" aria-label="Studijos Nr. 1 nuotraukų vietos. Įkelkite tik šios studijos nuotraukas.">
-    <div class="studio1-gallery-card studio1-gallery-placeholder"><span>STUDIJA NR. 1</span><strong>Nuotrauka 01</strong><small>Čia bus įkelta tik pirmos studijos nuotrauka</small></div>
-    <div class="studio1-gallery-card studio1-gallery-placeholder"><span>STUDIJA NR. 1</span><strong>Nuotrauka 02</strong><small>Čia bus įkelta tik pirmos studijos nuotrauka</small></div>
-    <div class="studio1-gallery-card studio1-gallery-placeholder"><span>STUDIJA NR. 1</span><strong>Nuotrauka 03</strong><small>Čia bus įkelta tik pirmos studijos nuotrauka</small></div>
-    <div class="studio1-gallery-card studio1-gallery-placeholder"><span>STUDIJA NR. 1</span><strong>Nuotrauka 04</strong><small>Čia bus įkelta tik pirmos studijos nuotrauka</small></div>
-    <div class="studio1-gallery-card studio1-gallery-placeholder"><span>STUDIJA NR. 1</span><strong>Nuotrauka 05</strong><small>Čia bus įkelta tik pirmos studijos nuotrauka</small></div>
-    <div class="studio1-gallery-card studio1-gallery-placeholder"><span>STUDIJA NR. 1</span><strong>Nuotrauka 06</strong><small>Čia bus įkelta tik pirmos studijos nuotrauka</small></div>
+  <div class="studio1-gallery-track" tabindex="0" aria-label="Studijos Nr. 1 nuotraukų galerija. Slinkite į šoną.">
+    <figure class="studio1-gallery-card"><img src="assets/studio-1/IMG_7625.webp" alt="La Dance Stone studijos Nr. 1 nuotrauka – studijos erdvė" loading="lazy"><figcaption>Studijos erdvė</figcaption></figure>
+    <figure class="studio1-gallery-card"><img src="assets/studio-1/IMG_7626.webp" alt="La Dance Stone studijos Nr. 1 nuotrauka – veidrodžiai ir šviesa" loading="lazy"><figcaption>Veidrodžiai ir šviesa</figcaption></figure>
+    <figure class="studio1-gallery-card"><img src="assets/studio-1/IMG_7627.webp" alt="La Dance Stone studijos Nr. 1 nuotrauka – erdvė judesiui" loading="lazy"><figcaption>Erdvė judesiui</figcaption></figure>
+    <figure class="studio1-gallery-card"><img src="assets/studio-1/IMG_7628.webp" alt="La Dance Stone studijos Nr. 1 nuotrauka – studijos interjeras" loading="lazy"><figcaption>Studijos interjeras</figcaption></figure>
+    <figure class="studio1-gallery-card"><img src="assets/studio-1/IMG_7629.webp" alt="La Dance Stone studijos Nr. 1 nuotrauka – detalės ir jaukumas" loading="lazy"><figcaption>Detalės ir jaukumas</figcaption></figure>
+    <figure class="studio1-gallery-card"><img src="assets/studio-1/IMG_7630.webp" alt="La Dance Stone studijos Nr. 1 nuotrauka – šokių erdvė" loading="lazy"><figcaption>Šokių erdvė</figcaption></figure>
+    <figure class="studio1-gallery-card"><img src="assets/studio-1/IMG_7631.webp" alt="La Dance Stone studijos Nr. 1 nuotrauka – la dance stone studija" loading="lazy"><figcaption>La Dance Stone studija</figcaption></figure>
+    <figure class="studio1-gallery-card"><img src="assets/studio-1/IMG_7632.webp" alt="La Dance Stone studijos Nr. 1 nuotrauka – studijos atmosfera" loading="lazy"><figcaption>Studijos atmosfera</figcaption></figure>
+    <figure class="studio1-gallery-card"><img src="assets/studio-1/IMG_7634.webp" alt="La Dance Stone studijos Nr. 1 nuotrauka – pažinkite mūsų studiją" loading="lazy"><figcaption>Pažinkite mūsų studiją</figcaption></figure>
   </div>
-  <div class="studio1-gallery-hint"><span>← Braukite į šoną, kad pamatytumėte daugiau →</span><span class="studio1-gallery-dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></span></div>
+  <div class="studio1-gallery-hint"><span>← Braukite į šoną, kad pamatytumėte daugiau →</span><span class="studio1-gallery-dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></div>
   <div class="studio1-gallery-cta">
     <h4>Ilgalaikės studijos nuoma</h4>
     <div><p>Jei planuojate studiją nuomotis reguliariai, kviečiame susisiekti su mumis individualiai.</p><a class="studio1-gallery-contact" href="mailto:info@ladancestone.lt?subject=Ilgalaik%C4%97s%20studijos%20nuoma">SUSISIEKTI <span aria-hidden="true">↗</span></a></div>
