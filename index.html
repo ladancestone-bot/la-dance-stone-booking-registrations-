@@ -21391,6 +21391,79 @@ html body #studio2View .brand-footer-main::after{
 }
 </style>
 
+
+<style id="studio-layout-cleanup-and-cooler-background-20261020">
+/* Global background: slightly lighter and cooler taupe, keeping the existing La Dance Stone palette. */
+:root{
+ --lds-site-background:#99938F!important;
+ --lds-page-background:#99938F!important;
+}
+html,body,body main.wrap,body main,body .wrap,body .page-wrap,body .site-main,
+body .main-content,body .view,body .page,body .page-section,body .content-section,
+body #homeView,body #rentalView,body #timetableView,body #classesView,
+body #classOverview,body #classDetail,body #scheduleView,body #bookingView,
+body #registrationView,body #studioSelectView,body #studio2View,
+body .brand-footer,body .brand-footer-main{
+ background-color:#99938F!important;
+}
+html,body{background:#99938F!important;background-image:none!important}
+body::before,body::after,body main.wrap::before,body main.wrap::after{
+ background-color:#99938F!important;background-image:none!important;
+}
+/* Studio 2 detail card: eliminate both duplicate horizontal rules around the address. */
+html body #studio2View .studio2-summary-row{
+ border-bottom:0!important;
+}
+html body #studio2View .studio2-summary-row .studio2-map-link{
+ border-top:0!important;border-bottom:0!important;border-left:0!important;
+ padding-top:0!important;padding-left:0!important;margin-top:0!important;
+}
+html body #studio2View .studio2-summary-row .studio2-address-inline{
+ display:inline-flex!important;flex-direction:row!important;flex-wrap:nowrap!important;
+ align-items:baseline!important;gap:5px!important;white-space:nowrap!important;
+ min-width:0!important;max-width:100%!important;
+}
+html body #studio2View .studio2-summary-row .studio2-address-inline strong,
+html body #studio2View .studio2-summary-row .studio2-address-inline small{
+ display:inline!important;white-space:nowrap!important;word-break:keep-all!important;
+ overflow-wrap:normal!important;flex:0 0 auto!important;
+}
+/* Remove the stray burgundy bar and decorative rules at the bottom of Studio 2. */
+html body #studio2View .brand-footer,
+html body #studio2View .brand-footer-main{
+ border-top:0!important;border-bottom:0!important;
+ background:#99938F!important;background-color:#99938F!important;
+ background-image:none!important;box-shadow:none!important;
+}
+html body #studio2View .brand-footer::before,
+html body #studio2View .brand-footer::after,
+html body #studio2View .brand-footer-main::before,
+html body #studio2View .brand-footer-main::after{
+ content:none!important;display:none!important;background:none!important;
+ border:0!important;box-shadow:none!important;
+}
+/* Main studio selection: keep burgundy pills above each photo and show white studio names below each photo. */
+html body #studioSelectView .studio-select-card .studio-select-number{
+ top:17px!important;left:17px!important;bottom:auto!important;
+ background:rgba(72,24,36,.88)!important;color:#fff7ed!important;
+ -webkit-text-fill-color:#fff7ed!important;
+}
+html body #studioSelectView .studio-select-card .studio-select-content>.studio-select-title{
+ display:block!important;color:#fff7ed!important;-webkit-text-fill-color:#fff7ed!important;
+ margin:0 0 8px!important;font-family:'Cormorant Garamond',Georgia,serif!important;
+ font-size:clamp(23px,3vw,30px)!important;font-weight:600!important;line-height:1.1!important;
+}
+@media(max-width:760px){
+ html body #studioSelectView .studio-select-card .studio-select-content>.studio-select-title{
+  font-size:23px!important;
+ }
+ html body #studio2View .studio2-summary-row .studio2-map-link{
+  border-top:0!important;border-bottom:0!important;border-left:0!important;
+  padding-top:0!important;padding-left:0!important;margin-top:0!important;
+ }
+}
+</style>
+
 </body>
 </html>
 
