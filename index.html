@@ -21248,6 +21248,51 @@ html body #studio2View .studio2-map-link small{
 }
 </style>
 
+
+<style id="studio1-rental-gallery-caption-overlay-fix">
+/* Fix the actual Studio 1 rental-page photo card, not the studio-selection tile. */
+html body #rentalView .rental-gallery-studio1 article.rental-studio-photo{
+ position:relative!important;display:block!important;overflow:hidden!important;
+ padding:0!important;margin:0!important;isolation:isolate!important;
+ border:1px solid rgba(255,247,237,.86)!important;border-radius:24px!important;
+ background:#8C7A6B!important;line-height:0!important;
+}
+html body #rentalView .rental-gallery-studio1 article.rental-studio-photo>img{
+ display:block!important;width:100%!important;height:clamp(250px,48vw,470px)!important;
+ margin:0!important;padding:0!important;object-fit:cover!important;
+ object-position:center!important;vertical-align:top!important;
+}
+html body #rentalView .rental-gallery-studio1 article.rental-studio-photo>.gallery-caption{
+ position:absolute!important;z-index:5!important;left:18px!important;right:auto!important;
+ top:auto!important;bottom:16px!important;transform:none!important;
+ display:inline-flex!important;flex-direction:row!important;align-items:center!important;
+ gap:0!important;width:auto!important;height:auto!important;max-width:calc(100% - 36px)!important;
+ margin:0!important;padding:9px 20px!important;
+ border:1px solid rgba(255,247,237,.96)!important;border-radius:999px!important;
+ background:rgba(89,67,56,.84)!important;
+ -webkit-backdrop-filter:blur(10px)!important;backdrop-filter:blur(10px)!important;
+ color:#fff8ef!important;line-height:1.2!important;box-shadow:0 4px 16px rgba(35,20,15,.18)!important;
+}
+html body #rentalView .rental-gallery-studio1 article.rental-studio-photo>.gallery-caption strong{
+ display:block!important;margin:0!important;padding:0!important;
+ color:#fff8ef!important;-webkit-text-fill-color:#fff8ef!important;
+ font:700 23px/1.15 'Cormorant Garamond',Georgia,serif!important;
+ white-space:nowrap!important;
+}
+html body #rentalView .rental-gallery-studio1 article.rental-studio-photo>.gallery-caption span{display:none!important}
+html body #rentalView .rental-gallery-studio1 .rental-summary-row{
+ margin-top:0!important;border-top:0!important;background:transparent!important;
+}
+@media(max-width:700px){
+ html body #rentalView .rental-gallery-studio1 article.rental-studio-photo{border-radius:22px!important}
+ html body #rentalView .rental-gallery-studio1 article.rental-studio-photo>img{height:clamp(260px,78vw,390px)!important}
+ html body #rentalView .rental-gallery-studio1 article.rental-studio-photo>.gallery-caption{
+  left:14px!important;bottom:13px!important;max-width:calc(100% - 28px)!important;padding:8px 17px!important;
+ }
+ html body #rentalView .rental-gallery-studio1 article.rental-studio-photo>.gallery-caption strong{font-size:22px!important}
+}
+</style>
+
 </body>
 </html>
 
