@@ -4870,31 +4870,13 @@ html body #studio2View #studio2RentalConfirmation .rc-back{margin-top:20px;paddi
 <script>
 (function(){
   var play=document.getElementById('rentalHowToPlay');
-  var modal=document.getElementById('rentalHowToModal');
-  var close=document.getElementById('rentalHowToClose');
-  var inner=modal&&modal.querySelector('.rental-howto-modal-inner');
-  if(!play||!modal||!close||!inner||play.dataset.bound==='1') return;
+  if(!play||play.dataset.bound==='1') return;
   play.dataset.bound='1';
-  function closePlayer(){
-    modal.hidden=true;
-    var frame=inner.querySelector('iframe');
-    if(frame) frame.remove();
-    document.body.style.overflow='';
-  }
   play.addEventListener('click',function(){
-    modal.hidden=false;
-    document.body.style.overflow='hidden';
-    var frame=document.createElement('iframe');
-    frame.src='https://drive.google.com/file/d/1XqSfPEfjQq2glsSIGtJKUt-p_-v5lyz3/preview?autoplay=1';
-    frame.title='Kaip rezervuoti ir patekti į La Dance Stone studiją Nr. 1';
-    frame.allow='autoplay; fullscreen; picture-in-picture';
-    frame.allowFullscreen=true;
-    frame.loading='eager';
-    inner.appendChild(frame);
+    // iOS Safari and embedded Google Drive preview can render a black screen.
+    // Open the original Drive video directly instead of creating an iframe.
+    window.open('https://drive.google.com/file/d/1XqSfPEfjQq2glsSIGtJKUt-p_-v5lyz3/view', '_blank', 'noopener,noreferrer');
   });
-  close.addEventListener('click',closePlayer);
-  modal.addEventListener('click',function(e){if(e.target===modal) closePlayer();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden) closePlayer();});
 })();
 </script>
 
