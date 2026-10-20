@@ -21312,45 +21312,7 @@ html body #studio2View .brand-footer::before,html body #studio2View .brand-foote
 @media(max-width:700px){html body #studio2View .studio2-summary-row .studio2-map-link{border-top:0!important;padding-top:8px!important}html body #studio2View .studio2-map-link .studio2-address-inline{gap:4px!important}html body #studio2View .studio2-map-link .studio2-address-inline strong,html body #studio2View .studio2-map-link .studio2-address-inline small{font-size:12px!important}}
 </style>
 
-<style id="studio2-lines-address-and-selection-card-white-labels">
-/* Studio 2 detail card: remove the duplicate divider and keep the address on one line. */
-html body #studio2View .studio2-summary-row .studio2-map-link{
- border-top:0!important;border-bottom:0!important;
-}
-html body #studio2View .studio2-summary-hours{
- border-bottom:1px solid rgba(255,239,222,.58)!important;
-}
-html body #studio2View .studio2-address-inline{
- display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;
- align-items:baseline!important;white-space:nowrap!important;gap:5px!important;
- min-width:0!important;
-}
-html body #studio2View .studio2-address-inline strong,
-html body #studio2View .studio2-address-inline small{
- display:inline!important;white-space:nowrap!important;font-size:clamp(11px,2.7vw,13px)!important;
-}
-/* Prevent a leftover burgundy decorative bar at the bottom of Studio 2. */
-html body #studio2View .studio2-shell,
-html body #studio2View .studio2-hero{
- border-bottom:0!important;box-shadow:none!important;
-}
-html body #studio2View .studio2-shell::before,
-html body #studio2View .studio2-shell::after,
-html body #studio2View .studio2-hero::before,
-html body #studio2View .studio2-hero::after{content:none!important;display:none!important}
-/* Keep the burgundy title capsule at the top of the selection photo and add a white title below the photo. */
-html body #studioSelectView .studio-select-card .studio-select-content>.studio-select-title{
- display:block!important;margin:0 0 10px!important;padding:0!important;
- color:#fff8ef!important;-webkit-text-fill-color:#fff8ef!important;
- font:600 25px/1.15 'Cormorant Garamond',Georgia,serif!important;
- letter-spacing:.01em!important;text-transform:none!important;
-}
-@media(max-width:760px){
- html body #studioSelectView .studio-select-card .studio-select-content>.studio-select-title{font-size:23px!important}
- html body #studio2View .studio2-address-inline strong,
- html body #studio2View .studio2-address-inline small{font-size:11px!important}
-}
-</style>
+
 
 </body>
 </html>
@@ -25610,5 +25572,45 @@ html body #studio2View section#studio2RentalConfirmation .rc-details{
 }
 html body #studio2View section#studio2RentalConfirmation .rc-note{
  background:rgba(255,248,237,.40)!important;-webkit-backdrop-filter:blur(14px)!important;backdrop-filter:blur(14px)!important;border-color:rgba(255,255,255,.62)!important;
+}
+</style>
+
+<style id="studio2-lines-address-and-selection-card-white-labels">
+/* Studio 2 detail card: remove the duplicate divider and keep the address on one line. */
+html body #studio2View .studio2-summary-row .studio2-map-link{
+ border-top:0!important;border-bottom:0!important;
+}
+html body #studio2View .studio2-summary-hours{
+ border-bottom:1px solid rgba(255,239,222,.58)!important;
+}
+html body #studio2View .studio2-address-inline{
+ display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;
+ align-items:baseline!important;white-space:nowrap!important;gap:5px!important;
+ min-width:0!important;
+}
+html body #studio2View .studio2-address-inline strong,
+html body #studio2View .studio2-address-inline small{
+ display:inline!important;white-space:nowrap!important;font-size:clamp(11px,2.7vw,13px)!important;
+}
+/* Prevent a leftover burgundy decorative bar at the bottom of Studio 2. */
+html body #studio2View .studio2-shell,
+html body #studio2View .studio2-hero{
+ border-bottom:0!important;box-shadow:none!important;
+}
+html body #studio2View .studio2-shell::before,
+html body #studio2View .studio2-shell::after,
+html body #studio2View .studio2-hero::before,
+html body #studio2View .studio2-hero::after{content:none!important;display:none!important}
+/* Keep the burgundy title capsule at the top of the selection photo and add a white title below the photo. */
+html body #studioSelectView .studio-select-card .studio-select-content>.studio-select-title{
+ display:block!important;margin:0 0 10px!important;padding:0!important;
+ color:#fff8ef!important;-webkit-text-fill-color:#fff8ef!important;
+ font:600 25px/1.15 'Cormorant Garamond',Georgia,serif!important;
+ letter-spacing:.01em!important;text-transform:none!important;
+}
+@media(max-width:760px){
+ html body #studioSelectView .studio-select-card .studio-select-content>.studio-select-title{font-size:23px!important}
+ html body #studio2View .studio2-address-inline strong,
+ html body #studio2View .studio2-address-inline small{font-size:11px!important}
 }
 </style>
